@@ -6,7 +6,7 @@ Cross-agent IAM privilege-escalation discovery for managed agentic cloud platfor
 
 Managed agentic platforms let one agent invoke another and call tools that execute under platform-assigned IAM identities. When agent A invokes agent B, the resulting cloud action executes under an identity associated with B — the invoked agent's execution role, or (depending on configuration) a delegated user identity — rather than necessarily the caller's own permissions. Where that identity exceeds the caller's, this is a privilege escalation across a *delegation boundary*: a confused-deputy problem at the IAM layer rather than the prompt layer.
 
-AgentPathTriage models this delegation boundary, catalogues the escalation primitives that arise on each platform, and extracts escalation paths from deployed configuration. It extends **PathTriage** (COMP9301) from static human/service IAM to the agent-delegation layer.
+AgentPathTriage models this delegation boundary, catalogues the escalation primitives that arise on each platform, and extracts escalation paths from deployed configuration. It extends **PathTriage** from static human/service IAM to the agent-delegation layer.
 
 ## Research questions
 
@@ -51,7 +51,7 @@ This repository contains security-research material, including proof-of-concept 
 
 ## Relationship to PathTriage
 
-AgentPathTriage extends PathTriage (COMP9301). The lab harness is reused for infrastructure only; the delegation-edge semantics are new.
+AgentPathTriage extends PathTriage. The lab harness is reused for infrastructure only; the delegation-edge semantics are new.
 
 ## License
 
