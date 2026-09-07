@@ -1,0 +1,33 @@
+{
+  "role_name": "AgentCore-StarterToolkit-ExecutionRole",
+  "attached_to_agent": "AgentA",
+  "policy": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "ECRWildcard",
+        "Effect": "Allow",
+        "Action": "ecr:BatchGetImage",
+        "Resource": "arn:aws:ecr:us-east-1:559292738121:repository/*"
+      },
+      {
+        "Sid": "MemoryWildcard",
+        "Effect": "Allow",
+        "Action": "bedrock-agentcore:*",
+        "Resource": "arn:aws:bedrock-agentcore:us-east-1:559292738121:memory/*"
+      },
+      {
+        "Sid": "CodeInterpreterWildcard",
+        "Effect": "Allow",
+        "Action": "bedrock-agentcore:InvokeCodeInterpreter",
+        "Resource": "*"
+      },
+      {
+        "Sid": "RuntimeWildcard",
+        "Effect": "Allow",
+        "Action": "bedrock-agentcore:InvokeAgentRuntime",
+        "Resource": "arn:aws:bedrock-agentcore:us-east-1:559292738121:runtime/*"
+      }
+    ]
+  }
+}
