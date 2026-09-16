@@ -17,7 +17,7 @@ resource "aws_ecr_repository" "agent_b" {
 
 # --- AgentB's memory store (RoleA's memory/* wildcard can read/poison this) ---
 resource "aws_bedrockagentcore_memory" "agent_b" {
-  name                  = "${var.name_prefix}_agentB_memory"
+  name                  = "${replace(var.name_prefix, "-", "_")}_agentB_memory"
   description           = "Victim agent memory store; target of the CP-3 witness."
   event_expiry_duration = 30 # days; keep short for a lab
 }
