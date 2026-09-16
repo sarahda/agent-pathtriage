@@ -1,0 +1,18 @@
+{
+  "path": "CP-1 ECR cross-agent pull",
+  "region": "us-east-1",
+  "results": [
+    {
+      "actor": "RoleA (over-privileged)",
+      "target": "apt-lab/agent-b",
+      "allowed": true,
+      "detail": "batch_get_image returned 1 image(s)"
+    },
+    {
+      "actor": "RoleB (scoped)",
+      "target": "apt-lab/agent-a",
+      "allowed": false,
+      "detail": "AccessDeniedException: User: arn:aws:sts::559292738121:assumed-role/apt-lab-roleB-scoped/roleB-poc is not authorized to perform: ecr:BatchGetImage on resource: arn:aws:ecr:us-east-1:559292738121:repository/apt-lab/agent-a because no identity-based policy allows the ecr:BatchGetImage action"
+    }
+  ]
+}

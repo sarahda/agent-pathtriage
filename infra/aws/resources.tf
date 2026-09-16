@@ -21,3 +21,9 @@ resource "aws_bedrockagentcore_memory" "agent_b" {
   description           = "Victim agent memory store; target of the CP-3 witness."
   event_expiry_duration = 30 # days; keep short for a lab
 }
+
+resource "aws_bedrockagentcore_memory" "agent_a" {
+  name                  = "${replace(var.name_prefix, "-", "_")}_agentA_memory"
+  description           = "AgentA's own memory store; RoleB must NOT be able to read this (control)."
+  event_expiry_duration = 30
+}

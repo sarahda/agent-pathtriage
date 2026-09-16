@@ -1,0 +1,27 @@
+{
+  "path": "CP-3 memory cross-agent exfiltration + poisoning",
+  "region": "us-east-1",
+  "target_memory": "arn:aws:bedrock-agentcore:us-east-1:559292738121:memory/apt_lab_agentB_memory-K3itltFjix",
+  "steps": [
+    {
+      "step": "seed",
+      "ok": true,
+      "detail": "seeded event 0000001789551512201#9a5bf542"
+    },
+    {
+      "step": "exfil_by_RoleA",
+      "ok": true,
+      "detail": "RoleA read 1 event(s); secret FOUND"
+    },
+    {
+      "step": "poison_by_RoleA",
+      "ok": true,
+      "detail": "forged event present"
+    },
+    {
+      "step": "control_RoleB_reads_foreign",
+      "denied": true,
+      "detail": "AccessDeniedException: User: arn:aws:sts::559292738121:assumed-role/apt-lab-roleB-scoped/roleB-poc is not authorized to perform: bedrock-agentcore:ListEvents on resource: arn:aws:bedrock-agentcore:us-east-1:559292738121:memory/apt_lab_agentA_memory-jLDjAYBae9 because no identity-based policy allows the bedrock-agentcore:ListEvents action"
+    }
+  ]
+}

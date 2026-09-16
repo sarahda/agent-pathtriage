@@ -18,3 +18,5 @@ output "agent_b_arn" { value = aws_bedrockagentcore_agent_runtime.agent_b.agent_
 output "agent_b_memory_arn" { value = aws_bedrockagentcore_memory.agent_b.arn }
 output "agent_a_ecr" { value = aws_ecr_repository.agent_a.repository_url }
 output "agent_b_ecr" { value = aws_ecr_repository.agent_b.repository_url }
+
+output "agent_a_memory_arn" { value = aws_bedrockagentcore_memory.agent_a.arn }

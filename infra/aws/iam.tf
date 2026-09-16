@@ -18,6 +18,16 @@ data "aws_iam_policy_document" "agentcore_assume" {
       identifiers = ["bedrock-agentcore.amazonaws.com"]
     }
   }
+  # Research: allow the lab operator to assume these roles to run the PoCs,
+  # simulating a low-privilege principal that has obtained the agent role.
+  statement {
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+    principals {
+      type        = "AWS"
+      identifiers = [data.aws_caller_identity.current.arn]
+    }
+  }
 }
 
 # =========================================================================
@@ -84,9 +94,15 @@ data "aws_iam_policy_document" "agent_b_scoped" {
     resources = [aws_bedrockagentcore_memory.agent_b.arn]
   }
   statement {
+    sid       = "EcrAuthToken"
+    effect    = "Allow"
+    actions   = ["ecr:GetAuthorizationToken"]
+    resources = ["*"]
+  }
+  statement {
     sid       = "OwnImagePull"
     effect    = "Allow"
-    actions   = ["ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer", "ecr:GetAuthorizationToken"]
+    actions   = ["ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer"]
     resources = [aws_ecr_repository.agent_b.arn]
   }
 }
