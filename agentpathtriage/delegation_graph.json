@@ -1,0 +1,75 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "kind": "role",
+      "id": "apt-lab-roleA-overprivileged"
+    },
+    {
+      "kind": "role",
+      "id": "apt-lab-roleB-scoped"
+    },
+    {
+      "kind": "resource",
+      "id": "ECR images"
+    },
+    {
+      "kind": "resource",
+      "id": "Agent memory"
+    },
+    {
+      "kind": "resource",
+      "id": "Code interpreters"
+    },
+    {
+      "kind": "resource",
+      "id": "Agent runtimes"
+    }
+  ],
+  "edges": [
+    {
+      "rel": "act",
+      "action": "ecr:GetDownloadUrlForLayer",
+      "wildcard": true,
+      "source": "apt-lab-roleA-overprivileged",
+      "target": "ECR images"
+    },
+    {
+      "rel": "act",
+      "action": "bedrock-agentcore:*",
+      "wildcard": true,
+      "source": "apt-lab-roleA-overprivileged",
+      "target": "Agent memory"
+    },
+    {
+      "rel": "act",
+      "action": "bedrock-agentcore:InvokeCodeInterpreter",
+      "wildcard": true,
+      "source": "apt-lab-roleA-overprivileged",
+      "target": "Code interpreters"
+    },
+    {
+      "rel": "act",
+      "action": "bedrock-agentcore:InvokeAgentRuntime",
+      "wildcard": true,
+      "source": "apt-lab-roleA-overprivileged",
+      "target": "Agent runtimes"
+    },
+    {
+      "rel": "act",
+      "action": "bedrock-agentcore:ListEvents",
+      "wildcard": false,
+      "source": "apt-lab-roleB-scoped",
+      "target": "Agent memory"
+    },
+    {
+      "rel": "act",
+      "action": "ecr:GetDownloadUrlForLayer",
+      "wildcard": false,
+      "source": "apt-lab-roleB-scoped",
+      "target": "ECR images"
+    }
+  ]
+}
