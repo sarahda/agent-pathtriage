@@ -1,0 +1,32 @@
+{
+  "recall": 1.0,
+  "found": 5,
+  "total": 5,
+  "detail": [
+    {
+      "path": "P1 ECR image exfiltration (Mitigant)",
+      "resource": "ECR images",
+      "found": true
+    },
+    {
+      "path": "P2 memory access + poisoning (Mitigant)",
+      "resource": "Agent memory",
+      "found": true
+    },
+    {
+      "path": "P3 code interpreter escalation (Mitigant)",
+      "resource": "Code interpreters",
+      "found": true
+    },
+    {
+      "path": "P4 runtime hijack (Mitigant)",
+      "resource": "Agent runtimes",
+      "found": true
+    },
+    {
+      "path": "Unit42 God-Mode invoke-any-runtime",
+      "resource": "Agent runtimes",
+      "found": true
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "principal": "apt-lab-roleA-overprivileged",
+    "Esc": true,
+    "num_witnesses": 4,
+    "witnesses": [
+      {
+        "reaches": "ECR images",
+        "action": "ecr:GetDownloadUrlForLayer",
+        "why": "wildcard resource scope -> cross-agent reach"
+      },
+      {
+        "reaches": "Agent memory",
+        "action": "bedrock-agentcore:*",
+        "why": "wildcard resource scope -> cross-agent reach"
+      },
+      {
+        "reaches": "Code interpreters",
+        "action": "bedrock-agentcore:InvokeCodeInterpreter",
+        "why": "wildcard resource scope -> cross-agent reach"
+      },
+      {
+        "reaches": "Agent runtimes",
+        "action": "bedrock-agentcore:InvokeAgentRuntime",
+        "why": "wildcard resource scope -> cross-agent reach"
+      }
+    ]
+  },
+  {
+    "principal": "apt-lab-roleB-scoped",
+    "Esc": false,
+    "num_witnesses": 0,
+    "witnesses": []
+  }
+]

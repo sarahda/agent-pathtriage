@@ -1,0 +1,159 @@
+{
+  "mutants": 14,
+  "exactly_correct": 10,
+  "precision": 0.8,
+  "recall": 0.8,
+  "accuracy": 0.9428571428571428,
+  "TP": 8,
+  "FP": 2,
+  "FN": 2,
+  "TN": 58,
+  "detail": [
+    {
+      "mutant": "single_ECR_wild",
+      "class": "easy",
+      "truth": [
+        "ECR images"
+      ],
+      "tool": [
+        "ECR images"
+      ],
+      "result": "OK",
+      "note": "easy"
+    },
+    {
+      "mutant": "single_ECR_own",
+      "class": "easy",
+      "truth": [],
+      "tool": [],
+      "result": "OK",
+      "note": "easy"
+    },
+    {
+      "mutant": "single_Agent_wild",
+      "class": "easy",
+      "truth": [
+        "Agent memory"
+      ],
+      "tool": [
+        "Agent memory"
+      ],
+      "result": "OK",
+      "note": "easy"
+    },
+    {
+      "mutant": "single_Agent_own",
+      "class": "easy",
+      "truth": [],
+      "tool": [],
+      "result": "OK",
+      "note": "easy"
+    },
+    {
+      "mutant": "single_Code_wild",
+      "class": "easy",
+      "truth": [
+        "Code interpreters"
+      ],
+      "tool": [
+        "Code interpreters"
+      ],
+      "result": "OK",
+      "note": "easy"
+    },
+    {
+      "mutant": "single_Code_own",
+      "class": "easy",
+      "truth": [],
+      "tool": [],
+      "result": "OK",
+      "note": "easy"
+    },
+    {
+      "mutant": "single_Agent_wild",
+      "class": "easy",
+      "truth": [
+        "Agent runtimes"
+      ],
+      "tool": [
+        "Agent runtimes"
+      ],
+      "result": "OK",
+      "note": "easy"
+    },
+    {
+      "mutant": "single_Agent_own",
+      "class": "easy",
+      "truth": [],
+      "tool": [],
+      "result": "OK",
+      "note": "easy"
+    },
+    {
+      "mutant": "all_wild",
+      "class": "easy",
+      "truth": [
+        "Agent memory",
+        "Agent runtimes",
+        "Code interpreters",
+        "ECR images"
+      ],
+      "tool": [
+        "Agent memory",
+        "Agent runtimes",
+        "Code interpreters",
+        "ECR images"
+      ],
+      "result": "OK",
+      "note": "easy"
+    },
+    {
+      "mutant": "all_own",
+      "class": "easy",
+      "truth": [],
+      "tool": [],
+      "result": "OK",
+      "note": "easy"
+    },
+    {
+      "mutant": "hard_condition_scoped",
+      "class": "hard",
+      "truth": [],
+      "tool": [
+        "Agent memory"
+      ],
+      "result": "FP",
+      "note": "hard: tool should over-approx (FP by design)"
+    },
+    {
+      "mutant": "hard_explicit_deny",
+      "class": "hard",
+      "truth": [],
+      "tool": [
+        "Agent memory"
+      ],
+      "result": "FP",
+      "note": "hard: Deny should suppress (tests Deny handling)"
+    },
+    {
+      "mutant": "hard_foreign_specific_arn",
+      "class": "hard",
+      "truth": [
+        "Agent memory"
+      ],
+      "tool": [],
+      "result": "FN",
+      "note": "hard: foreign specific ARN is cross-agent; tool likely MISSES (FN)"
+    },
+    {
+      "mutant": "hard_passrole_two_hop",
+      "class": "hard",
+      "truth": [
+        "(second role via PassRole)"
+      ],
+      "tool": [],
+      "result": "FN",
+      "note": "hard: two-hop via PassRole; single-hop tool CANNOT see it (FN) -> needs propagate"
+    }
+  ]
+}
