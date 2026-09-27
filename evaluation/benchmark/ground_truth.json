@@ -1,0 +1,23 @@
+{
+  "_comment": "Independent ground truth for the IAM Vulnerable (BishopFox) delegation subset. 'escalating' = documented escalation ENTRY principals that a correct tool should flag (the 10 PassRole-to-service paths + the AssumeRole chain start role). 'safe' = the tool-testing false-positive cases that should NOT be flagged. All other IAM Vulnerable principals (policy self-modification, credential creation, group membership, trust self-update, edit-existing-resource) are out of scope for a delegation-reachability tool and are excluded from scoring. Names are the deployed IAM names taken from the repo's Terraform, not from the tool.",
+  "escalating": [
+    "privesc-codeBuildCreateProjectPassRole-user",
+    "privesc-sageMakerCreateNotebookPassRole-user",
+    "privesc-sageMakerCreateProcessingJobPassRole-user",
+    "privesc-sageMakerCreateTrainingJobPassRole-user",
+    "privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+    "privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+    "privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+    "privesc20-PassExistingRoleToCloudFormation-user",
+    "privesc21-PassExistingRoleToNewDataPipeline-user",
+    "privesc3-CreateEC2WithExistingInstanceProfile-user",
+    "privesc-AssumeRole-starting-role"
+  ],
+  "safe": [
+    "fp1-allow-and-deny-role",
+    "fp2-allow-and-deny-multiple-policies-role",
+    "fp3-deny-iam-role",
+    "fp4-nonExploitableResourceConstraint-role",
+    "fp5-nonExploitableConditionConstraint-role"
+  ]
+}
