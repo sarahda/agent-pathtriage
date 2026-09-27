@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
 """
-AgentPathTriage — extract (v1)
+AgentPathTriage — extract (v2)
 
 Builds a delegation graph from deployed AWS configuration. Reads Terraform state
 (`terraform show -json`) so it works against the real, applied config rather than
 a hand-written JSON. Produces:
 
   - nodes: agents, roles, resources (memory / ECR / runtime / interpreter)
-  - `assume` edges: agent -> its execution role
-  - `act` edges:    role -> resource-type, flagged cross-agent when the policy
-                    resource is a wildcard over an agentic resource type
+  - `assume`   edges: agent -> its execution role
+  - `act`      edges: role -> resource-type, flagged cross-agent when the policy
+                      resource is a wildcard over an agentic resource type
+  - `delegate` edges: role -> role, when a role can iam:PassRole or sts:AssumeRole
+                      another role (this is what `propagate` traverses)
 
-This is RQ3's `extract`. It does not decide Esc by itself (that is `check`); it
-recovers the graph that `check` reasons over. Nothing about the outcome is
-hardcoded: every edge is derived from a statement actually present in the state.
+This is RQ3's `extract`. It does not decide Esc by itself (that is `check` /
+`propagate`); it recovers the graph they reason over. Nothing about the outcome
+is hardcoded: every edge is derived from a statement actually present in state.
 
 Usage:
     python3 extract.py --tfdir ../../infra/aws            # reads live state
@@ -39,6 +41,9 @@ ARN_LABEL = {
     ":runtime/":  "Agent runtimes",
     ":repository/": "ECR images",
 }
+# Actions that hand execution / credentials of another role to the caller. A
+# statement with one of these on a role ARN is a delegation edge, not an act edge.
+DELEGATION_ACTIONS = {"iam:PassRole", "sts:AssumeRole"}
 
 
 def load_state(tfdir=None, state_path=None) -> dict:
@@ -76,6 +81,17 @@ def resource_type_of(resource, action) -> str | None:
             return label
     # ...otherwise fall back to the action's target type (e.g. Resource == "*").
     return ACTION_LABEL.get(action)
+
+
+def stmts_for_role(role_policies, role_label, role_id) -> list:
+    """Return the policy statements attached to a role, matching by the role's
+    name or id (the `role` attribute of an inline policy is the role name/id)."""
+    for key, s in role_policies.items():
+        if key in (role_label, role_id):
+            return s
+    if len(role_policies) == 1:            # unambiguous fallback
+        return list(role_policies.values())[0]
+    return []
 
 
 def extract(state) -> nx.DiGraph:
@@ -144,6 +160,39 @@ def extract(state) -> nx.DiGraph:
                     G.add_edge(role_label, label, rel="act", action=a, wildcard=wild)
                 elif wild:
                     G[role_label][label]["wildcard"] = True
+
+    # 4) delegate edges: role -> role via iam:PassRole / sts:AssumeRole on a role ARN.
+    #    These are the multi-hop edges `propagate` follows. A statement whose
+    #    action is a delegation action and whose resource is another role's ARN
+    #    means: the caller can obtain that role's execution/credentials.
+    arn_to_role = {}
+    for rtype, name, v in iter_resources(state):
+        if rtype == "aws_iam_role":
+            arn_to_role[v.get("arn")] = v.get("name", name)
+
+    for rtype, name, v in iter_resources(state):
+        if rtype != "aws_iam_role":
+            continue
+        role_label = v.get("name", name)
+        for st in stmts_for_role(role_policies, role_label, v.get("id")):
+            actions = st.get("Action", [])
+            actions = actions if isinstance(actions, list) else [actions]
+            res = st.get("Resource")
+            res_list = res if isinstance(res, list) else [res]
+            for a in actions:
+                if a not in DELEGATION_ACTIONS:
+                    continue
+                for r in res_list:
+                    tgt = arn_to_role.get(r)
+                    if not tgt or tgt == role_label:
+                        continue
+                    if G.has_edge(role_label, tgt) and G[role_label][tgt].get("rel") == "delegate":
+                        vias = G[role_label][tgt].setdefault("vias", [])
+                        if a not in vias:
+                            vias.append(a)
+                    else:
+                        G.add_node(tgt, kind="role")
+                        G.add_edge(role_label, tgt, rel="delegate", via=a, vias=[a])
     return G
 
 
@@ -151,10 +200,15 @@ def summarise(G):
     roles  = [n for n,d in G.nodes(data=True) if d.get("kind")=="role"]
     agents = [n for n,d in G.nodes(data=True) if d.get("kind")=="agent"]
     wild   = [(u,v,d) for u,v,d in G.edges(data=True) if d.get("rel")=="act" and d.get("wildcard")]
+    deleg  = [(u,v,d) for u,v,d in G.edges(data=True) if d.get("rel")=="delegate"]
     print(f"nodes: {G.number_of_nodes()} (agents={len(agents)}, roles={len(roles)})  edges: {G.number_of_edges()}")
     print(f"cross-agent (wildcard) act edges: {len(wild)}")
     for u,v,d in wild:
         print(f"  [CROSS-AGENT] {u} --{d['action']}--> {v}")
+    print(f"delegation (role->role) edges: {len(deleg)}")
+    for u,v,d in deleg:
+        vias = "/".join(d.get("vias", [d.get("via")]))
+        print(f"  [DELEGATE] {u} --{vias}--> {v}")
     return wild
 
 
@@ -166,9 +220,11 @@ def draw(G, out):
     plt.figure(figsize=(11,7))
     nx.draw_networkx_nodes(G,pos,node_color=nc,node_size=2200,edgecolors="#334155")
     nx.draw_networkx_labels(G,pos,font_size=7)
-    wild=[(u,v) for u,v,d in G.edges(data=True) if d.get("wildcard")]
-    oth =[(u,v) for u,v,d in G.edges(data=True) if not d.get("wildcard")]
+    wild =[(u,v) for u,v,d in G.edges(data=True) if d.get("wildcard")]
+    deleg=[(u,v) for u,v,d in G.edges(data=True) if d.get("rel")=="delegate"]
+    oth  =[(u,v) for u,v,d in G.edges(data=True) if not d.get("wildcard") and d.get("rel")!="delegate"]
     nx.draw_networkx_edges(G,pos,edgelist=oth,edge_color="#94a3b8",arrows=True)
+    nx.draw_networkx_edges(G,pos,edgelist=deleg,edge_color="#2563eb",arrows=True,width=2.0,style="dashed")
     nx.draw_networkx_edges(G,pos,edgelist=wild,edge_color="#dc2626",arrows=True,width=2.2)
     nx.draw_networkx_edge_labels(G,pos,edge_labels={(u,v):d.get("rel") for u,v,d in G.edges(data=True)},font_size=6)
     plt.axis("off"); plt.tight_layout(); plt.savefig(out,dpi=140)
