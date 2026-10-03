@@ -1,0 +1,546 @@
+{
+    "groups": {},
+    "users": {
+        "AIDAYEODR5JE6DWHCGWNZ": {
+            "arn": "arn:aws:iam::559292738121:user/pathtriage-admin",
+            "create_date": "2026-06-08 04:15:32+00:00",
+            "id": "AIDAYEODR5JE6DWHCGWNZ",
+            "name": "pathtriage-admin",
+            "inline_policies": {},
+            "groups": {},
+            "path": "/",
+            "customer_managed_policies": {},
+            "aws_managed_policies": {},
+            "is_excluded": false
+        },
+        "AIDAYEODR5JE5VWCVNTNY": {
+            "arn": "arn:aws:iam::559292738121:user/pathtriage-low-priv-attacker",
+            "create_date": "2026-06-13 06:16:19+00:00",
+            "id": "AIDAYEODR5JE5VWCVNTNY",
+            "name": "pathtriage-low-priv-attacker",
+            "inline_policies": {},
+            "groups": {},
+            "path": "/",
+            "customer_managed_policies": {},
+            "aws_managed_policies": {},
+            "is_excluded": false
+        }
+    },
+    "roles": {
+        "AROAYEODR5JE2MVZ4CXVI": {
+            "arn": "arn:aws:iam::559292738121:role/apt-lab-roleA-overprivileged",
+            "assume_role_policy": {
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "bedrock-agentcore.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": "arn:aws:iam::559292738121:user/pathtriage-admin"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                }
+            },
+            "create_date": "2026-10-03 03:26:06+00:00",
+            "role_last_used": null,
+            "id": "AROAYEODR5JE2MVZ4CXVI",
+            "name": "apt-lab-roleA-overprivileged",
+            "inline_policies": {
+                "55dc306f0839fd2553b8dd7c8b2885e1c63b1f8464655b1dd0fac7a9f2f9beac": "overprivileged-inline"
+            },
+            "instance_profiles": [],
+            "instances_count": 0,
+            "path": "/",
+            "customer_managed_policies": {},
+            "aws_managed_policies": {},
+            "is_excluded": false
+        },
+        "AROAYEODR5JESX7MVSUZD": {
+            "arn": "arn:aws:iam::559292738121:role/apt-lab-roleA-thin",
+            "assume_role_policy": {
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "bedrock-agentcore.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": "arn:aws:iam::559292738121:user/pathtriage-admin"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                }
+            },
+            "create_date": "2026-09-27 11:15:23+00:00",
+            "role_last_used": "2026-09-27 11:26:13+00:00",
+            "id": "AROAYEODR5JESX7MVSUZD",
+            "name": "apt-lab-roleA-thin",
+            "inline_policies": {
+                "9f3b4bc4320b224ac5396a2209734058b053d33e528b4a5e9871e0eb882683a6": "apt-lab-roleA-thin-inline"
+            },
+            "instance_profiles": [],
+            "instances_count": 0,
+            "path": "/",
+            "customer_managed_policies": {},
+            "aws_managed_policies": {},
+            "is_excluded": false
+        },
+        "AROAYEODR5JEQY6AGFSMY": {
+            "arn": "arn:aws:iam::559292738121:role/apt-lab-roleB-scoped",
+            "assume_role_policy": {
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "bedrock-agentcore.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": "arn:aws:iam::559292738121:user/pathtriage-admin"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                }
+            },
+            "create_date": "2026-10-03 03:26:06+00:00",
+            "role_last_used": null,
+            "id": "AROAYEODR5JEQY6AGFSMY",
+            "name": "apt-lab-roleB-scoped",
+            "inline_policies": {
+                "fc042b0393e61bdebab1276b8bde901f3cf62aedfb2a5ca883a76fcfd6e8bead": "scoped-inline"
+            },
+            "instance_profiles": [],
+            "instances_count": 0,
+            "path": "/",
+            "customer_managed_policies": {},
+            "aws_managed_policies": {},
+            "is_excluded": false
+        },
+        "AROAYEODR5JEXGN3NNFM4": {
+            "arn": "arn:aws:iam::559292738121:role/apt-lab-roleC-overprivileged",
+            "assume_role_policy": {
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "bedrock-agentcore.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": "arn:aws:iam::559292738121:user/pathtriage-admin"
+                            },
+                            "Action": "sts:AssumeRole"
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": "arn:aws:iam::559292738121:role/apt-lab-roleA-thin"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                }
+            },
+            "create_date": "2026-09-27 11:15:36+00:00",
+            "role_last_used": "2026-09-27 11:26:14+00:00",
+            "id": "AROAYEODR5JEXGN3NNFM4",
+            "name": "apt-lab-roleC-overprivileged",
+            "inline_policies": {
+                "3716808029bad57c73531d3c75e84eca0fc2c5879e5c7ab1126198304b18cd56": "apt-lab-roleC-inline"
+            },
+            "instance_profiles": [],
+            "instances_count": 0,
+            "path": "/",
+            "customer_managed_policies": {},
+            "aws_managed_policies": {},
+            "is_excluded": false
+        },
+        "AROAYEODR5JE3JZMN4GUP": {
+            "arn": "arn:aws:iam::559292738121:role/service-role/hello-world-web-role-3i04n9x7",
+            "assume_role_policy": {
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                }
+            },
+            "create_date": "2026-06-09 03:07:06+00:00",
+            "role_last_used": "2026-06-09 03:07:42+00:00",
+            "id": "AROAYEODR5JE3JZMN4GUP",
+            "name": "hello-world-web-role-3i04n9x7",
+            "inline_policies": {},
+            "instance_profiles": [],
+            "instances_count": 0,
+            "path": "/service-role/",
+            "customer_managed_policies": {},
+            "aws_managed_policies": {},
+            "is_excluded": false
+        }
+    },
+    "aws_managed_policies": {},
+    "customer_managed_policies": {},
+    "inline_policies": {
+        "55dc306f0839fd2553b8dd7c8b2885e1c63b1f8464655b1dd0fac7a9f2f9beac": {
+            "PolicyName": "overprivileged-inline",
+            "PolicyId": "55dc306f0839fd2553b8dd7c8b2885e1c63b1f8464655b1dd0fac7a9f2f9beac",
+            "PolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Action": [
+                            "ecr:GetDownloadUrlForLayer",
+                            "ecr:GetAuthorizationToken",
+                            "ecr:BatchGetImage"
+                        ],
+                        "Effect": "Allow",
+                        "Resource": "*",
+                        "Sid": "EcrWildcard"
+                    },
+                    {
+                        "Action": "bedrock-agentcore:*",
+                        "Effect": "Allow",
+                        "Resource": "arn:aws:bedrock-agentcore:us-east-1:559292738121:memory/*",
+                        "Sid": "MemoryWildcard"
+                    },
+                    {
+                        "Action": "bedrock-agentcore:InvokeCodeInterpreter",
+                        "Effect": "Allow",
+                        "Resource": "*",
+                        "Sid": "CodeInterpreterWildcard"
+                    },
+                    {
+                        "Action": "bedrock-agentcore:InvokeAgentRuntime",
+                        "Effect": "Allow",
+                        "Resource": "arn:aws:bedrock-agentcore:us-east-1:559292738121:runtime/*",
+                        "Sid": "RuntimeWildcard"
+                    }
+                ]
+            },
+            "AttachedTo": {
+                "roles": [
+                    "apt-lab-roleA-overprivileged"
+                ],
+                "groups": [],
+                "users": []
+            },
+            "PrivilegeEscalation": {
+                "severity": "high",
+                "description": "<p>These policies allow a combination of IAM actions that allow a principal with these permissions to escalate their privileges - for example, by creating an access key for another IAM user, or modifying their own permissions. This research was pioneered by Spencer Gietzen at Rhino Security Labs.  Remediation guidance can be found <a href=\"https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/\">here</a>.</p>",
+                "findings": [],
+                "links": {}
+            },
+            "DataExfiltration": {
+                "severity": "medium",
+                "description": "<div style=\"text-align:left\"><p>Policies with Data Exfiltration potential allow certain read-only IAM actions without resource constraints, such as <code>s3:GetObject</code>, <code>ssm:GetParameter*</code>, or <code>secretsmanager:GetSecretValue</code>. <br> <ul> <li>Unrestricted <code>s3:GetObject</code> permissions has a long history of customer data leaks.</li> <li><code>ssm:GetParameter*</code> and <code>secretsmanager:GetSecretValue</code> are both used to access secrets.</li> <li><code>rds:CopyDBSnapshot</code> and <code>rds:CreateDBSnapshot</code> can be used to exfiltrate RDS database contents.</li> </ul></p></div>",
+                "findings": []
+            },
+            "ResourceExposure": {
+                "severity": "high",
+                "description": "<p>Resource Exposure actions allow modification of Permissions to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html\">resource-based policies</a> or otherwise can expose AWS resources to the public via similar actions that can lead to resource exposure - for example, the ability to modify <a href=\"https://docs.aws.amazon.com/ram/latest/userguide/what-is.html\">AWS Resource Access Manager</a>.</p>",
+                "findings": []
+            },
+            "ServiceWildcard": {
+                "severity": "medium",
+                "description": "<p>\"Service Wildcard\" is the unofficial way of referring to IAM policy statements that grant access to ALL actions under a service - like s3:*. Prioritizing the remediation of policies with this characteristic can help to efficiently reduce the total count of issues in the Cloudsplaining report.</p>",
+                "findings": [
+                    "bedrock-agentcore"
+                ]
+            },
+            "CredentialsExposure": {
+                "severity": "high",
+                "description": "<p>Credentials Exposure actions return credentials as part of the API response , such as ecr:GetAuthorizationToken, iam:UpdateAccessKey, and others. The full list is maintained here: https://gist.github.com/kmcquade/33860a617e651104d243c324ddf7992a</p>",
+                "findings": [
+                    "ecr:GetAuthorizationToken"
+                ]
+            },
+            "InfrastructureModification": {
+                "severity": "low",
+                "description": "",
+                "findings": [
+                    "bedrock-agentcore:InvokeCodeInterpreter"
+                ]
+            },
+            "is_excluded": false
+        },
+        "9f3b4bc4320b224ac5396a2209734058b053d33e528b4a5e9871e0eb882683a6": {
+            "PolicyName": "apt-lab-roleA-thin-inline",
+            "PolicyId": "9f3b4bc4320b224ac5396a2209734058b053d33e528b4a5e9871e0eb882683a6",
+            "PolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Action": "iam:PassRole",
+                        "Effect": "Allow",
+                        "Resource": "arn:aws:iam::559292738121:role/apt-lab-roleC-overprivileged",
+                        "Sid": "PassRoleCOnly"
+                    },
+                    {
+                        "Action": "sts:AssumeRole",
+                        "Effect": "Allow",
+                        "Resource": "arn:aws:iam::559292738121:role/apt-lab-roleC-overprivileged",
+                        "Sid": "AssumeRoleCOnly"
+                    }
+                ]
+            },
+            "AttachedTo": {
+                "roles": [
+                    "apt-lab-roleA-thin"
+                ],
+                "groups": [],
+                "users": []
+            },
+            "PrivilegeEscalation": {
+                "severity": "high",
+                "description": "<p>These policies allow a combination of IAM actions that allow a principal with these permissions to escalate their privileges - for example, by creating an access key for another IAM user, or modifying their own permissions. This research was pioneered by Spencer Gietzen at Rhino Security Labs.  Remediation guidance can be found <a href=\"https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/\">here</a>.</p>",
+                "findings": [],
+                "links": {}
+            },
+            "DataExfiltration": {
+                "severity": "medium",
+                "description": "<div style=\"text-align:left\"><p>Policies with Data Exfiltration potential allow certain read-only IAM actions without resource constraints, such as <code>s3:GetObject</code>, <code>ssm:GetParameter*</code>, or <code>secretsmanager:GetSecretValue</code>. <br> <ul> <li>Unrestricted <code>s3:GetObject</code> permissions has a long history of customer data leaks.</li> <li><code>ssm:GetParameter*</code> and <code>secretsmanager:GetSecretValue</code> are both used to access secrets.</li> <li><code>rds:CopyDBSnapshot</code> and <code>rds:CreateDBSnapshot</code> can be used to exfiltrate RDS database contents.</li> </ul></p></div>",
+                "findings": []
+            },
+            "ResourceExposure": {
+                "severity": "high",
+                "description": "<p>Resource Exposure actions allow modification of Permissions to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html\">resource-based policies</a> or otherwise can expose AWS resources to the public via similar actions that can lead to resource exposure - for example, the ability to modify <a href=\"https://docs.aws.amazon.com/ram/latest/userguide/what-is.html\">AWS Resource Access Manager</a>.</p>",
+                "findings": []
+            },
+            "ServiceWildcard": {
+                "severity": "medium",
+                "description": "<p>\"Service Wildcard\" is the unofficial way of referring to IAM policy statements that grant access to ALL actions under a service - like s3:*. Prioritizing the remediation of policies with this characteristic can help to efficiently reduce the total count of issues in the Cloudsplaining report.</p>",
+                "findings": []
+            },
+            "CredentialsExposure": {
+                "severity": "high",
+                "description": "<p>Credentials Exposure actions return credentials as part of the API response , such as ecr:GetAuthorizationToken, iam:UpdateAccessKey, and others. The full list is maintained here: https://gist.github.com/kmcquade/33860a617e651104d243c324ddf7992a</p>",
+                "findings": []
+            },
+            "InfrastructureModification": {
+                "severity": "low",
+                "description": "",
+                "findings": []
+            },
+            "is_excluded": false
+        },
+        "fc042b0393e61bdebab1276b8bde901f3cf62aedfb2a5ca883a76fcfd6e8bead": {
+            "PolicyName": "scoped-inline",
+            "PolicyId": "fc042b0393e61bdebab1276b8bde901f3cf62aedfb2a5ca883a76fcfd6e8bead",
+            "PolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Action": [
+                            "bedrock-agentcore:ListEvents",
+                            "bedrock-agentcore:GetMemory",
+                            "bedrock-agentcore:CreateEvent"
+                        ],
+                        "Effect": "Allow",
+                        "Resource": "arn:aws:bedrock-agentcore:us-east-1:559292738121:memory/apt_lab_agentB_memory-tbI7zfBoBl",
+                        "Sid": "OwnMemoryOnly"
+                    },
+                    {
+                        "Action": "ecr:GetAuthorizationToken",
+                        "Effect": "Allow",
+                        "Resource": "*",
+                        "Sid": "EcrAuthToken"
+                    },
+                    {
+                        "Action": [
+                            "ecr:GetDownloadUrlForLayer",
+                            "ecr:BatchGetImage"
+                        ],
+                        "Effect": "Allow",
+                        "Resource": "arn:aws:ecr:us-east-1:559292738121:repository/apt-lab/agent-b",
+                        "Sid": "OwnImagePull"
+                    }
+                ]
+            },
+            "AttachedTo": {
+                "roles": [
+                    "apt-lab-roleB-scoped"
+                ],
+                "groups": [],
+                "users": []
+            },
+            "PrivilegeEscalation": {
+                "severity": "high",
+                "description": "<p>These policies allow a combination of IAM actions that allow a principal with these permissions to escalate their privileges - for example, by creating an access key for another IAM user, or modifying their own permissions. This research was pioneered by Spencer Gietzen at Rhino Security Labs.  Remediation guidance can be found <a href=\"https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/\">here</a>.</p>",
+                "findings": [],
+                "links": {}
+            },
+            "DataExfiltration": {
+                "severity": "medium",
+                "description": "<div style=\"text-align:left\"><p>Policies with Data Exfiltration potential allow certain read-only IAM actions without resource constraints, such as <code>s3:GetObject</code>, <code>ssm:GetParameter*</code>, or <code>secretsmanager:GetSecretValue</code>. <br> <ul> <li>Unrestricted <code>s3:GetObject</code> permissions has a long history of customer data leaks.</li> <li><code>ssm:GetParameter*</code> and <code>secretsmanager:GetSecretValue</code> are both used to access secrets.</li> <li><code>rds:CopyDBSnapshot</code> and <code>rds:CreateDBSnapshot</code> can be used to exfiltrate RDS database contents.</li> </ul></p></div>",
+                "findings": []
+            },
+            "ResourceExposure": {
+                "severity": "high",
+                "description": "<p>Resource Exposure actions allow modification of Permissions to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html\">resource-based policies</a> or otherwise can expose AWS resources to the public via similar actions that can lead to resource exposure - for example, the ability to modify <a href=\"https://docs.aws.amazon.com/ram/latest/userguide/what-is.html\">AWS Resource Access Manager</a>.</p>",
+                "findings": []
+            },
+            "ServiceWildcard": {
+                "severity": "medium",
+                "description": "<p>\"Service Wildcard\" is the unofficial way of referring to IAM policy statements that grant access to ALL actions under a service - like s3:*. Prioritizing the remediation of policies with this characteristic can help to efficiently reduce the total count of issues in the Cloudsplaining report.</p>",
+                "findings": []
+            },
+            "CredentialsExposure": {
+                "severity": "high",
+                "description": "<p>Credentials Exposure actions return credentials as part of the API response , such as ecr:GetAuthorizationToken, iam:UpdateAccessKey, and others. The full list is maintained here: https://gist.github.com/kmcquade/33860a617e651104d243c324ddf7992a</p>",
+                "findings": [
+                    "ecr:GetAuthorizationToken"
+                ]
+            },
+            "InfrastructureModification": {
+                "severity": "low",
+                "description": "",
+                "findings": []
+            },
+            "is_excluded": false
+        },
+        "3716808029bad57c73531d3c75e84eca0fc2c5879e5c7ab1126198304b18cd56": {
+            "PolicyName": "apt-lab-roleC-inline",
+            "PolicyId": "3716808029bad57c73531d3c75e84eca0fc2c5879e5c7ab1126198304b18cd56",
+            "PolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Action": "bedrock-agentcore:*",
+                        "Effect": "Allow",
+                        "Resource": "arn:aws:bedrock-agentcore:*:559292738121:memory/*",
+                        "Sid": "MemoryFullWildcard"
+                    },
+                    {
+                        "Action": "bedrock-agentcore:InvokeAgentRuntime",
+                        "Effect": "Allow",
+                        "Resource": "arn:aws:bedrock-agentcore:*:559292738121:runtime/*",
+                        "Sid": "InvokeAnyRuntime"
+                    },
+                    {
+                        "Action": "bedrock-agentcore:InvokeCodeInterpreter",
+                        "Effect": "Allow",
+                        "Resource": "*",
+                        "Sid": "CodeInterpreterWildcard"
+                    }
+                ]
+            },
+            "AttachedTo": {
+                "roles": [
+                    "apt-lab-roleC-overprivileged"
+                ],
+                "groups": [],
+                "users": []
+            },
+            "PrivilegeEscalation": {
+                "severity": "high",
+                "description": "<p>These policies allow a combination of IAM actions that allow a principal with these permissions to escalate their privileges - for example, by creating an access key for another IAM user, or modifying their own permissions. This research was pioneered by Spencer Gietzen at Rhino Security Labs.  Remediation guidance can be found <a href=\"https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/\">here</a>.</p>",
+                "findings": [],
+                "links": {}
+            },
+            "DataExfiltration": {
+                "severity": "medium",
+                "description": "<div style=\"text-align:left\"><p>Policies with Data Exfiltration potential allow certain read-only IAM actions without resource constraints, such as <code>s3:GetObject</code>, <code>ssm:GetParameter*</code>, or <code>secretsmanager:GetSecretValue</code>. <br> <ul> <li>Unrestricted <code>s3:GetObject</code> permissions has a long history of customer data leaks.</li> <li><code>ssm:GetParameter*</code> and <code>secretsmanager:GetSecretValue</code> are both used to access secrets.</li> <li><code>rds:CopyDBSnapshot</code> and <code>rds:CreateDBSnapshot</code> can be used to exfiltrate RDS database contents.</li> </ul></p></div>",
+                "findings": []
+            },
+            "ResourceExposure": {
+                "severity": "high",
+                "description": "<p>Resource Exposure actions allow modification of Permissions to <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html\">resource-based policies</a> or otherwise can expose AWS resources to the public via similar actions that can lead to resource exposure - for example, the ability to modify <a href=\"https://docs.aws.amazon.com/ram/latest/userguide/what-is.html\">AWS Resource Access Manager</a>.</p>",
+                "findings": []
+            },
+            "ServiceWildcard": {
+                "severity": "medium",
+                "description": "<p>\"Service Wildcard\" is the unofficial way of referring to IAM policy statements that grant access to ALL actions under a service - like s3:*. Prioritizing the remediation of policies with this characteristic can help to efficiently reduce the total count of issues in the Cloudsplaining report.</p>",
+                "findings": [
+                    "bedrock-agentcore"
+                ]
+            },
+            "CredentialsExposure": {
+                "severity": "high",
+                "description": "<p>Credentials Exposure actions return credentials as part of the API response , such as ecr:GetAuthorizationToken, iam:UpdateAccessKey, and others. The full list is maintained here: https://gist.github.com/kmcquade/33860a617e651104d243c324ddf7992a</p>",
+                "findings": []
+            },
+            "InfrastructureModification": {
+                "severity": "low",
+                "description": "",
+                "findings": [
+                    "bedrock-agentcore:InvokeCodeInterpreter"
+                ]
+            },
+            "is_excluded": false
+        }
+    },
+    "exclusions": {
+        "policies": [
+            "AWSServiceRoleFor*",
+            "*ServiceRolePolicy",
+            "*ServiceLinkedRolePolicy",
+            "AdministratorAccess",
+            "service-role*",
+            "aws-service-role*",
+            "/service-role*",
+            "/aws-service-role*",
+            "MyRole"
+        ],
+        "roles": [
+            "service-role*",
+            "aws-service-role*"
+        ],
+        "users": [
+            ""
+        ],
+        "groups": [
+            ""
+        ],
+        "include-actions": [
+            "s3:GetObject",
+            "ssm:GetParameter",
+            "ssm:GetParameters",
+            "ssm:GetParametersByPath",
+            "secretsmanager:GetSecretValue",
+            "rds:CopyDBSnapshot",
+            "rds:CreateDBSnapshot"
+        ],
+        "exclude-actions": [
+            ""
+        ],
+        "known-accounts": [
+            ""
+        ]
+    },
+    "links": {
+        "bedrock-agentcore:InvokeCodeInterpreter": "https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeCodeInterpreter.html"
+    }
+}

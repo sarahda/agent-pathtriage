@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/moonhyeon/.local/bin/pmapper", line 3, in <module>
+    from principalmapper.__main__ import main
+  File "/Users/moonhyeon/.local/lib/python3.11/site-packages/principalmapper/__main__.py", line 24, in <module>
+    from principalmapper.analysis import cli as analysis_cli
+  File "/Users/moonhyeon/.local/lib/python3.11/site-packages/principalmapper/analysis/cli.py", line 20, in <module>
+    from principalmapper.analysis import find_risks
+  File "/Users/moonhyeon/.local/lib/python3.11/site-packages/principalmapper/analysis/find_risks.py", line 37, in <module>
+    from principalmapper.querying import query_interface
+  File "/Users/moonhyeon/.local/lib/python3.11/site-packages/principalmapper/querying/query_interface.py", line 26, in <module>
+    from principalmapper.querying.local_policy_simulation import *
+  File "/Users/moonhyeon/.local/lib/python3.11/site-packages/principalmapper/querying/local_policy_simulation.py", line 32, in <module>
+    from principalmapper.util.case_insensitive_dict import CaseInsensitiveDict
+  File "/Users/moonhyeon/.local/lib/python3.11/site-packages/principalmapper/util/case_insensitive_dict.py", line 34, in <module>
+    from collections import Mapping, MutableMapping, OrderedDict
+ImportError: cannot import name 'Mapping' from 'collections' (/opt/anaconda3/lib/python3.11/collections/__init__.py)

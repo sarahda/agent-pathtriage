@@ -1,0 +1,4 @@
+Usage: cloudsplaining scan [OPTIONS]
+Try 'cloudsplaining scan --help' for help.
+
+Error: Invalid value for '-o' / '--output': Path 'baseline_out/cs_report' does not exist.

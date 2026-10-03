@@ -1,0 +1,16 @@
+QUERY HELP:
+
+First form:
+   can <Principal> do <Action> [with <Resource [when <ConditionA> [and <ConditionB>...]]]
+Second form:
+   who can do <Action> [with <Resource> [when <ConditionA> [and <ConditionB>...]]]
+Third form:
+   preset <preset args>
+
+Available presets:
+    * connected (principal|"*") (principal|"*")
+    * privesc (principal|"*")
+    * clusters (tag key)
+    * endgame (service|"*")
+    * serviceaccess
+    * wrongadmin

@@ -1,0 +1,3 @@
+PMapper not runnable in this environment (known collections.abc issue on Python 3.11).
+Covered by capability analysis: PMapper models principal-to-principal edges
+(incl. PassRole/AssumeRole) but has no agent-resource nodes, so it cannot express CP-1..CP-5.
