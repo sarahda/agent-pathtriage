@@ -1,4 +1,4 @@
-# E1 Oracle — AgentCore over-privileged role
+# E1 Oracle - AgentCore over-privileged role
 
 **Verdict: E1 established.** Unit42 (original disclosure) + Mitigant (4-path
 operationalisation) publish the over-privileged role and per-API attack steps,

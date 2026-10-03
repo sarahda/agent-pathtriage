@@ -1,0 +1,19 @@
+=== Tier 1: dedicated AgentCore / Foundry IaC (exhaustive slice) ===
+AgentCore Terraform (aws_bedrockagentcore)              1436
+AgentCore in HCL (bedrock-agentcore)                    1212
+AgentCore CloudFormation (yaml)                         1984
+AgentCore CloudFormation (json)                         2624
+AgentCore CDK (TypeScript)                              4632
+Foundry Terraform (azurerm ai foundry)                  240
+Foundry Bicep (accounts/projects)                       1524
+Foundry connected agent (bicep)                         0
+
+=== Tier 2: delegation pattern in agent-adjacent IaC (scale) ===
+PassRole + bedrock (HCL)                                391
+AssumeRole + bedrock (HCL)                              4066
+aws_bedrock_agent role (HCL)                            604
+bedrock agent + iam_role (HCL)                          2592
+sagemaker + PassRole (HCL)                              361
+PassRole wildcard resource (HCL)                        9600
+
+Done. Use total_count as an upper bound per query; collect + content-hash dedup next.

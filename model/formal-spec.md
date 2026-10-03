@@ -1,4 +1,4 @@
-# Formal Model v0 — Cross-Agent Delegation Graph
+# Formal Model v0 - Cross-Agent Delegation Graph
 
 Week 0 draft. Defines the delegation graph, the authorised/effective sets, and the
 escalation predicate `Esc`. Grounded in real provider IAM evaluation (not an abstract
@@ -12,10 +12,10 @@ A deployed agent system is modelled as a directed graph `G = (V, E)` with typed 
 V = P ∪ A ∪ T ∪ R
 ```
 
-- `P` — principals (users, service identities, CI identities)
-- `A` — agents (Bedrock AgentCore agents; Foundry connected agents)
-- `T` — tools (code interpreters, MCP servers, gateways, tool bindings)
-- `R` — resources (memory stores, container images, runtimes, and other cloud resources)
+- `P` - principals (users, service identities, CI identities)
+- `A` - agents (Bedrock AgentCore agents; Foundry connected agents)
+- `T` - tools (code interpreters, MCP servers, gateways, tool bindings)
+- `R` - resources (memory stores, container images, runtimes, and other cloud resources)
 
 Edges are labelled by relation:
 
@@ -23,12 +23,12 @@ Edges are labelled by relation:
 |---|---|
 | `invoke(x, a)` | principal or agent `x` can cause agent `a` to execute |
 | `assume(a, ρ)` | agent `a` executes under role / identity `ρ` |
-| `propagate(a, b)` | `a`'s execution context reaches `b` — impersonation (same identity flows on) as opposed to a scoped re-issue (act-on-behalf with a reduced identity) |
+| `propagate(a, b)` | `a`'s execution context reaches `b` - impersonation (same identity flows on) as opposed to a scoped re-issue (act-on-behalf with a reduced identity) |
 | `act(ρ, r)` | role / identity `ρ` is authorised for resource `r` **under provider policy evaluation** |
 
 The contribution over an abstract predicate is that `act` is **instantiated**, not assumed:
-- **AWS** — identity-, resource-, and trust-policy resolution (effect, action, resource scope, conditions).
-- **Azure/Foundry** — Entra role assignment and OAuth token audience/scope; the OBO-vs-managed-identity choice determines which `ρ` a delegated action runs under.
+- **AWS** - identity-, resource-, and trust-policy resolution (effect, action, resource scope, conditions).
+- **Azure/Foundry** - Entra role assignment and OAuth token audience/scope; the OBO-vs-managed-identity choice determines which `ρ` a delegated action runs under.
 
 ## 2. Authorised set
 
@@ -42,7 +42,7 @@ where `ρ_p` is `p`'s own role/identity.
 
 ## 3. Effective set
 
-The resources a principal can reach **through one or more agent hops** — the reach the
+The resources a principal can reach **through one or more agent hops** - the reach the
 delegation edges actually grant:
 
 ```
@@ -88,11 +88,11 @@ computes exactly this from the role JSON.
 
 ## 6. Open items (v0 → v1)
 
-- **`propagate` normalisation** — AWS credential propagation via role assumption is not
+- **`propagate` normalisation** - AWS credential propagation via role assumption is not
   semantically identical to Foundry identity propagation (OBO vs managed identity). v1 must
   either unify them or record the divergence as an explicit soundness caveat.
-- **Soundness / completeness** — state the conditions under which a computed witness is a
+- **Soundness / completeness** - state the conditions under which a computed witness is a
   true escalation (no false witness) and whether all escalations are found (no missed witness),
   relative to the fidelity of `extract`.
-- **`propagate` in the PoC** — the current extract handles a single role (`assume` + `act`);
+- **`propagate` in the PoC** - the current extract handles a single role (`assume` + `act`);
   agent-to-agent `propagate` edges are not yet extracted.

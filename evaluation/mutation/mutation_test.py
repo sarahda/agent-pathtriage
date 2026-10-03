@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AgentPathTriage — mutation testing + fidelity (v3, closes the propagate loop)
+AgentPathTriage - mutation testing + fidelity (v3, closes the propagate loop)
 
 Generates IAM-policy mutants with KNOWN ground truth and scores the real
 extract + check (single-hop) AND extract + propagate (multi-hop) against them.

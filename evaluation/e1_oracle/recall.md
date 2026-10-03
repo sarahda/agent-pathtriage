@@ -1,7 +1,7 @@
 # E1 Recall
 
 ## Detection recall (extract + check on the lab config)
-recall = 5 / 5 — the tool recovers, from configuration alone, the cross-agent
+recall = 5 / 5 - the tool recovers, from configuration alone, the cross-agent
 resource access that each documented oracle path targets (ECR, memory, code
 interpreter, runtime). RoleB (scoped) is correctly Esc = False (no false positive).
 

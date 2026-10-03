@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AgentPathTriage — extract (v2)
+AgentPathTriage - extract (v2)
 
 Builds a delegation graph from deployed AWS configuration. Reads Terraform state
 (`terraform show -json`) so it works against the real, applied config rather than

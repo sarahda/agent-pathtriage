@@ -10,7 +10,7 @@ each. This table is the specification `extract` works against: each row is an
 | **CP-1** | Credential inheritance | Mitigant P1 (ECR image exfiltration) | `ecr:BatchGetImage`, `ecr:GetDownloadUrlForLayer` | `*` (any repo) instead of own repo ARN | ✅ reproduced (P1) |
 | **CP-2** | Unmediated inter-agent invocation | Mitigant P4 (runtime hijack) | `bedrock-agentcore:InvokeAgentRuntime` | `runtime/*` instead of own runtime ARN | ⬜ to reproduce |
 | **CP-3** | Shared state poisoning | Mitigant P2 (memory access + poisoning) | `bedrock-agentcore:*` incl. `ListEvents`,`CreateEvent` | `memory/*` instead of own memory ARN | ✅ reproduced (P2) |
-| **CP-4** | Tool scope over-grant | (partial — Gateway/tool binding) | tool/gateway invoke actions | tool binding wider than task scope | ⬜ candidate |
+| **CP-4** | Tool scope over-grant | (partial - Gateway/tool binding) | tool/gateway invoke actions | tool binding wider than task scope | ⬜ candidate |
 | **CP-5** | Execution substrate reuse | Mitigant P3 / Sonrai (code interpreter) | `bedrock-agentcore:InvokeCodeInterpreter` | `*` (shared interpreter across tiers) | ⬜ to reproduce |
 
 ## The signal `extract` looks for

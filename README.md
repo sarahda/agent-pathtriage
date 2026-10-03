@@ -1,19 +1,19 @@
 # AgentPathTriage
 
-Cross-agent IAM privilege-escalation discovery for managed agentic cloud platforms — AWS Bedrock AgentCore and Microsoft Foundry.
+Cross-agent IAM privilege-escalation discovery for managed agentic cloud platforms - AWS Bedrock AgentCore and Microsoft Foundry.
 
 ## Overview
 
-Managed agentic platforms let one agent invoke another and call tools that execute under platform-assigned IAM identities. When agent A invokes agent B, the resulting cloud action executes under an identity associated with B — the invoked agent's execution role, or (depending on configuration) a delegated user identity — rather than necessarily the caller's own permissions. Where that identity exceeds the caller's, this is a privilege escalation across a *delegation boundary*: a confused-deputy problem at the IAM layer rather than the prompt layer.
+Managed agentic platforms let one agent invoke another and call tools that execute under platform-assigned IAM identities. When agent A invokes agent B, the resulting cloud action executes under an identity associated with B - the invoked agent's execution role, or (depending on configuration) a delegated user identity - rather than necessarily the caller's own permissions. Where that identity exceeds the caller's, this is a privilege escalation across a *delegation boundary*: a confused-deputy problem at the IAM layer rather than the prompt layer.
 
 AgentPathTriage models this delegation boundary, catalogues the escalation primitives that arise on each platform, and extracts escalation paths from deployed configuration. It extends **PathTriage** from static human/service IAM to the agent-delegation layer.
 
 ## Research questions
 
-- **RQ1** — Can cross-agent escalation be expressed as a reachability property over a delegation graph grounded in provider IAM evaluation, in a provider-independent form?
-- **RQ2** — Which escalation primitives exist on Bedrock AgentCore and Microsoft Foundry, and do the two platforms admit the same primitives?
-- **RQ3** — Can the delegation graph be extracted automatically from deployed configuration?
-- **RQ4** — How often do publicly available agent deployment templates exhibit at least one primitive?
+- **RQ1** - Can cross-agent escalation be expressed as a reachability property over a delegation graph grounded in provider IAM evaluation, in a provider-independent form?
+- **RQ2** - Which escalation primitives exist on Bedrock AgentCore and Microsoft Foundry, and do the two platforms admit the same primitives?
+- **RQ3** - Can the delegation graph be extracted automatically from deployed configuration?
+- **RQ4** - How often do publicly available agent deployment templates exhibit at least one primitive?
 
 ## Scope
 
@@ -41,9 +41,9 @@ This project studies escalation arising from how customers configure agent IAM, 
 
 `agentpathtriage` provides a command-line interface with three commands:
 
-- `extract` — deployed configuration → delegation graph
-- `check` — decide the escalation predicate for a given principal; return a witness path
-- `rank` — order witnesses by an exploitability rubric adapted from PathTriage
+- `extract` - deployed configuration → delegation graph
+- `check` - decide the escalation predicate for a given principal; return a witness path
+- `rank` - order witnesses by an exploitability rubric adapted from PathTriage
 
 ## Responsible use
 

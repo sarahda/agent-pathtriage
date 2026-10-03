@@ -40,13 +40,13 @@ agent whose execution identity differs from the caller**. So they should:
 | Distinguishes RoleB (scoped) as safe by reach | no (policy-level only) | partial | no | **yes** |
 | Decides the escalation predicate Esc(p) | **no** | **no** | **no** | **yes** |
 
-**Headline number for the slide:** cross-agent edges detected —
+**Headline number for the slide:** cross-agent edges detected -
 `PMapper 0 / Access Analyzer 0 / Cloudsplaining 0 / AgentPathTriage 4`.
 
 ## Honesty guardrails
 - Run each tool exactly as its docs intend; do not cripple a baseline to win.
 - If a baseline *does* surface something relevant (e.g. Access Analyzer flagging
-  the wildcard), report it — the point is not "they find nothing" but "they don't
+  the wildcard), report it - the point is not "they find nothing" but "they don't
   model the cross-agent delegation", which is a precise, defensible claim.
 - Record each tool's version and exact command in `baseline/run-log.md`.
 - The comparison is about **the delegation dimension**, not general quality; state

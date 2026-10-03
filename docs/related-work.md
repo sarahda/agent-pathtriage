@@ -4,7 +4,7 @@ Competitive landscape as of September 2026. Each entry states the prior work's c
 
 ---
 
-## A. Industry — AgentCore empirical findings (AWS)
+## A. Industry - AgentCore empirical findings (AWS)
 
 These publicly documented AWS Bedrock AgentCore escalation paths are used as an **external oracle (E1)** for validating automated recovery from configuration. They are reproduced, not claimed as novel discovery.
 
@@ -15,9 +15,9 @@ These publicly documented AWS Bedrock AgentCore escalation paths are used as an 
 | Sonrai (Jul/Sep 2025) | Code Interpreter executes under the agent's role rather than the caller's, enabling escalation; proposes SCP-based fixes | Single component; no model | Reproduced and formalised as a substrate/tool primitive |
 | BeyondTrust, *Mapping Every Privilege-Escalation Path in AgentCore* (2026) | Comprehensive map of AgentCore paths across Runtime, Harness, Code Interpreter, and Custom Browser | AWS only; hand-mapped; no formal model, automation, prevalence, or Foundry | Strongest E1 oracle; establishes that AWS empirical discovery is not this project's novelty |
 | Cloud Security Alliance, *AgentCore Execution Boundary* research note (Mar 2026) | Analysis of the Code Interpreter privilege-escalation and execution-boundary problem | Analysis note; no tool, model, or measurement | Cited as corroboration of the empirical surface |
-| Software Secured, *AWS Privilege Escalation: IAM, Service & AI-driven AgentCore Vectors* (2026) | Frames AgentCore escalation as "modern" vs "classic" IAM abuse; names `iam:PassRole`, `lambda:UpdateFunctionCode`, `CreateCodeInterpreter` as steps, and lists classic paths (`CreatePolicyVersion`, `AttachUserPolicy`, `UpdateAssumeRolePolicy`) — the same classic paths catalogued in PathTriage | Narrative/lab article; no formal model, automated extraction, cross-provider analysis, or prevalence | Directly bridges PathTriage's classic paths to AgentCore's agent paths in prose; AgentPathTriage formalises and automates that bridge and measures its prevalence. Cite to differentiate |
+| Software Secured, *AWS Privilege Escalation: IAM, Service & AI-driven AgentCore Vectors* (2026) | Frames AgentCore escalation as "modern" vs "classic" IAM abuse; names `iam:PassRole`, `lambda:UpdateFunctionCode`, `CreateCodeInterpreter` as steps, and lists classic paths (`CreatePolicyVersion`, `AttachUserPolicy`, `UpdateAssumeRolePolicy`) - the same classic paths catalogued in PathTriage | Narrative/lab article; no formal model, automated extraction, cross-provider analysis, or prevalence | Directly bridges PathTriage's classic paths to AgentCore's agent paths in prose; AgentPathTriage formalises and automates that bridge and measures its prevalence. Cite to differentiate |
 
-## B. Academic — LLM-agent and multi-agent privilege escalation
+## B. Academic - LLM-agent and multi-agent privilege escalation
 
 Framework-level work; not grounded in cloud IAM evaluation.
 
@@ -31,7 +31,7 @@ Framework-level work; not grounded in cloud IAM evaluation.
 | Trust propagation and structural containment in Multi-Agent LLM pipelines (arXiv 2609.17648, Sep 2026) | Low-privilege agent influencing a higher-privilege one; structural containment | Abstract pipelines; not cloud IAM execution identity; no real-platform reproduction | Concurrent; ours is real IAM execution-identity change on managed platforms |
 | The Stochastic Deputy (arXiv 2609.14780, Sep 2026) | Confused-deputy via tenant-id passed into tool calls; structural tenant isolation | Tool-call / tenant-selection layer, not STS/Entra execution roles | Concurrent confused-deputy work at the tool layer; ours is at the cloud IAM layer |
 
-## C. Academic — cloud IAM privilege-escalation formalisation & detection
+## C. Academic - cloud IAM privilege-escalation formalisation & detection
 
 The closest formalisation precedents; cited prominently and differentiated.
 
@@ -50,7 +50,7 @@ The closest formalisation precedents; cited prominently and differentiated.
 |---|---|---|---|
 | PathTriage (COMP9301) | IAM attack-path discovery and exploitability ranking (AWS + Azure; 16 paths → 5 primitives) | Static human/service IAM; no agent invocation edges or runtime credential propagation | Extended to the agent-delegation layer; the lab harness is reused for infrastructure only, while the delegation-edge semantics are new |
 
-## E. Proposed defenses — validation targets for RQ5
+## E. Proposed defenses - validation targets for RQ5
 
 A wave of 2026 work proposes defenses for cross-agent delegation, but each is evaluated on abstract frameworks or toy systems, not on real managed cloud platforms. Holding a reproduced attack catalogue, RQ5 measures which of these actually close which primitives on live Bedrock/Foundry, scored against the SoK five-part defense contract (path protected / observed / when intervened / trusted components / recovery). New defense papers become additional test targets rather than competitors.
 
@@ -67,8 +67,8 @@ A wave of 2026 work proposes defenses for cross-agent delegation, but each is ev
 
 ## Positioning
 
-1. **Industry AgentCore findings (Group A) serve as the external oracle (E1), not as novelty.** The contribution over this line of work is automated recovery from configuration, cross-provider generalisation, and quantitative measurement — not the discovery of individual AWS paths.
-2. **The formalisation is positioned as an extension of TAC** to the agent-delegation layer, instantiated against real IAM evaluation and validated across two providers — not as a first graph-based formalisation of IAM privilege escalation.
+1. **Industry AgentCore findings (Group A) serve as the external oracle (E1), not as novelty.** The contribution over this line of work is automated recovery from configuration, cross-provider generalisation, and quantitative measurement - not the discovery of individual AWS paths.
+2. **The formalisation is positioned as an extension of TAC** to the agent-delegation layer, instantiated against real IAM evaluation and validated across two providers - not as a first graph-based formalisation of IAM privilege escalation.
 3. **The novelty rests on three pillars:** (i) cross-provider coverage including Microsoft Foundry; (ii) prevalence measurement over public agent deployment templates (RQ4); and (iii) automated extraction of the delegation graph from deployed configuration (RQ3).
 4. **Formalisation is occupied, so novelty sits elsewhere.** Delegation-as-graph and confused-deputy predicates now appear in TAC, Overlaying Governance (2606.03518), and 2603.19469. We therefore do not claim formalisation novelty; our formal model is an instantiation of these ideas against real provider IAM. The contribution is empirical.
 5. **Defense validation (RQ5) is the strongest open lane.** The 2026 literature keeps *proposing* defenses (SEAgent, CAPMAS, Bounded Agents, AgentFlow, Delegation Without Trust, ScopeGate) but none validates them against reproduced cross-agent attacks on real managed platforms. Holding an attack catalogue, we measure which defenses actually close which primitives, scored against the SoK five-part defense contract. This makes the paper the empirical arbiter of the defense literature; each new defense paper is another test target, not a competitor (Group E).

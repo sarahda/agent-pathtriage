@@ -1,0 +1,78 @@
+[
+  {
+    "principal": "apt-lab-roleA-thin",
+    "Esc_single": false,
+    "Esc_multi": true,
+    "recovered_by_propagate": true,
+    "witnesses": [
+      {
+        "hops": 1,
+        "chain": [
+          {
+            "from": "apt-lab-roleA-thin",
+            "to": "apt-lab-roleC-overprivileged",
+            "via": "iam:PassRole/sts:AssumeRole"
+          }
+        ],
+        "via_role": "apt-lab-roleC-overprivileged",
+        "reaches": "Agent memory",
+        "action": "bedrock-agentcore:*"
+      },
+      {
+        "hops": 1,
+        "chain": [
+          {
+            "from": "apt-lab-roleA-thin",
+            "to": "apt-lab-roleC-overprivileged",
+            "via": "iam:PassRole/sts:AssumeRole"
+          }
+        ],
+        "via_role": "apt-lab-roleC-overprivileged",
+        "reaches": "Agent runtimes",
+        "action": "bedrock-agentcore:InvokeAgentRuntime"
+      },
+      {
+        "hops": 1,
+        "chain": [
+          {
+            "from": "apt-lab-roleA-thin",
+            "to": "apt-lab-roleC-overprivileged",
+            "via": "iam:PassRole/sts:AssumeRole"
+          }
+        ],
+        "via_role": "apt-lab-roleC-overprivileged",
+        "reaches": "Code interpreters",
+        "action": "bedrock-agentcore:InvokeCodeInterpreter"
+      }
+    ]
+  },
+  {
+    "principal": "apt-lab-roleC-overprivileged",
+    "Esc_single": true,
+    "Esc_multi": true,
+    "recovered_by_propagate": false,
+    "witnesses": [
+      {
+        "hops": 0,
+        "chain": [],
+        "via_role": "apt-lab-roleC-overprivileged",
+        "reaches": "Agent memory",
+        "action": "bedrock-agentcore:*"
+      },
+      {
+        "hops": 0,
+        "chain": [],
+        "via_role": "apt-lab-roleC-overprivileged",
+        "reaches": "Agent runtimes",
+        "action": "bedrock-agentcore:InvokeAgentRuntime"
+      },
+      {
+        "hops": 0,
+        "chain": [],
+        "via_role": "apt-lab-roleC-overprivileged",
+        "reaches": "Code interpreters",
+        "action": "bedrock-agentcore:InvokeCodeInterpreter"
+      }
+    ]
+  }
+]

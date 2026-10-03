@@ -1,13 +1,13 @@
-# Ground-Truth Delegation Graph — AWS Lab 1 (by hand, v0)
+# Ground-Truth Delegation Graph - AWS Lab 1 (by hand, v0)
 
 The "answer key" for one AWS lab, drawn by hand from the Mitigant/Unit42 role.
 When `extract` runs on this lab, its graph should match this. This is what we check
 the tool against (does it recover the same reach we drew?).
 
 ## Setup (2 agents, same account)
-- **AgentA** — attacker-controlled agent. Runs as **RoleA** = the over-privileged
+- **AgentA** - attacker-controlled agent. Runs as **RoleA** = the over-privileged
   AgentCore starter-toolkit role (wildcard scopes).
-- **AgentB** — victim agent. Owns its own memory store, container image, code
+- **AgentB** - victim agent. Owns its own memory store, container image, code
   interpreter, and runtime.
 
 ## Nodes

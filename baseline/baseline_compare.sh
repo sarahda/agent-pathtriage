@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# baseline_compare.sh (v2) — run existing IAM tools against the agent lab and
+# baseline_compare.sh (v2) - run existing IAM tools against the agent lab and
 # record that they do NOT detect the agent-specific cross-agent primitives.
 #
 # Honest framing: these tools reason about classic IAM. PMapper even models

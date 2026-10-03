@@ -1,4 +1,4 @@
-# E2 — How We Collect the Public Config Sample (v0)
+# E2 - How We Collect the Public Config Sample (v0)
 
 For the prevalence question (how often do public agent setups ship an exploitable
 primitive?), we need a clear, fixed way to pick which public repos/templates go in.
@@ -31,11 +31,11 @@ This note fixes it before term so the sample isn't cherry-picked later.
 
 ## How we report it (so it's honest, not cherry-picked)
 
-- Target size: **n ≥ 100** (stretch 150–200). If we can't reach 100, we report it as a
-  smaller qualitative sample and say so — we don't pad it.
+- Target size: **n ≥ 100** (stretch 150-200). If we can't reach 100, we report it as a
+  smaller qualitative sample and say so - we don't pad it.
 - Report: how many of the n show **at least one** primitive, and the spread across the
   five primitives (CP-1..CP-5).
 - **False positives:** hand-check a random ~30 of the flagged ones and report how many
   the tool got wrong. This keeps the prevalence number honest.
-- Every included repo is analysed **statically, from its published files only** — no
+- Every included repo is analysed **statically, from its published files only** - no
   live system is touched (see RESPONSIBLE_USE.md).

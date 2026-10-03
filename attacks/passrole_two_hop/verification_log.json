@@ -1,0 +1,38 @@
+{
+  "scenario": "passrole_two_hop",
+  "timestamp": "2026-09-27T11:26:09.835478+00:00",
+  "region": "us-east-1",
+  "operator_identity": "arn:aws:iam::559292738121:user/pathtriage-admin",
+  "inputs": {
+    "role_a_thin": "arn:aws:iam::559292738121:role/apt-lab-roleA-thin",
+    "role_c": "arn:aws:iam::559292738121:role/apt-lab-roleC-overprivileged",
+    "memory_id": "apt_lab_agentB_memory-tbI7zfBoBl"
+  },
+  "steps": {
+    "assume_role_a_thin": {
+      "ok": true,
+      "identity": "arn:aws:sts::559292738121:assumed-role/apt-lab-roleA-thin/apt-passrole-athin"
+    },
+    "W1_role_a_thin_direct_read": {
+      "ok": false,
+      "detail": {
+        "api": "ListActors",
+        "error_code": "AccessDeniedException",
+        "message": "User: arn:aws:sts::559292738121:assumed-role/apt-lab-roleA-thin/apt-passrole-athin is not authorized to perform: bedrock-agentcore:ListActors on resource: arn:aws:bedrock-agentcore:us-east-1:559292738121:memory/apt_lab_agentB_memory-tbI7zfBoBl because no identity-based policy allows the bedrock-agentcore:ListActors action"
+      }
+    },
+    "W2_role_a_thin_assumes_role_c": {
+      "ok": true,
+      "identity": "arn:aws:sts::559292738121:assumed-role/apt-lab-roleC-overprivileged/apt-passrole-rolec"
+    },
+    "W3_role_c_read": {
+      "ok": true,
+      "detail": {
+        "api": "ListActors",
+        "actor_count": 0
+      }
+    }
+  },
+  "escalation_confirmed": true,
+  "conclusion": "RoleA_thin has no direct memory access (W1 denied) yet reaches full memory access through the RoleC delegation edge (W2+W3). Single-hop analysis of RoleA_thin alone cannot see this; propagate must traverse the edge."
+}

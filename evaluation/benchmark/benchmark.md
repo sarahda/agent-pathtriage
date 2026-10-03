@@ -98,7 +98,7 @@ visible rather than silently lowering recall.
 
 ## Files
 
-- `extract_iam.py` — generic-IAM adapter (users, roles, managed policies,
+- `extract_iam.py` - generic-IAM adapter (users, roles, managed policies,
   attachments, wildcard PassRole, trust chains) emitting the shared graph format
-- `run_benchmark.py` — scores `check` and `propagate` against ground truth
-- `ground_truth.json` — independent ground truth (escalating entries + safe cases)
+- `run_benchmark.py` - scores `check` and `propagate` against ground truth
+- `ground_truth.json` - independent ground truth (escalating entries + safe cases)

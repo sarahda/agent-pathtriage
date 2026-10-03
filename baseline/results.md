@@ -6,12 +6,12 @@ were **run** (not inferred) on the deployed lab account (559292738121), 2026-10-
 
 ## What was run
 
-- **Cloudsplaining 0.9.1** — `download` (account authorization details) + `scan`.
+- **Cloudsplaining 0.9.1** - `download` (account authorization details) + `scan`.
   Read-only.
-- **PMapper (principalmapper) on Python 3.9 (conda env `pmap`)** —
+- **PMapper (principalmapper) on Python 3.9 (conda env `pmap`)** -
   `graph create --include-regions us-east-1` + `query 'preset privesc *'`.
-  Read-only. (The local Python 3.11 copy is unusable — a removed
-  `from collections import Mapping` import — so the tool was run under a 3.9 env;
+  Read-only. (The local Python 3.11 copy is unusable - a removed
+  `from collections import Mapping` import - so the tool was run under a 3.9 env;
   region was pinned to us-east-1 because the default all-region sweep hangs on a
   disabled opt-in region.)
 
@@ -45,7 +45,7 @@ preset privesc * :  user/pathtriage-admin is an administrative principal
 ```
 
 The key empirical result: **PMapper models the delegation edge that Cloudsplaining
-misses** — it builds `roleA-thin → roleC-overprivileged` via `sts:AssumeRole` in
+misses** - it builds `roleA-thin → roleC-overprivileged` via `sts:AssumeRole` in
 its graph. **But it still reports 0 privilege-escalation paths.** The only
 principal it calls administrative is the pre-existing human user
 `pathtriage-admin`, not RoleC. PMapper has the role-to-role edge model but no
@@ -70,7 +70,7 @@ the two reasons bracket the contribution:
 3. **AgentPathTriage** computes `eff(p)` across the agent resources reached
    through the edge, so it flags RoleA→RoleC as an escalation.
 
-This is not a claim that the baselines are weak tools — they are strong at what
+This is not a claim that the baselines are weak tools - they are strong at what
 they model. The point is where the model ends: PMapper's edge model stops exactly
 where agent-resource semantics begin, which is the gap this project fills. The
 comparison is reported as this capability boundary plus two empirical anchors

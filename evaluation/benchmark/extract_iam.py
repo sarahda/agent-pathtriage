@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AgentPathTriage — generic IAM adapter for external benchmarking (extract_iam)
+AgentPathTriage - generic IAM adapter for external benchmarking (extract_iam)
 
 The agentic `extract` models bedrock-agentcore / ECR / memory / runtime edges.
 The IAM Vulnerable benchmark (BishopFox) is generic AWS IAM: customer-managed

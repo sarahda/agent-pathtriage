@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AgentPathTriage — propagate (v1)
+AgentPathTriage - propagate (v1)
 
 Multi-hop reachability over delegation edges. This is the core technical
 contribution: it recovers escalations that single-hop `check` structurally
@@ -13,7 +13,7 @@ edges and the act edges of every role reachable from p by following delegation
 Esc_multi(p) is TRUE iff eff(p) contains a wildcard (cross-agent) act edge,
 whether that edge is p's own or inherited through the chain.
 
-The interesting set is {p : Esc_multi(p) and not Esc_single(p)} — principals a
+The interesting set is {p : Esc_multi(p) and not Esc_single(p)} - principals a
 single-hop analyser calls safe, but that are escalated once the delegation chain
 is followed. The PassRole two-hop scenario lands exactly here, matching the
 mutation-testing false negative `hard_passrole_two_hop`.

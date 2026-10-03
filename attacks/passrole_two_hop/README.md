@@ -11,11 +11,11 @@ appears when you follow the delegation edge.
 RoleA_thin  --iam:PassRole / sts:AssumeRole-->  RoleC (over-privileged)  --act-->  AgentB memory
 ```
 
-- **RoleA_thin** — only `iam:PassRole` and `sts:AssumeRole`, both scoped to RoleC.
+- **RoleA_thin** - only `iam:PassRole` and `sts:AssumeRole`, both scoped to RoleC.
   No `bedrock-agentcore` permissions of its own.
-- **RoleC** — `bedrock-agentcore:*` on `memory/*` (intentionally over-privileged,
+- **RoleC** - `bedrock-agentcore:*` on `memory/*` (intentionally over-privileged,
   research only).
-- **Target** — AgentB's memory store.
+- **Target** - AgentB's memory store.
 
 ## Why it matters
 
@@ -70,8 +70,8 @@ API responses rather than a fixed outcome.
 
 ## Files
 
-- `exploit.py` — the three-witness verifier.
-- `verification_log.json` — the recorded run (real API responses, timestamps,
+- `exploit.py` - the three-witness verifier.
+- `verification_log.json` - the recorded run (real API responses, timestamps,
   assumed-role identities).
 
 ## Infrastructure

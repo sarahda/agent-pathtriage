@@ -5,15 +5,11 @@
   "nodes": [
     {
       "kind": "role",
-      "id": "apt-lab-roleA-overprivileged"
+      "id": "apt-lab-roleA-thin"
     },
     {
       "kind": "role",
-      "id": "apt-lab-roleB-scoped"
-    },
-    {
-      "kind": "resource",
-      "id": "ECR images"
+      "id": "apt-lab-roleC-overprivileged"
     },
     {
       "kind": "resource",
@@ -21,55 +17,44 @@
     },
     {
       "kind": "resource",
-      "id": "Code interpreters"
+      "id": "Agent runtimes"
     },
     {
       "kind": "resource",
-      "id": "Agent runtimes"
+      "id": "Code interpreters"
     }
   ],
   "edges": [
     {
-      "rel": "act",
-      "action": "ecr:GetDownloadUrlForLayer",
-      "wildcard": true,
-      "source": "apt-lab-roleA-overprivileged",
-      "target": "ECR images"
+      "rel": "delegate",
+      "via": "iam:PassRole",
+      "vias": [
+        "iam:PassRole",
+        "sts:AssumeRole"
+      ],
+      "source": "apt-lab-roleA-thin",
+      "target": "apt-lab-roleC-overprivileged"
     },
     {
       "rel": "act",
       "action": "bedrock-agentcore:*",
       "wildcard": true,
-      "source": "apt-lab-roleA-overprivileged",
+      "source": "apt-lab-roleC-overprivileged",
       "target": "Agent memory"
-    },
-    {
-      "rel": "act",
-      "action": "bedrock-agentcore:InvokeCodeInterpreter",
-      "wildcard": true,
-      "source": "apt-lab-roleA-overprivileged",
-      "target": "Code interpreters"
     },
     {
       "rel": "act",
       "action": "bedrock-agentcore:InvokeAgentRuntime",
       "wildcard": true,
-      "source": "apt-lab-roleA-overprivileged",
+      "source": "apt-lab-roleC-overprivileged",
       "target": "Agent runtimes"
     },
     {
       "rel": "act",
-      "action": "bedrock-agentcore:ListEvents",
-      "wildcard": false,
-      "source": "apt-lab-roleB-scoped",
-      "target": "Agent memory"
-    },
-    {
-      "rel": "act",
-      "action": "ecr:GetDownloadUrlForLayer",
-      "wildcard": false,
-      "source": "apt-lab-roleB-scoped",
-      "target": "ECR images"
+      "action": "bedrock-agentcore:InvokeCodeInterpreter",
+      "wildcard": true,
+      "source": "apt-lab-roleC-overprivileged",
+      "target": "Code interpreters"
     }
   ]
 }

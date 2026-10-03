@@ -10,7 +10,7 @@ wildcard permissions are what let it reach AgentB's resources.
 
 ## Files
 - `main.tf` / `variables.tf` : provider, region, tags
-- `iam.tf` : **RoleA (over-privileged)** and **RoleB (scoped)** — the core of the study
+- `iam.tf` : **RoleA (over-privileged)** and **RoleB (scoped)** - the core of the study
 - `resources.tf` : AgentB's ECR repo and memory store (the witnesses)
 - `agents.tf` : the two `agent_runtime` resources
 - `outputs.tf` : ARNs that `extract` and the PoCs consume

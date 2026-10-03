@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-AgentPathTriage — extract PoC (Week 0)
+AgentPathTriage - extract PoC (Week 0)
 Minimal proof: an over-privileged AgentCore execution-role JSON  ->  delegation graph.
 
 Shows that `extract` can turn deployed IAM config into nodes + `act` edges,
 and flag the wildcard scopes that create cross-agent reach (confused deputy).
-Not the real tool — just the "config -> graph works" proof.
+Not the real tool - just the "config -> graph works" proof.
 """
 import json, sys
 import networkx as nx
@@ -89,7 +89,7 @@ def draw(G, out="delegation_graph.png"):
     elabels = {(u, v): d.get("rel") for u, v, d in G.edges(data=True)}
     nx.draw_networkx_edge_labels(G, pos, edge_labels=elabels, font_size=7)
 
-    plt.title("AgentPathTriage extract PoC — delegation graph from AgentCore role\n"
+    plt.title("AgentPathTriage extract PoC - delegation graph from AgentCore role\n"
               "red = wildcard `act` edge (cross-agent reach = confused deputy)", fontsize=10)
     plt.axis("off"); plt.tight_layout(); plt.savefig(out, dpi=140)
     print(f"graph image saved: {out}")

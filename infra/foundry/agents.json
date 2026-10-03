@@ -1,0 +1,11 @@
+{
+  "_comment": "Agent-service runtime layer for the Foundry lab (the part above IaC, as AWS agent runtimes sit above IAM). foundry_cp.py reads this plus terraform state.",
+  "agents": [
+    {"name": "agentA", "project": "agentA", "identity": "apt-agentA-thin"},
+    {"name": "agentB", "project": "agentB", "identity": "apt-agentB-broad"}
+  ],
+  "invocations": [
+    {"caller": "agentA", "callee": "agentB", "mediated": false}
+  ],
+  "shared_memory": []
+}

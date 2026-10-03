@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AgentPathTriage — check (v1)
+AgentPathTriage - check (v1)
 
 Decides the escalation predicate Esc(p) over a delegation graph produced by
 `extract`, and returns the witness path. This is the RQ1/RQ3 decision step: it
