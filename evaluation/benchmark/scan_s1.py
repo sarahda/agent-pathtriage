@@ -12,8 +12,30 @@ are out of this pilot's scope (HCL only) and reported as a coverage gap.
 Usage:
     python3 scan_s1.py --root /tmp/corpus_s1 --json s1_prevalence.json
 """
-import argparse, json, os, glob, collections
+import argparse, json, os, glob, collections, hashlib
 from extract_static import scan_template
+
+# R4: exclude provider test fixtures + intentionally-vulnerable security labs,
+# and content-hash dedup fork copies.
+EXCLUDE_SUBSTR = (
+    "terraform-provider-aws", "terraform-provider-awscc",
+    "pathfinding-labs", "cloudgoat", "iam-vulnerable", "aigoat",
+    "attack-path-lab", "klanker-maker",
+    "building-and-automating-penetration-testing",
+)
+
+def is_excluded(path):
+    p = path.replace(os.sep, "/").lower()
+    return "/testdata/" in p or any(s in p for s in EXCLUDE_SUBSTR)
+
+def template_hash(template_dir):
+    parts = []
+    for f in sorted(glob.glob(os.path.join(template_dir, "*.tf"))):
+        try:
+            parts.append(open(f, encoding="utf-8", errors="ignore").read())
+        except Exception:
+            pass
+    return hashlib.sha256("\n".join(parts).encode("utf-8", "ignore")).hexdigest()
 
 
 def tf_dirs(repo):
@@ -39,6 +61,9 @@ def main():
     repos = sorted(d for d in glob.glob(os.path.join(a.root, "*")) if os.path.isdir(d))
     rows = []
     per_repo = collections.OrderedDict()
+    n_excluded = 0
+    n_dup = 0
+    seen_hashes = set()
     for repo in repos:
         rn = os.path.basename(repo)
         rc = {"templates": 0, "delegation": 0, "overprivilege_classic": 0,
@@ -48,6 +73,15 @@ def main():
             f = scan_template(d, recursive=False)
             if f["files"] == 0:
                 continue
+            # R4: drop provider testdata / security labs, content-hash dedup forks
+            if is_excluded(d):
+                n_excluded += 1
+                continue
+            h = template_hash(d)
+            if h in seen_hashes:
+                n_dup += 1
+                continue
+            seen_hashes.add(h)
             f["template"] = f"{rn}/{os.path.relpath(d, repo)}"
             f["is_submodule"] = is_submodule(repo, d)
             rows.append(f)
@@ -67,8 +101,9 @@ def main():
         c = sum(1 for r in rowset if r[key])
         return c, (100.0 * c / len(rowset) if rowset else 0.0)
 
-    print("=== S1 (vendor-official) static pilot - Terraform templates ===")
-    print(f"corpus repos: {len(per_repo)}   tf templates (dirs): {n}   (root modules: {len(roots)}, submodules: {n-len(roots)})\n")
+    print("=== static prevalence scan (R4-filtered) - Terraform templates ===")
+    print(f"R4 filter: excluded (testdata/labs) {n_excluded}, deduped (fork copies) {n_dup}")
+    print(f"corpus repos: {len(per_repo)}   CLEAN tf templates (dirs): {n}   (root modules: {len(roots)}, submodules: {n-len(roots)})\n")
     print("per-repo (templates / delegation / chain-classic / chain-agentic):")
     for rn, rc in per_repo.items():
         print(f"  {rn:52s} t={rc['templates']:<4d} deleg={rc['delegation']:<4d} chainC={rc['chainable_classic']:<3d} chainA={rc['chainable_agentic']}")

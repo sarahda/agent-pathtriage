@@ -1,0 +1,4474 @@
+{
+  "n": 140,
+  "wired_recovered": 56,
+  "resource_scope_gap": 9,
+  "full_ac_star": 3,
+  "rows": [
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "ag-ui-server"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "46ki75__internal/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "gateway",
+          "agentcore_gateway"
+        ],
+        [
+          "gateway_target",
+          "agentcore_gateway_lambda_target"
+        ],
+        [
+          "memory",
+          "agentcore_memory"
+        ],
+        [
+          "memory_strategy",
+          "semantic"
+        ],
+        [
+          "agent_runtime",
+          "agentcore_runtime"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "dev_endpoint"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "prod_endpoint"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "Aadarshg087__agentcore-services-poc/hyperIvory/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "gateway",
+          "agentcore_gateway"
+        ],
+        [
+          "gateway_target",
+          "agentcore_gateway_lambda_target"
+        ],
+        [
+          "memory",
+          "agentcore_memory"
+        ],
+        [
+          "memory_strategy",
+          "semantic"
+        ],
+        [
+          "agent_runtime",
+          "agentcore_runtime"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "dev_endpoint"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "prod_endpoint"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "Aadarshg087__agentcore-services-poc/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "main"
+        ],
+        [
+          "memory",
+          "main"
+        ],
+        [
+          "gateway",
+          "main"
+        ],
+        [
+          "gateway_target",
+          "mcp_tools"
+        ],
+        [
+          "gateway_target",
+          "rag_tool"
+        ]
+      ],
+      "wired": [
+        "gateway",
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "GetMemory",
+        "InvokeGateway",
+        "ListEvents",
+        "RetrieveMemory"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "GetMemory",
+        "InvokeGateway",
+        "RetrieveMemory"
+      ],
+      "action_gap_pct": 60.0,
+      "template": "Bernardo-Dauber__chat-agentcore/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "memory",
+          "this"
+        ],
+        [
+          "memory_strategy",
+          "summary"
+        ],
+        [
+          "memory_strategy",
+          "user_preferences"
+        ],
+        [
+          "memory_strategy",
+          "semantic_facts"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "CloudCraftersOrg__cloudwatch-agent/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "endpoint"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "Coalfire-AI__terraform-modules/modules/agentcore_agent"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "main"
+        ],
+        [
+          "memory",
+          "main"
+        ],
+        [
+          "gateway",
+          "main"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "CopilotKit__CopilotKit/examples/integrations/agentcore/infra-terraform/modules/backend"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "browser",
+          "example"
+        ],
+        [
+          "api_key_credential_provider",
+          "example"
+        ],
+        [
+          "memory_strategy",
+          "example"
+        ],
+        [
+          "memory_strategy",
+          "custom_semantic"
+        ],
+        [
+          "workload_identity",
+          "example"
+        ],
+        [
+          "token_vault_cmk",
+          "example"
+        ],
+        [
+          "memory",
+          "example"
+        ],
+        [
+          "code_interpreter",
+          "example"
+        ],
+        [
+          "gateway",
+          "example"
+        ],
+        [
+          "gateway_target",
+          "example"
+        ],
+        [
+          "agent_runtime",
+          "example"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "example"
+        ]
+      ],
+      "wired": [
+        "code_interpreter",
+        "gateway",
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "Donngi__terraform-aws-provider-description/terraform-template"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "veraslack"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "CallTool",
+        "CreateEvent",
+        "DeleteMemoryRecord",
+        "GetEvent",
+        "GetMemory",
+        "GetMemoryRecord",
+        "InvokeGateway",
+        "ListEvents",
+        "ListMemories",
+        "ListMemoryRecords",
+        "RetrieveMemoryRecords"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "CallTool",
+        "CreateEvent",
+        "DeleteMemoryRecord",
+        "GetEvent",
+        "GetMemory",
+        "GetMemoryRecord",
+        "InvokeGateway",
+        "ListEvents",
+        "ListMemories",
+        "ListMemoryRecords",
+        "RetrieveMemoryRecords"
+      ],
+      "action_gap_pct": null,
+      "template": "KyMidd__AgentCore_AgenticSlackBot/worker"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "main"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "LeonardoSanBenitez__ComplianceOps-Reference-Architecture-for-Bedrock-Agentic-Chatbot/infra/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "aiagent009_public_runtime"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "Leviavii__aviac/c2c_issues/AWS/AIAgent-009"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "LuisOsuna117__terraform-aws-agentcore/modules/runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "cloud_engineer_agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "CreateCodeInterpreter",
+        "CreateEvent",
+        "CreateMemory",
+        "DeleteCodeInterpreter",
+        "DeleteEvent",
+        "DeleteMemoryRecord",
+        "GetCodeInterpreter",
+        "GetCodeInterpreterSession",
+        "GetEvent",
+        "GetMemory",
+        "GetMemoryRecord",
+        "GetResourceApiKey",
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId",
+        "InvokeAgentRuntime",
+        "InvokeCodeInterpreter",
+        "ListActors",
+        "ListCodeInterpreterSessions",
+        "ListCodeInterpreters",
+        "ListEvents",
+        "ListMemoryRecords",
+        "ListSessions",
+        "RetrieveMemoryRecords",
+        "StartCodeInterpreterSession",
+        "StopCodeInterpreterSession"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "CreateCodeInterpreter",
+        "CreateEvent",
+        "CreateMemory",
+        "DeleteCodeInterpreter",
+        "DeleteEvent",
+        "DeleteMemoryRecord",
+        "GetCodeInterpreter",
+        "GetCodeInterpreterSession",
+        "GetEvent",
+        "GetMemory",
+        "GetMemoryRecord",
+        "GetResourceApiKey",
+        "InvokeAgentRuntime",
+        "InvokeCodeInterpreter",
+        "ListActors",
+        "ListCodeInterpreterSessions",
+        "ListCodeInterpreters",
+        "ListEvents",
+        "ListMemoryRecords",
+        "ListSessions",
+        "RetrieveMemoryRecords",
+        "StartCodeInterpreterSession",
+        "StopCodeInterpreterSession"
+      ],
+      "action_gap_pct": null,
+      "template": "ReyanL__demo-cloud-engineer-agent/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "mcp"
+        ],
+        [
+          "resource_policy",
+          "mcp_runtime"
+        ],
+        [
+          "agent_runtime",
+          "agent"
+        ],
+        [
+          "resource_policy",
+          "agent_runtime"
+        ],
+        [
+          "gateway",
+          "mcp"
+        ],
+        [
+          "gateway_target",
+          "mcp_runtime"
+        ]
+      ],
+      "wired": [
+        "gateway"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "Rohanjain2312__customs-court/deploy/aws/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "main"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "main"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "ShoFukada__agentcore_hands_on/infrastructure/modules/agent_runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "code_interpreter",
+          "hand"
+        ],
+        [
+          "agent_runtime",
+          "agent_runtime"
+        ]
+      ],
+      "wired": [
+        "code_interpreter"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "X-GPT__mymemo-agent/infra/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "zenMicro"
+        ],
+        [
+          "agent_runtime",
+          "zenMicro"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "ZenMicro-Tech__terraform-zm-infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aal80__agentcore-samples/empty-shell-with-agentcore-sdk/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aal80__agentcore-samples/empty-shell-with-expressjs/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aal80__agentcore-samples/empty-shell-with-fastapi/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aal80__agentcore-samples/empty-shell-with-flask/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aal80__agentcore-samples/simple-strands-agent/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "memory",
+          "this"
+        ],
+        [
+          "memory_strategy",
+          "user_preference"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "GetEvent",
+        "ListEvents",
+        "ListMemoryRecords",
+        "RetrieveMemoryRecords"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "aal80__agentcore-samples/strands-agent-with-memory/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aal80__agentcore-samples/strands-agent-with-observability/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "orchestrator_agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aal80__agentcore-workshops/a2a-with-strands/terraform/orchestrator-agent"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "shopping_agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aal80__agentcore-workshops/a2a-with-strands/terraform/shopping-agent"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "weather_agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aal80__agentcore-workshops/a2a-with-strands/terraform/weather-agent"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "*"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": true,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "<all-beyond-required (bedrock-agentcore:*)>"
+      ],
+      "action_gap_pct": null,
+      "template": "aal80__agentcore-workshops/building-ai-agents/terraform/runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "adona9__mcp-container-aws/infra/platform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agentcore_runtime"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "ajaydhungel7__Fixture_Agent/terraform/agentcore"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "email"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "CallTool",
+        "CreateEvent",
+        "DeleteMemoryRecord",
+        "GetEvent",
+        "GetMemory",
+        "GetMemoryRecord",
+        "InvokeGateway",
+        "ListEvents",
+        "ListMemories",
+        "ListMemoryRecords",
+        "RetrieveMemoryRecords"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "CallTool",
+        "CreateEvent",
+        "DeleteMemoryRecord",
+        "GetEvent",
+        "GetMemory",
+        "GetMemoryRecord",
+        "InvokeGateway",
+        "ListEvents",
+        "ListMemories",
+        "ListMemoryRecords",
+        "RetrieveMemoryRecords"
+      ],
+      "action_gap_pct": null,
+      "template": "alexjmoore8__AgenticEmailBot/worker"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "incident_response"
+        ],
+        [
+          "memory",
+          "incident_memory"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "andrewblooman__Cohort/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agui"
+        ],
+        [
+          "agent_runtime",
+          "mcp"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId",
+        "InvokeAgentRuntime"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "InvokeAgentRuntime"
+      ],
+      "action_gap_pct": null,
+      "template": "avparkhi__agui-agentcore-demo/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agentcore_runtime"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "InvokeGateway"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "InvokeGateway"
+      ],
+      "action_gap_pct": null,
+      "template": "aws-ia__terraform-aws-transfer-family/examples/sftp-automated-workflows-agentcore/modules/agentcore-agent"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "argocd_mcp"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__psp-reusable-artifacts/agentcore-mcp"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-AI-Powered-EKS-Migration-Assessment/terraform/modules/agentcore_runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "registry",
+          "fsi_oauth"
+        ],
+        [
+          "workload_identity",
+          "oauth_demo_consumer"
+        ],
+        [
+          "agent_runtime",
+          "kyc_oauth"
+        ],
+        [
+          "agent_runtime",
+          "kyc"
+        ],
+        [
+          "policy_engine",
+          "kyc"
+        ],
+        [
+          "policy",
+          "baseline_permit"
+        ],
+        [
+          "policy",
+          "forbid_unknown_customers"
+        ],
+        [
+          "policy",
+          "guardrail_binding"
+        ],
+        [
+          "gateway",
+          "kyc_oauth"
+        ],
+        [
+          "gateway_target",
+          "kyc_oauth_tools"
+        ],
+        [
+          "registry",
+          "fsi"
+        ],
+        [
+          "memory",
+          "kyc"
+        ],
+        [
+          "memory_strategy",
+          "assessment_facts"
+        ],
+        [
+          "memory_strategy",
+          "assessment_summary"
+        ],
+        [
+          "harness",
+          "kyc"
+        ],
+        [
+          "gateway",
+          "kyc"
+        ],
+        [
+          "gateway_target",
+          "kyc_tools"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "aws-samples__sample-FAST-applications/samples/anycompany-bank/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "a2a_agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-a2a-gateway/examples/terraform/modules/agent-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "interactive"
+        ],
+        [
+          "agent_runtime",
+          "sdk"
+        ],
+        [
+          "agent_runtime",
+          "mcp_tools"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "team_demo"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/team_demo"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "mcp_server"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "mcp_server"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentcore-mcp-apps/infrastructure/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-ai-lifecycle-iac/infrastructure/modules/agentcore-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "main"
+        ],
+        [
+          "gateway_target",
+          "sap_tool"
+        ],
+        [
+          "memory",
+          "main"
+        ],
+        [
+          "gateway",
+          "main"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "aws-samples__sample-agentic-ai-process-automation-for-sap/terraform/modules/backend"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "default"
+        ],
+        [
+          "agent_runtime",
+          "default"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "aws-samples__sample-agentic-chatbot-accelerator/iac-terraform/modules/agent_core"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "idp_agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-idp-evaluation-framework/infrastructure"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "code_interpreter",
+          "code_interpreter"
+        ],
+        [
+          "agent_runtime",
+          "agent_runtime"
+        ]
+      ],
+      "wired": [
+        "code_interpreter"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "CreateCodeInterpreter",
+        "CreateEvent",
+        "DeleteCodeInterpreter",
+        "GetCodeInterpreter",
+        "GetCodeInterpreterSession",
+        "GetEvent",
+        "GetGateway",
+        "GetMemory",
+        "InvokeCodeInterpreter",
+        "InvokeGateway",
+        "ListCodeInterpreterSessions",
+        "ListCodeInterpreters",
+        "ListEvents",
+        "ListGatewayTargets",
+        "ListGateways",
+        "ListMemoryStrategies",
+        "PutMemoryEvent",
+        "QueryMemory",
+        "StartCodeInterpreterSession",
+        "StopCodeInterpreterSession"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": true,
+      "action_gap": [
+        "CreateCodeInterpreter",
+        "CreateEvent",
+        "DeleteCodeInterpreter",
+        "GetCodeInterpreter",
+        "GetEvent",
+        "GetGateway",
+        "GetMemory",
+        "InvokeGateway",
+        "ListCodeInterpreters",
+        "ListEvents",
+        "ListGatewayTargets",
+        "ListGateways",
+        "ListMemoryStrategies",
+        "PutMemoryEvent",
+        "QueryMemory"
+      ],
+      "action_gap_pct": 75.0,
+      "template": "aws-samples__sample-agentic-value-accelerator/applications/reference_implementations/market-surveillance/infrastructure/modules/agentcore-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-value-accelerator/applications/reference_implementations/sales-recommend/infrastructure/modules/agentcore"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/agent-runtime-agentcore/iac/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/conversational-assistant/iac/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/evaluator-optimizer/iac/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/event-driven-agent/iac/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/human-approval-workflow/iac/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/plan-execute-agent/iac/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/research-report-generator/iac/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/supervisor-specialists/iac/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/workflow-pipeline/iac/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "main"
+        ],
+        [
+          "memory_strategy",
+          "session_summarizer"
+        ],
+        [
+          "memory_strategy",
+          "preference_learner"
+        ],
+        [
+          "memory_strategy",
+          "fact_extractor"
+        ],
+        [
+          "agent_runtime",
+          "main"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "CreateMemory",
+        "DeleteMemory",
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId",
+        "ListEvents",
+        "ListMemories",
+        "RetrieveMemoryRecords"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "CreateMemory",
+        "DeleteMemory",
+        "ListMemories"
+      ],
+      "action_gap_pct": 50.0,
+      "template": "aws-samples__sample-ai-agent-accelerator/iac"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "project_memory"
+        ],
+        [
+          "memory_strategy",
+          "project_semantic"
+        ],
+        [
+          "memory_strategy",
+          "project_preferences"
+        ],
+        [
+          "agent_runtime",
+          "core_services"
+        ],
+        [
+          "agent_runtime",
+          "sparky"
+        ],
+        [
+          "code_interpreter",
+          "sparky_ci"
+        ],
+        [
+          "browser",
+          "sparky_browser"
+        ],
+        [
+          "memory",
+          "sparky_memory"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "ConnectBrowserAutomationStream",
+        "ConnectBrowserLiveViewStream",
+        "CreateEvent",
+        "DeleteEvent",
+        "GetBrowser",
+        "GetBrowserSession",
+        "GetCodeInterpreter",
+        "GetCodeInterpreterSession",
+        "GetEvent",
+        "GetMemoryRecord",
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId",
+        "InvokeBrowser",
+        "InvokeCodeInterpreter",
+        "ListActors",
+        "ListCodeInterpreterSessions",
+        "ListEvents",
+        "ListMemoryRecords",
+        "ListSessions",
+        "RetrieveMemoryRecords",
+        "StartBrowserSession",
+        "StartCodeInterpreterSession",
+        "StopBrowserSession",
+        "StopCodeInterpreterSession",
+        "UpdateBrowserStream"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": true,
+      "action_gap": [
+        "ConnectBrowserAutomationStream",
+        "ConnectBrowserLiveViewStream",
+        "DeleteEvent",
+        "GetBrowser",
+        "GetBrowserSession",
+        "GetCodeInterpreter",
+        "GetCodeInterpreterSession",
+        "InvokeBrowser",
+        "InvokeCodeInterpreter",
+        "ListActors",
+        "ListCodeInterpreterSessions",
+        "ListSessions",
+        "StartBrowserSession",
+        "StartCodeInterpreterSession",
+        "StopBrowserSession",
+        "StopCodeInterpreterSession",
+        "UpdateBrowserStream"
+      ],
+      "action_gap_pct": 73.9,
+      "template": "aws-samples__sample-ai-assistant-on-agentcore/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "CreateMemory",
+        "DeleteSession",
+        "GetMemory",
+        "InvokeAgentRuntime",
+        "InvokeGateway",
+        "InvokeMemory",
+        "ListEvents",
+        "ListSessions"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "CreateMemory",
+        "DeleteSession",
+        "GetMemory",
+        "InvokeAgentRuntime",
+        "InvokeGateway",
+        "InvokeMemory",
+        "ListEvents",
+        "ListSessions"
+      ],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-cloudops-multi-agent-system/terraform/modules/core/agent-runtime-base"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "CreateMemory",
+        "DeleteSession",
+        "GetMemory",
+        "InvokeAgentRuntime",
+        "InvokeGateway",
+        "InvokeMemory",
+        "ListEvents",
+        "ListSessions"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "CreateEvent",
+        "CreateMemory",
+        "DeleteSession",
+        "GetMemory",
+        "InvokeAgentRuntime",
+        "InvokeGateway",
+        "InvokeMemory",
+        "ListEvents",
+        "ListSessions"
+      ],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-cloudops-multi-agent-system/terraform/modules/core/agentcore-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "mcp_server"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-finops-agent/terraform/modules/agentcore-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-agentcore-sdk/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-expressjs/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-fastapi/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-flask/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "mcp_server"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-genai-strats/agentcore/simple-mcp-server/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-genai-strats/agentcore/strands-simple-agent/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "workload_identity",
+          "hr_agent"
+        ],
+        [
+          "agent_runtime",
+          "agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-genai-strats/workshops/agentcore-workday-integration/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "orchestrator"
+        ],
+        [
+          "agent_runtime",
+          "mcp_runtime"
+        ],
+        [
+          "memory",
+          "this"
+        ],
+        [
+          "memory_strategy",
+          "task_summary"
+        ],
+        [
+          "gateway",
+          "this"
+        ],
+        [
+          "gateway_target",
+          "mcp_engine"
+        ]
+      ],
+      "wired": [
+        "gateway",
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "aws-samples__sample-governed-agentic-companion/agentcore/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "medical_nudging"
+        ],
+        [
+          "online_evaluation_config",
+          "quality_trend"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "GetConfigurationBundle",
+        "GetConfigurationBundleVersion",
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "GetConfigurationBundle",
+        "GetConfigurationBundleVersion"
+      ],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-healthcare-decision-support-agent/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "gateway",
+          "web_search"
+        ],
+        [
+          "agent_runtime",
+          "harvest"
+        ],
+        [
+          "agent_runtime",
+          "consumption"
+        ],
+        [
+          "agent_runtime",
+          "chat"
+        ],
+        [
+          "code_interpreter",
+          "harvest"
+        ]
+      ],
+      "wired": [
+        "code_interpreter",
+        "gateway"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "aws-samples__sample-okf-llm-wiki/infra/compute"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "CompleteResourceTokenAuth",
+        "ConnectBrowserAutomationStream",
+        "ConnectBrowserLiveViewStream",
+        "CreateBrowser",
+        "CreateCodeInterpreter",
+        "CreateEvent",
+        "CreateMemoryRecord",
+        "CreateSession",
+        "CreateWorkloadIdentity",
+        "DeleteBrowser",
+        "DeleteCodeInterpreter",
+        "GetAgentCard",
+        "GetAgentRuntime",
+        "GetAgentRuntimeEndpoint",
+        "GetBrowser",
+        "GetBrowserSession",
+        "GetCodeInterpreter",
+        "GetCodeInterpreterSession",
+        "GetEvent",
+        "GetSession",
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForUserId",
+        "InvokeAgentRuntime",
+        "InvokeAgentRuntimeForUser",
+        "InvokeCodeInterpreter",
+        "ListBrowserSessions",
+        "ListBrowsers",
+        "ListCodeInterpreterSessions",
+        "ListCodeInterpreters",
+        "ListEvents",
+        "ListMemoryRecords",
+        "ListSessions",
+        "RetrieveMemoryRecords",
+        "StartBrowserSession",
+        "StartCodeInterpreterSession",
+        "StopBrowserSession",
+        "StopCodeInterpreterSession",
+        "UpdateBrowserSession",
+        "UpdateBrowserStream"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "CompleteResourceTokenAuth",
+        "ConnectBrowserAutomationStream",
+        "ConnectBrowserLiveViewStream",
+        "CreateBrowser",
+        "CreateCodeInterpreter",
+        "CreateEvent",
+        "CreateMemoryRecord",
+        "CreateSession",
+        "CreateWorkloadIdentity",
+        "DeleteBrowser",
+        "DeleteCodeInterpreter",
+        "GetAgentCard",
+        "GetAgentRuntime",
+        "GetAgentRuntimeEndpoint",
+        "GetBrowser",
+        "GetBrowserSession",
+        "GetCodeInterpreter",
+        "GetCodeInterpreterSession",
+        "GetEvent",
+        "GetSession",
+        "InvokeAgentRuntime",
+        "InvokeAgentRuntimeForUser",
+        "InvokeCodeInterpreter",
+        "ListBrowserSessions",
+        "ListBrowsers",
+        "ListCodeInterpreterSessions",
+        "ListCodeInterpreters",
+        "ListEvents",
+        "ListMemoryRecords",
+        "ListSessions",
+        "RetrieveMemoryRecords",
+        "StartBrowserSession",
+        "StartCodeInterpreterSession",
+        "StopBrowserSession",
+        "StopCodeInterpreterSession",
+        "UpdateBrowserSession",
+        "UpdateBrowserStream"
+      ],
+      "action_gap_pct": null,
+      "template": "aws-samples__sample-strands-agent-with-agentcore/infra/modules/runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agentcore_runtime"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "aws-samples__serverless-patterns/s3-lambda-agentcore"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "agent_memory"
+        ],
+        [
+          "agent_runtime",
+          "agent_runtime"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "aws-solutions-library-samples__guidance-for-agentic-ai-operational-foundations-on-aws/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "basic_agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/basic-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "weather_agent"
+        ],
+        [
+          "browser",
+          "browser"
+        ],
+        [
+          "memory",
+          "memory"
+        ],
+        [
+          "code_interpreter",
+          "code_interpreter"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/end-to-end-weather-agent"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "mcp_server"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/mcp-server-agentcore-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "orchestrator"
+        ],
+        [
+          "agent_runtime",
+          "specialist"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "agent_memory"
+        ],
+        [
+          "gateway",
+          "cx_gateway"
+        ],
+        [
+          "agent_runtime",
+          "agent_runtime"
+        ]
+      ],
+      "wired": [
+        "gateway",
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "awslabs__agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "awslabs__automated-security-helper/deploy/terraform/modules/agentcore"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "main"
+        ],
+        [
+          "memory",
+          "main"
+        ],
+        [
+          "gateway",
+          "main"
+        ],
+        [
+          "gateway_target",
+          "sample_tool"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "awslabs__fullstack-solution-template-for-agentcore/infra-terraform/modules/backend"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "sentry"
+        ],
+        [
+          "gateway",
+          "web_search"
+        ],
+        [
+          "agent_runtime",
+          "threat_designer"
+        ]
+      ],
+      "wired": [
+        "gateway"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "awslabs__threat-designer/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "browser",
+          "this"
+        ],
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "baz-scm__terraform-aws-templates/private-spec-reviewer"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "sentinel_runtime"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "sentinel_dev_endpoint"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "sentinel_prod_endpoint"
+        ],
+        [
+          "gateway",
+          "agentcore_gateway"
+        ],
+        [
+          "gateway_target",
+          "agentcore_gateway_lambda_target"
+        ],
+        [
+          "gateway_target",
+          "agentcore_gateway_cloudwatch_target"
+        ],
+        [
+          "gateway_target",
+          "agentcore_gateway_prometheus_target"
+        ],
+        [
+          "memory",
+          "agentcore_memory"
+        ],
+        [
+          "memory_strategy",
+          "incidents"
+        ],
+        [
+          "agent_runtime",
+          "agentcore_runtime"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "dev_endpoint"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "prod_endpoint"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "BatchCreateMemoryRecords",
+        "BatchDeleteMemoryRecords",
+        "BatchUpdateMemoryRecords",
+        "CreateCodeInterpreter",
+        "CreateEvent",
+        "CreateMemoryRecord",
+        "DeleteCodeInterpreter",
+        "DeleteEvent",
+        "DeleteMemoryRecord",
+        "GetCodeInterpreter",
+        "GetCodeInterpreterSession",
+        "GetEvent",
+        "GetMemoryRecord",
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId",
+        "InvokeCodeInterpreter",
+        "ListCodeInterpreterSessions",
+        "ListCodeInterpreters",
+        "ListEvents",
+        "ListMemoryRecords",
+        "RetrieveMemoryRecords",
+        "StartCodeInterpreterSession",
+        "StopCodeInterpreterSession",
+        "UpdateMemoryRecord"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "BatchDeleteMemoryRecords",
+        "CreateCodeInterpreter",
+        "CreateMemoryRecord",
+        "DeleteCodeInterpreter",
+        "DeleteEvent",
+        "DeleteMemoryRecord",
+        "GetCodeInterpreter",
+        "GetCodeInterpreterSession",
+        "InvokeCodeInterpreter",
+        "ListCodeInterpreterSessions",
+        "ListCodeInterpreters",
+        "StartCodeInterpreterSession",
+        "StopCodeInterpreterSession",
+        "UpdateMemoryRecord"
+      ],
+      "action_gap_pct": 63.6,
+      "template": "bcfmtolgahan__eks-sre-agent/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agentcore_runtime"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "caylent__agentcore-blog/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "cgono__test-aws-agentcore/infra/terraform/modules/agentcore_agent_runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "mojobot_runtime"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "danielakinsella__mojobot/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "dr-rahulgaikwad__agentic-ai-well-architected/03-agent"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "gateway",
+          "hr"
+        ],
+        [
+          "gateway_target",
+          "get_employee_profile"
+        ],
+        [
+          "gateway_target",
+          "list_high_risk_employees"
+        ],
+        [
+          "gateway_target",
+          "get_department_summary"
+        ],
+        [
+          "gateway_target",
+          "search_hr_policies"
+        ],
+        [
+          "memory",
+          "hr"
+        ],
+        [
+          "agent_runtime",
+          "hr"
+        ]
+      ],
+      "wired": [
+        "gateway",
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "girinalin__hr-attrition-agent/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "this"
+        ],
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "ExecuteCode",
+        "GetCodeInterpreterSession",
+        "InvokeAgent",
+        "InvokeAgentRuntime",
+        "InvokeCodeInterpreter",
+        "StartCodeInterpreterSession",
+        "StopCodeInterpreterSession"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": true,
+      "action_gap": [
+        "ExecuteCode",
+        "GetCodeInterpreterSession",
+        "InvokeAgent",
+        "InvokeAgentRuntime",
+        "InvokeCodeInterpreter",
+        "StartCodeInterpreterSession",
+        "StopCodeInterpreterSession"
+      ],
+      "action_gap_pct": 100.0,
+      "template": "iker592__iker-agents/terraform/modules/agent"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "mcp_server"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "mcp_server"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "iker592__iker-agents/terraform/modules/mcp-server"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "insighta"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "insighta-cloud__insighta-toolkit/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "memory",
+          "short_term"
+        ],
+        [
+          "memory",
+          "long_term"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "j3brns__tf-harness-acore/terraform/modules/agentcore-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "jamesward__spring-ai-mcp-demo/agentcore/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "video_digest"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "javide__agent-runtime-lab/infra/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "jonmatum__serverless-second-brain/infra/modules/agentcore-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "browser",
+          "main"
+        ],
+        [
+          "agent_runtime",
+          "main"
+        ],
+        [
+          "memory",
+          "main"
+        ],
+        [
+          "memory_strategy",
+          "session_summarizer"
+        ],
+        [
+          "memory_strategy",
+          "preference_learner"
+        ],
+        [
+          "memory_strategy",
+          "fact_extractor"
+        ],
+        [
+          "code_interpreter",
+          "main"
+        ],
+        [
+          "gateway",
+          "main"
+        ]
+      ],
+      "wired": [
+        "code_interpreter",
+        "gateway",
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "ConnectBrowserAutomationStream",
+        "ConnectBrowserLiveViewStream",
+        "CreateBrowser",
+        "CreateCodeInterpreter",
+        "CreateEvent",
+        "CreateMemory",
+        "CreateWorkloadIdentity",
+        "DeleteBrowser",
+        "DeleteCodeInterpreter",
+        "DeleteMemory",
+        "GetBrowser",
+        "GetBrowserSession",
+        "GetCodeInterpreter",
+        "GetCodeInterpreterSession",
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId",
+        "InvokeCodeInterpreter",
+        "ListBrowserSessions",
+        "ListBrowsers",
+        "ListCodeInterpreterSessions",
+        "ListCodeInterpreters",
+        "ListEvents",
+        "ListMemories",
+        "RetrieveMemoryRecords",
+        "StartBrowserSession",
+        "StartCodeInterpreterSession",
+        "StopBrowserSession",
+        "StopCodeInterpreterSession",
+        "UpdateBrowserStream"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "ConnectBrowserAutomationStream",
+        "ConnectBrowserLiveViewStream",
+        "CreateBrowser",
+        "CreateCodeInterpreter",
+        "CreateMemory",
+        "CreateWorkloadIdentity",
+        "DeleteBrowser",
+        "DeleteCodeInterpreter",
+        "DeleteMemory",
+        "GetBrowser",
+        "GetBrowserSession",
+        "GetCodeInterpreter",
+        "ListBrowserSessions",
+        "ListBrowsers",
+        "ListCodeInterpreters",
+        "ListMemories",
+        "StartBrowserSession",
+        "StopBrowserSession",
+        "UpdateBrowserStream"
+      ],
+      "action_gap_pct": 70.4,
+      "template": "jritsema__terraform-agentcore"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "ldecaro__sample-personal-agent/agent-aws-knowledge/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "ldecaro__sample-personal-agent/agent-calendar/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "ldecaro__sample-personal-agent/agent-search/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "memory",
+          "this"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "CreateMemory",
+        "CreateMemoryEvent",
+        "CreateSession",
+        "DeleteEvent",
+        "DeleteMemory",
+        "DeleteMemoryEvent",
+        "DeleteSession",
+        "GetEvent",
+        "GetMemory",
+        "GetMemoryEvent",
+        "GetSession",
+        "ListEvents",
+        "ListMemories",
+        "ListMemoryEvents",
+        "ListSessions",
+        "UpdateMemory"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": true,
+      "action_gap": [
+        "CreateMemory",
+        "CreateMemoryEvent",
+        "CreateSession",
+        "DeleteEvent",
+        "DeleteMemory",
+        "DeleteMemoryEvent",
+        "DeleteSession",
+        "GetMemory",
+        "GetMemoryEvent",
+        "GetSession",
+        "ListMemories",
+        "ListMemoryEvents",
+        "ListSessions",
+        "UpdateMemory"
+      ],
+      "action_gap_pct": 82.4,
+      "template": "lemopian__deepagents-bedrock-agentcore-terraform/terraform/modules/agentcore"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "memory",
+          "this"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "CreateMemory",
+        "CreateMemoryRecord",
+        "CreateSession",
+        "DeleteEvent",
+        "DeleteMemory",
+        "DeleteMemoryRecord",
+        "DeleteSession",
+        "GetEvent",
+        "GetMemory",
+        "GetMemoryRecord",
+        "GetSession",
+        "ListEvents",
+        "ListMemories",
+        "ListMemoryRecords",
+        "ListSessions",
+        "RetrieveMemoryRecords",
+        "UpdateMemory"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": true,
+      "action_gap": [
+        "CreateMemory",
+        "CreateMemoryRecord",
+        "CreateSession",
+        "DeleteEvent",
+        "DeleteMemory",
+        "DeleteMemoryRecord",
+        "DeleteSession",
+        "GetMemory",
+        "GetSession",
+        "ListMemories",
+        "ListSessions",
+        "UpdateMemory"
+      ],
+      "action_gap_pct": 66.7,
+      "template": "lemopian__terraform-aws-bedrock-agentcore/modules/container"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "memory",
+          "this"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "CreateMemory",
+        "CreateMemoryRecord",
+        "CreateSession",
+        "DeleteEvent",
+        "DeleteMemory",
+        "DeleteMemoryRecord",
+        "DeleteSession",
+        "GetEvent",
+        "GetMemory",
+        "GetMemoryRecord",
+        "GetSession",
+        "ListEvents",
+        "ListMemories",
+        "ListMemoryRecords",
+        "ListSessions",
+        "RetrieveMemoryRecords",
+        "UpdateMemory"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": true,
+      "action_gap": [
+        "CreateMemory",
+        "CreateMemoryRecord",
+        "CreateSession",
+        "DeleteEvent",
+        "DeleteMemory",
+        "DeleteMemoryRecord",
+        "DeleteSession",
+        "GetMemory",
+        "GetSession",
+        "ListMemories",
+        "ListSessions",
+        "UpdateMemory"
+      ],
+      "action_gap_pct": 66.7,
+      "template": "lemopian__terraform-aws-bedrock-agentcore/modules/zip"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "levantar-ai__demos/agentcore/01-first-agent/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ],
+        [
+          "gateway",
+          "orders"
+        ],
+        [
+          "gateway_target",
+          "orders"
+        ]
+      ],
+      "wired": [
+        "gateway"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "levantar-ai__demos/agentcore/02-gateway/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ],
+        [
+          "memory",
+          "agent"
+        ],
+        [
+          "memory_strategy",
+          "preferences"
+        ],
+        [
+          "gateway",
+          "orders"
+        ],
+        [
+          "gateway_target",
+          "orders"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "ListEvents",
+        "RetrieveMemoryRecords"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "levantar-ai__demos/agentcore/03-memory/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ],
+        [
+          "code_interpreter",
+          "sandbox"
+        ],
+        [
+          "memory",
+          "agent"
+        ],
+        [
+          "memory_strategy",
+          "preferences"
+        ],
+        [
+          "gateway",
+          "orders"
+        ],
+        [
+          "gateway_target",
+          "orders"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "InvokeCodeInterpreter",
+        "ListEvents",
+        "RetrieveMemoryRecords",
+        "StartCodeInterpreterSession",
+        "StopCodeInterpreterSession"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "InvokeCodeInterpreter",
+        "StartCodeInterpreterSession",
+        "StopCodeInterpreterSession"
+      ],
+      "action_gap_pct": 50.0,
+      "template": "levantar-ai__demos/agentcore/04-builtin-tools/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "workload_identity",
+          "agent"
+        ],
+        [
+          "agent_runtime",
+          "agent"
+        ],
+        [
+          "policy_engine",
+          "orders"
+        ],
+        [
+          "policy",
+          "own_orders"
+        ],
+        [
+          "policy",
+          "deny_other_orders"
+        ],
+        [
+          "code_interpreter",
+          "sandbox"
+        ],
+        [
+          "memory",
+          "agent"
+        ],
+        [
+          "memory_strategy",
+          "preferences"
+        ],
+        [
+          "gateway",
+          "orders"
+        ],
+        [
+          "gateway_target",
+          "orders"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "GetWorkloadAccessTokenForJWT",
+        "InvokeCodeInterpreter",
+        "ListEvents",
+        "RetrieveMemoryRecords",
+        "StartCodeInterpreterSession",
+        "StopCodeInterpreterSession"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "InvokeCodeInterpreter",
+        "StartCodeInterpreterSession",
+        "StopCodeInterpreterSession"
+      ],
+      "action_gap_pct": 50.0,
+      "template": "levantar-ai__demos/agentcore/05-identity/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "manimurugana__aws-bedrock-agentcore-runtime-terraform-poc/modules/agent-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "memory"
+        ],
+        [
+          "memory_strategy",
+          "user_pref"
+        ],
+        [
+          "memory_strategy",
+          "summary"
+        ],
+        [
+          "memory_strategy",
+          "semantic"
+        ],
+        [
+          "agent_runtime",
+          "main"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "main"
+        ],
+        [
+          "gateway",
+          "main"
+        ],
+        [
+          "gateway_target",
+          "commit_message"
+        ],
+        [
+          "gateway_target",
+          "kv_store"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "GetMemory",
+        "InvokeGateway",
+        "ListEvents",
+        "RetrieveMemoryRecords"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "GetMemory",
+        "InvokeGateway"
+      ],
+      "action_gap_pct": 40.0,
+      "template": "mifonpe__strands-agentcore-agents/iac"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "weather_agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "mmdcloud__aws-bedrock-agentcore/terraform/modules/agentcore/runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "CreateEvent",
+        "GetEvent",
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForUserId",
+        "InvokeAgentRuntime",
+        "InvokeGateway",
+        "ListEvents",
+        "ListSessions"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "CreateEvent",
+        "GetEvent",
+        "InvokeAgentRuntime",
+        "InvokeGateway",
+        "ListEvents",
+        "ListSessions"
+      ],
+      "action_gap_pct": null,
+      "template": "mongodb-partners__Multi-Agent-Architectural-Guidance-Bedrock-AgentCore/deploy/terraform/modules/agentcore-agent-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "short_term"
+        ],
+        [
+          "agent_runtime",
+          "mcp"
+        ],
+        [
+          "agent_runtime",
+          "agents"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "mongodb-partners__config-driven-agents-agentcore-atlas/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "agent"
+        ],
+        [
+          "agent_runtime",
+          "agent"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "omerbsezer__Fast-LLM-Agent-MCP/agents/aws_strands/07-agent-strands-multi-agents-generator-on-bedrock-agentcore/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "policy_engine",
+          "this"
+        ],
+        [
+          "gateway",
+          "this"
+        ],
+        [
+          "gateway_target",
+          "knowledge"
+        ],
+        [
+          "policy",
+          "permit_tools"
+        ],
+        [
+          "policy",
+          "forbid_unentitled_private"
+        ],
+        [
+          "memory",
+          "this"
+        ],
+        [
+          "memory_strategy",
+          "facts"
+        ],
+        [
+          "memory_strategy",
+          "preferences"
+        ],
+        [
+          "memory_strategy",
+          "summaries"
+        ],
+        [
+          "code_interpreter",
+          "this"
+        ],
+        [
+          "browser",
+          "this"
+        ],
+        [
+          "agent_runtime",
+          "agent"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "prod"
+        ],
+        [
+          "evaluator",
+          "grounding"
+        ],
+        [
+          "online_evaluation_config",
+          "agent"
+        ],
+        [
+          "harness",
+          "dossier"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "ConnectBrowserAutomationStream",
+        "CreateEvent",
+        "GetBrowserSession",
+        "GetCodeInterpreterSession",
+        "GetEvent",
+        "GetMemoryRecord",
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "InvokeCodeInterpreter",
+        "ListBrowserSessions",
+        "ListCodeInterpreterSessions",
+        "ListEvents",
+        "ListMemoryRecords",
+        "ListSessions",
+        "RetrieveMemoryRecords",
+        "StartBrowserSession",
+        "StartCodeInterpreterSession",
+        "StopBrowserSession",
+        "StopCodeInterpreterSession",
+        "UpdateBrowserStream"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "ConnectBrowserAutomationStream",
+        "GetBrowserSession",
+        "GetCodeInterpreterSession",
+        "InvokeCodeInterpreter",
+        "ListBrowserSessions",
+        "ListCodeInterpreterSessions",
+        "ListSessions",
+        "StartBrowserSession",
+        "StartCodeInterpreterSession",
+        "StopBrowserSession",
+        "StopCodeInterpreterSession",
+        "UpdateBrowserStream"
+      ],
+      "action_gap_pct": 66.7,
+      "template": "patternode__knowledge-store/infra/modules/agent"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "agent_core"
+        ],
+        [
+          "browser",
+          "agent_core"
+        ],
+        [
+          "code_interpreter",
+          "agent_core"
+        ],
+        [
+          "agent_runtime",
+          "agent_core"
+        ]
+      ],
+      "wired": [
+        "code_interpreter",
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "ConnectBrowserAutomationStream",
+        "CreateEvent",
+        "DeleteEvent",
+        "GetBrowserSession",
+        "GetCodeInterpreterSession",
+        "GetEvent",
+        "GetMemory",
+        "InvokeBrowser",
+        "InvokeCodeInterpreter",
+        "InvokeOnBrowserSession",
+        "InvokeOnCodeInterpreterSession",
+        "ListEvents",
+        "ListMemories",
+        "RetrieveMemory",
+        "StartBrowserSession",
+        "StartCodeInterpreterSession",
+        "StopBrowserSession",
+        "StopCodeInterpreterSession",
+        "UpdateBrowserStream"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "ConnectBrowserAutomationStream",
+        "DeleteEvent",
+        "GetBrowserSession",
+        "GetMemory",
+        "InvokeBrowser",
+        "InvokeOnBrowserSession",
+        "InvokeOnCodeInterpreterSession",
+        "ListMemories",
+        "RetrieveMemory",
+        "StartBrowserSession",
+        "StopBrowserSession",
+        "UpdateBrowserStream"
+      ],
+      "action_gap_pct": 63.2,
+      "template": "pdz1804__tech-new-mystery/infra/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ],
+        [
+          "resource_policy",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "plantonhq__planton/catalog/aws/awsbedrockagentcoreruntime/iac/tf"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "rafaelpierre__sherlock/terraform/modules/agentcore"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "agent_b"
+        ],
+        [
+          "memory",
+          "agent_a"
+        ],
+        [
+          "agent_runtime",
+          "agent_a"
+        ],
+        [
+          "agent_runtime",
+          "agent_b"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "sarahda__agent-pathtriage/infra/aws"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ],
+        [
+          "memory",
+          "agentcore_memory"
+        ],
+        [
+          "memory_strategy",
+          "semantic"
+        ],
+        [
+          "browser",
+          "browser"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": true,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "schematical__aws-agentcore-demo/_archive/1-agent-runtime/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "agent_memory"
+        ],
+        [
+          "gateway",
+          "cx_gateway"
+        ],
+        [
+          "gateway_target",
+          "tavily_target"
+        ],
+        [
+          "agent_runtime",
+          "agent_runtime"
+        ]
+      ],
+      "wired": [
+        "gateway",
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "seokjushin__amazon-bedrock-agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "orchestrator"
+        ],
+        [
+          "agent_runtime",
+          "leaf"
+        ],
+        [
+          "agent_runtime",
+          "supervisor"
+        ],
+        [
+          "memory",
+          "memory"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId",
+        "InvokeAgentRuntime"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "InvokeAgentRuntime"
+      ],
+      "action_gap_pct": 100.0,
+      "template": "seongpil0948__sandbox-agentcore/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "main"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "shibataka000__terraform-aws-notion-mcp-server"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "workload_identity",
+          "platform"
+        ],
+        [
+          "gateway",
+          "agent"
+        ],
+        [
+          "gateway_target",
+          "artifact_tool"
+        ],
+        [
+          "gateway_target",
+          "repo_helper"
+        ],
+        [
+          "browser",
+          "shared"
+        ],
+        [
+          "agent_runtime",
+          "agent"
+        ],
+        [
+          "memory",
+          "this"
+        ],
+        [
+          "memory_strategy",
+          "semantic_project"
+        ],
+        [
+          "memory_strategy",
+          "user_preferences"
+        ],
+        [
+          "memory_strategy",
+          "summarization_session"
+        ],
+        [
+          "memory_strategy",
+          "episodic"
+        ],
+        [
+          "code_interpreter",
+          "shared"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "smoketurner__ai-dlc/terraform/modules/agents"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "stm"
+        ],
+        [
+          "agent_runtime",
+          "observability"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "*"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": true,
+      "resource_scope_gap": true,
+      "action_gap": [
+        "<all-beyond-required (bedrock-agentcore:*)>"
+      ],
+      "action_gap_pct": 95.1,
+      "template": "spring-ai-community__spring-ai-agentcore/examples/spring-ai-agentcore-observability/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "extended_chat"
+        ],
+        [
+          "memory",
+          "agent_memory"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "*"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": true,
+      "resource_scope_gap": true,
+      "action_gap": [
+        "<all-beyond-required (bedrock-agentcore:*)>"
+      ],
+      "action_gap_pct": 95.1,
+      "template": "spring-ai-community__spring-ai-agentcore/examples/spring-ai-extended-chat-client/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "iam"
+        ],
+        [
+          "agent_runtime",
+          "oauth"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "spring-ai-community__spring-ai-agentcore/examples/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "memory"
+        ],
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "this"
+        ],
+        [
+          "resource_policy",
+          "hub_inbound"
+        ],
+        [
+          "gateway",
+          "this"
+        ],
+        [
+          "gateway_target",
+          "web_search"
+        ],
+        [
+          "browser",
+          "this"
+        ],
+        [
+          "browser_profile",
+          "this"
+        ],
+        [
+          "code_interpreter",
+          "analysis"
+        ],
+        [
+          "gateway_target",
+          "mail"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "systemaccounting__gradienterp/modules/agent/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "hub"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "hub"
+        ],
+        [
+          "resource_policy",
+          "hub_inbound"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "InvokeAgentRuntime"
+      ],
+      "granted_ac_wildcard_resource": true,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "InvokeAgentRuntime"
+      ],
+      "action_gap_pct": null,
+      "template": "systemaccounting__gradienterp/prod/optimizer/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "main"
+        ],
+        [
+          "memory",
+          "main"
+        ],
+        [
+          "memory_strategy",
+          "summarization"
+        ],
+        [
+          "gateway",
+          "main"
+        ],
+        [
+          "agent_runtime",
+          "ccapi"
+        ],
+        [
+          "agent_runtime",
+          "cost_explorer"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "tarlan-huseynov__agentcore-monorepo/terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "terraform-aws-mod__terraform-aws-agentcore"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "api_key_credential_provider",
+          "this"
+        ],
+        [
+          "memory_strategy",
+          "this"
+        ],
+        [
+          "agent_runtime",
+          "agent"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "agent"
+        ],
+        [
+          "gateway_target",
+          "explicit"
+        ],
+        [
+          "gateway_target",
+          "mcp_runtime"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "the-cloud-clockwork__tcc-aws-agent-platform/modules/agents"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "this"
+        ],
+        [
+          "agent_runtime_endpoint",
+          "live"
+        ],
+        [
+          "gateway",
+          "this"
+        ]
+      ],
+      "wired": [
+        "gateway"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "twelvelabs-io__tl-agentcore/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "agent_memory"
+        ],
+        [
+          "gateway",
+          "cx_gateway"
+        ],
+        [
+          "gateway_target",
+          "tavily_target"
+        ],
+        [
+          "agent_runtime",
+          "agent_runtime"
+        ]
+      ],
+      "wired": [
+        "gateway",
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "vkbaba__amazon-bedrock-agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "stacks"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "yogeshselvarajan__stacks/infra/modules/agentcore_runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "workload_identity",
+          "gateway"
+        ],
+        [
+          "agent_runtime",
+          "mcp_server"
+        ],
+        [
+          "gateway",
+          "main"
+        ],
+        [
+          "gateway_target",
+          "mcp_server"
+        ]
+      ],
+      "wired": [
+        "gateway"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "yuu551__agentcore-gateway-runtime-m2m-auth-demo"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "agent"
+        ],
+        [
+          "gateway",
+          "main"
+        ],
+        [
+          "gateway_target",
+          "lambda"
+        ],
+        [
+          "gateway_target",
+          "multiply"
+        ],
+        [
+          "gateway_target",
+          "greet"
+        ]
+      ],
+      "wired": [
+        "gateway"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "InvokeGateway"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "InvokeGateway"
+      ],
+      "action_gap_pct": 100.0,
+      "template": "yuu551__runtime-to-gateway-for-iam"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "techdebt_agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": null,
+      "template": "zzenonn__ai-course-lecture-notes/09-techdebt-remediation/techdebt-terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "techdebt_agent"
+        ],
+        [
+          "memory",
+          "agent"
+        ],
+        [
+          "memory_strategy",
+          "semantic"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "zzenonn__ai-course-lecture-notes/10-techdebt-memory/techdebt-terraform"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "techdebt_agent"
+        ],
+        [
+          "memory",
+          "agent"
+        ],
+        [
+          "memory_strategy",
+          "semantic"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "action_gap_pct": 0.0,
+      "template": "zzenonn__ai-course-lecture-notes/11-bedrock-guardrails/guardrails-terraform"
+    }
+  ]
+}

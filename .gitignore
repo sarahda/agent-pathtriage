@@ -5,3 +5,7 @@ __pycache__/
 .DS_Store
 *.tfstate*
 .terraform/
+corpus_tier2/
+corpus_s1/
+corpus_s1/
+tier2_prevalence.json

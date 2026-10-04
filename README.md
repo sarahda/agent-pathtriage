@@ -27,13 +27,15 @@ This project studies escalation arising from how customers configure agent IAM, 
 
 | Path | Contents |
 |---|---|
-| `docs/` | Related work and project documentation |
-| `model/` | Formal delegation model (graph definition and escalation predicate) |
+| `model/` | Formal delegation model: graph definition and escalation predicate |
 | `infra/` | Reproducible lab environments (`aws/`, `foundry/`) |
-| `attacks/` | Per-primitive proof-of-concept scripts and reproduction notes |
-| `agentpathtriage/` | Tool package (`extract` / `check` / `rank`) |
-| `evaluation/` | Evaluation protocol, oracle reproduction, corpus results |
+| `attacks/` | Per-primitive proof-of-concept scripts and reproduction logs |
+| `agentpathtriage/` | Tool package (`extract`, `check`, `propagate`, `gap` modules) |
+| `evaluation/` | Evaluation protocol, oracle recall, mutation testing, and corpus scans (`benchmark/`) |
+| `baseline/` | Baseline-scanner comparison (Cloudsplaining, PMapper) |
 | `detection/` | Control-plane detection rules |
+| `docs/` | Related work and IAM permission-mapping references |
+| `slides/` | Presentation figures |
 | `tests/` | Unit and integration tests |
 | `report/` | Technical report |
 
@@ -56,5 +58,3 @@ AgentPathTriage extends PathTriage. The lab harness is reused for infrastructure
 ## License
 
 See [`LICENSE`](LICENSE).
-
-
