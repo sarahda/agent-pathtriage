@@ -1,0 +1,45 @@
+AgentPathTriage - Foundry cross-agent determiner, two runs (2026-10-05)
+Azure AI Foundry live lab, australiaeast. Same 2-agent setup; only the
+connection auth type changes between the two runs.
+
+=====================================================================
+RUN 1  -  shared managed identity (passthrough)   ->  ESCALATION
+=====================================================================
+$ python3 agentpathtriage/foundry_cp.py --tfdir infra/foundry \
+      --agents infra/foundry/agents.json --json foundry_findings.json
+
+connection authType: accountmanagedidentity   passthrough=True
+cross-agent escalations: 1
+  [ESC] agentA -> agentB  gains ['key vault secrets user @
+        /subscriptions/<subscription>/resourceGroups/rg-apt-foundry/
+        providers/Microsoft.KeyVault/vaults/aptkv']
+        (via managed-identity passthrough, mediated=False)
+cross-agent primitives:
+  CP-1: PRESENT
+  CP-2: PRESENT
+  CP-3: -
+  CP-4: PRESENT
+  CP-5: -
+written: foundry_findings.json
+
+=====================================================================
+RUN 2  -  runs as the user (on-behalf-of)          ->  NO GAIN
+=====================================================================
+$ python3 agentpathtriage/foundry_cp.py --tfdir infra/foundry \
+      --agents infra/foundry/agents.json --json foundry_findings_obo.json
+
+connection authType: agentuserimpersonation   passthrough=False
+cross-agent escalations: 0
+cross-agent primitives:
+  CP-1: -
+  CP-2: -
+  CP-3: -
+  CP-4: PRESENT
+  CP-5: -
+written: foundry_findings_obo.json
+
+=====================================================================
+Read: one setting (the connection auth type) flips the escalation on
+and off. CP-4 is present in both because it is auth-type-independent
+(the connection scope itself), not part of the before/after.
+=====================================================================
