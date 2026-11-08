@@ -29,7 +29,6 @@ _scratch/
 
 # session scratch and measurement staging, never part of the artifact
 .remeasure/
-Claude outputs/
 
 # Raw az role definition dumps carry the subscription id in every entry.
 # Commit the filtered, redacted extract instead (infra/foundry/roles-evidence.json).
