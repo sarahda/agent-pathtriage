@@ -1,0 +1,154 @@
+% ---------------------------------------------------------------------------
+% refs.bib
+%
+% Every entry below was checked against a primary source: the publisher page,
+% the conference programme, or the paper's own first page. Nothing here is
+% written from memory.
+%
+% Vendor documentation entries still need their URL and accessed date, which
+% are marked.
+% ---------------------------------------------------------------------------
+
+% --- the classical statement of the problem --------------------------------
+@article{hardy1988confused,
+  author  = {Hardy, Norm},
+  title   = {The Confused Deputy: (or why capabilities might have been invented)},
+  journal = {ACM SIGOPS Operating Systems Review},
+  volume  = {22},
+  number  = {4},
+  pages   = {36--38},
+  year    = {1988},
+  publisher = {ACM}
+}
+
+% --- reasoning about cloud access control ----------------------------------
+@inproceedings{backes2018zelkova,
+  author    = {Backes, John and Bolignano, Pauline and Cook, Byron and
+               Dodge, Catherine and Gacek, Andrew and Luckow, Kasper and
+               Rungta, Neha and Tkachuk, Oksana and Varming, Carsten},
+  title     = {Semantic-based Automated Reasoning for {AWS} Access Policies
+               using {SMT}},
+  booktitle = {Formal Methods in Computer Aided Design (FMCAD)},
+  year      = {2018},
+  publisher = {IEEE}
+}
+
+@inproceedings{shevrin2023multistep,
+  author    = {Shevrin, Ilia and Margalit, Oded},
+  title     = {Detecting Multi-Step {IAM} Attacks in {AWS} Environments via
+               Model Checking},
+  booktitle = {32nd USENIX Security Symposium (USENIX Security 23)},
+  year      = {2023},
+  publisher = {USENIX Association}
+}
+
+@misc{hu2023tac,
+  author       = {Hu, Yang and Wang, Wenxi and Khurshid, Sarfraz and
+                  Tiwari, Mohit},
+  title        = {{TAC}: Hybrid {IAM} Privilege Escalation Detection},
+  howpublished = {arXiv:2304.14540},
+  year         = {2023}
+}
+
+% --- infrastructure as code ------------------------------------------------
+@inproceedings{rahman2019sevensins,
+  author    = {Rahman, Akond and Parnin, Chris and Williams, Laurie},
+  title     = {The Seven Sins: Security Smells in Infrastructure as Code
+               Scripts},
+  booktitle = {41st International Conference on Software Engineering (ICSE)},
+  year      = {2019},
+  publisher = {IEEE}
+}
+
+% --- the entry point this paper assumes ------------------------------------
+@inproceedings{abdelnabi2023notwhat,
+  author    = {Abdelnabi, Sahar and Greshake, Kai and Mishra, Shailesh and
+               Endres, Christoph and Holz, Thorsten and Fritz, Mario},
+  title     = {Not What You've Signed Up For: Compromising Real-World
+               {LLM}-Integrated Applications with Indirect Prompt Injection},
+  booktitle = {Proceedings of the 16th ACM Workshop on Artificial Intelligence
+               and Security (AISec)},
+  pages     = {79--90},
+  year      = {2023},
+  publisher = {ACM}
+}
+
+
+% --- industry reporting on this platform -----------------------------------
+% Read in full on 8 November 2026. Dates are as each page states them.
+
+@misc{hadad2026godmode,
+  author       = {Hadad, Ori},
+  title        = {Cracks in the Bedrock: {Agent} God Mode},
+  howpublished = {Unit 42, Palo Alto Networks},
+  note         = {\url{https://unit42.paloaltonetworks.com/exploit-of-aws-agentcore-iam-god-mode/},
+                  published 8 April 2026, accessed 8 November 2026},
+  year         = {2026}
+}
+
+@misc{torkura2026agentsore,
+  author       = {Torkura, Kennedy},
+  title        = {{AgentCore} or {AgentSore}: Cross-Agent Privilege Escalation
+                  in {Bedrock AgentCore}},
+  howpublished = {Mitigant},
+  note         = {\url{https://mitigant.io/en/blog/agentcore-or-agentsore-cross-agent-privilege-escalation-in-bedrock-agentcore},
+                  published 22 June 2026, accessed 8 November 2026},
+  year         = {2026}
+}
+
+@misc{garcia2026agentcorepaths,
+  author       = {Garcia, Sergio},
+  title        = {Mapping Every Privilege Escalation Path in {AWS AgentCore}},
+  howpublished = {BeyondTrust Phantom Labs},
+  note         = {\url{https://www.beyondtrust.com/blog/entry/aws-agentcore-privilege-escalation},
+                  no publication date stated, accessed 8 November 2026},
+  year         = {2026}
+}
+
+@misc{rehberger2025freeeachother,
+  author       = {Rehberger, Johann},
+  title        = {Cross-Agent Privilege Escalation: When Agents Free Each Other},
+  howpublished = {Embrace The Red},
+  note         = {\url{https://embracethered.com/blog/posts/2025/cross-agent-privilege-escalation-agents-that-free-each-other/},
+                  accessed 8 November 2026},
+  year         = {2025}
+}
+
+% --- vendor documentation --------------------------------------------------
+% URLs and field requirements checked against the pages themselves on
+% 8 November 2026.
+
+@misc{awsAgentCoreUpdateRuntime,
+  title        = {UpdateAgentRuntime},
+  howpublished = {Amazon Bedrock AgentCore Control API Reference, Amazon Web
+                  Services},
+  note         = {\url{https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateAgentRuntime.html},
+                  accessed 8 November 2026},
+  year         = {2026}
+}
+
+@misc{awsPassRole,
+  title        = {Grant a user permissions to pass a role to an {AWS} service},
+  howpublished = {AWS Identity and Access Management User Guide, Amazon Web
+                  Services},
+  note         = {\url{https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html},
+                  accessed 8 November 2026},
+  year         = {2026}
+}
+
+@misc{awsBedrockAgentCoreFullAccess,
+  title        = {{BedrockAgentCoreFullAccess}},
+  howpublished = {AWS Managed Policy Reference, Amazon Web Services},
+  note         = {\url{https://docs.aws.amazon.com/aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.html},
+                  accessed 8 November 2026. Policy version v21,
+                  which is the version analysed in this paper},
+  year         = {2026}
+}
+
+@misc{msFoundryConnections,
+  title        = {{Microsoft.MachineLearningServices} workspaces/connections},
+  howpublished = {Azure Resource Manager template reference, Microsoft Learn},
+  note         = {\url{https://learn.microsoft.com/en-us/azure/templates/microsoft.machinelearningservices/2026-05-01/workspaces/connections},
+                  accessed 8 November 2026},
+  year         = {2026}
+}

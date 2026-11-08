@@ -1,0 +1,86 @@
+{
+ "block_level": {
+  "multi_agent_templates": 18,
+  "templates_sharing_one_execution_role": 5,
+  "what_it_counts": "aws_bedrockagentcore_agent_runtime blocks, which is what the parser produces"
+ },
+ "runtime_level": {
+  "multi_agent_templates": 20,
+  "templates_sharing_one_execution_role": 7,
+  "what_it_counts": "runtimes, so a block that fans out over a collection written in the template counts once per element"
+ },
+ "added_as_multi_agent": [
+  {
+   "template": "fouadmulla__cosac-lab-security-agents/infra/stacks/scenario-a",
+   "block": "warden",
+   "file": "agentcore.tf",
+   "runtimes": 2,
+   "role_arn_expression": "aws_iam_role.agentcore.arn",
+   "iterator": "for_each = local.twins"
+  },
+  {
+   "template": "fouadmulla__cosac-lab-security-agents/infra/stacks/scenario-b",
+   "block": "custodian",
+   "file": "agentcore.tf",
+   "runtimes": 2,
+   "role_arn_expression": "aws_iam_role.agentcore.arn",
+   "iterator": "for_each = local.twins"
+  }
+ ],
+ "added_as_sharing_one_role": [
+  {
+   "template": "fouadmulla__cosac-lab-security-agents/infra/stacks/scenario-a",
+   "block": "warden",
+   "file": "agentcore.tf",
+   "runtimes": 2,
+   "role_arn_expression": "aws_iam_role.agentcore.arn",
+   "iterator": "for_each = local.twins"
+  },
+  {
+   "template": "fouadmulla__cosac-lab-security-agents/infra/stacks/scenario-b",
+   "block": "custodian",
+   "file": "agentcore.tf",
+   "runtimes": 2,
+   "role_arn_expression": "aws_iam_role.agentcore.arn",
+   "iterator": "for_each = local.twins"
+  }
+ ],
+ "fan_out_left_alone": [
+  {
+   "template": "normjon__ai-platform-demo/terraform/dev/agents/orchestrator",
+   "block": "orchestrator",
+   "expression": "local.runtime_enabled",
+   "why": "not found in this template",
+   "role_arn_expression": "aws_iam_role.orchestrator_runtime.arn"
+  },
+  {
+   "template": "normjon__ai-platform-demo/terraform/dev/agents/stub-agent",
+   "block": "stub",
+   "expression": "local.runtime_enabled",
+   "why": "not found in this template",
+   "role_arn_expression": "aws_iam_role.stub_runtime.arn"
+  },
+  {
+   "template": "rhprasad0__nova-toll-budget-agent/v2/infra",
+   "block": "tollchat",
+   "expression": "var.release_slots",
+   "why": "a variable with no default, so the caller decides",
+   "role_arn_expression": "aws_iam_role.tollchat_runtime.arn"
+  },
+  {
+   "template": "smoketurner__ai-dlc/terraform/modules/agents",
+   "block": "agent",
+   "expression": "var.agent_image_tags",
+   "why": "a variable with a default, not counted here",
+   "role_arn_expression": "aws_iam_role.runtime[each.key].arn"
+  },
+  {
+   "template": "the-cloud-clockwork__tcc-aws-agent-platform/modules/agents",
+   "block": "agent",
+   "expression": "local.blueprints",
+   "why": "built by a for expression over something else",
+   "role_arn_expression": "aws_iam_role.agent[each.key].arn"
+  }
+ ],
+ "rule": "a fan out counts only when the collection is written in the template. A role argument indexed by the iterator gives each runtime its own role and is not a shared one."
+}

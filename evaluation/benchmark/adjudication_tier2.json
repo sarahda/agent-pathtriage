@@ -1,0 +1,224 @@
+[
+  {
+    "template": "aniljose-ai__Mortgage-Agents-BedrockAgentCore/terraform",
+    "runtime": "agentcore_runtime",
+    "wired_source": "reference",
+    "agents": [
+      "agentcore_runtime"
+    ],
+    "roles": {
+      "agentcore_runtime": "${var.app_name}-AgentCoreRuntimeRole"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "aniryou__bedrock-demo/infra/terraform",
+    "runtime": "this",
+    "wired_source": "reference",
+    "agents": [
+      "this"
+    ],
+    "roles": {
+      "this": "${var.name_prefix}-runtime"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+    "runtime": "mcp",
+    "wired_source": "colocation",
+    "agents": [
+      "mcp",
+      "supply_chain"
+    ],
+    "roles": {
+      "mcp": "${local.name_prefix}-agent-execution",
+      "supply_chain": "${local.name_prefix}-agent-execution"
+    },
+    "verdict": "shared-role",
+    "sharing": [
+      "mcp",
+      "supply_chain"
+    ]
+  },
+  {
+    "template": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+    "runtime": "supply_chain",
+    "wired_source": "reference",
+    "agents": [
+      "mcp",
+      "supply_chain"
+    ],
+    "roles": {
+      "mcp": "${local.name_prefix}-agent-execution",
+      "supply_chain": "${local.name_prefix}-agent-execution"
+    },
+    "verdict": "shared-role",
+    "sharing": [
+      "mcp",
+      "supply_chain"
+    ]
+  },
+  {
+    "template": "aws-samples__sample-agentic-value-accelerator/applications/reference_implementations/market-surveillance/infrastructure/modules/agentcore-runtime",
+    "runtime": "agent_runtime",
+    "wired_source": "colocation",
+    "agents": [
+      "agent_runtime"
+    ],
+    "roles": {
+      "agent_runtime": "${var.name_prefix}-agentcore-role-${var.environment}"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "aws-samples__sample-ai-assistant-on-agentcore/infra",
+    "runtime": "sparky",
+    "wired_source": "reference",
+    "agents": [
+      "core_services",
+      "sparky"
+    ],
+    "roles": {
+      "core_services": "${local.prefix}-core-services",
+      "sparky": "${local.prefix}-sparky"
+    },
+    "verdict": "narrow",
+    "hits": []
+  },
+  {
+    "template": "awslabs__threat-designer/infra",
+    "runtime": "sentry",
+    "wired_source": "colocation",
+    "agents": [
+      "sentry",
+      "threat_designer"
+    ],
+    "roles": {
+      "sentry": "${local.prefix}-sentry",
+      "threat_designer": "${local.prefix}-agent-role"
+    },
+    "verdict": "narrow",
+    "hits": []
+  },
+  {
+    "template": "gpazevedo__spring-genai/terraform",
+    "runtime": "extended_chat",
+    "wired_source": "reference",
+    "agents": [
+      "extended_chat"
+    ],
+    "roles": {
+      "extended_chat": "ExtendedChatClientRuntimeRole-${data.aws_caller_identity.current.account_id}"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "iker592__iker-agents/terraform/modules/agent",
+    "runtime": "this",
+    "wired_source": "reference",
+    "agents": [
+      "this"
+    ],
+    "roles": {
+      "this": "${var.agent_name}-runtime-role"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "j3brns__turbo-enigma/terraform/modules/agentcore",
+    "runtime": "this",
+    "wired_source": "colocation",
+    "agents": [
+      "this"
+    ],
+    "roles": {
+      "this": "AmazonBedrockAgentCoreSDKRuntime"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "lemopian__terraform-aws-bedrock-agentcore/modules/container",
+    "runtime": "this",
+    "wired_source": "colocation",
+    "agents": [
+      "this"
+    ],
+    "roles": {
+      "this": "AgentCoreRuntime-${var.agent_name}"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "lemopian__terraform-aws-bedrock-agentcore/modules/zip",
+    "runtime": "this",
+    "wired_source": "colocation",
+    "agents": [
+      "this"
+    ],
+    "roles": {
+      "this": "AgentCoreRuntime-${var.agent_name}"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "schematical__aws-agentcore-demo/_archive/1-agent-runtime/terraform",
+    "runtime": "agent",
+    "wired_source": "reference",
+    "agents": [
+      "agent"
+    ],
+    "roles": {
+      "agent": "${var.project_name}-execution-role"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "spring-ai-community__spring-ai-agentcore/examples/spring-ai-agentcore-observability/terraform",
+    "runtime": "observability",
+    "wired_source": "reference",
+    "agents": [
+      "observability"
+    ],
+    "roles": {
+      "observability": "SpringAiObservabilityRuntimeRole-${random_string.suffix.result}"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "spring-ai-community__spring-ai-agentcore/examples/spring-ai-extended-chat-client/terraform",
+    "runtime": "extended_chat",
+    "wired_source": "reference",
+    "agents": [
+      "extended_chat"
+    ],
+    "roles": {
+      "extended_chat": "ExtendedChatClientRuntimeRole-${random_string.suffix.result}"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "yueming-zhang__agent_core_deep_research/AgentcoreMemoryDR/terraform",
+    "runtime": "agent",
+    "wired_source": "reference",
+    "agents": [
+      "agent"
+    ],
+    "roles": {
+      "agent": "${local.iam_prefix}_execution_role"
+    },
+    "verdict": "single-agent"
+  },
+  {
+    "template": "z63d__tmp-bedrock-agentcore/terraform",
+    "runtime": "main",
+    "wired_source": "reference",
+    "agents": [
+      "main"
+    ],
+    "roles": {
+      "main": "${var.project_name}-agentcore-runtime"
+    },
+    "verdict": "single-agent"
+  }
+]

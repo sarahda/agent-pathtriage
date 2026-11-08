@@ -1,0 +1,34 @@
+\section{Threat Model}
+\label{sec:threat-model}
+
+\paragraph{What the attacker controls.}
+The attacker controls one agent in the account. This is the realistic starting
+point for an agent platform: an agent processes input it did not write, so an
+indirect prompt injection, a poisoned tool result, or a dependency in the
+agent's own image is enough to run attacker-chosen code with that agent's
+credentials. We do not model how the first agent is taken; we start from the
+point where attacker code runs as agent~A.
+
+\paragraph{What the attacker wants.}
+Something agent~A is not authorised to reach, held by agent~B in the same
+account. In the terms of Equation~\ref{eq:esc}, the attacker wants an element
+of $\eff(A) \setminus \auth(A)$.
+
+\paragraph{What the defender has done.}
+The defender has given each agent a role, and we assume those roles are scoped
+by the usual advice: agent~A's policies do not name agent~B's data. Where A
+can read B's data directly there is no escalation to find, and an existing
+single-identity tool reports it.
+
+\paragraph{Out of scope.}
+The command route of Section~\ref{sec:background} remains available to the
+attacker throughout. We do not model the host, the container runtime, the platform's isolation
+between tenants, or a compromise of the cloud control plane. An agent reading
+another's output through a channel the deployment intended is not an
+escalation here, because Equation~\ref{eq:esc} puts that reach inside
+$\auth$.
+
+\paragraph{Why a single-identity analysis misses this.}
+The escalation is a property of the pair, and it appears only when the analysis
+follows the edge from A to B and then continues with B's permissions. That edge
+is the subject of Section~\ref{sec:approach}.

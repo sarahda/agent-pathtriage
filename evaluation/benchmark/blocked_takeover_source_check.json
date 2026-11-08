@@ -1,0 +1,478 @@
+{
+ "read_from": "shard cache",
+ "method": "each configuration's agent execution roles are re-derived from the raw Terraform, then every blocked candidate is sorted by whether its principal and its target are among them",
+ "candidates": 26,
+ "by_verdict": {
+  "single-agent": 10,
+  "agent to agent": 10,
+  "target is not an agent execution role": 2,
+  "principal is not an agent execution role": 4
+ },
+ "agent_to_agent": 10,
+ "rows": [
+  {
+   "principal": "${var.app_name}-AgentCoreGatewayRole",
+   "target_role": "${var.app_name}-AgentCoreRuntimeRole",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/hyperIvory_Agent",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "Aadarshg087__agentcore-services-poc/terraform",
+   "n_agents": 1,
+   "agent_execution_roles_in_config": [
+    "${var.app_name}-AgentCoreRuntimeRole"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "single-agent"
+  },
+  {
+   "principal": "${var.app_name}-AgentCoreGatewayRole",
+   "target_role": "${var.app_name}-AgentCoreRuntimeRole",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/firstagent",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "Wvidit__Agentic/terraform",
+   "n_agents": 1,
+   "agent_execution_roles_in_config": [
+    "${var.app_name}-AgentCoreRuntimeRole"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "single-agent"
+  },
+  {
+   "principal": "${var.stack_name}-orchestrator-execution-role",
+   "target_role": "${var.stack_name}-specialist-execution-role",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(var.stack_name, \"-\", \"_\")}_${var.specialist_name}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+   "n_agents": 2,
+   "agent_execution_roles_in_config": [
+    "${var.stack_name}-orchestrator-execution-role",
+    "${var.stack_name}-specialist-execution-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "agent to agent"
+  },
+  {
+   "principal": "${var.stack_name}-specialist-execution-role",
+   "target_role": "${var.stack_name}-orchestrator-execution-role",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(var.stack_name, \"-\", \"_\")}_${var.orchestrator_name}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+   "n_agents": 2,
+   "agent_execution_roles_in_config": [
+    "${var.stack_name}-orchestrator-execution-role",
+    "${var.stack_name}-specialist-execution-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "agent to agent"
+  },
+  {
+   "principal": "${var.app_name}-AgentCoreGatewayRole",
+   "target_role": "${var.app_name}-AgentCoreRuntimeRole",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/ContextualScout_Agent",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "prajwal2431__first-commit/RCAagent/specializedAgents/ContextualScout/terraform",
+   "n_agents": 1,
+   "agent_execution_roles_in_config": [
+    "${var.app_name}-AgentCoreRuntimeRole"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "single-agent"
+  },
+  {
+   "principal": "github-actions-wick-deploy",
+   "target_role": "${local.prefix}-agents-runtime",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(local.prefix, \"-\", \"_\")}_agents",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "rogerjeasy__wick/infra",
+   "n_agents": 1,
+   "agent_execution_roles_in_config": [
+    "${local.prefix}-agents-runtime"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "single-agent"
+  },
+  {
+   "principal": "${local.name}-mcp-ccapi-role",
+   "target_role": "${local.name}-runtime-role",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(var.project_name, \"-\", \"_\")}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "tarlan-huseynov__agentcore-monorepo/terraform",
+   "n_agents": 3,
+   "agent_execution_roles_in_config": [
+    "${local.name}-mcp-ccapi-role",
+    "${local.name}-mcp-cost-role",
+    "${local.name}-runtime-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "agent to agent"
+  },
+  {
+   "principal": "${local.name}-mcp-ccapi-role",
+   "target_role": "${local.name}-gateway-role",
+   "action": "bedrock-agentcore:UpdateGateway",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:gateway/${local.name}-gateway",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "tarlan-huseynov__agentcore-monorepo/terraform",
+   "n_agents": 3,
+   "agent_execution_roles_in_config": [
+    "${local.name}-mcp-ccapi-role",
+    "${local.name}-mcp-cost-role",
+    "${local.name}-runtime-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": false,
+   "verdict": "target is not an agent execution role"
+  },
+  {
+   "principal": "${local.name}-mcp-ccapi-role",
+   "target_role": "${local.name}-mcp-cost-role",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${local.name}-cost-mcp\", \"-\", \"_\")}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "tarlan-huseynov__agentcore-monorepo/terraform",
+   "n_agents": 3,
+   "agent_execution_roles_in_config": [
+    "${local.name}-mcp-ccapi-role",
+    "${local.name}-mcp-cost-role",
+    "${local.name}-runtime-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "agent to agent"
+  },
+  {
+   "principal": "${var.app_name}-AgentCoreGatewayRole",
+   "target_role": "${var.app_name}-AgentCoreRuntimeRole",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/DiagnosticAnalyst_Agent",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "prajwal2431__first-commit/RCAagent/specializedAgents/DiagnosticAnalyst/terraform",
+   "n_agents": 1,
+   "agent_execution_roles_in_config": [
+    "${var.app_name}-AgentCoreRuntimeRole"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "single-agent"
+  },
+  {
+   "principal": "${var.name_prefix}-leaf-runtime-role",
+   "target_role": "${var.name_prefix}-orchestrator-runtime-role",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.orchestrator_name}\", \"-\", \"_\")}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "seongpil0948__sandbox-agentcore/terraform",
+   "n_agents": 3,
+   "agent_execution_roles_in_config": [
+    "${var.name_prefix}-leaf-runtime-role",
+    "${var.name_prefix}-orchestrator-runtime-role",
+    "${var.name_prefix}-supervisor-runtime-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "agent to agent"
+  },
+  {
+   "principal": "${var.name_prefix}-leaf-runtime-role",
+   "target_role": "${var.name_prefix}-supervisor-runtime-role",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.supervisor_name}\", \"-\", \"_\")}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "seongpil0948__sandbox-agentcore/terraform",
+   "n_agents": 3,
+   "agent_execution_roles_in_config": [
+    "${var.name_prefix}-leaf-runtime-role",
+    "${var.name_prefix}-orchestrator-runtime-role",
+    "${var.name_prefix}-supervisor-runtime-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "agent to agent"
+  },
+  {
+   "principal": "${var.name_prefix}-supervisor-runtime-role",
+   "target_role": "${var.name_prefix}-leaf-runtime-role",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.leaf_name}\", \"-\", \"_\")}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "seongpil0948__sandbox-agentcore/terraform",
+   "n_agents": 3,
+   "agent_execution_roles_in_config": [
+    "${var.name_prefix}-leaf-runtime-role",
+    "${var.name_prefix}-orchestrator-runtime-role",
+    "${var.name_prefix}-supervisor-runtime-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "agent to agent"
+  },
+  {
+   "principal": "${var.name_prefix}-supervisor-runtime-role",
+   "target_role": "${var.name_prefix}-orchestrator-runtime-role",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.orchestrator_name}\", \"-\", \"_\")}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "seongpil0948__sandbox-agentcore/terraform",
+   "n_agents": 3,
+   "agent_execution_roles_in_config": [
+    "${var.name_prefix}-leaf-runtime-role",
+    "${var.name_prefix}-orchestrator-runtime-role",
+    "${var.name_prefix}-supervisor-runtime-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "agent to agent"
+  },
+  {
+   "principal": "${var.name_prefix}-orchestrator-runtime-role",
+   "target_role": "${var.name_prefix}-leaf-runtime-role",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.leaf_name}\", \"-\", \"_\")}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "seongpil0948__sandbox-agentcore/terraform",
+   "n_agents": 3,
+   "agent_execution_roles_in_config": [
+    "${var.name_prefix}-leaf-runtime-role",
+    "${var.name_prefix}-orchestrator-runtime-role",
+    "${var.name_prefix}-supervisor-runtime-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "agent to agent"
+  },
+  {
+   "principal": "${var.name_prefix}-orchestrator-runtime-role",
+   "target_role": "${var.name_prefix}-supervisor-runtime-role",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.supervisor_name}\", \"-\", \"_\")}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "seongpil0948__sandbox-agentcore/terraform",
+   "n_agents": 3,
+   "agent_execution_roles_in_config": [
+    "${var.name_prefix}-leaf-runtime-role",
+    "${var.name_prefix}-orchestrator-runtime-role",
+    "${var.name_prefix}-supervisor-runtime-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "agent to agent"
+  },
+  {
+   "principal": "${var.name_prefix}-runtime-exec-role",
+   "target_role": "${var.name_prefix}-gateway-exec-role",
+   "action": "bedrock-agentcore:UpdateGateway",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:gateway/${var.name_prefix}-gateway",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+   "n_agents": 2,
+   "agent_execution_roles_in_config": [
+    "${var.name_prefix}-runtime-exec-role"
+   ],
+   "principal_is_an_agent_execution_role": true,
+   "target_is_an_agent_execution_role": false,
+   "verdict": "target is not an agent execution role"
+  },
+  {
+   "principal": "${var.app_name}-AgentCoreGatewayRole",
+   "target_role": "${var.app_name}-AgentCoreRuntimeRole",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/RemediationStrategist_Agent",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "prajwal2431__first-commit/RCAagent/specializedAgents/RemediationStrategist/terraform",
+   "n_agents": 1,
+   "agent_execution_roles_in_config": [
+    "${var.app_name}-AgentCoreRuntimeRole"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "single-agent"
+  },
+  {
+   "principal": "${var.app_name}-AgentCoreGatewayRole",
+   "target_role": "${var.app_name}-AgentCoreRuntimeRole",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/hyperIvory_Agent",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "Aadarshg087__agentcore-services-poc/hyperIvory/terraform",
+   "n_agents": 1,
+   "agent_execution_roles_in_config": [
+    "${var.app_name}-AgentCoreRuntimeRole"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "single-agent"
+  },
+  {
+   "principal": "${var.project_name}-codebuild-tf-${var.environment}",
+   "target_role": "${var.project_name}-agentcore-${var.environment}",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${local.agentcore_runtime_name}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "LeonardoSanBenitez__ComplianceOps-Reference-Architecture-for-Bedrock-Agentic-Chatbot/infra/terraform",
+   "n_agents": 1,
+   "agent_execution_roles_in_config": [
+    "${var.project_name}-agentcore-${var.environment}"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "single-agent"
+  },
+  {
+   "principal": "${var.app_name}-AgentCoreGatewayRole",
+   "target_role": "${var.app_name}-AgentCoreRuntimeRole",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/mortgageAgents_Agent",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "aniljose-ai__Mortgage-Agents-BedrockAgentCore/terraform",
+   "n_agents": 1,
+   "agent_execution_roles_in_config": [
+    "${var.app_name}-AgentCoreRuntimeRole"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "single-agent"
+  },
+  {
+   "principal": "${local.name_prefix}-evaluators-lambda-role",
+   "target_role": "${local.name_prefix}-agent-execution",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${var.mcp_agent_name}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+   "n_agents": 2,
+   "agent_execution_roles_in_config": [
+    "${local.name_prefix}-agent-execution"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "principal is not an agent execution role"
+  },
+  {
+   "principal": "${local.name_prefix}-evaluators-lambda-role",
+   "target_role": "${local.name_prefix}-agent-execution",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${var.supply_chain_agent_name}",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+   "n_agents": 2,
+   "agent_execution_roles_in_config": [
+    "${local.name_prefix}-agent-execution"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "principal is not an agent execution role"
+  },
+  {
+   "principal": "${var.app_name}-AgentCoreGatewayRole",
+   "target_role": "${var.app_name}-AgentCoreRuntimeRole",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/eks_sre_agent_Agent",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "bcfmtolgahan__eks-sre-agent/terraform",
+   "n_agents": 2,
+   "agent_execution_roles_in_config": [
+    "${var.app_name}-AgentCoreRuntimeRole",
+    "${var.app_name}-SentinelRuntimeRole"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "principal is not an agent execution role"
+  },
+  {
+   "principal": "${var.app_name}-AgentCoreGatewayRole",
+   "target_role": "${var.app_name}-SentinelRuntimeRole",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/eks_sre_agent_Sentinel",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "bcfmtolgahan__eks-sre-agent/terraform",
+   "n_agents": 2,
+   "agent_execution_roles_in_config": [
+    "${var.app_name}-AgentCoreRuntimeRole",
+    "${var.app_name}-SentinelRuntimeRole"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "principal is not an agent execution role"
+  },
+  {
+   "principal": "${var.app_name}-AgentCoreGatewayRole",
+   "target_role": "${var.app_name}-AgentCoreRuntimeRole",
+   "action": "bedrock-agentcore:UpdateAgentRuntime",
+   "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/RCAagent_Agent",
+   "missing_dependent_actions": [
+    "iam:PassRole"
+   ],
+   "config": "prajwal2431__first-commit/RCAagent/terraform",
+   "n_agents": 1,
+   "agent_execution_roles_in_config": [
+    "${var.app_name}-AgentCoreRuntimeRole"
+   ],
+   "principal_is_an_agent_execution_role": false,
+   "target_is_an_agent_execution_role": true,
+   "verdict": "single-agent"
+  }
+ ]
+}

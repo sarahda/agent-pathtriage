@@ -1,0 +1,69 @@
+{
+ "method": "md5 over every file named connection.bicep in corpus_foundry, and authType / isSharedToAll call sites read from the reference repository",
+ "reference_repository": "Azure-Samples/azd-ai-starter-basic",
+ "module": "infra/core/ai/connection.bicep",
+ "identical_copies": 11,
+ "repositories_carrying_the_copy": 10,
+ "md5_prefix": "66f2d5b68ebd",
+ "repositories": [
+  "AbdulQuddus15__certifyforge-reasoning-agents",
+  "Azure-Samples__azd-ai-starter-basic",
+  "Azure-Samples__fibey",
+  "Azure-Samples__m365-multi-agent-workflow",
+  "Azure__microsoft-agent-framework-foundry-starter-pack-net",
+  "aguilarjj3__juaguil02",
+  "amandatranMS__Project",
+  "anildwarepo__foundry-agents-infra",
+  "anusha-samineni-repos__multicloudmcp",
+  "azeltov__vss-msbuild-demo"
+ ],
+ "connection_call_sites": 8,
+ "call_sites_by_auth_type": {
+  "AAD": 3,
+  "ApiKey": 3,
+  "ManagedIdentity": 2
+ },
+ "call_sites_setting_is_shared_to_all_true": 7,
+ "detail": [
+  {
+   "file": "infra/core/host/acr.bicep",
+   "line": 72,
+   "authType": "ManagedIdentity"
+  },
+  {
+   "file": "infra/core/storage/storage.bicep",
+   "line": 99,
+   "authType": "AAD"
+  },
+  {
+   "file": "infra/core/search/bing_custom_grounding.bicep",
+   "line": 62,
+   "authType": "ApiKey"
+  },
+  {
+   "file": "infra/core/search/bing_grounding.bicep",
+   "line": 62,
+   "authType": "ApiKey"
+  },
+  {
+   "file": "infra/core/search/azure_ai_search.bicep",
+   "line": 186,
+   "authType": "AAD"
+  },
+  {
+   "file": "infra/core/ai/ai-project.bicep",
+   "line": 185,
+   "authType": "ApiKey"
+  },
+  {
+   "file": "infra/core/ai/ai-project.bicep",
+   "line": 264,
+   "authType": "ManagedIdentity"
+  },
+  {
+   "file": "infra/core/ai/connection.bicep",
+   "line": 21,
+   "authType": "AAD"
+  }
+ ]
+}

@@ -1,0 +1,80 @@
+\section{Introduction}
+\label{sec:intro}
+
+A managed agent platform runs an agent as a cloud workload with an identity of
+its own. On \agentcore an agent runtime is a resource with an execution role,
+and the account that holds one agent usually holds several. They share a
+region, a network, a logging configuration, and often a role.
+
+Tools that audit cloud permissions ask a question about one identity: given
+this principal, what can it reach. The question is answered against the
+principal's own policies, the resource policies it meets, and the roles it may
+assume. It is the right question for a human user or a service account, and
+every finding it produces is about that one identity.
+
+It does not express the problem in this paper. When two agents live in
+one account, the interesting failure is not that agent A can reach too much on
+its own. It is that agent A can reach agent B, change what agent B runs, and
+have that code execute under agent B's role. Nothing in A's own permission set
+says it can reach B's data. The escalation exists in the composition of two
+identities, and a tool that only ever looks at one of them will report both as
+clean.
+
+The paper writes that as a predicate over two sets: what the deployment
+authorised a principal to reach, and what it reaches once every edge is
+followed, including edges that run through another agent. Cross-agent
+escalation is the difference between them.
+Section~\ref{sec:model} states both sets and the predicate, and
+Section~\ref{sec:approach} gives the rules that make the second computable
+from infrastructure as code.
+
+\subsection{Two routes to a sibling agent's role}
+
+There are two ways to act with a sibling agent's role. The first reads its
+credentials: a single permission runs a command inside the agent's own
+sandbox, and the platform's metadata service hands the role over. That route
+is published~\cite{garcia2026agentcorepaths}, needs no
+\iam{iam:PassRole}, and leaves the deployed agent exactly as it was.
+
+The second replaces what the agent runs.
+\api{Update\allowbreak AgentRuntime} marks two
+fields as required: the artifact holding the agent's code, and the ARN of the
+role it runs as. One call therefore decides what runs, who it runs as, and,
+through the runtime's environment variables, what it is aimed at. Any caller
+that replaces an agent's artifact must also pass a role, so this route always
+crosses \iam{iam:PassRole}. 
+This paper takes the second because its consequence outlives the call: the
+agent keeps its ARN, its endpoint and its callers, and answers them with
+attacker code, which Section~\ref{sec:case-study} measures by stripping the
+attacker of every permission first. The command route ends when the credential
+is rotated. A replaced artifact does not.
+
+Cross-agent escalation on this platform has been reported.
+Section~\ref{sec:industry} sets out what those accounts cover and what
+they do not: the path that replaces an existing runtime rather than creating a
+new one, the experiment that isolates the role name as the control, and any
+measurement of how often the preconditions occur.
+
+\subsection{Contributions}
+
+\begin{itemize}
+\item A predicate for cross-agent privilege escalation
+  (Equation~\ref{eq:esc}) and a delegation edge rule that makes it computable
+  from infrastructure as code, implemented in \tool
+  (Sections~\ref{sec:approach} and~\ref{sec:implementation}).
+\item A measurement over \nProjects public Terraform projects that deploy
+  agent runtimes and the CloudFormation and CDK deployments in the same
+  collection (Sections~\ref{sec:methodology} and~\ref{sec:results}), finding
+  \nChainsFound complete cross-agent escalations, with the bound that supports
+  and the preconditions that are common. A \foundry corpus of \nFoundryDirs
+  template directories is surveyed separately
+  (Section~\ref{sec:foundry}).
+\item A live demonstration in an AWS account showing that an attacker holding
+  one AWS managed policy can take over a sibling agent, and that the gate is a
+  name match in that policy's \iam{iam:PassRole} condition
+  (Section~\ref{sec:case-study}).
+\item A claim by claim account of what was verified and what was not
+  (Appendix~\ref{sec:claims}), and the artifacts to rebuild every number
+  (Section~\ref{sec:availability}).
+\end{itemize}
+

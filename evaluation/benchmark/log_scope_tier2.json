@@ -1,0 +1,161 @@
+{
+  "published_form": "/aws/bedrock-agentcore/runtimes/agentName-*",
+  "source": "AWS, IAM Permissions for AgentCore Runtime",
+  "groups": {
+    "shared_role": [
+      {
+        "template": "avparkhi__agui-agentcore-demo/terraform",
+        "verdict": "widened",
+        "occurrences": 1,
+        "tails": [
+          "*"
+        ]
+      },
+      {
+        "template": "aws-samples__sample-FAST-applications/samples/anycompany-bank/infra",
+        "verdict": "widened",
+        "occurrences": 2,
+        "tails": [
+          "*"
+        ]
+      },
+      {
+        "template": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+        "verdict": "widened",
+        "occurrences": 1,
+        "tails": [
+          "*"
+        ]
+      },
+      {
+        "template": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+        "verdict": "widened",
+        "occurrences": 1,
+        "tails": [
+          "*"
+        ]
+      },
+      {
+        "template": "singulart__google-workspace-agent/terraform",
+        "verdict": "widened",
+        "occurrences": 2,
+        "tails": [
+          "*",
+          "*:log-stream:*"
+        ]
+      }
+    ],
+    "distinct_roles": [
+      {
+        "template": "Rohanjain2312__customs-court/deploy/aws/terraform",
+        "verdict": "absent",
+        "occurrences": 0,
+        "tails": []
+      },
+      {
+        "template": "ashdon4u__ai-migration-factory/infrastructure/modules/agent_runtimes",
+        "verdict": "absent",
+        "occurrences": 0,
+        "tails": []
+      },
+      {
+        "template": "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/runtime",
+        "verdict": "absent",
+        "occurrences": 0,
+        "tails": []
+      },
+      {
+        "template": "aws-samples__sample-ai-assistant-on-agentcore/infra",
+        "verdict": "widened",
+        "occurrences": 4,
+        "tails": [
+          "*",
+          "*:log-stream:*"
+        ]
+      },
+      {
+        "template": "aws-samples__sample-okf-llm-wiki/infra/compute",
+        "verdict": "widened",
+        "occurrences": 3,
+        "tails": [
+          "*",
+          "*:log-stream:*"
+        ]
+      },
+      {
+        "template": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+        "verdict": "widened",
+        "occurrences": 2,
+        "tails": [
+          "*"
+        ]
+      },
+      {
+        "template": "awslabs__threat-designer/infra",
+        "verdict": "widened",
+        "occurrences": 4,
+        "tails": [
+          "*",
+          "*:log-stream:*"
+        ]
+      },
+      {
+        "template": "bcfmtolgahan__eks-sre-agent/terraform",
+        "verdict": "widened",
+        "occurrences": 2,
+        "tails": [
+          "*",
+          "*:log-stream:*"
+        ]
+      },
+      {
+        "template": "flightlesstux__agents-on-call/terraform/10-agent-runtime",
+        "verdict": "widened",
+        "occurrences": 2,
+        "tails": [
+          "*"
+        ]
+      },
+      {
+        "template": "mongodb-partners__config-driven-agents-agentcore-atlas/terraform",
+        "verdict": "absent",
+        "occurrences": 0,
+        "tails": []
+      },
+      {
+        "template": "seongpil0948__sandbox-agentcore/terraform",
+        "verdict": "widened",
+        "occurrences": 3,
+        "tails": [
+          "*"
+        ]
+      },
+      {
+        "template": "spring-ai-community__spring-ai-agentcore/examples/terraform",
+        "verdict": "widened",
+        "occurrences": 1,
+        "tails": [
+          "*"
+        ]
+      },
+      {
+        "template": "tarlan-huseynov__agentcore-monorepo/terraform",
+        "verdict": "widened",
+        "occurrences": 4,
+        "tails": [
+          "*",
+          "*:log-stream:*"
+        ]
+      }
+    ]
+  },
+  "totals": {
+    "shared_role": {
+      "widened": 5
+    },
+    "distinct_roles": {
+      "absent": 4,
+      "widened": 9
+    }
+  }
+}

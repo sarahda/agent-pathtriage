@@ -1,0 +1,23 @@
+{
+  "repositories": 1647,
+  "no_tf": 4,
+  "tf_no_runtime": 1461,
+  "with_runtime": 182,
+  "template_dirs": 331,
+  "excluded": 84,
+  "fork_copies": 27,
+  "final_templates": 220,
+  "default_role_narrowed": "2026-09-29",
+  "last_commit_before": 140,
+  "last_commit_after": 42,
+  "policy_document_blocks": 484,
+  "templates_using_policy_document": 87,
+  "queries": [
+    "aws_bedrockagentcore_agent_runtime extension:tf",
+    "aws_bedrockagentcore_memory extension:tf",
+    "aws_bedrockagentcore_gateway extension:tf",
+    "aws_bedrockagentcore_code_interpreter extension:tf",
+    "agent_runtime_artifact extension:tf",
+    "\"bedrock-agentcore:\" extension:tf"
+  ]
+}

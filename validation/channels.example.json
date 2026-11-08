@@ -1,0 +1,24 @@
+{
+ "_comment": "Where each repository's report goes, and how repositories are grouped into one send. Edit this file rather than the generator. A repository with no entry here stops the generator instead of being guessed. The routing used for this paper's reports is not published, because the recipients were asked whether they would agree to be named and the answer is recorded in the paper instead. This example shows the shape.",
+ "owners": {
+  "an-organisation-with-a-private-channel": {
+   "group_as": "that-organisation",
+   "display": "That Organisation Security",
+   "channel": "email",
+   "channel_detail": "security@example.com",
+   "channel_alternate": "https://hackerone.com/example",
+   "public_issue_allowed": false,
+   "public_issue_note": "Read the organisation's SECURITY.md or CONTRIBUTING.md, record what it says here with the date it was read, and route accordingly. An organisation that asks for no public issue gets none.",
+   "salutation": "Hello,"
+  },
+  "an-individual-maintainer": {
+   "group_as": "that-maintainer",
+   "display": "that maintainer",
+   "channel": "github-issue",
+   "channel_detail": "https://github.com/OWNER/REPO/issues/new",
+   "public_issue_allowed": true,
+   "public_issue_note": "No SECURITY.md and no private advisory channel found on DATE. Say what you looked for and when, so the choice can be checked later.",
+   "salutation": "Hello,"
+  }
+ }
+}

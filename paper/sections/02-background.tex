@@ -1,0 +1,105 @@
+\section{Background}
+\label{sec:background}
+
+\subsection{The deployment, and what a principal reaches}
+\label{sec:model}
+
+A deployment is a tuple $D = (P, A, G, T)$.
+
+\begin{description}
+\itemsep1pt
+\item[$P$] the principals: every role and user the deployment declares.
+\item[$A$] the agent runtimes. Each $a \in A$ carries an artifact and an
+  execution role $\rho(a) \in P$.
+\item[$G \subseteq P \times \mathit{Act} \times \mathit{Res}$] the grants,
+  taken from the policies the deployment attaches. $(p, \alpha, r) \in G$
+  means $p$ may perform action $\alpha$ on resource $r$.
+\item[$T \subseteq P \times P$] the trust relation. $(p,q) \in T$ when $q$'s
+  trust policy admits $p$.
+\end{description}
+
+What the deployment authorised $p$ to reach is read straight off the grants:
+%
+\begin{equation}
+\label{eq:auth}
+\auth(p) = \{\, (\alpha, r) : (p, \alpha, r) \in G \,\}.
+\end{equation}
+%
+Write $E(p)$ for the set of principals $p$ can cause code to run as. What $p$
+reaches in effect is the least fixpoint of
+%
+\begin{equation}
+\label{eq:eff}
+\eff(p) \;=\; \auth(p) \;\cup \bigcup_{q \in E(p)} \eff(q),
+\end{equation}
+%
+and an escalation exists when the two differ:
+%
+\begin{equation}
+\label{eq:esc}
+\Esc(p) \iff \eff(p) \setminus \auth(p) \neq \emptyset .
+\end{equation}
+%
+$E(p)$ is what a single-identity analysis leaves out. It computes $\auth(p)$
+and reports on it, and the difference in Equation~\ref{eq:esc} needs the whole
+deployment rather than one principal at a time.
+Section~\ref{sec:approach} gives the three rules that produce $E(p)$ on this
+platform.
+
+\subsection{Agent runtimes on \agentcore}
+
+An \agentcore agent runtime is an AWS resource carrying the container image
+or code archive that holds the agent, environment variables, a network
+configuration, and an execution role. Two properties of it matter here.
+
+\paragraph{One call changes everything about a runtime.}
+\api{Update\allowbreak AgentRuntime} takes the artifact and the role ARN, and the API
+reference marks both as required~\cite{awsAgentCoreUpdateRuntime}. A caller that holds the permission to update
+a runtime therefore decides three things at once: the code that will run, the
+identity it runs as, and, through the environment variables in the same
+request, the data it is pointed at.
+
+A published route reaches the same role without this call, by running a
+command inside an existing runtime~\cite{garcia2026agentcorepaths}, leaving
+the runtime unchanged.
+
+\paragraph{Credentials arrive out of band.}
+The runtime reads its role credentials from instance metadata rather than from
+an environment variable, and the only control over that channel is
+\api{metadata\allowbreak Configuration.\allowbreak requireMMDSV2}. Code that
+replaces the agent's own code inherits the channel without carrying a
+credential.
+
+\subsection{\iam{iam:PassRole} and the managed policy}
+
+\iam{iam:PassRole} is the permission to hand a role to a
+service~\cite{awsPassRole}. AWS ships a managed policy for this platform,
+\iam{BedrockAgentCoreFullAccess}~\cite{awsBedrockAgentCoreFullAccess}. The version analysed here is v21, read on 8 November 2026. Its
+\iam{iam:PassRole} statement is scoped by two conditions: the role name must
+match \iam{arn:aws:iam::\allowbreak *:role/\allowbreak *BedrockAgentCore*}, and the role must be passed
+to \iam{bedrock-agentcore.amazonaws.com}.
+
+The first condition is a name match. It does not distinguish one agent's
+execution role from another's, and the roles the AWS console creates by default
+for this service satisfy the pattern. Section~\ref{sec:case-study} shows what
+follows from that.
+
+\subsection{Trust policies in the vendor template}
+
+The trust policy the documentation gives for an agent execution role scopes
+\iam{sts:AssumeRole} with \iam{aws:SourceArn} set to
+\iam{arn:aws:\allowbreak bedrock-agentcore:\allowbreak REGION:ACCOUNT:*}. That
+wildcard covers every agent runtime in the account.
+
+\subsection{Connections on \foundry}
+
+\foundry has a different shape. An account, and each project inside it, holds
+\emph{connections}, and a connection records how the account authenticates to
+the resource it reaches. The \api{authType} field~\cite{msFoundryConnections} decides whether the call
+presents a directory identity, such as \api{AAD} or \api{ManagedIdentity}, or a
+credential stored in the connection, such as \api{ApiKey} or \api{SAS}.
+
+Where several agents share a project, a connection holding a stored credential
+is presented identically by all of them. The target cannot tell the agents
+apart in its logs, and each agent reaches everything the connection is trusted
+with. Section~\ref{sec:foundry} measures how common each choice is.

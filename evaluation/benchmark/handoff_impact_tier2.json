@@ -1,0 +1,42 @@
+{
+  "corpus": "corpus_tier2",
+  "question": "would walking hand-off edges in eff change the headline zero on AWS",
+  "projects_with_two_or_more_agents": 18,
+  "projects_examined": 18,
+  "projects_failed": 0,
+  "handoff_edges_where_both_agents_share_one_role": 4,
+  "candidate_pairs": 2,
+  "projects_with_a_candidate": 2,
+  "candidates": [
+    {
+      "project": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+      "caller": "orchestrator",
+      "callee": "specialist",
+      "caller_role": "${var.stack_name}-orchestrator-execution-role",
+      "callee_role": "${var.stack_name}-specialist-execution-role",
+      "evidence": "declared_resolved",
+      "permitted_scope": "any",
+      "would_gain": [
+        "arn:aws:ecr:us-east-1:000000000000:repository/${var.stack_name}-${var.ecr_repository_name}-specialist"
+      ],
+      "n_would_gain": 1,
+      "status": "candidate only. The rule that would make this an escalation is not implemented, and this comparison is not that rule: it does not check that the hand-off is reachable or that the gain survives conditions."
+    },
+    {
+      "project": "seongpil0948__sandbox-agentcore/terraform",
+      "caller": "orchestrator",
+      "callee": "supervisor",
+      "caller_role": "${var.name_prefix}-orchestrator-runtime-role",
+      "callee_role": "${var.name_prefix}-supervisor-runtime-role",
+      "evidence": "declared_resolved",
+      "permitted_scope": "exact",
+      "would_gain": [
+        "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.leaf_name}\", \"-\", \"_\")}"
+      ],
+      "n_would_gain": 1,
+      "status": "candidate only. The rule that would make this an escalation is not implemented, and this comparison is not that rule: it does not check that the hand-off is reachable or that the gain survives conditions."
+    }
+  ],
+  "failed": [],
+  "what_this_is_not": "a candidate is not an escalation. It says the callee's role is authorised for something the caller's is not, and that a hand-off edge joins them. Confirming it needs the rule implemented and a hand audit."
+}

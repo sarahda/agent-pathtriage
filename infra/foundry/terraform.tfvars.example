@@ -1,0 +1,31 @@
+# Copy to terraform.tfvars and set for your subscription.
+# terraform.tfvars is gitignored: it holds your environment, not the lab's design.
+
+# A region your subscription's policy allows. The lab's default is eastus, and
+# many subscriptions refuse it. A refusal appears at apply time as
+# RequestDisallowedByAzure, which a plan cannot predict.
+location = "australiaeast"
+
+# Record in terraform.tfvars every value the live lab was applied with, not just
+# the ones you had to change. A -var passed on the command line leaves no trace,
+# so the next plain apply silently reverts whatever it set. That has happened
+# here once: an apply with a single -var would have reverted the connection
+# authType and destroyed two role assignments.
+
+# Everything below has a working default and is only here to be discoverable.
+# ai_foundry_name                  = "aptfoundry"
+# use_managed_identity_passthrough = true   # the control knob, matrix.py sets it
+# grant_agentA_secret_access       = false  # falsification control, matrix.py sets it
+# connection_auth_type             = null   # exact authType, matrix.py sets it
+# agentB_extra_roles               = 0      # dose-response, 0 to 2
+# deploy_model                     = false
+
+# The model the agents run on. A version is refused once its lifecycleStatus
+# turns Deprecating, which is a different field from the deprecation dates the
+# catalogue shows. Check before changing with
+#   az cognitiveservices account list-models --name <account> -g <rg> -o json
+# and take a name whose lifecycleStatus is GenerallyAvailable and whose
+# capabilities include agentsV2.
+# model_name                       = "gpt-5.4-mini"
+# model_version                    = "2026-03-17"
+# model_capacity                   = 10

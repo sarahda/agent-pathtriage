@@ -1,0 +1,40 @@
+\begin{figure}[t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+  width=72mm,
+  height=32mm,
+  xbar stacked,
+  xmin=0, xmax=26,
+  bar width=7mm,
+  axis y line=none,
+  axis x line*=bottom,
+  xtick={0,5,10,15,20,25},
+  xlabel={\small blocked takeover candidates},
+  xlabel style={font=\small, yshift=1mm},
+  tick label style={font=\scriptsize},
+  legend style={
+    font=\scriptsize, draw=none, fill=none,
+    at={(0.5,1.28)}, anchor=north, legend columns=2,
+    /tikz/every even column/.append style={column sep=3mm}},
+  nodes near coords={\scriptsize\pgfmathprintnumber\pgfplotspointmeta},
+  every node near coord/.append style={text=white, anchor=center},
+]
+\addplot+[fill=cStored, draw=cStored] coordinates {(10,0)};
+\addlegendentry{one agent reaching another}
+\addplot+[fill=cNeutral, draw=cNeutral] coordinates {(10,0)};
+\addlegendentry{configuration declares one agent}
+\addplot+[fill=cIdentity, draw=cIdentity] coordinates {(4,0)};
+\addlegendentry{principal is not an agent role}
+\addplot+[fill=cAccent, draw=cAccent] coordinates {(2,0)};
+\addlegendentry{target is not an agent role}
+\end{axis}
+\end{tikzpicture}}
+\caption{The \nBlocked candidates blocked on \iam{iam:\allowbreak PassRole}, sorted by what
+the principal and the target are. Only the first group,
+\nBlockedAgentToAgent of \nBlocked, is one agent reaching another agent of the
+same deployment. Each candidate was re-derived from the raw Terraform rather
+than taken from the analysis output.}
+\label{fig:blocked}
+\end{figure}

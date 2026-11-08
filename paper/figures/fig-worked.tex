@@ -1,0 +1,89 @@
+\begin{figure*}[t]
+\centering
+\begin{minipage}[t]{0.325\textwidth}
+\textbf{\small 1. What the deployment declares}
+\begin{lstlisting}
+resource "aws_bedrockagentcore_agent_runtime"
+        "agent" {
+  agent_runtime_name = "cloud_engineer_agent"
+  role_arn           = aws_iam_role.agent_role.arn
+  agent_runtime_artifact {
+    container_configuration {
+      container_uri = "${local.ecr}:latest" } }
+}
+
+resource "aws_iam_role" "agent_role" {
+  name = "agent-runtime-role"
+  assume_role_policy = jsonencode({
+    Statement = [{
+      Action    = "sts:AssumeRole"
+      Effect    = "Allow"
+      Principal = { Service =
+        "bedrock-agentcore.amazonaws.com" } }] })
+}
+
+# policy attached to the CI role
+Statement = [{
+  Sid    = "IAMManagement"
+  Effect = "Allow"
+  Action = [ "iam:CreateRole", "iam:PassRole",
+             "iam:PutRolePolicy", ... ]
+  Resource = "*"
+}]
+\end{lstlisting}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.325\textwidth}
+\textbf{\small 2. The state the analysis reads}
+\begin{lstlisting}
+principals
+  ci-deploy-role
+  agent-runtime-role
+
+agents
+  agent   rho = agent-runtime-role
+
+grants
+  (ci-deploy-role, iam:PassRole,      *)
+  (ci-deploy-role, iam:PutRolePolicy, *)
+  (ci-deploy-role, iam:CreateRole,    *)
+
+trust
+  (bedrock-agentcore.amazonaws.com,
+     agent-runtime-role)
+  no condition key on the statement
+\end{lstlisting}
+\vspace{2pt}
+{\scriptsize The wildcard is kept as a wildcard. It is matched against
+\texttt{agent-runtime-role} when the edge rule is evaluated, not expanded into
+a list of resources beforehand.}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.325\textwidth}
+\textbf{\small 3. What is reported}
+\begin{lstlisting}
+edge  ci-deploy-role --pass--> agent-runtime-role
+  (*Eq.~\ref{eq:replace}*) conjunct 2  iam:PassRole over rho(agent)
+                   HOLDS, Resource = "*"
+                   unconditional
+  (*Eq.~\ref{eq:replace}*) conjunct 1  UpdateAgentRuntime on agent
+                   MISSING
+
+verdict   the pass gate is open
+chain     none
+why       the configuration declares 1 agent,
+          so there is no sibling to take over
+
+reported as a precondition
+not reported as a cross-agent escalation
+\end{lstlisting}
+\vspace{2pt}
+{\scriptsize This is the \nPassRoleWide configuration of
+Section~\ref{sec:results} where the condition that blocks the other
+\nBlocked candidates is already absent.}
+\end{minipage}
+\caption{One configuration from the corpus, carried through the analysis.
+Names are shortened and the repository is withheld until disclosure; the
+structure, the wildcard, and the absent trust condition are as they appear in
+the source. The finding is a precondition rather than a chain, and the reason
+is recorded with it.}
+\label{fig:worked}
+\end{figure*}

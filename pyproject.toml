@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentpathtriage"
+version = "0.1.0"
+description = "Cross-agent IAM privilege escalation discovery for managed agentic cloud platforms, from Terraform source alone"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+dependencies = [
+    "networkx>=3.0",
+    "policy-sentry>=0.13.0",
+]
+
+[project.optional-dependencies]
+# Only needed to reproduce the published numbers, not to scan a directory.
+# Kept out of the base install so the one-line path has the fewest moving parts.
+corpus = ["python-hcl2>=4.3.0"]
+baseline = ["cloudsplaining>=0.6"]
+figures = ["matplotlib>=3.7"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+agentpathtriage = "agentpathtriage.cli:main"
+
+[tool.setuptools]
+packages = ["agentpathtriage"]
+
+[tool.setuptools.package-data]
+agentpathtriage = ["*.py"]

@@ -1,0 +1,110 @@
+{
+  "_source": "az role definition list --output json, filtered to the roles this lab evaluated. Subscription identifiers are removed: role definitions are tenant-independent, so nothing about the finding depends on them.",
+  "_collected": "2026-10-25",
+  "_finding": "Cognitive Services User carries the agents endpoint impersonation action in notDataActions, so the role name does not tell you it is excluded. Azure AI Developer does not grant the agents actions at all. Cognitive Services Data Contributor (Preview) is the role that works.",
+  "roles": [
+    {
+      "roleName": "Azure AI Developer",
+      "description": "Can perform all actions within an Azure Machine Learning workspace besides managing the workspace itself. For Foundry project access, use the Foundry User or Foundry Owner roles instead.",
+      "actions": [
+        "Microsoft.MachineLearningServices/workspaces/*/read",
+        "Microsoft.MachineLearningServices/workspaces/*/action",
+        "Microsoft.MachineLearningServices/workspaces/*/delete",
+        "Microsoft.MachineLearningServices/workspaces/*/write",
+        "Microsoft.MachineLearningServices/locations/*/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [
+        "Microsoft.MachineLearningServices/workspaces/delete",
+        "Microsoft.MachineLearningServices/workspaces/write",
+        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/hubs/write",
+        "Microsoft.MachineLearningServices/workspaces/hubs/delete",
+        "Microsoft.MachineLearningServices/workspaces/featurestores/write",
+        "Microsoft.MachineLearningServices/workspaces/featurestores/delete",
+        "Microsoft.MachineLearningServices/workspaces/evaluations/results/labels/read",
+        "Microsoft.MachineLearningServices/workspaces/evaluations/results/reasonings/read",
+        "Microsoft.MachineLearningServices/workspaces/simulations/results/images/read"
+      ],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/OpenAI/*",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/*",
+        "Microsoft.CognitiveServices/accounts/ContentSafety/*",
+        "Microsoft.CognitiveServices/accounts/MaaS/*"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes-deployments/write"
+      ]
+    },
+    {
+      "roleName": "Cognitive Services Contributor",
+      "description": "Lets you create, read, update, delete and manage keys of Cognitive Services.",
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.CognitiveServices/*",
+        "Microsoft.Features/features/read",
+        "Microsoft.Features/providers/features/read",
+        "Microsoft.Features/providers/features/register/action",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/diagnosticSettings/*",
+        "Microsoft.Insights/logDefinitions/read",
+        "Microsoft.Insights/metricdefinitions/read",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    },
+    {
+      "roleName": "Cognitive Services Data Contributor (Preview)",
+      "description": "Allows to call data plane APIs, but not any control plane APIs for Microsoft Cognitive Services. This role is in preview and subject to change.",
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/*"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes-deployments/write",
+        "Microsoft.CognitiveServices/accounts/AIServices/fine_tuning_deployments/write"
+      ]
+    },
+    {
+      "roleName": "Cognitive Services User",
+      "description": "Lets you read and list keys of Cognitive Services.",
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.CognitiveServices/accounts/listkeys/action",
+        "Microsoft.CognitiveServices/accounts/projects/connections/listsecrets/action",
+        "Microsoft.Insights/alertRules/read",
+        "Microsoft.Insights/diagnosticSettings/read",
+        "Microsoft.Insights/logDefinitions/read",
+        "Microsoft.Insights/metricdefinitions/read",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/*"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/AIServices/agents/endpoints/UserIdentityImpersonation/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes-deployments/write",
+        "Microsoft.CognitiveServices/accounts/AIServices/fine_tuning_deployments/write"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "corpus": "corpus_tier2",
+  "projects_with_two_or_more_agents": 18,
+  "projects_measured": 18,
+  "projects_failed": 0,
+  "failed": [],
+  "projects_with_an_escalation": {
+    "identity_borrowing_only": 4,
+    "including_invocation": 5
+  },
+  "changed": [
+    {
+      "project": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [
+        "${var.stack_name}-orchestrator-execution-role"
+      ],
+      "changed": true,
+      "new_escalations": [
+        {
+          "principal": "${var.stack_name}-orchestrator-execution-role",
+          "agents_reached": [],
+          "witnesses": [
+            {
+              "reaches": "arn:aws:ecr:us-east-1:000000000000:repository/${var.stack_name}-${var.ecr_repository_name}-specialist",
+              "action": "ecr:BatchGetImage",
+              "via_role": "${var.stack_name}-specialist-execution-role",
+              "hops": 1,
+              "chain": [
+                {
+                  "from": "${var.stack_name}-orchestrator-execution-role",
+                  "to": "${var.stack_name}-specialist-execution-role",
+                  "via": "invoke",
+                  "scope": "any",
+                  "kind": "invocation",
+                  "caller_agent": "orchestrator",
+                  "callee_agent": "specialist",
+                  "evidence": "declared_resolved",
+                  "enabled_by": "bedrock-agentcore:InvokeAgentRuntime"
+                }
+              ],
+              "conditional": false,
+              "via_invocation": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "bound_95_percent": {
+    "identity_borrowing_only": null,
+    "including_invocation": null
+  },
+  "note": "the agent and data split applies in both columns, so the two differ only by whether permitted hand-off edges are followed.",
+  "rows": [
+    {
+      "project": "Rohanjain2312__customs-court/deploy/aws/terraform",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "ashdon4u__ai-migration-factory/infrastructure/modules/agent_runtimes",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "avparkhi__agui-agentcore-demo/terraform",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "aws-samples__sample-FAST-applications/samples/anycompany-bank/infra",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/runtime",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+      "esc_without_invocation": [
+        "${local.name_prefix}-evaluators-lambda-role"
+      ],
+      "esc_with_invocation": [
+        "${local.name_prefix}-evaluators-lambda-role"
+      ],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "aws-samples__sample-ai-assistant-on-agentcore/infra",
+      "esc_without_invocation": [
+        "${local.prefix}-sparky"
+      ],
+      "esc_with_invocation": [
+        "${local.prefix}-sparky"
+      ],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "aws-samples__sample-okf-llm-wiki/infra/compute",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [
+        "${var.stack_name}-orchestrator-execution-role"
+      ],
+      "changed": true,
+      "new_escalations": [
+        {
+          "principal": "${var.stack_name}-orchestrator-execution-role",
+          "agents_reached": [],
+          "witnesses": [
+            {
+              "reaches": "arn:aws:ecr:us-east-1:000000000000:repository/${var.stack_name}-${var.ecr_repository_name}-specialist",
+              "action": "ecr:BatchGetImage",
+              "via_role": "${var.stack_name}-specialist-execution-role",
+              "hops": 1,
+              "chain": [
+                {
+                  "from": "${var.stack_name}-orchestrator-execution-role",
+                  "to": "${var.stack_name}-specialist-execution-role",
+                  "via": "invoke",
+                  "scope": "any",
+                  "kind": "invocation",
+                  "caller_agent": "orchestrator",
+                  "callee_agent": "specialist",
+                  "evidence": "declared_resolved",
+                  "enabled_by": "bedrock-agentcore:InvokeAgentRuntime"
+                }
+              ],
+              "conditional": false,
+              "via_invocation": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "project": "awslabs__threat-designer/infra",
+      "esc_without_invocation": [
+        "${local.prefix}-sentry"
+      ],
+      "esc_with_invocation": [
+        "${local.prefix}-sentry"
+      ],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "bcfmtolgahan__eks-sre-agent/terraform",
+      "esc_without_invocation": [
+        "${var.app_name}-AgentCoreRuntimeRole"
+      ],
+      "esc_with_invocation": [
+        "${var.app_name}-AgentCoreRuntimeRole"
+      ],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "flightlesstux__agents-on-call/terraform/10-agent-runtime",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "mongodb-partners__config-driven-agents-agentcore-atlas/terraform",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "seongpil0948__sandbox-agentcore/terraform",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "singulart__google-workspace-agent/terraform",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "spring-ai-community__spring-ai-agentcore/examples/terraform",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    },
+    {
+      "project": "tarlan-huseynov__agentcore-monorepo/terraform",
+      "esc_without_invocation": [],
+      "esc_with_invocation": [],
+      "changed": false,
+      "new_escalations": []
+    }
+  ]
+}

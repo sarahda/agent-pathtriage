@@ -1,0 +1,121 @@
+{
+  "corpus": "corpus_foundry",
+  "json_files_scanned": 30494,
+  "classes": {
+    "no-schema": 20994,
+    "arm-deployment": 5846,
+    "other-schema": 3649,
+    "api-spec": 5
+  },
+  "top_schemas": {
+    "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#": 3346,
+    "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#": 1919,
+    "https://aka.ms/azure-quickstart-templates-metadata-schema#": 1246,
+    "https://aka.ms/bicep-registry-module-version-file-schema#": 929,
+    "https://raw.githubusercontent.com/Azure/azure-verified-modules-tools/main/src/Avm.Authoring/Resources/Schemas/v1/avm-module-metadata.schema.json": 628,
+    "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#": 156,
+    "http://json-schema.org/draft-06/schema#": 151,
+    "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#": 132,
+    "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#": 128,
+    "../../schemas/remarks.schema.json": 119,
+    "https://json.schemastore.org/launchsettings.json": 83,
+    "http://json-schema.org/draft-07/schema#": 57
+  },
+  "markers_by_class": {
+    "AccountManagedIdentity": {
+      "arm-deployment": 4
+    },
+    "AgenticApplicationProperties": {
+      "no-schema": 3
+    },
+    "AgenticIdentity": {
+      "no-schema": 2,
+      "other-schema": 3
+    },
+    "AgenticIdentityToken": {
+      "other-schema": 3
+    },
+    "CognitiveServices/accounts/projects": {
+      "arm-deployment": 75,
+      "other-schema": 2,
+      "no-schema": 3
+    },
+    "MachineLearningServices/workspaces/connections": {
+      "arm-deployment": 45,
+      "other-schema": 2,
+      "no-schema": 1
+    },
+    "ProjectManagedIdentity": {
+      "other-schema": 3,
+      "arm-deployment": 5
+    },
+    "RemoteTool": {
+      "arm-deployment": 5,
+      "other-schema": 3
+    },
+    "UserEntraToken": {
+      "other-schema": 3
+    },
+    "agentDeployments": {
+      "no-schema": 5
+    },
+    "agentIdentityBlueprint": {
+      "no-schema": 2
+    },
+    "authType": {
+      "arm-deployment": 105,
+      "no-schema": 29,
+      "other-schema": 3
+    },
+    "defaultInstanceIdentity": {
+      "no-schema": 2
+    },
+    "projects/applications": {
+      "no-schema": 1
+    }
+  },
+  "arm_deployment_examples": {
+    "CognitiveServices/accounts/projects": [
+      "aldelar__context-aware-vision-grounded-kb-agent/infra/azure/infra/main.json",
+      "anildwarepo__agent_framework_webapp/azd_deploy/infra/main.json",
+      "Azure__AzPolicyFactory/policyDefinitions/diagnostics-settings/pol-deploy-diag-cognitiveProjects.json",
+      "arolariu__arolariu.ro/infra/Azure/ARM/main.json",
+      "anildwarepo__foundry-agents-infra/foundry-managed-vnet-setup/azuredeploy.json"
+    ],
+    "authType": [
+      "aldelar__context-aware-vision-grounded-kb-agent/infra/azure/infra/main.json",
+      "Azure-Samples__autoauth-solution-accelerator/infra/main.json",
+      "Azure-Samples__autoauth-solution-accelerator/infra/resources.json",
+      "Azure-Samples__autoauth-solution-accelerator/infra/modules/ai/aifoundry.json",
+      "anildwarepo__foundry-agents-infra/foundry-managed-vnet-setup/azuredeploy.json"
+    ],
+    "AccountManagedIdentity": [
+      "11acc__deploying_infra_azure/ResourceModules-main/modules/batch/batch-account/main.json",
+      "Azure__azure-sdk-for-python/sdk/batch/test-resources.json",
+      "Azure__bicep-registry-modules/avm/res/batch/batch-account/main.json",
+      "Azure__azure-sdk-for-net/sdk/batch/test-resources.json"
+    ],
+    "MachineLearningServices/workspaces/connections": [
+      "Azure-Samples__autoauth-solution-accelerator/infra/main.json",
+      "Azure-Samples__autoauth-solution-accelerator/infra/resources.json",
+      "Azure-Samples__autoauth-solution-accelerator/infra/modules/ai/aifoundry.json",
+      "Arturo-Quiroga-MSFT__azure-architecture-diagram-builder/tests/fixtures/arm/AQ_FOUNDRY_RG.json",
+      "Arturo-Quiroga-MSFT__azure-architecture-diagram-builder/Azure_generated_diagrams/template (6).json"
+    ],
+    "RemoteTool": [
+      "Arturo-Quiroga-MSFT__azure-architecture-diagram-builder/Azure_generated_diagrams/template (6).json",
+      "Azure__bicep-registry-modules/avm/ptn/sa/conversation-knowledge-mining/main.json",
+      "Azure-Samples__chat-with-your-data-solution-accelerator/infra/main.json",
+      "Azure-Samples__chat-with-your-data-solution-accelerator/infra/avm/main.json",
+      "Azure-Samples__chat-with-your-data-solution-accelerator/infra/bicep/main.json"
+    ],
+    "ProjectManagedIdentity": [
+      "Azure__bicep-registry-modules/avm/ptn/ai-platform/baseline/main.json",
+      "Azure__bicep-registry-modules/avm/ptn/sa/conversation-knowledge-mining/main.json",
+      "Azure-Samples__chat-with-your-data-solution-accelerator/infra/main.json",
+      "Azure-Samples__chat-with-your-data-solution-accelerator/infra/avm/main.json",
+      "Azure-Samples__chat-with-your-data-solution-accelerator/infra/bicep/main.json"
+    ]
+  },
+  "rule": "A file counts as an ARM deployment template only when its $schema host is schema.management.azure.com. Everything else is reported separately rather than dropped, so the split can be checked."
+}

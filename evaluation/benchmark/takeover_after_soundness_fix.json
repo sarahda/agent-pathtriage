@@ -1,0 +1,166 @@
+[
+  {
+    "config": "avparkhi__agui-agentcore-demo/terraform",
+    "takeover_edges": 0,
+    "blocked": 0,
+    "esc": [],
+    "blocked_detail": []
+  },
+  {
+    "config": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+    "takeover_edges": 0,
+    "blocked": 2,
+    "esc": [],
+    "blocked_detail": [
+      {
+        "principal": "${local.name_prefix}-evaluators-lambda-role",
+        "target_role": "${local.name_prefix}-agent-execution",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${var.mcp_agent_name}",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "principal": "${local.name_prefix}-evaluators-lambda-role",
+        "target_role": "${local.name_prefix}-agent-execution",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${var.supply_chain_agent_name}",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      }
+    ]
+  },
+  {
+    "config": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+    "takeover_edges": 0,
+    "blocked": 1,
+    "esc": [],
+    "blocked_detail": [
+      {
+        "principal": "${var.name_prefix}-runtime-exec-role",
+        "target_role": "${var.name_prefix}-gateway-exec-role",
+        "action": "bedrock-agentcore:UpdateGateway",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:gateway/${var.name_prefix}-gateway",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      }
+    ]
+  },
+  {
+    "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+    "takeover_edges": 0,
+    "blocked": 2,
+    "esc": [],
+    "blocked_detail": [
+      {
+        "principal": "${var.stack_name}-orchestrator-execution-role",
+        "target_role": "${var.stack_name}-specialist-execution-role",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(var.stack_name, \"-\", \"_\")}_${var.specialist_name}",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "principal": "${var.stack_name}-specialist-execution-role",
+        "target_role": "${var.stack_name}-orchestrator-execution-role",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(var.stack_name, \"-\", \"_\")}_${var.orchestrator_name}",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      }
+    ]
+  },
+  {
+    "config": "bcfmtolgahan__eks-sre-agent/terraform",
+    "takeover_edges": 0,
+    "blocked": 2,
+    "esc": [],
+    "blocked_detail": [
+      {
+        "principal": "${var.app_name}-AgentCoreGatewayRole",
+        "target_role": "${var.app_name}-AgentCoreRuntimeRole",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/eks_sre_agent_Agent",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "principal": "${var.app_name}-AgentCoreGatewayRole",
+        "target_role": "${var.app_name}-SentinelRuntimeRole",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/eks_sre_agent_Sentinel",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      }
+    ]
+  },
+  {
+    "config": "seongpil0948__sandbox-agentcore/terraform",
+    "takeover_edges": 0,
+    "blocked": 6,
+    "esc": [],
+    "blocked_detail": [
+      {
+        "principal": "${var.name_prefix}-leaf-runtime-role",
+        "target_role": "${var.name_prefix}-orchestrator-runtime-role",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.orchestrator_name}\", \"-\", \"_\")}",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "principal": "${var.name_prefix}-leaf-runtime-role",
+        "target_role": "${var.name_prefix}-supervisor-runtime-role",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.supervisor_name}\", \"-\", \"_\")}",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "principal": "${var.name_prefix}-supervisor-runtime-role",
+        "target_role": "${var.name_prefix}-leaf-runtime-role",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.leaf_name}\", \"-\", \"_\")}",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "principal": "${var.name_prefix}-supervisor-runtime-role",
+        "target_role": "${var.name_prefix}-orchestrator-runtime-role",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.orchestrator_name}\", \"-\", \"_\")}",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "principal": "${var.name_prefix}-orchestrator-runtime-role",
+        "target_role": "${var.name_prefix}-leaf-runtime-role",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.leaf_name}\", \"-\", \"_\")}",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      },
+      {
+        "principal": "${var.name_prefix}-orchestrator-runtime-role",
+        "target_role": "${var.name_prefix}-supervisor-runtime-role",
+        "action": "bedrock-agentcore:UpdateAgentRuntime",
+        "resource": "arn:aws:bedrock-agentcore:us-east-1:000000000000:runtime/${replace(\"${var.name_prefix}_${var.supervisor_name}\", \"-\", \"_\")}",
+        "missing_dependent_actions": [
+          "iam:PassRole"
+        ]
+      }
+    ]
+  }
+]

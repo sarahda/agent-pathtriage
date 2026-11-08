@@ -1,0 +1,117 @@
+{
+ "rows": [
+  {
+   "claim": "delegation paths recovered once hand-offs are followed",
+   "number": "1.000 recall",
+   "population": "IAM-Vulnerable delegation paths",
+   "verified_by": "external ground truth, someone else's benchmark",
+   "precision": null,
+   "note": "recall, not precision"
+  },
+  {
+   "claim": "the same paths seen by a check that looks at one identity at a time",
+   "number": "0.000 recall",
+   "population": "IAM-Vulnerable delegation paths",
+   "verified_by": "external ground truth",
+   "precision": null,
+   "note": "the baseline, not a claim about this tool"
+  },
+  {
+   "claim": "templates declaring two or more agents",
+   "number": "18",
+   "population": "220 analysed projects",
+   "verified_by": "census, then every flagged template re-read from the raw Terraform by a second pass",
+   "precision": 1.0,
+   "note": "18 of 18 confirmed, 0 undecided. The second pass counts runtime blocks in the source, which is a cross check and not an independent oracle."
+  },
+  {
+   "claim": "templates running every agent under one execution role",
+   "number": "5 of 18",
+   "population": "the 18 multi-agent templates",
+   "verified_by": "census, then every flagged template re-read from the raw Terraform by a second pass",
+   "precision": 1.0,
+   "note": "5 of 5 confirmed. The second pass groups runtimes by the role_arn expression text, so it is a cross check and not an independent oracle. File and line for each are in shared_role_source_check.json."
+  },
+  {
+   "claim": "resource-scope gaps adjudicated by hand",
+   "number": "17 flagged",
+   "population": "every gap the pass produced, none sampled",
+   "verified_by": "hand adjudication of 100 percent of the flagged set",
+   "precision": null,
+   "note": "13 single-agent (latent), 2 narrow, 2 shared-role, 0 cross-agent"
+  },
+  {
+   "claim": "a flagged gap covers a resource another agent in the same template owns",
+   "number": "2 of 4",
+   "population": "the 4 flagged gaps in templates with a second agent",
+   "verified_by": "hand adjudication",
+   "precision": null,
+   "note": "the single-agent gaps are excluded because the claim cannot be wrong where there is no second agent. The adjudication confirmed all 2 of the 2 reported, so the number below is the breakdown of the flagged set and not an agreement rate"
+  },
+  {
+   "claim": "takeover candidates blocked only on iam:PassRole",
+   "number": "26 across 16 projects",
+   "population": "220 analysed projects",
+   "verified_by": "census, then every candidate re-read from the raw Terraform",
+   "precision": null,
+   "note": "the block follows from the API contract: UpdateAgentRuntime marks roleArn required, so the candidate cannot avoid iam:PassRole. What the 26 are is in the next row."
+  },
+  {
+   "claim": "blocked candidates that are one agent reaching another",
+   "number": "10 of 26",
+   "population": "the 26 blocked candidates",
+   "verified_by": "every candidate re-read from the raw Terraform",
+   "precision": null,
+   "note": "the second pass agreed with every candidate, so this is the breakdown of the blocked set and not an agreement rate. 10 single-agent; 10 agent to agent; 2 target is not an agent execution role; 4 principal is not an agent execution role. The rest are a takeover but not an agent to agent one, or sit in a configuration with no second agent."
+  },
+  {
+   "claim": "cross-agent escalation found in the corpus",
+   "number": "0 of 220",
+   "population": "220 analysed projects",
+   "verified_by": "hand adjudication of every flagged gap",
+   "precision": null,
+   "note": "a count of zero has no positives to be precise about. What bounds it is the population, not a precision."
+  },
+  {
+   "claim": "projects granting iam:PassRole over a role an agent runs as",
+   "number": "1 of 220",
+   "population": "220 analysed projects",
+   "verified_by": "census of the whole population, not a sample",
+   "precision": null,
+   "note": "no hand check exists"
+  },
+  {
+   "claim": "CDK apps running several runtimes under one role",
+   "number": "2",
+   "population": "the CDK apps the source scan flagged",
+   "verified_by": "every one read by hand in the source",
+   "precision": 1.0,
+   "note": "2 of 2 confirmed by reading the file"
+  },
+  {
+   "claim": "Foundry template directories holding an agent declaration",
+   "number": "0 of 16450",
+   "population": "360 repositories, 45992 files",
+   "verified_by": "census of the whole corpus, not a sample",
+   "precision": null,
+   "note": "a count of zero has no positives to be precise about"
+  },
+  {
+   "claim": "Foundry connection auth values, by type",
+   "number": "AAD 279, ApiKey 161, ManagedIdentity 44, CustomKeys 13, ProjectManagedIdentity 8, AccessKey 4",
+   "population": "516 assigned authType values",
+   "verified_by": "census of the whole corpus, not a sample",
+   "precision": null,
+   "note": "assigned values, which is not the authType marker count"
+  },
+  {
+   "claim": "connections that pick an agent scoped auth type",
+   "number": "0 of 516",
+   "population": "516 assigned authType values",
+   "verified_by": "census of the whole corpus, not a sample",
+   "precision": null,
+   "note": "a count of zero has no positives to be precise about"
+  }
+ ],
+ "artifacts_missing": []
+}

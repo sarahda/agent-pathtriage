@@ -1,0 +1,93 @@
+{
+  "corpus": "corpus_cfn",
+  "method": "each template is translated to the state shape extract_graph reads, then reach.py is called unchanged. The predicate and the delegation edge rule are the same objects that produced the Terraform numbers.",
+  "cloudformation": {
+    "multi_runtime_templates": 12,
+    "analysed": 9,
+    "with_a_chain": 0,
+    "undecidable": 3,
+    "failed": 0,
+    "chains": [],
+    "undecidable_detail": [
+      {
+        "template": "aws-samples__sample-ai-qa-test-engine/infra/cfn-template.yaml",
+        "runtimes": [
+          {
+            "runtime": "TestRunnerRuntime",
+            "role_ref": "${condition}"
+          },
+          {
+            "runtime": "OrchestratorRuntime",
+            "role_ref": "${condition}"
+          }
+        ],
+        "why": "an agent's role reference did not resolve, so this template cannot be judged either way"
+      },
+      {
+        "template": "aws__aws-dotnet-ai/test/AWS.AgentCore.Hosting.IntegrationTests/Infrastructure/inttest-runtimes.template.json",
+        "runtimes": [
+          {
+            "runtime": "MicrosoftAgentFrameworkSample",
+            "role_ref": "${param.RoleArn}"
+          },
+          {
+            "runtime": "AnnotationsSample",
+            "role_ref": "${param.RoleArn}"
+          },
+          {
+            "runtime": "StreamingAgent",
+            "role_ref": "${param.RoleArn}"
+          },
+          {
+            "runtime": "AnnotationsStreamingAgent",
+            "role_ref": "${param.RoleArn}"
+          },
+          {
+            "runtime": "NativeAotExtensions",
+            "role_ref": "${param.RoleArn}"
+          },
+          {
+            "runtime": "NativeAotAnnotations",
+            "role_ref": "${param.RoleArn}"
+          }
+        ],
+        "why": "an agent's role reference did not resolve, so this template cannot be judged either way"
+      },
+      {
+        "template": "heeki__agents/a2a-with-agentcore/iac/agentcore.yaml",
+        "runtimes": [
+          {
+            "runtime": "BiomechanicsLabRuntime",
+            "role_ref": "${param.ExecutionRoleArn}"
+          },
+          {
+            "runtime": "LifeSyncRuntime",
+            "role_ref": "${param.ExecutionRoleArn}"
+          },
+          {
+            "runtime": "OrchestratorRuntime",
+            "role_ref": "${param.ExecutionRoleArn}"
+          }
+        ],
+        "why": "an agent's role reference did not resolve, so this template cannot be judged either way"
+      }
+    ],
+    "failed_detail": []
+  },
+  "cdk": {
+    "multi_runtime_directories": 41,
+    "analysed": 0,
+    "why_not": "a CDK role's policies are built by code. Recovering them from source is a heuristic several steps deeper than reading a role argument, so these are counted in the population for role sharing and reported as undecidable for chains."
+  },
+  "population": {
+    "terraform_projects": 18,
+    "cloudformation_templates_analysed": 9,
+    "chain_denominator": 27,
+    "units_in_population_not_analysed_for_chains": 44,
+    "deduplicated": true,
+    "deduplication_note": "the CloudFormation side counts deployable distinct units: a template byte identical to another is counted once and a file under a test fixture, a snapshot directory or a vendored benchmark copy is not counted as a deployment",
+    "note": "the denominator is what the chain analysis actually covered, not the whole population. The units it did not cover are named above rather than assumed clean.",
+    "chains_found": 0,
+    "upper_bound_95_percent": 10.5
+  }
+}

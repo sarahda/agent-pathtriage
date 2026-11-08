@@ -1,0 +1,60 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "kind": "role",
+      "id": "apt-lab-roleA-thin"
+    },
+    {
+      "kind": "role",
+      "id": "apt-lab-roleC-overprivileged"
+    },
+    {
+      "kind": "resource",
+      "id": "Agent memory"
+    },
+    {
+      "kind": "resource",
+      "id": "Agent runtimes"
+    },
+    {
+      "kind": "resource",
+      "id": "Code interpreters"
+    }
+  ],
+  "edges": [
+    {
+      "rel": "delegate",
+      "via": "iam:PassRole",
+      "vias": [
+        "iam:PassRole",
+        "sts:AssumeRole"
+      ],
+      "source": "apt-lab-roleA-thin",
+      "target": "apt-lab-roleC-overprivileged"
+    },
+    {
+      "rel": "act",
+      "action": "bedrock-agentcore:*",
+      "wildcard": true,
+      "source": "apt-lab-roleC-overprivileged",
+      "target": "Agent memory"
+    },
+    {
+      "rel": "act",
+      "action": "bedrock-agentcore:InvokeAgentRuntime",
+      "wildcard": true,
+      "source": "apt-lab-roleC-overprivileged",
+      "target": "Agent runtimes"
+    },
+    {
+      "rel": "act",
+      "action": "bedrock-agentcore:InvokeCodeInterpreter",
+      "wildcard": true,
+      "source": "apt-lab-roleC-overprivileged",
+      "target": "Code interpreters"
+    }
+  ]
+}

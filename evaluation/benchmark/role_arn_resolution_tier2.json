@@ -1,0 +1,31 @@
+{
+  "corpus": "corpus_tier2",
+  "templates_examined": 220,
+  "runtime_role_assignments": {
+    "partially-resolved": 192,
+    "fully-resolved": 20,
+    "opaque-reference": 30
+  },
+  "multi_runtime_templates": 18,
+  "multi_runtime_templates_undecidable": 1,
+  "undecidable": [
+    {
+      "template": "ashdon4u__ai-migration-factory/infrastructure/modules/agent_runtimes",
+      "runtimes": 2,
+      "why": "two or more different opaque references",
+      "roles": [
+        {
+          "runtime": "sub_agent",
+          "role": "${var.agent_role_arns[each.key]}",
+          "class": "opaque-reference"
+        },
+        {
+          "runtime": "supervisor",
+          "role": "${var.agent_role_arns[\"supervisor\"]}",
+          "class": "opaque-reference"
+        }
+      ]
+    }
+  ],
+  "meaning": "A partially resolved ARN is still comparable: two runtimes whose role strings differ outside the variable reference hold different roles whatever the variable is, and two written identically hold the same one. The shared-role rule is only blocked when a role is nothing but an opaque reference and the two runtimes carry different ones, because substitution could make them equal. The published shared-role count is a lower bound by at most the undecidable count."
+}

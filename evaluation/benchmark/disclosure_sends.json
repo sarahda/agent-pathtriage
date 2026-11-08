@@ -1,0 +1,26 @@
+{
+ "method": "counted from the sends this run produced, one per channel group, with the channel taken from channels.json",
+ "reports": 3,
+ "repositories_covered": 7,
+ "reports_by_channel": {
+  "email": 1,
+  "github-issue": 2
+ },
+ "sends": [
+  {
+   "group": "group-1",
+   "repositories": 1,
+   "channel": "github-issue"
+  },
+  {
+   "group": "group-2",
+   "repositories": 5,
+   "channel": "email"
+  },
+  {
+   "group": "group-3",
+   "repositories": 1,
+   "channel": "github-issue"
+  }
+ ]
+}

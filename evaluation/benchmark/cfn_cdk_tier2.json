@@ -1,0 +1,76 @@
+{
+  "corpus": "corpus_tier2",
+  "cloudformation": {
+    "unit": "one template file is one stack",
+    "candidate_files_read": 257632,
+    "files_declaring_an_agent_runtime": 131,
+    "agent_runtimes": 139,
+    "templates_with_two_or_more": 8,
+    "templates_sharing_a_role": 0,
+    "templates_undecidable": 0,
+    "shared": [],
+    "undecidable": [],
+    "other_agentcore_types": {
+      "aws::bedrockagentcore::gateway": 40,
+      "aws::bedrockagentcore::memory": 40,
+      "aws::bedrockagentcore::runtimeendpoint": 1
+    },
+    "method": "exact: the resource type is named in the template and the role is a property of it. Intrinsics are normalised so the YAML and JSON forms of one reference compare equal."
+  },
+  "cdk": {
+    "unit": "one directory is one app, because two stacks in one app can share a role across two files",
+    "files_with_a_runtime_construct": 45,
+    "runtime_constructs": 58,
+    "directories_with_two_or_more": 10,
+    "directories_sharing_a_role": 2,
+    "directories_undecidable": 0,
+    "shared": [
+      {
+        "directory": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+            "role": "agent_role.role_arn"
+          },
+          {
+            "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+            "role": "agent_role.role_arn"
+          },
+          {
+            "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+            "role": "agent_role.role_arn"
+          }
+        ],
+        "shared_roles": [
+          "agent_role.role_arn"
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-aws-genai-ops-demos/operations-automation/ai-lambda-runtime-migration/cdk/lib",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "aws-samples__sample-aws-genai-ops-demos/operations-automation/ai-lambda-runtime-migration/cdk/lib/runtime-stack.ts",
+            "role": "agentRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-aws-genai-ops-demos/operations-automation/ai-lambda-runtime-migration/cdk/lib/runtime-stack.ts",
+            "role": "agentRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-aws-genai-ops-demos/operations-automation/ai-lambda-runtime-migration/cdk/lib/runtime-stack.ts",
+            "role": "agentRole.roleArn"
+          }
+        ],
+        "shared_roles": [
+          "agentRole.roleArn"
+        ]
+      }
+    ],
+    "undecidable": [],
+    "method": "heuristic: the source is read, not synthesised. Two call sites passing the same expression text are treated as one role. A call site whose role argument cannot be located is undecidable, never 'not sharing'. A file counts only if it imports bedrockagentcore, because CfnRuntime is not unique across CDK modules."
+  },
+  "why": "the Terraform population in which a cross-agent chain is possible is 18 projects, and 0 of 18 bounds the rate at only 15.3 percent. This measures how much of the population was outside Terraform.",
+  "do_not_add_these_together": "the two units differ and the CDK figure is heuristic while the CloudFormation one is exact. Report them separately."
+}

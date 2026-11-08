@@ -1,0 +1,5 @@
+{
+ "method": "independent grep over corpus_foundry for Foundry agent resource types, distinct from Microsoft.App/agents which is a different provider",
+ "files_matching": 0,
+ "note": "a looser pattern first matched 2 files, both Microsoft.App/agents in one repository, which is Container Apps and not an AI Foundry agent"
+}

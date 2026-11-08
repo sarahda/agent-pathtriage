@@ -1,0 +1,69 @@
+% ---------------------------------------------------------------------------
+% AgentPathTriage
+%
+% Two column ACM format. To switch to the single column layout that ACM
+% journals such as TOPS use for submission, replace sigconf with acmsmall
+% below and nothing else changes:
+%
+%   \documentclass[acmsmall,nonacm,screen]{acmart}
+%
+% nonacm removes the conference footer and the copyright block, which is what
+% an arXiv preprint and a course submission want. Remove it when submitting
+% to ACM so the class puts the rights block back.
+% ---------------------------------------------------------------------------
+\documentclass[sigconf,nonacm,screen]{acmart}
+
+\settopmatter{printacmref=false}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+
+\input{preamble}
+\input{numbers}
+
+\begin{document}
+
+\title{Replacing the Agent}
+\subtitle{Measuring cross-agent takeover preconditions in public infrastructure as code}
+
+\author{Tessa Moon}
+\affiliation{%
+  \institution{University of New South Wales}
+  \city{Sydney}
+  \country{Australia}}
+\email{hyeon.moon@student.unsw.edu.au}
+
+\begin{abstract}
+\input{sections/00-abstract}
+\end{abstract}
+
+\keywords{cloud security, identity and access management, AI agents,
+privilege escalation, infrastructure as code}
+
+\maketitle
+
+\input{sections/01-introduction}
+\input{sections/02-background}
+\input{sections/03-threat-model}
+\input{sections/04-approach}
+\input{sections/05-implementation}
+\input{sections/06-methodology}
+\input{sections/07-results}
+\input{sections/08-case-study}
+\input{sections/09-foundry}
+\input{sections/10-validation}
+\input{sections/10b-defences}
+\input{sections/11-limitations}
+\input{sections/12-related-work}
+\input{sections/13-conclusion}
+
+\section{Availability}
+\label{sec:availability}
+\input{sections/14-availability}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+
+\appendix
+\input{sections/A1-claims}
+\input{sections/A2-reproduction}
+
+\end{document}

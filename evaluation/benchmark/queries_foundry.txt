@@ -1,0 +1,11 @@
+# Microsoft Foundry / Azure AI agent infrastructure as code.
+# One query per line. Blank lines and lines starting with # are ignored.
+# Measured 2026-10-15, total_count per query is in the comment.
+azurerm_ai_foundry extension:tf
+azurerm_ai_foundry_project extension:tf
+azapi_resource ai_foundry extension:tf
+"Microsoft.MachineLearningServices/workspaces/connections" extension:tf
+"Microsoft.MachineLearningServices/workspaces" extension:bicep
+"Microsoft.CognitiveServices/accounts" AIServices extension:bicep
+AgentUserImpersonation extension:bicep
+ProjectManagedIdentity extension:json

@@ -1,0 +1,53 @@
+\section{Corpus and Method}
+\label{sec:methodology}
+
+\subsection{What we collected}
+
+We collect public repositories that deploy the platforms in question, in three
+families: Terraform projects that declare \agentcore agent runtimes,
+CloudFormation and CDK deployments of the same service, and \foundry
+templates.
+
+Every collection query records whether it hit the search API's result ceiling.
+No query in either corpus did, so for the queries we issued the collection is
+exhaustive rather than a sample of what was available. A deployment using none
+of our query terms is not in the corpus.
+
+\subsection{What we excluded, and why}
+
+A file under a test fixture, a snapshot directory, or a vendored dependency is
+not a deployment, and a template byte identical to another is counted once.
+The rule applies everywhere a count appears, including the role sharing
+census. Every excluded unit is named in the artifacts.
+
+\subsection{Three denominators}
+\label{sec:populations}
+
+Three different denominators appear in this paper and they are not the same
+set.
+
+\begin{description}
+\item[Analysed projects (\nProjects).] Terraform projects that declare at
+  least one agent runtime and that the parser read without failing. This is
+  the denominator for escalation results.
+\item[Chain denominator (\nChainDenominator).] The deployable distinct units
+  the chain analysis actually covered: \nChainTerraform Terraform projects and
+  \nChainCfn CloudFormation templates. \nChainNotCovered units in the
+  population are not covered, and they are named rather than assumed clean.
+\item[Foundry directories (\nFoundryDirs).] Template directories in the
+  \foundry collection. Only \nFoundryAuthDirs of them declare a connection
+  resource, and that smaller set is the denominator for the \api{authType}
+  figures.
+\end{description}
+
+Figure~\ref{fig:pipeline} shows how the collection narrows to each of them.
+
+\input{figures/fig-pipeline}
+
+\subsection{Verification}
+
+Numbers come from artifacts, the artifacts are rebuilt by one script, and a
+verification pass re-derives every published figure from them.
+Appendix~\ref{sec:repro} gives the commands. Where a second pass re-derived a
+number from the raw source, Appendix~\ref{sec:claims} reports its precision;
+where none did, it says so.

@@ -1,0 +1,16 @@
+# Runtime
+networkx>=3.0
+policy-sentry>=0.13.0
+
+# Terraform parsing for the corpus scanners (scan_s1, extract_static).
+# tf_to_state.py does not need this; it parses HCL itself.
+python-hcl2>=4.3.0
+
+# Figures
+matplotlib>=3.7
+
+# Independent baseline, only needed for evaluation/benchmark/baseline_cloudsplaining.py
+cloudsplaining>=0.6
+
+# Tests
+pytest>=7.0

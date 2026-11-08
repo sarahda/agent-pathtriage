@@ -1,0 +1,3611 @@
+{
+  "population": 220,
+  "verdict_possible": 204,
+  "withheld": 16,
+  "errored": 0,
+  "edges": {
+    "confirmed": 8,
+    "config_only": 0,
+    "code_only": 287
+  },
+  "templates": {
+    "confirmed": 6,
+    "config_only": 0,
+    "code_only": 75,
+    "config_alone": 6,
+    "config_or_code": 78
+  },
+  "rows": [
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/45678XYZ__e-Hakka-Care/terraform",
+      "agents": 1,
+      "py_files": 85,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENTCORE_ENDPOINT_NAME"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_ARN"
+      ],
+      "template_rel": "45678XYZ__e-Hakka-Care/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/46ki75__examples/stacks/agentcore-web-search/terraform",
+      "agents": 1,
+      "py_files": 33,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "46ki75__examples/stacks/agentcore-web-search/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/46ki75__internal/terraform",
+      "agents": 1,
+      "py_files": 9,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "MCP_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "46ki75__internal/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Aadarshg087__agentcore-services-poc/hyperIvory/terraform",
+      "agents": 1,
+      "py_files": 16,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "Aadarshg087__agentcore-services-poc/hyperIvory/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Aadarshg087__agentcore-services-poc/terraform",
+      "agents": 1,
+      "py_files": 16,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "Aadarshg087__agentcore-services-poc/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/AlterionAI__terraform-provider-alterion/examples/agentcore",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "AlterionAI__terraform-provider-alterion/examples/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Bernardo-Dauber__chat-agentcore/infra",
+      "agents": 1,
+      "py_files": 7,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "Bernardo-Dauber__chat-agentcore/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/BloclabsHQ__modules/modules/devops_agent",
+      "agents": 1,
+      "py_files": 5,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "BloclabsHQ__modules/modules/devops_agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/CloudCraftersOrg__cloudwatch-agent/terraform",
+      "agents": 1,
+      "py_files": 17,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "CloudCraftersOrg__cloudwatch-agent/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Coalfire-AI__terraform-modules/modules/agentcore_agent",
+      "agents": 1,
+      "py_files": 8,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "Coalfire-AI__terraform-modules/modules/agentcore_agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/CopilotKit__CopilotKit/examples/integrations/agentcore/infra-terraform/modules/backend",
+      "agents": 1,
+      "py_files": 914,
+      "invoke_calls": 5,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_URL"
+      ],
+      "template_rel": "CopilotKit__CopilotKit/examples/integrations/agentcore/infra-terraform/modules/backend"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Danacod991__Agentcore-4/infra-terraform/modules/backend",
+      "agents": 1,
+      "py_files": 47,
+      "invoke_calls": 5,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "Danacod991__Agentcore-4/infra-terraform/modules/backend"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Donngi__terraform-aws-provider-description/terraform-template",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "Donngi__terraform-aws-provider-description/terraform-template"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Kjeff24__bedrock-agentcore-strands-mcp-runtime/infra/terraform/runtime",
+      "agents": 1,
+      "py_files": 7,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "Kjeff24__bedrock-agentcore-strands-mcp-runtime/infra/terraform/runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/KyMidd__AgentCore_AgenticSlackBot/worker",
+      "agents": 1,
+      "py_files": 29,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "KyMidd__AgentCore_AgenticSlackBot/worker"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/LeonardoSanBenitez__ComplianceOps-Reference-Architecture-for-Bedrock-Agentic-Chatbot/infra/terraform",
+      "agents": 1,
+      "py_files": 8,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "LeonardoSanBenitez__ComplianceOps-Reference-Architecture-for-Bedrock-Agentic-Chatbot/infra/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Leviavii__aviac/c2c_issues/AWS/AIAgent-009",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "Leviavii__aviac/c2c_issues/AWS/AIAgent-009"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/LuisOsuna117__terraform-aws-agentcore/modules/runtime",
+      "agents": 1,
+      "py_files": 3,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "LuisOsuna117__terraform-aws-agentcore/modules/runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/MaripeddiSupraj__strands-agents-mastery/examples/20-capstone-build-ship-production-multi-agent-system/infra",
+      "agents": 1,
+      "py_files": 34,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "MaripeddiSupraj__strands-agents-mastery/examples/20-capstone-build-ship-production-multi-agent-system/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/MyMemoAI__mymemo-agent/infra/terraform",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "MyMemoAI__mymemo-agent/infra/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Radikahn__radAgent/infra",
+      "agents": 1,
+      "py_files": 67,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "RADAGENT_S3_ENDPOINT"
+      ],
+      "generic_address_only": [],
+      "template_rel": "Radikahn__radAgent/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/ReyanL__demo-cloud-engineer-agent/terraform",
+      "agents": 1,
+      "py_files": 14,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_ARN"
+      ],
+      "template_rel": "ReyanL__demo-cloud-engineer-agent/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Rohanjain2312__customs-court/deploy/aws/terraform",
+      "agents": 2,
+      "py_files": 90,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "MCP_URL",
+        "TA_MCP_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "Rohanjain2312__customs-court/deploy/aws/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Sakthivel-P-cse__CODEX/references/ui/agent-ui-libs/CopilotKit/examples/integrations/agentcore/infra-terraform/modules/backend",
+      "agents": 1,
+      "py_files": 1015,
+      "invoke_calls": 5,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_URL"
+      ],
+      "template_rel": "Sakthivel-P-cse__CODEX/references/ui/agent-ui-libs/CopilotKit/examples/integrations/agentcore/infra-terraform/modules/backend"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/ShoFukada__agentcore_hands_on/infrastructure/modules/agent_runtime",
+      "agents": 1,
+      "py_files": 4,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "ShoFukada__agentcore_hands_on/infrastructure/modules/agent_runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Tarique-B__Terraform-AWS-AgentCore/modules/agentcore-runtime",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "Tarique-B__Terraform-AWS-AgentCore/modules/agentcore-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Thesportydar__fintwit-rag/terraform/main",
+      "agents": 1,
+      "py_files": 28,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_ARN"
+      ],
+      "template_rel": "Thesportydar__fintwit-rag/terraform/main"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/WendyOkoli__Primeland-Properties-AI-Assistant/terraform/modules/agent",
+      "agents": 1,
+      "py_files": 4,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "WendyOkoli__Primeland-Properties-AI-Assistant/terraform/modules/agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/Wvidit__Agentic/terraform",
+      "agents": 1,
+      "py_files": 5,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "Wvidit__Agentic/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/ZenMicro-Tech__terraform-zm-infra",
+      "agents": 2,
+      "py_files": 8,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "MCP_LAMBDA_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "ZenMicro-Tech__terraform-zm-infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aal80__agentcore-samples/empty-shell-with-agentcore-sdk/terraform",
+      "agents": 1,
+      "py_files": 17,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aal80__agentcore-samples/empty-shell-with-agentcore-sdk/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aal80__agentcore-samples/empty-shell-with-expressjs/terraform",
+      "agents": 1,
+      "py_files": 17,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aal80__agentcore-samples/empty-shell-with-expressjs/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aal80__agentcore-samples/empty-shell-with-fastapi/terraform",
+      "agents": 1,
+      "py_files": 17,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aal80__agentcore-samples/empty-shell-with-fastapi/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aal80__agentcore-samples/empty-shell-with-flask/terraform",
+      "agents": 1,
+      "py_files": 17,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aal80__agentcore-samples/empty-shell-with-flask/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aal80__agentcore-samples/simple-strands-agent/terraform",
+      "agents": 1,
+      "py_files": 17,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aal80__agentcore-samples/simple-strands-agent/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aal80__agentcore-samples/strands-agent-with-memory/terraform",
+      "agents": 1,
+      "py_files": 17,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aal80__agentcore-samples/strands-agent-with-memory/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aal80__agentcore-samples/strands-agent-with-observability/terraform",
+      "agents": 1,
+      "py_files": 17,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aal80__agentcore-samples/strands-agent-with-observability/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aal80__agentcore-workshops/a2a-with-strands/terraform/orchestrator-agent",
+      "agents": 3,
+      "py_files": 20,
+      "invoke_calls": 3,
+      "declared": 2,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [
+        "WEATHER_AGENT_RUNTIME_URL",
+        "SHOPPING_AGENT_RUNTIME_URL"
+      ],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aal80__agentcore-workshops/a2a-with-strands/terraform/orchestrator-agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aal80__agentcore-workshops/a2a-with-strands/terraform/shopping-agent",
+      "agents": 1,
+      "py_files": 20,
+      "invoke_calls": 3,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "SHOPPING_AGENT_RUNTIME_URL",
+        "WEATHER_AGENT_RUNTIME_URL"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aal80__agentcore-workshops/a2a-with-strands/terraform/shopping-agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aal80__agentcore-workshops/a2a-with-strands/terraform/weather-agent",
+      "agents": 1,
+      "py_files": 20,
+      "invoke_calls": 3,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "SHOPPING_AGENT_RUNTIME_URL",
+        "WEATHER_AGENT_RUNTIME_URL"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aal80__agentcore-workshops/a2a-with-strands/terraform/weather-agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aal80__agentcore-workshops/building-ai-agents/terraform/runtime",
+      "agents": 1,
+      "py_files": 20,
+      "invoke_calls": 3,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "SHOPPING_AGENT_RUNTIME_URL",
+        "WEATHER_AGENT_RUNTIME_URL"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aal80__agentcore-workshops/building-ai-agents/terraform/runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/adona9__mcp-container-aws/infra/platform",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "adona9__mcp-container-aws/infra/platform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/ahmedelshfie__finops-aws-agent/terraform/modules/finops_agentcore_env",
+      "agents": 1,
+      "py_files": 10,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "ahmedelshfie__finops-aws-agent/terraform/modules/finops_agentcore_env"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/ajaydhungel7__Fixture_Agent/terraform/agentcore",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "ajaydhungel7__Fixture_Agent/terraform/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/akhilgupta210284__agents/terraform/modules/agentcore",
+      "agents": 1,
+      "py_files": 29,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "akhilgupta210284__agents/terraform/modules/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/akto-api-security__secure-agent-orchestration/infra/modules/agentcore-runtime-agent",
+      "agents": 1,
+      "py_files": 5,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "MCP_GATEWAY_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "akto-api-security__secure-agent-orchestration/infra/modules/agentcore-runtime-agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/alchemy-1115__agentcore-vpc-terraform",
+      "agents": 1,
+      "py_files": 1,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "alchemy-1115__agentcore-vpc-terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/alexandreroman__code-review-agentcore-temporal/infra/aws",
+      "agents": 1,
+      "py_files": 60,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "alexandreroman__code-review-agentcore-temporal/infra/aws"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/alexjmoore8__AgenticEmailBot/worker",
+      "agents": 1,
+      "py_files": 26,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "SPLUNK_MCP_URL"
+      ],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "alexjmoore8__AgenticEmailBot/worker"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aminnemati96__homedocs-alexa-plus/infra",
+      "agents": 1,
+      "py_files": 19,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "MCP_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aminnemati96__homedocs-alexa-plus/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/andrewblooman__Cohort/terraform",
+      "agents": 1,
+      "py_files": 41,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENTCORE_AGENT_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "andrewblooman__Cohort/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aniljose-ai__Mortgage-Agents-BedrockAgentCore/terraform",
+      "agents": 1,
+      "py_files": 4,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aniljose-ai__Mortgage-Agents-BedrockAgentCore/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aniryou__bedrock-demo/infra/terraform",
+      "agents": 1,
+      "py_files": 46,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "OBO_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aniryou__bedrock-demo/infra/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/ashdon4u__ai-migration-factory/infrastructure/modules/agent_runtimes",
+      "agents": 2,
+      "py_files": 120,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "APPROVAL_AGENT_ARN",
+        "BASELINE_AGENT_ARN",
+        "INFRASTRUCTURE_AGENT_ARN",
+        "INVENTORY_AGENT_ARN",
+        "LANDING_ZONE_AGENT_ARN",
+        "MIGRATION_AGENT_ARN",
+        "PLANNING_AGENT_ARN",
+        "REMEDIATION_AGENT_ARN",
+        "REPORTING_AGENT_ARN",
+        "SUPERVISOR_AGENT_ARN",
+        "SUPERVISOR_RUNTIME_ARN",
+        "TESTING_AGENT_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "ashdon4u__ai-migration-factory/infrastructure/modules/agent_runtimes"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/avparkhi__agui-agentcore-demo/terraform",
+      "agents": 2,
+      "py_files": 6,
+      "invoke_calls": 0,
+      "declared": 1,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [
+        "MCP_SERVER_ARN"
+      ],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "avparkhi__agui-agentcore-demo/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-ia__terraform-aws-transfer-family/examples/sftp-automated-workflows-agentcore/modules/agentcore-agent",
+      "agents": 1,
+      "py_files": 45,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENTCORE_GATEWAY_ARN",
+        "AGENTCORE_GATEWAY_URL",
+        "CLASSIFICATION_AGENT_ARN",
+        "DAMAGE_ASSESSMENT_AGENT_ARN",
+        "DOCUMENT_EXTRACTION_AGENT_ARN",
+        "FRAUD_DETECTION_AGENT_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-ia__terraform-aws-transfer-family/examples/sftp-automated-workflows-agentcore/modules/agentcore-agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__psp-reusable-artifacts/agentcore-mcp",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "aws-samples__psp-reusable-artifacts/agentcore-mcp"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-AI-Powered-EKS-Migration-Assessment/terraform/modules/agentcore_runtime",
+      "agents": 1,
+      "py_files": 10,
+      "invoke_calls": 5,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT_ENDPOINT_ID"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-AI-Powered-EKS-Migration-Assessment/terraform/modules/agentcore_runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-FAST-applications/samples/anycompany-bank/infra",
+      "agents": 2,
+      "py_files": 182,
+      "invoke_calls": 13,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-FAST-applications/samples/anycompany-bank/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-a2a-gateway/examples/terraform/modules/agent-runtime",
+      "agents": 1,
+      "py_files": 24,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aws-samples__sample-a2a-gateway/examples/terraform/modules/agent-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agent-platform-with-agentcore/terraform/modules/runtime",
+      "agents": 3,
+      "py_files": 87,
+      "invoke_calls": 5,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "MCPHUB_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agent-platform-with-agentcore/terraform/modules/team_demo",
+      "agents": 1,
+      "py_files": 87,
+      "invoke_calls": 5,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "MCPHUB_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/team_demo"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentcore-browser-legacy-automation/deployment/terraform/modules/bedrock-agentcore-runtime",
+      "agents": 1,
+      "py_files": 34,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-agentcore-browser-legacy-automation/deployment/terraform/modules/bedrock-agentcore-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentcore-mcp-apps/infrastructure/terraform",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-agentcore-mcp-apps/infrastructure/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-ai-lifecycle-iac/infrastructure/modules/agentcore-runtime",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-agentic-ai-lifecycle-iac/infrastructure/modules/agentcore-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-ai-process-automation-for-sap/terraform/modules/backend",
+      "agents": 1,
+      "py_files": 108,
+      "invoke_calls": 8,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT_DLQ_URL",
+        "AGENT_QUEUE_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-agentic-ai-process-automation-for-sap/terraform/modules/backend"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-chatbot-accelerator/iac-terraform/modules/agent_core",
+      "agents": 1,
+      "py_files": 108,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENTS_AS_TOOLS_CONTAINER_URI",
+        "CREATE_RUNTIME_STATE_MACHINE_ARN",
+        "DELETE_RUNTIME_STATE_MACHINE_ARN"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aws-samples__sample-agentic-chatbot-accelerator/iac-terraform/modules/agent_core"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+      "agents": 2,
+      "py_files": 52,
+      "invoke_calls": 4,
+      "declared": 1,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [
+        "MCP_SERVER_ARN"
+      ],
+      "config_only": [],
+      "code_only": [
+        "AGENT_ARN_PARAM"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-governance-platform/platform/control_plane/infrastructure/modules/agentcore_runtime",
+      "agents": 1,
+      "py_files": 115,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "MCP_GATEWAY_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-agentic-governance-platform/platform/control_plane/infrastructure/modules/agentcore_runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-idp-evaluation-framework/infrastructure",
+      "agents": 1,
+      "py_files": 1,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-agentic-idp-evaluation-framework/infrastructure"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-value-accelerator/applications/reference_implementations/market-surveillance/infrastructure/modules/agentcore-runtime",
+      "agents": 1,
+      "py_files": 1288,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-agentic-value-accelerator/applications/reference_implementations/market-surveillance/infrastructure/modules/agentcore-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-value-accelerator/applications/reference_implementations/sales-recommend/infrastructure/modules/agentcore",
+      "agents": 1,
+      "py_files": 1288,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-agentic-value-accelerator/applications/reference_implementations/sales-recommend/infrastructure/modules/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/agent-runtime-agentcore/iac/terraform",
+      "agents": 1,
+      "py_files": 1288,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/agent-runtime-agentcore/iac/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/conversational-assistant/iac/terraform",
+      "agents": 1,
+      "py_files": 1288,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/conversational-assistant/iac/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/evaluator-optimizer/iac/terraform",
+      "agents": 1,
+      "py_files": 1288,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/evaluator-optimizer/iac/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/event-driven-agent/iac/terraform",
+      "agents": 1,
+      "py_files": 1288,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/event-driven-agent/iac/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/human-approval-workflow/iac/terraform",
+      "agents": 1,
+      "py_files": 1288,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/human-approval-workflow/iac/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/plan-execute-agent/iac/terraform",
+      "agents": 1,
+      "py_files": 1288,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/plan-execute-agent/iac/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/research-report-generator/iac/terraform",
+      "agents": 1,
+      "py_files": 1288,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/research-report-generator/iac/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/supervisor-specialists/iac/terraform",
+      "agents": 1,
+      "py_files": 1288,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/supervisor-specialists/iac/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/workflow-pipeline/iac/terraform",
+      "agents": 1,
+      "py_files": 1288,
+      "invoke_calls": 12,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/workflow-pipeline/iac/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-ai-agent-accelerator/iac",
+      "agents": 1,
+      "py_files": 8,
+      "invoke_calls": 3,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-ai-agent-accelerator/iac"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-ai-assistant-on-agentcore/infra",
+      "agents": 2,
+      "py_files": 76,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "SPARKY_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-ai-assistant-on-agentcore/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-cloudops-multi-agent-system/terraform/modules/core/agent-runtime-base",
+      "agents": 1,
+      "py_files": 92,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENTCORE_GATEWAY_ENDPOINT",
+        "DEVOPS_AGENT_RECONCILE_FUNCTION_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-cloudops-multi-agent-system/terraform/modules/core/agent-runtime-base"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-cloudops-multi-agent-system/terraform/modules/core/agentcore-runtime",
+      "agents": 1,
+      "py_files": 92,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENTCORE_GATEWAY_ENDPOINT",
+        "DEVOPS_AGENT_RECONCILE_FUNCTION_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-cloudops-multi-agent-system/terraform/modules/core/agentcore-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-code-for-revenue-analyst-agent-on-bedrock-agentcore/terraform/modules/agent",
+      "agents": 1,
+      "py_files": 11,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENTCORE_GATEWAY_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-code-for-revenue-analyst-agent-on-bedrock-agentcore/terraform/modules/agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-finops-agent/terraform/modules/agentcore-runtime",
+      "agents": 1,
+      "py_files": 10,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-finops-agent/terraform/modules/agentcore-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-genai-strats/agentcore/empty-shell-with-agentcore-sdk/terraform",
+      "agents": 1,
+      "py_files": 52,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "A2A_AGENT_CARD_BASE_URL",
+        "A2A_AGENT_CARD_URL",
+        "AGENT_CARD_URL",
+        "AGENT_MCP_ENDPOINT",
+        "MCP_ENDPOINT"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-agentcore-sdk/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-genai-strats/agentcore/empty-shell-with-expressjs/terraform",
+      "agents": 1,
+      "py_files": 52,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "A2A_AGENT_CARD_BASE_URL",
+        "A2A_AGENT_CARD_URL",
+        "AGENT_CARD_URL",
+        "AGENT_MCP_ENDPOINT",
+        "MCP_ENDPOINT"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-expressjs/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-genai-strats/agentcore/empty-shell-with-fastapi/terraform",
+      "agents": 1,
+      "py_files": 52,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "A2A_AGENT_CARD_BASE_URL",
+        "A2A_AGENT_CARD_URL",
+        "AGENT_CARD_URL",
+        "AGENT_MCP_ENDPOINT",
+        "MCP_ENDPOINT"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-fastapi/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-genai-strats/agentcore/empty-shell-with-flask/terraform",
+      "agents": 1,
+      "py_files": 52,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "A2A_AGENT_CARD_BASE_URL",
+        "A2A_AGENT_CARD_URL",
+        "AGENT_CARD_URL",
+        "AGENT_MCP_ENDPOINT",
+        "MCP_ENDPOINT"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-flask/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-genai-strats/agentcore/simple-mcp-server/terraform",
+      "agents": 1,
+      "py_files": 52,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "A2A_AGENT_CARD_BASE_URL",
+        "A2A_AGENT_CARD_URL",
+        "AGENT_CARD_URL",
+        "AGENT_MCP_ENDPOINT",
+        "MCP_ENDPOINT"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aws-samples__sample-genai-strats/agentcore/simple-mcp-server/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-genai-strats/agentcore/strands-simple-agent/terraform",
+      "agents": 1,
+      "py_files": 52,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "A2A_AGENT_CARD_BASE_URL",
+        "A2A_AGENT_CARD_URL",
+        "AGENT_CARD_URL",
+        "AGENT_MCP_ENDPOINT",
+        "MCP_ENDPOINT"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aws-samples__sample-genai-strats/agentcore/strands-simple-agent/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-genai-strats/workshops/agentcore-workday-integration/terraform",
+      "agents": 2,
+      "py_files": 52,
+      "invoke_calls": 2,
+      "declared": 1,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [
+        "A2A_AGENT_CARD_BASE_URL"
+      ],
+      "config_only": [],
+      "code_only": [
+        "A2A_AGENT_CARD_URL",
+        "AGENT_CARD_URL",
+        "AGENT_MCP_ENDPOINT",
+        "MCP_ENDPOINT"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aws-samples__sample-genai-strats/workshops/agentcore-workday-integration/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+      "agents": 2,
+      "py_files": 28,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "GAC_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-governed-agentic-companion/agentcore/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-healthcare-decision-support-agent/terraform",
+      "agents": 1,
+      "py_files": 122,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__sample-healthcare-decision-support-agent/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-okf-llm-wiki/infra/compute",
+      "agents": 3,
+      "py_files": 138,
+      "invoke_calls": 9,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "OKF_HARVEST_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-okf-llm-wiki/infra/compute"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-reconciliation-agent/infra/modules/recon-agent",
+      "agents": 1,
+      "py_files": 108,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "aws-samples__sample-reconciliation-agent/infra/modules/recon-agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__sample-strands-agent-with-agentcore/infra/modules/runtime",
+      "agents": 1,
+      "py_files": 135,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "GENERAL_SUBAGENT_RUNTIME_URL"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "aws-samples__sample-strands-agent-with-agentcore/infra/modules/runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-samples__serverless-patterns/s3-lambda-agentcore",
+      "agents": 1,
+      "py_files": 1378,
+      "invoke_calls": 6,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL",
+        "AGENT_ARN",
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "aws-samples__serverless-patterns/s3-lambda-agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/aws-solutions-library-samples__guidance-for-agentic-ai-operational-foundations-on-aws/infra",
+      "agents": 1,
+      "py_files": 37,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_ARN"
+      ],
+      "template_rel": "aws-solutions-library-samples__guidance-for-agentic-ai-operational-foundations-on-aws/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/awslabs__agentcore-samples/04-infrastructure-as-code/terraform/basic-runtime",
+      "agents": 1,
+      "py_files": 2122,
+      "invoke_calls": 216,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "ACCOUNTS_AGENT_URL",
+        "AGENT2_ARN",
+        "AGENTCORE_CONTROL_ENDPOINT",
+        "AGENTCORE_GATEWAY_CLAIMSGATEWAY_URL",
+        "AGENTCORE_GATEWAY_ITINCIDENTGATEWAY_URL",
+        "AGENTCORE_GATEWAY_RECEIPTSGATEWAY_URL",
+        "AGENTCORE_GATEWAY_URL",
+        "AGENTCORE_MANAGED_CALLBACK_URL",
+        "AGENT_CARD_URL",
+        "AGENT_RUNTIME_INVOKE_URL",
+        "BEDROCK_AGENTCORE_CP_ENDPOINT",
+        "BEDROCK_AGENTCORE_DP_ENDPOINT",
+        "COMPOSITION_RUNTIME_ARN",
+        "GATEWAY_MCP_URL",
+        "HR_AGENT_ARN",
+        "JIRA_MCP_URL",
+        "MCP_CREDENTIAL_PROVIDER_ARN",
+        "MCP_GATEWAY_ARNS",
+        "MCP_GATEWAY_URLS",
+        "MCP_RUNTIME_ARN",
+        "MCP_SERVER_ARN",
+        "MCP_SERVER_URL",
+        "MCP_URL",
+        "PROFILE_AGENT_URL",
+        "RUNTIME_ARN",
+        "TECH_AGENT_ARN"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_ARN",
+        "AGENTCORE_RUNTIME_ARN",
+        "AGENTCORE_RUNTIME_ENDPOINT",
+        "AGENTCORE_RUNTIME_URL",
+        "AGENT_ARN",
+        "AGENT_RUNTIME_ARN",
+        "AGENT_URL"
+      ],
+      "template_rel": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/basic-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/awslabs__agentcore-samples/04-infrastructure-as-code/terraform/end-to-end-weather-agent",
+      "agents": 1,
+      "py_files": 2122,
+      "invoke_calls": 216,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "ACCOUNTS_AGENT_URL",
+        "AGENT2_ARN",
+        "AGENTCORE_CONTROL_ENDPOINT",
+        "AGENTCORE_GATEWAY_CLAIMSGATEWAY_URL",
+        "AGENTCORE_GATEWAY_ITINCIDENTGATEWAY_URL",
+        "AGENTCORE_GATEWAY_RECEIPTSGATEWAY_URL",
+        "AGENTCORE_GATEWAY_URL",
+        "AGENTCORE_MANAGED_CALLBACK_URL",
+        "AGENT_CARD_URL",
+        "AGENT_RUNTIME_INVOKE_URL",
+        "BEDROCK_AGENTCORE_CP_ENDPOINT",
+        "BEDROCK_AGENTCORE_DP_ENDPOINT",
+        "COMPOSITION_RUNTIME_ARN",
+        "GATEWAY_MCP_URL",
+        "HR_AGENT_ARN",
+        "JIRA_MCP_URL",
+        "MCP_CREDENTIAL_PROVIDER_ARN",
+        "MCP_GATEWAY_ARNS",
+        "MCP_GATEWAY_URLS",
+        "MCP_RUNTIME_ARN",
+        "MCP_SERVER_ARN",
+        "MCP_SERVER_URL",
+        "MCP_URL",
+        "PROFILE_AGENT_URL",
+        "RUNTIME_ARN",
+        "TECH_AGENT_ARN"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_ARN",
+        "AGENTCORE_RUNTIME_ARN",
+        "AGENTCORE_RUNTIME_ENDPOINT",
+        "AGENTCORE_RUNTIME_URL",
+        "AGENT_ARN",
+        "AGENT_RUNTIME_ARN",
+        "AGENT_URL"
+      ],
+      "template_rel": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/end-to-end-weather-agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/awslabs__agentcore-samples/04-infrastructure-as-code/terraform/mcp-server-agentcore-runtime",
+      "agents": 1,
+      "py_files": 2122,
+      "invoke_calls": 216,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "ACCOUNTS_AGENT_URL",
+        "AGENT2_ARN",
+        "AGENTCORE_CONTROL_ENDPOINT",
+        "AGENTCORE_GATEWAY_CLAIMSGATEWAY_URL",
+        "AGENTCORE_GATEWAY_ITINCIDENTGATEWAY_URL",
+        "AGENTCORE_GATEWAY_RECEIPTSGATEWAY_URL",
+        "AGENTCORE_GATEWAY_URL",
+        "AGENTCORE_MANAGED_CALLBACK_URL",
+        "AGENT_CARD_URL",
+        "AGENT_RUNTIME_INVOKE_URL",
+        "BEDROCK_AGENTCORE_CP_ENDPOINT",
+        "BEDROCK_AGENTCORE_DP_ENDPOINT",
+        "COMPOSITION_RUNTIME_ARN",
+        "GATEWAY_MCP_URL",
+        "HR_AGENT_ARN",
+        "JIRA_MCP_URL",
+        "MCP_CREDENTIAL_PROVIDER_ARN",
+        "MCP_GATEWAY_ARNS",
+        "MCP_GATEWAY_URLS",
+        "MCP_RUNTIME_ARN",
+        "MCP_SERVER_ARN",
+        "MCP_SERVER_URL",
+        "MCP_URL",
+        "PROFILE_AGENT_URL",
+        "RUNTIME_ARN",
+        "TECH_AGENT_ARN"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_ARN",
+        "AGENTCORE_RUNTIME_ARN",
+        "AGENTCORE_RUNTIME_ENDPOINT",
+        "AGENTCORE_RUNTIME_URL",
+        "AGENT_ARN",
+        "AGENT_RUNTIME_ARN",
+        "AGENT_URL"
+      ],
+      "template_rel": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/mcp-server-agentcore-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+      "agents": 2,
+      "py_files": 2122,
+      "invoke_calls": 216,
+      "declared": 1,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [
+        "SPECIALIST_ARN"
+      ],
+      "config_only": [],
+      "code_only": [
+        "ACCOUNTS_AGENT_URL",
+        "AGENT2_ARN",
+        "AGENTCORE_CONTROL_ENDPOINT",
+        "AGENTCORE_GATEWAY_CLAIMSGATEWAY_URL",
+        "AGENTCORE_GATEWAY_ITINCIDENTGATEWAY_URL",
+        "AGENTCORE_GATEWAY_RECEIPTSGATEWAY_URL",
+        "AGENTCORE_GATEWAY_URL",
+        "AGENTCORE_MANAGED_CALLBACK_URL",
+        "AGENT_CARD_URL",
+        "AGENT_RUNTIME_INVOKE_URL",
+        "BEDROCK_AGENTCORE_CP_ENDPOINT",
+        "BEDROCK_AGENTCORE_DP_ENDPOINT",
+        "COMPOSITION_RUNTIME_ARN",
+        "GATEWAY_MCP_URL",
+        "HR_AGENT_ARN",
+        "JIRA_MCP_URL",
+        "MCP_CREDENTIAL_PROVIDER_ARN",
+        "MCP_GATEWAY_ARNS",
+        "MCP_GATEWAY_URLS",
+        "MCP_RUNTIME_ARN",
+        "MCP_SERVER_ARN",
+        "MCP_SERVER_URL",
+        "MCP_URL",
+        "PROFILE_AGENT_URL",
+        "RUNTIME_ARN",
+        "TECH_AGENT_ARN"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_ARN",
+        "AGENTCORE_RUNTIME_ARN",
+        "AGENTCORE_RUNTIME_ENDPOINT",
+        "AGENTCORE_RUNTIME_URL",
+        "AGENT_ARN",
+        "AGENT_RUNTIME_ARN",
+        "AGENT_URL"
+      ],
+      "template_rel": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/awslabs__agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra",
+      "agents": 1,
+      "py_files": 2122,
+      "invoke_calls": 216,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "ACCOUNTS_AGENT_URL",
+        "AGENT2_ARN",
+        "AGENTCORE_CONTROL_ENDPOINT",
+        "AGENTCORE_GATEWAY_CLAIMSGATEWAY_URL",
+        "AGENTCORE_GATEWAY_ITINCIDENTGATEWAY_URL",
+        "AGENTCORE_GATEWAY_RECEIPTSGATEWAY_URL",
+        "AGENTCORE_GATEWAY_URL",
+        "AGENTCORE_MANAGED_CALLBACK_URL",
+        "AGENT_CARD_URL",
+        "AGENT_RUNTIME_INVOKE_URL",
+        "BEDROCK_AGENTCORE_CP_ENDPOINT",
+        "BEDROCK_AGENTCORE_DP_ENDPOINT",
+        "COMPOSITION_RUNTIME_ARN",
+        "GATEWAY_MCP_URL",
+        "HR_AGENT_ARN",
+        "JIRA_MCP_URL",
+        "MCP_CREDENTIAL_PROVIDER_ARN",
+        "MCP_GATEWAY_ARNS",
+        "MCP_GATEWAY_URLS",
+        "MCP_RUNTIME_ARN",
+        "MCP_SERVER_ARN",
+        "MCP_SERVER_URL",
+        "MCP_URL",
+        "PROFILE_AGENT_URL",
+        "RUNTIME_ARN",
+        "TECH_AGENT_ARN"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_ARN",
+        "AGENTCORE_RUNTIME_ARN",
+        "AGENTCORE_RUNTIME_ENDPOINT",
+        "AGENTCORE_RUNTIME_URL",
+        "AGENT_ARN",
+        "AGENT_RUNTIME_ARN",
+        "AGENT_URL"
+      ],
+      "template_rel": "awslabs__agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/awslabs__automated-security-helper/deploy/terraform/modules/agentcore",
+      "agents": 1,
+      "py_files": 257,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "awslabs__automated-security-helper/deploy/terraform/modules/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/awslabs__fullstack-solution-template-for-agentcore/infra-terraform/modules/backend",
+      "agents": 1,
+      "py_files": 56,
+      "invoke_calls": 5,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "awslabs__fullstack-solution-template-for-agentcore/infra-terraform/modules/backend"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/awslabs__threat-designer/infra",
+      "agents": 2,
+      "py_files": 108,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "awslabs__threat-designer/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/barrettotte__praxis/infra/environments/dev",
+      "agents": 1,
+      "py_files": 53,
+      "invoke_calls": 5,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "barrettotte__praxis/infra/environments/dev"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/baz-scm__terraform-aws-templates/private-spec-reviewer",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "baz-scm__terraform-aws-templates/private-spec-reviewer"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/bcfmtolgahan__eks-sre-agent/terraform",
+      "agents": 2,
+      "py_files": 11,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "SENTINEL_RUNTIME_ARN"
+      ],
+      "generic_address_only": [
+        "AGENT_ENDPOINT",
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "bcfmtolgahan__eks-sre-agent/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/bolleta__agentcore-agent-template-jp/workshops/agentcore-building-ai-agents/terraform/runtime",
+      "agents": 1,
+      "py_files": 16,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "bolleta__agentcore-agent-template-jp/workshops/agentcore-building-ai-agents/terraform/runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/bshelling__rapport/infra/modules/agent",
+      "agents": 1,
+      "py_files": 54,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "bshelling__rapport/infra/modules/agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/caylent__agentcore-blog/infra",
+      "agents": 1,
+      "py_files": 5,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "caylent__agentcore-blog/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/cgono__test-aws-agentcore/infra/terraform/modules/agentcore_agent_runtime",
+      "agents": 1,
+      "py_files": 40,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENTCORE_DIRECTORY_ARN",
+        "AGENT_PACKAGE_INDEX_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "cgono__test-aws-agentcore/infra/terraform/modules/agentcore_agent_runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/charangajjala__venderops-hackathon/infra/modules/agentcore",
+      "agents": 1,
+      "py_files": 16,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "charangajjala__venderops-hackathon/infra/modules/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/charlesmbrady__terraform-aws-charlesmbrady/modules/agentcore",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "charlesmbrady__terraform-aws-charlesmbrady/modules/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/codegik__ai-playground/aws-litellm/infra",
+      "agents": 1,
+      "py_files": 10,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "codegik__ai-playground/aws-litellm/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/codegik__ai-playground/aws-memory/infra",
+      "agents": 1,
+      "py_files": 10,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "codegik__ai-playground/aws-memory/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/danielakinsella__mojobot/terraform",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "danielakinsella__mojobot/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/debanjanbasu__aws-agentcore-agent/iac",
+      "agents": 1,
+      "py_files": 1,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "debanjanbasu__aws-agentcore-agent/iac"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/decmhugh__tdmh-arch-eng-workbench/infra",
+      "agents": 1,
+      "py_files": 8,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT_RUNTIME_ARN_PARAM"
+      ],
+      "generic_address_only": [],
+      "template_rel": "decmhugh__tdmh-arch-eng-workbench/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/decmhugh__thedigitalmindhub-project1/infra",
+      "agents": 1,
+      "py_files": 7,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT_RUNTIME_ARN_PARAM"
+      ],
+      "generic_address_only": [],
+      "template_rel": "decmhugh__thedigitalmindhub-project1/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/dev-rb-hub__sample-strands-agent-with-agentcore/infra/modules/runtime",
+      "agents": 1,
+      "py_files": 133,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "GENERAL_SUBAGENT_RUNTIME_URL"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL"
+      ],
+      "template_rel": "dev-rb-hub__sample-strands-agent-with-agentcore/infra/modules/runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/dkhundley__bedrock-agentcore-tutorial/terraform",
+      "agents": 1,
+      "py_files": 1,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "dkhundley__bedrock-agentcore-tutorial/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/dr-rahulgaikwad__agentic-ai-well-architected/03-agent",
+      "agents": 1,
+      "py_files": 1,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "dr-rahulgaikwad__agentic-ai-well-architected/03-agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/ecomuere__voicebot/infra/terraform/agentcore",
+      "agents": 1,
+      "py_files": 22,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "ecomuere__voicebot/infra/terraform/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/flightlesstux__agents-on-call/terraform/10-agent-runtime",
+      "agents": 2,
+      "py_files": 17,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT_INFERENCE_PROFILE_ARN",
+        "COST_AGENT_RUNTIME_ARN",
+        "RUNBOOK_AGENT_RUNTIME_ARN",
+        "TRIAGE_AGENT_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "flightlesstux__agents-on-call/terraform/10-agent-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/fouadmulla__cosac-lab-security-agents/infra/stacks/scenario-a",
+      "agents": 1,
+      "py_files": 19,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "fouadmulla__cosac-lab-security-agents/infra/stacks/scenario-a"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/fouadmulla__cosac-lab-security-agents/infra/stacks/scenario-b",
+      "agents": 1,
+      "py_files": 19,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "fouadmulla__cosac-lab-security-agents/infra/stacks/scenario-b"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/fxellence-dev__AI-SDLC-Agentic-Platform/infra/terraform/modules/agentcore",
+      "agents": 1,
+      "py_files": 27,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_ARN"
+      ],
+      "template_rel": "fxellence-dev__AI-SDLC-Agentic-Platform/infra/terraform/modules/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/gafnts__factored-hackathon-2026-gafnts/infra/modules/runtime",
+      "agents": 1,
+      "py_files": 131,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "gafnts__factored-hackathon-2026-gafnts/infra/modules/runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/gamaware__terraform-aws-agentcore-agent-lab/infra/terraform/agent",
+      "agents": 1,
+      "py_files": 21,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "gamaware__terraform-aws-agentcore-agent-lab/infra/terraform/agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/girinalin__hr-attrition-agent/terraform",
+      "agents": 1,
+      "py_files": 13,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "girinalin__hr-attrition-agent/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/govuk-once__onward-journey-aws/infrastructure/services",
+      "agents": 1,
+      "py_files": 29,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT_RUNTIME_ENDPOINT_URL",
+        "BEDROCK_RUNTIME_ENDPOINT"
+      ],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "govuk-once__onward-journey-aws/infrastructure/services"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/gpazevedo__spring-genai/terraform",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "gpazevedo__spring-genai/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/iker592__iker-agents/terraform/modules/agent",
+      "agents": 1,
+      "py_files": 61,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "MCP_SERVER_ARN",
+        "RUNTIME_ARNS"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL",
+        "AGENT_ENDPOINT",
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "iker592__iker-agents/terraform/modules/agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/iker592__iker-agents/terraform/modules/mcp-server",
+      "agents": 1,
+      "py_files": 61,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "MCP_SERVER_ARN",
+        "RUNTIME_ARNS"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL",
+        "AGENT_ENDPOINT",
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "iker592__iker-agents/terraform/modules/mcp-server"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/insighta-cloud__insighta-toolkit/infra",
+      "agents": 1,
+      "py_files": 6,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "insighta-cloud__insighta-toolkit/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/j3brns__tf-harness-acore/terraform/modules/agentcore-runtime",
+      "agents": 1,
+      "py_files": 42,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "j3brns__tf-harness-acore/terraform/modules/agentcore-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/j3brns__turbo-enigma/terraform/modules/agentcore",
+      "agents": 1,
+      "py_files": 16,
+      "invoke_calls": 3,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "j3brns__turbo-enigma/terraform/modules/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/jamesward__spring-ai-mcp-demo/agentcore/infra",
+      "agents": 1,
+      "py_files": 1,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "jamesward__spring-ai-mcp-demo/agentcore/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/jandroro__customer_support-agent/iac/modules/bedrock_agentcore_runtime",
+      "agents": 1,
+      "py_files": 33,
+      "invoke_calls": 3,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "jandroro__customer_support-agent/iac/modules/bedrock_agentcore_runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/javide__agent-runtime-lab/infra/terraform",
+      "agents": 1,
+      "py_files": 13,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "javide__agent-runtime-lab/infra/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/jkarns87__homeledger/infra/modules/agentcore-runtime",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "jkarns87__homeledger/infra/modules/agentcore-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/jonmatum__serverless-second-brain/infra/modules/agentcore-runtime",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "jonmatum__serverless-second-brain/infra/modules/agentcore-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/joseguzman1337__aws-financial-ai-agent/terraform",
+      "agents": 1,
+      "py_files": 12,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_ARN"
+      ],
+      "template_rel": "joseguzman1337__aws-financial-ai-agent/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/jritsema__terraform-agentcore",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "jritsema__terraform-agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/kamo-shika__terraform_agentcore/terraform",
+      "agents": 1,
+      "py_files": 15,
+      "invoke_calls": 3,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "kamo-shika__terraform_agentcore/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/kheuchi__retail-finance-platform-infra/agent",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "kheuchi__retail-finance-platform-infra/agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/kisukegremory__alexandria/projects/aws-bedrock-agentcore/terraform",
+      "agents": 1,
+      "py_files": 53,
+      "invoke_calls": 3,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "kisukegremory__alexandria/projects/aws-bedrock-agentcore/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/ldecaro__sample-personal-agent/agent-aws-knowledge/infra",
+      "agents": 1,
+      "py_files": 19,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "ldecaro__sample-personal-agent/agent-aws-knowledge/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/ldecaro__sample-personal-agent/agent-calendar/infra",
+      "agents": 1,
+      "py_files": 19,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "ldecaro__sample-personal-agent/agent-calendar/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/ldecaro__sample-personal-agent/agent-search/infra",
+      "agents": 1,
+      "py_files": 19,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "ldecaro__sample-personal-agent/agent-search/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/lemopian__open-web-ui-on-aws/terraform/modules/bedrock-agentcore",
+      "agents": 1,
+      "py_files": 31,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "lemopian__open-web-ui-on-aws/terraform/modules/bedrock-agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/lemopian__terraform-aws-bedrock-agentcore/modules/container",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "lemopian__terraform-aws-bedrock-agentcore/modules/container"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/lemopian__terraform-aws-bedrock-agentcore/modules/zip",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "lemopian__terraform-aws-bedrock-agentcore/modules/zip"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/levantar-ai__demos/agentcore/01-first-agent/terraform",
+      "agents": 1,
+      "py_files": 33,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "levantar-ai__demos/agentcore/01-first-agent/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/levantar-ai__demos/agentcore/02-gateway/terraform",
+      "agents": 1,
+      "py_files": 33,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "levantar-ai__demos/agentcore/02-gateway/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/levantar-ai__demos/agentcore/03-memory/terraform",
+      "agents": 1,
+      "py_files": 33,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "levantar-ai__demos/agentcore/03-memory/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/levantar-ai__demos/agentcore/04-builtin-tools/terraform",
+      "agents": 1,
+      "py_files": 33,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "levantar-ai__demos/agentcore/04-builtin-tools/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/levantar-ai__demos/agentcore/05-identity/terraform",
+      "agents": 1,
+      "py_files": 33,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "levantar-ai__demos/agentcore/05-identity/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/manimurugana__aws-bedrock-agentcore-runtime-terraform-poc/modules/agent-runtime",
+      "agents": 1,
+      "py_files": 1,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "manimurugana__aws-bedrock-agentcore-runtime-terraform-poc/modules/agent-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/mavalderrama__teilur-assesment/terraform/modules/agentcore",
+      "agents": 1,
+      "py_files": 48,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "mavalderrama__teilur-assesment/terraform/modules/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/mifonpe__strands-agentcore-agents/iac",
+      "agents": 1,
+      "py_files": 6,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENTCORE_GATEWAY_URL",
+        "AGENT_ENDPOINT_URL"
+      ],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "mifonpe__strands-agentcore-agents/iac"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/mmdcloud__aws-bedrock-agentcore/terraform/modules/agentcore/runtime",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "mmdcloud__aws-bedrock-agentcore/terraform/modules/agentcore/runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/mongodb-partners__Multi-Agent-Architectural-Guidance-Bedrock-AgentCore/deploy/terraform/modules/agentcore-agent-runtime",
+      "agents": 1,
+      "py_files": 47,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "mongodb-partners__Multi-Agent-Architectural-Guidance-Bedrock-AgentCore/deploy/terraform/modules/agentcore-agent-runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/mongodb-partners__config-driven-agents-agentcore-atlas/terraform",
+      "agents": 2,
+      "py_files": 9,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "MCP_RUNTIME_ARN",
+        "ORCHESTRATOR_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "mongodb-partners__config-driven-agents-agentcore-atlas/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/naruse666__ai-agent-sandbox/bedrock-agentcore/terraform",
+      "agents": 1,
+      "py_files": 20,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "naruse666__ai-agent-sandbox/bedrock-agentcore/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/nichicom-c__wel-agents-poc/terraform/aws/agentcore",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "nichicom-c__wel-agents-poc/terraform/aws/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/nikitsenka__aws-bedrock-rag/agents",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "nikitsenka__aws-bedrock-rag/agents"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/normjon__ai-platform-demo/terraform/dev/agents/hr-assistant-strands",
+      "agents": 1,
+      "py_files": 30,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "normjon__ai-platform-demo/terraform/dev/agents/hr-assistant-strands"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/normjon__ai-platform-demo/terraform/dev/agents/orchestrator",
+      "agents": 1,
+      "py_files": 30,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "normjon__ai-platform-demo/terraform/dev/agents/orchestrator"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/normjon__ai-platform-demo/terraform/dev/agents/stub-agent",
+      "agents": 1,
+      "py_files": 30,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "normjon__ai-platform-demo/terraform/dev/agents/stub-agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/normjon__ai-platform-demo/terraform/modules/agentcore",
+      "agents": 1,
+      "py_files": 30,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "normjon__ai-platform-demo/terraform/modules/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/omerbsezer__Fast-LLM-Agent-MCP/agents/aws_strands/07-agent-strands-multi-agents-generator-on-bedrock-agentcore/terraform",
+      "agents": 1,
+      "py_files": 55,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "omerbsezer__Fast-LLM-Agent-MCP/agents/aws_strands/07-agent-strands-multi-agents-generator-on-bedrock-agentcore/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/patternode__knowledge-store/infra/modules/agent",
+      "agents": 1,
+      "py_files": 51,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "GATEWAY_MCP_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "patternode__knowledge-store/infra/modules/agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/pdz1804__tech-new-mystery/infra/terraform",
+      "agents": 1,
+      "py_files": 150,
+      "invoke_calls": 5,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "pdz1804__tech-new-mystery/infra/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/plantonhq__planton/catalog/aws/awsbedrockagentcoreruntime/iac/tf",
+      "agents": 1,
+      "py_files": 33,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "plantonhq__planton/catalog/aws/awsbedrockagentcoreruntime/iac/tf"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/prajwal2431__first-commit/RCAagent/specializedAgents/ContextualScout/terraform",
+      "agents": 1,
+      "py_files": 55,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "CONTEXTUAL_SCOUT_RUNTIME_ARN",
+        "DIAGNOSTIC_ANALYST_RUNTIME_ARN",
+        "REMEDIATION_STRATEGIST_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "prajwal2431__first-commit/RCAagent/specializedAgents/ContextualScout/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/prajwal2431__first-commit/RCAagent/specializedAgents/DiagnosticAnalyst/terraform",
+      "agents": 1,
+      "py_files": 55,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "CONTEXTUAL_SCOUT_RUNTIME_ARN",
+        "DIAGNOSTIC_ANALYST_RUNTIME_ARN",
+        "REMEDIATION_STRATEGIST_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "prajwal2431__first-commit/RCAagent/specializedAgents/DiagnosticAnalyst/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/prajwal2431__first-commit/RCAagent/specializedAgents/RemediationStrategist/terraform",
+      "agents": 1,
+      "py_files": 55,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "CONTEXTUAL_SCOUT_RUNTIME_ARN",
+        "DIAGNOSTIC_ANALYST_RUNTIME_ARN",
+        "REMEDIATION_STRATEGIST_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "prajwal2431__first-commit/RCAagent/specializedAgents/RemediationStrategist/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/prajwal2431__first-commit/RCAagent/terraform",
+      "agents": 1,
+      "py_files": 55,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "CONTEXTUAL_SCOUT_RUNTIME_ARN",
+        "DIAGNOSTIC_ANALYST_RUNTIME_ARN",
+        "REMEDIATION_STRATEGIST_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "prajwal2431__first-commit/RCAagent/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/psantus__strands-bidir-nova/infrastructure/modules/agent",
+      "agents": 1,
+      "py_files": 10,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "psantus__strands-bidir-nova/infrastructure/modules/agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/rafaelpierre__sherlock/terraform/modules/agentcore",
+      "agents": 1,
+      "py_files": 45,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "SHERLOCK_AGENTCORE_RUNTIME_ARN",
+        "SHERLOCK_MCP_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "rafaelpierre__sherlock/terraform/modules/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/rboubaya75__ia-agents/infra/environments/test",
+      "agents": 1,
+      "py_files": 48,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT_RUNTIME_ENDPOINT_NAME"
+      ],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "rboubaya75__ia-agents/infra/environments/test"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/rhprasad0__nova-toll-budget-agent/v2/infra",
+      "agents": 1,
+      "py_files": 73,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENTCORE_VPCE_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "rhprasad0__nova-toll-budget-agent/v2/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/rogerjeasy__wick/infra",
+      "agents": 1,
+      "py_files": 1,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "rogerjeasy__wick/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/ryfranklin__Homebase/infra/stacks/agent",
+      "agents": 1,
+      "py_files": 61,
+      "invoke_calls": 3,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "HOMEBASE_AGENT_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "ryfranklin__Homebase/infra/stacks/agent"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/saivarunk__aws-labs/agentcore/harness/opencode/terraform",
+      "agents": 1,
+      "py_files": 30,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "saivarunk__aws-labs/agentcore/harness/opencode/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/schematical__aws-agentcore-demo/_archive/1-agent-runtime/terraform",
+      "agents": 1,
+      "py_files": 4,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "schematical__aws-agentcore-demo/_archive/1-agent-runtime/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/seokjushin__amazon-bedrock-agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra",
+      "agents": 1,
+      "py_files": 718,
+      "invoke_calls": 36,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT2_ARN",
+        "MCP_SERVER_URL",
+        "RUNTIME_ARN"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL",
+        "AGENT_ARN"
+      ],
+      "template_rel": "seokjushin__amazon-bedrock-agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/seongpil0948__sandbox-agentcore/terraform",
+      "agents": 3,
+      "py_files": 32,
+      "invoke_calls": 2,
+      "declared": 2,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [
+        "SUPERVISOR_ARN",
+        "LEAF_ARN"
+      ],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "seongpil0948__sandbox-agentcore/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/shibataka000__terraform-aws-notion-mcp-server",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "shibataka000__terraform-aws-notion-mcp-server"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/singulart__google-workspace-agent/terraform",
+      "agents": 2,
+      "py_files": 10,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT_RUNTIME_ENDPOINT_QUALIFIER",
+        "GMAIL_MCP_GATEWAY_URL"
+      ],
+      "generic_address_only": [
+        "AGENT_RUNTIME_ARN"
+      ],
+      "template_rel": "singulart__google-workspace-agent/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/smoketurner__ai-dlc/terraform/modules/agents",
+      "agents": 1,
+      "py_files": 119,
+      "invoke_calls": 3,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AIDLC_AGENT_GATEWAY_URL",
+        "AIDLC_RETROSPECTOR_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "smoketurner__ai-dlc/terraform/modules/agents"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/solintllc-robert__rrmg-bridgeai/terraform",
+      "agents": 1,
+      "py_files": 7,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "ACGW_MCP_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "solintllc-robert__rrmg-bridgeai/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/spring-ai-community__spring-ai-agentcore/examples/spring-ai-agentcore-observability/terraform",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "spring-ai-community__spring-ai-agentcore/examples/spring-ai-agentcore-observability/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/spring-ai-community__spring-ai-agentcore/examples/spring-ai-extended-chat-client/terraform",
+      "agents": 1,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "spring-ai-community__spring-ai-agentcore/examples/spring-ai-extended-chat-client/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/spring-ai-community__spring-ai-agentcore/examples/terraform",
+      "agents": 2,
+      "declared": 0,
+      "py_files": 0,
+      "verdict_possible": false,
+      "why_no_verdict": "no python in the repository",
+      "confirmed": null,
+      "config_only": null,
+      "code_only": null,
+      "template_rel": "spring-ai-community__spring-ai-agentcore/examples/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/systemaccounting__gradienterp/modules/agent/infra",
+      "agents": 1,
+      "py_files": 266,
+      "invoke_calls": 11,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT_DISPATCHER_ARN",
+        "AGENT_RUNTIME_ENDPOINT_ARN",
+        "HUB_RUNTIME_ENDPOINT_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "systemaccounting__gradienterp/modules/agent/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/systemaccounting__gradienterp/prod/optimizer/infra",
+      "agents": 1,
+      "py_files": 266,
+      "invoke_calls": 11,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT_DISPATCHER_ARN",
+        "AGENT_RUNTIME_ENDPOINT_ARN",
+        "HUB_RUNTIME_ENDPOINT_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "systemaccounting__gradienterp/prod/optimizer/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/szamarin__agentic-kyc/terraform/modules/agentcore_runtime",
+      "agents": 1,
+      "py_files": 50,
+      "invoke_calls": 9,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "CONSOLIDATION_AGENT_ARN",
+        "DOC_EXTRACTION_AGENT_ARN",
+        "KYC_AGENT_ARN",
+        "MCP_URL",
+        "PROPERTY_RESEARCH_AGENT_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "szamarin__agentic-kyc/terraform/modules/agentcore_runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/tarlan-huseynov__agentcore-monorepo/terraform",
+      "agents": 3,
+      "py_files": 11,
+      "invoke_calls": 1,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_ARN"
+      ],
+      "template_rel": "tarlan-huseynov__agentcore-monorepo/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/temporal-community__durable-research-fleet/agentcore",
+      "agents": 1,
+      "py_files": 16,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "temporal-community__durable-research-fleet/agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/terraform-aws-mod__terraform-aws-agentcore",
+      "agents": 1,
+      "py_files": 10,
+      "invoke_calls": 2,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "terraform-aws-mod__terraform-aws-agentcore"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/the-cloud-clockwork__tcc-aws-agent-platform/modules/agents",
+      "agents": 1,
+      "py_files": 137,
+      "invoke_calls": 4,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENTCORE_GATEWAY_ARN",
+        "AGENTCORE_GATEWAY_URL",
+        "AGENT_REGISTRY_URL",
+        "MCP_DIRECT_URLS"
+      ],
+      "generic_address_only": [],
+      "template_rel": "the-cloud-clockwork__tcc-aws-agent-platform/modules/agents"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/thomfilg__log-slack-agent-alerts/infra-terraform/modules/backend",
+      "agents": 1,
+      "py_files": 63,
+      "invoke_calls": 5,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "thomfilg__log-slack-agent-alerts/infra-terraform/modules/backend"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/twelvelabs-io__tl-agentcore/infra",
+      "agents": 1,
+      "py_files": 34,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "GATEWAY_MCP_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "twelvelabs-io__tl-agentcore/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/vkbaba__amazon-bedrock-agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra",
+      "agents": 1,
+      "py_files": 743,
+      "invoke_calls": 38,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT2_ARN",
+        "MCP_SERVER_URL",
+        "RUNTIME_ARN"
+      ],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_URL",
+        "AGENT_ARN"
+      ],
+      "template_rel": "vkbaba__amazon-bedrock-agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/yogeshselvarajan__stacks/infra/modules/agentcore_runtime",
+      "agents": 1,
+      "py_files": 73,
+      "invoke_calls": 3,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "STACKS_AGENT_RUNTIME_ARN"
+      ],
+      "generic_address_only": [],
+      "template_rel": "yogeshselvarajan__stacks/infra/modules/agentcore_runtime"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/yueming-zhang__agent_core_deep_research/AgentcoreMemoryDR/terraform",
+      "agents": 1,
+      "py_files": 41,
+      "invoke_calls": 6,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [
+        "AGENTCORE_RUNTIME_ARN"
+      ],
+      "template_rel": "yueming-zhang__agent_core_deep_research/AgentcoreMemoryDR/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/yuu551__agentcore-gateway-runtime-m2m-auth-demo",
+      "agents": 1,
+      "py_files": 2,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "yuu551__agentcore-gateway-runtime-m2m-auth-demo"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/yuu551__runtime-to-gateway-for-iam",
+      "agents": 1,
+      "py_files": 1,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "yuu551__runtime-to-gateway-for-iam"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/yuyumama__AWS-MON/infra/envs/prod",
+      "agents": 1,
+      "py_files": 24,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [
+        "AGENT_OPENROUTER_BASE_URL"
+      ],
+      "generic_address_only": [],
+      "template_rel": "yuyumama__AWS-MON/infra/envs/prod"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/z63d__tmp-bedrock-agentcore/terraform",
+      "agents": 1,
+      "py_files": 6,
+      "invoke_calls": 0,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "z63d__tmp-bedrock-agentcore/terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/zzenonn__ai-course-lecture-notes/09-techdebt-remediation/techdebt-terraform",
+      "agents": 1,
+      "py_files": 78,
+      "invoke_calls": 6,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "zzenonn__ai-course-lecture-notes/09-techdebt-remediation/techdebt-terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/zzenonn__ai-course-lecture-notes/10-techdebt-memory/techdebt-terraform",
+      "agents": 1,
+      "py_files": 78,
+      "invoke_calls": 6,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "zzenonn__ai-course-lecture-notes/10-techdebt-memory/techdebt-terraform"
+    },
+    {
+      "template": "/sessions/rcw-014cemru6qduqi6iqfzzekgj/mnt/agent-pathtriage/corpus_tier2/zzenonn__ai-course-lecture-notes/11-bedrock-guardrails/guardrails-terraform",
+      "agents": 1,
+      "py_files": 78,
+      "invoke_calls": 6,
+      "declared": 0,
+      "verdict_possible": true,
+      "why_no_verdict": null,
+      "confirmed": [],
+      "config_only": [],
+      "code_only": [],
+      "generic_address_only": [],
+      "template_rel": "zzenonn__ai-course-lecture-notes/11-bedrock-guardrails/guardrails-terraform"
+    }
+  ]
+}

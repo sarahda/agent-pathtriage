@@ -1,0 +1,154 @@
+{
+  "n": 5,
+  "wired_recovered": 2,
+  "resource_scope_gap": 0,
+  "full_ac_star": 0,
+  "rows": [
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "basic_agent"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "template": "awslabs__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/terraform/basic-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "weather_agent"
+        ],
+        [
+          "browser",
+          "browser"
+        ],
+        [
+          "memory",
+          "memory"
+        ],
+        [
+          "code_interpreter",
+          "code_interpreter"
+        ]
+      ],
+      "wired": [
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "template": "awslabs__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/terraform/end-to-end-weather-agent"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "mcp_server"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "template": "awslabs__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/terraform/mcp-server-agentcore-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "agent_runtime",
+          "orchestrator"
+        ],
+        [
+          "agent_runtime",
+          "specialist"
+        ]
+      ],
+      "wired": [],
+      "wired_recovered": false,
+      "granted_ac_actions": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [
+        "GetWorkloadAccessToken",
+        "GetWorkloadAccessTokenForJWT",
+        "GetWorkloadAccessTokenForUserId"
+      ],
+      "template": "awslabs__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime"
+    },
+    {
+      "has_agent_runtime": true,
+      "agentcore_resources": [
+        [
+          "memory",
+          "agent_memory"
+        ],
+        [
+          "gateway",
+          "cx_gateway"
+        ],
+        [
+          "agent_runtime",
+          "agent_runtime"
+        ]
+      ],
+      "wired": [
+        "gateway",
+        "memory"
+      ],
+      "wired_recovered": true,
+      "granted_ac_actions": [],
+      "granted_ac_wildcard_resource": false,
+      "granted_full_ac_star": false,
+      "resource_scope_gap": false,
+      "action_gap": [],
+      "template": "awslabs__amazon-bedrock-agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra"
+    }
+  ]
+}

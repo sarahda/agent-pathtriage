@@ -1,0 +1,523 @@
+{
+ "multi_agent": {
+  "templates_checked": 18,
+  "source_confirms": 18,
+  "precision": 1.0,
+  "rows": [
+   {
+    "template": "avparkhi__agui-agentcore-demo/terraform",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "agui",
+      "file": "runtime_agui.tf",
+      "line": 5
+     },
+     {
+      "runtime": "mcp",
+      "file": "runtime_mcp.tf",
+      "line": 5
+     }
+    ]
+   },
+   {
+    "template": "aws-samples__sample-FAST-applications/samples/anycompany-bank/infra",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "kyc_oauth",
+      "file": "registry_oauth_demo.tf",
+      "line": 159
+     },
+     {
+      "runtime": "kyc",
+      "file": "runtime.tf",
+      "line": 201
+     }
+    ]
+   },
+   {
+    "template": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "mcp",
+      "file": "runtime_mcp.tf",
+      "line": 5
+     },
+     {
+      "runtime": "supply_chain",
+      "file": "runtime_supply_chain.tf",
+      "line": 5
+     }
+    ]
+   },
+   {
+    "template": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "orchestrator",
+      "file": "runtimes.tf",
+      "line": 11
+     },
+     {
+      "runtime": "mcp_runtime",
+      "file": "runtimes.tf",
+      "line": 54
+     }
+    ]
+   },
+   {
+    "template": "singulart__google-workspace-agent/terraform",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "main",
+      "file": "main.tf",
+      "line": 338
+     },
+     {
+      "runtime": "gmail_mcp",
+      "file": "main.tf",
+      "line": 434
+     }
+    ]
+   },
+   {
+    "template": "Rohanjain2312__customs-court/deploy/aws/terraform",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "mcp",
+      "file": "runtimes.tf",
+      "line": 6
+     },
+     {
+      "runtime": "agent",
+      "file": "runtimes.tf",
+      "line": 77
+     }
+    ]
+   },
+   {
+    "template": "ashdon4u__ai-migration-factory/infrastructure/modules/agent_runtimes",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "sub_agent",
+      "file": "main.tf",
+      "line": 26
+     },
+     {
+      "runtime": "supervisor",
+      "file": "main.tf",
+      "line": 55
+     }
+    ]
+   },
+   {
+    "template": "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/runtime",
+    "runtimes_in_source": 3,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "interactive",
+      "file": "main.tf",
+      "line": 43
+     },
+     {
+      "runtime": "sdk",
+      "file": "main.tf",
+      "line": 81
+     },
+     {
+      "runtime": "mcp_tools",
+      "file": "main.tf",
+      "line": 115
+     }
+    ]
+   },
+   {
+    "template": "aws-samples__sample-ai-assistant-on-agentcore/infra",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "core_services",
+      "file": "core_services.tf",
+      "line": 57
+     },
+     {
+      "runtime": "sparky",
+      "file": "sparky.tf",
+      "line": 1
+     }
+    ]
+   },
+   {
+    "template": "aws-samples__sample-okf-llm-wiki/infra/compute",
+    "runtimes_in_source": 3,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "harvest",
+      "file": "agentcore_runtimes.tf",
+      "line": 11
+     },
+     {
+      "runtime": "consumption",
+      "file": "agentcore_runtimes.tf",
+      "line": 150
+     },
+     {
+      "runtime": "chat",
+      "file": "agentcore_runtimes.tf",
+      "line": 215
+     }
+    ]
+   },
+   {
+    "template": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "orchestrator",
+      "file": "orchestrator.tf",
+      "line": 5
+     },
+     {
+      "runtime": "specialist",
+      "file": "specialist.tf",
+      "line": 5
+     }
+    ]
+   },
+   {
+    "template": "awslabs__threat-designer/infra",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "sentry",
+      "file": "sentry.tf",
+      "line": 1
+     },
+     {
+      "runtime": "threat_designer",
+      "file": "threat_designer_agent_core.tf",
+      "line": 1
+     }
+    ]
+   },
+   {
+    "template": "bcfmtolgahan__eks-sre-agent/terraform",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "agentcore_runtime",
+      "file": "bedrock_agentcore.tf",
+      "line": 905
+     },
+     {
+      "runtime": "sentinel_runtime",
+      "file": "sentinel.tf",
+      "line": 105
+     }
+    ]
+   },
+   {
+    "template": "flightlesstux__agents-on-call/terraform/10-agent-runtime",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "triage",
+      "file": "main.tf",
+      "line": 209
+     },
+     {
+      "runtime": "new_agent",
+      "file": "main.tf",
+      "line": 498
+     }
+    ]
+   },
+   {
+    "template": "mongodb-partners__config-driven-agents-agentcore-atlas/terraform",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "mcp",
+      "file": "agentcore.tf",
+      "line": 33
+     },
+     {
+      "runtime": "agents",
+      "file": "agentcore.tf",
+      "line": 68
+     }
+    ]
+   },
+   {
+    "template": "seongpil0948__sandbox-agentcore/terraform",
+    "runtimes_in_source": 3,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "leaf",
+      "file": "leaf.tf",
+      "line": 5
+     },
+     {
+      "runtime": "orchestrator",
+      "file": "orchestrator.tf",
+      "line": 5
+     },
+     {
+      "runtime": "supervisor",
+      "file": "supervisor.tf",
+      "line": 5
+     }
+    ]
+   },
+   {
+    "template": "spring-ai-community__spring-ai-agentcore/examples/terraform",
+    "runtimes_in_source": 2,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "iam",
+      "file": "main.tf",
+      "line": 217
+     },
+     {
+      "runtime": "oauth",
+      "file": "main.tf",
+      "line": 237
+     }
+    ]
+   },
+   {
+    "template": "tarlan-huseynov__agentcore-monorepo/terraform",
+    "runtimes_in_source": 3,
+    "source_confirms_two_or_more": true,
+    "runtimes": [
+     {
+      "runtime": "main",
+      "file": "agentcore.tf",
+      "line": 8
+     },
+     {
+      "runtime": "ccapi",
+      "file": "mcp_runtimes.tf",
+      "line": 18
+     },
+     {
+      "runtime": "cost_explorer",
+      "file": "mcp_runtimes.tf",
+      "line": 73
+     }
+    ]
+   }
+  ]
+ },
+ "method": "every aws_bedrockagentcore_agent_runtime block is found in the raw Terraform and grouped by the role_arn expression text. Two call sites with the same expression are treated as the same role.",
+ "scope": "published source, not a deployment",
+ "templates_checked": 5,
+ "source_confirms": 5,
+ "source_does_not_confirm": 0,
+ "precision": 1.0,
+ "rows": [
+  {
+   "template": "avparkhi__agui-agentcore-demo/terraform",
+   "runtimes_in_source": 2,
+   "distinct_role_expressions": 1,
+   "source_confirms_sharing": true,
+   "shared_by": {
+    "aws_iam_role.agent_execution.arn": [
+     {
+      "runtime": "agui",
+      "file": "runtime_agui.tf",
+      "line": 5
+     },
+     {
+      "runtime": "mcp",
+      "file": "runtime_mcp.tf",
+      "line": 5
+     }
+    ]
+   },
+   "all_runtimes": [
+    {
+     "runtime": "agui",
+     "file": "runtime_agui.tf",
+     "line": 5,
+     "agent_runtime_name": "var.agui_agent_name",
+     "role_arn_expression": "aws_iam_role.agent_execution.arn"
+    },
+    {
+     "runtime": "mcp",
+     "file": "runtime_mcp.tf",
+     "line": 5,
+     "agent_runtime_name": "var.mcp_agent_name",
+     "role_arn_expression": "aws_iam_role.agent_execution.arn"
+    }
+   ]
+  },
+  {
+   "template": "aws-samples__sample-FAST-applications/samples/anycompany-bank/infra",
+   "runtimes_in_source": 2,
+   "distinct_role_expressions": 1,
+   "source_confirms_sharing": true,
+   "shared_by": {
+    "aws_iam_role.runtime.arn": [
+     {
+      "runtime": "kyc_oauth",
+      "file": "registry_oauth_demo.tf",
+      "line": 159
+     },
+     {
+      "runtime": "kyc",
+      "file": "runtime.tf",
+      "line": 201
+     }
+    ]
+   },
+   "all_runtimes": [
+    {
+     "runtime": "kyc_oauth",
+     "file": "registry_oauth_demo.tf",
+     "line": 159,
+     "agent_runtime_name": "\"${local.name_underscore}_kyc_oauth_agent\"",
+     "role_arn_expression": "aws_iam_role.runtime.arn"
+    },
+    {
+     "runtime": "kyc",
+     "file": "runtime.tf",
+     "line": 201,
+     "agent_runtime_name": "local.runtime_name",
+     "role_arn_expression": "aws_iam_role.runtime.arn"
+    }
+   ]
+  },
+  {
+   "template": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+   "runtimes_in_source": 2,
+   "distinct_role_expressions": 1,
+   "source_confirms_sharing": true,
+   "shared_by": {
+    "aws_iam_role.agent_execution.arn": [
+     {
+      "runtime": "mcp",
+      "file": "runtime_mcp.tf",
+      "line": 5
+     },
+     {
+      "runtime": "supply_chain",
+      "file": "runtime_supply_chain.tf",
+      "line": 5
+     }
+    ]
+   },
+   "all_runtimes": [
+    {
+     "runtime": "mcp",
+     "file": "runtime_mcp.tf",
+     "line": 5,
+     "agent_runtime_name": "var.mcp_agent_name",
+     "role_arn_expression": "aws_iam_role.agent_execution.arn"
+    },
+    {
+     "runtime": "supply_chain",
+     "file": "runtime_supply_chain.tf",
+     "line": 5,
+     "agent_runtime_name": "var.supply_chain_agent_name",
+     "role_arn_expression": "aws_iam_role.agent_execution.arn"
+    }
+   ]
+  },
+  {
+   "template": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+   "runtimes_in_source": 2,
+   "distinct_role_expressions": 1,
+   "source_confirms_sharing": true,
+   "shared_by": {
+    "aws_iam_role.runtime_exec.arn": [
+     {
+      "runtime": "orchestrator",
+      "file": "runtimes.tf",
+      "line": 11
+     },
+     {
+      "runtime": "mcp_runtime",
+      "file": "runtimes.tf",
+      "line": 54
+     }
+    ]
+   },
+   "all_runtimes": [
+    {
+     "runtime": "orchestrator",
+     "file": "runtimes.tf",
+     "line": 11,
+     "agent_runtime_name": "replace(\"${var.name_prefix}_orchestrator\", \"-\", \"_\")",
+     "role_arn_expression": "aws_iam_role.runtime_exec.arn"
+    },
+    {
+     "runtime": "mcp_runtime",
+     "file": "runtimes.tf",
+     "line": 54,
+     "agent_runtime_name": "replace(\"${var.name_prefix}_mcp_runtime\", \"-\", \"_\")",
+     "role_arn_expression": "aws_iam_role.runtime_exec.arn"
+    }
+   ]
+  },
+  {
+   "template": "singulart__google-workspace-agent/terraform",
+   "runtimes_in_source": 2,
+   "distinct_role_expressions": 1,
+   "source_confirms_sharing": true,
+   "shared_by": {
+    "aws_iam_role.agent_runtime.arn": [
+     {
+      "runtime": "main",
+      "file": "main.tf",
+      "line": 338
+     },
+     {
+      "runtime": "gmail_mcp",
+      "file": "main.tf",
+      "line": 434
+     }
+    ]
+   },
+   "all_runtimes": [
+    {
+     "runtime": "main",
+     "file": "main.tf",
+     "line": 338,
+     "agent_runtime_name": "\"${var.name_prefix}_runtime\"",
+     "role_arn_expression": "aws_iam_role.agent_runtime.arn"
+    },
+    {
+     "runtime": "gmail_mcp",
+     "file": "main.tf",
+     "line": 434,
+     "agent_runtime_name": "\"${var.name_prefix}_gmail_mcp\"",
+     "role_arn_expression": "aws_iam_role.agent_runtime.arn"
+    }
+   ]
+  }
+ ]
+}

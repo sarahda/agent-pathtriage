@@ -1,0 +1,97 @@
+\section{Approach}
+\label{sec:approach}
+
+\subsection{Delegation edges}
+
+An edge $p \rightarrow q$ means $p$ can cause code to run with $q$'s
+permissions, so the edges are what produce the $E(p)$ of
+Equation~\ref{eq:eff}. Three rules produce them over the deployment
+$D = (P, A, G, T)$ of Section~\ref{sec:model}, and each is a conjunction,
+which matters for Section~\ref{sec:blocked}.
+%
+\begin{align}
+\label{eq:assume}
+p \xrightarrow{\text{assume}} q \;&\iff\;
+  (p, \iam{sts:AssumeRole}, q) \in G \,\wedge\, (p,q) \in T \\
+\label{eq:pass}
+p \xrightarrow{\text{pass}} q \;&\iff\;
+  (p, \iam{iam:PassRole}, q) \in G \,\wedge\, \nonumber\\
+  &\qquad \exists\, \sigma \in \Sigma :\, (p, \sigma, \cdot) \in G \\
+\label{eq:replace}
+p \xrightarrow{\text{replace}} \rho(a) &\iff
+  (p, \api{UpdateAgentRuntime}, a) \in G \wedge \nonumber\\
+  &\qquad (p, \iam{iam:PassRole}, \rho(a)) \in G
+\end{align}
+%
+$\Sigma$ is the set of actions that start a workload under a passed role.
+Equation~\ref{eq:replace} is the agent specific rule. The platform's update
+API requires the role in the same call as the artifact, so a caller holding the
+first conjunct and not the second cannot make the call.
+
+Figure~\ref{fig:mechanism} shows Equation~\ref{eq:replace} in the form the
+rest of the paper uses.
+
+\input{figures/fig-mechanism}
+
+\subsection{Computing the closure}
+
+Algorithm~\ref{alg:reach} computes the fixpoint of Equation~\ref{eq:eff} and
+the difference of Equation~\ref{eq:esc}. The outer loop visits each principal
+once, the inner worklist follows edges, and a visited set keeps a cycle such
+as two roles that may assume each other from diverging. Each principal's
+closure is memoised, so the edge set is walked once per principal and the cost
+is $O(|P| \cdot (|P| + |G|))$.
+
+\begin{algorithm}[t]
+\caption{Escalation by closure over delegation edges}
+\label{alg:reach}
+\begin{algorithmic}[1]
+\Function{Eff}{$p$, $D$}
+  \If{$p \in \mathit{memo}$} \Return $\mathit{memo}[p]$ \EndIf
+  \State $\mathit{memo}[p] \gets \auth(p)$ \Comment{guards cycles}
+  \State $S \gets \auth(p)$
+  \ForAll{$q \in E(p)$} \Comment{Eq.~\ref{eq:assume}--\ref{eq:replace}}
+    \State $S \gets S \cup \Call{Eff}{q, D}$
+  \EndFor
+  \State $\mathit{memo}[p] \gets S$
+  \State \Return $S$
+\EndFunction
+\Statex
+\Function{Findings}{$D$}
+  \State $F \gets \emptyset$
+  \ForAll{$p \in P$}
+    \State $\Delta \gets \Call{Eff}{p, D} \setminus \auth(p)$
+    \If{$\Delta \neq \emptyset$}
+      \State $F \gets F \cup \{(p, \Delta, \Call{Witness}{p, \Delta})\}$
+    \EndIf
+    \ForAll{$(q, \alpha) \in \Call{Blocked}{p, D}$}
+      \State record $p \rightarrow q$ blocked on $\alpha$
+    \EndFor
+  \EndFor
+  \State \Return $F$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\textsc{Witness} returns the path that carried an element of $\Delta$ into
+$\eff(p)$, so every finding can be checked against the source by hand.
+
+\subsection{Complete and blocked}
+\label{sec:blocked}
+
+Each edge rule is a conjunction. \textsc{Blocked} evaluates the conjuncts
+separately and reports the pairs where exactly one is false, naming the
+missing action. A path is \emph{complete} when every conjunct of every edge on
+it holds, and \emph{blocked} when one does not.
+
+The two are reported separately. A blocked candidate names the single grant
+that would make the deployment exploitable, which is a rule for the next change
+review.
+
+\subsection{What counts as an agent}
+
+A resource is an agent when the deployment declares an agent runtime for the
+platform. The analysis does not guess from a name or an image. A deployment
+that runs several agents inside one runtime is therefore one agent here,
+because that is what it declares and because the platform has no identity
+boundary inside a runtime for the analysis to find.

@@ -1,0 +1,91 @@
+% ---------------------------------------------------------------------------
+% preamble.tex: packages and macros shared by the whole paper.
+% ---------------------------------------------------------------------------
+
+\usepackage{xspace}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+% --- drafting aids ----------------------------------------------------------
+% \todo marks work still to do. \nodata marks a place where the paper
+% deliberately reports that something was not measured, which is a statement
+% and not a gap. Set \draftmode to 0 before submitting: \todo then raises an
+% error so no marker can survive into the final file, and \nodata stays.
+\newcommand{\draftmode}{0}
+
+\definecolor{todored}{RGB}{176,0,32}
+\newcommand{\todo}[1]{%
+  \ifnum\draftmode=1%
+    \textcolor{todored}{\textbf{[TODO: #1]}}%
+  \else%
+    \GenericError{}{Unresolved TODO: #1}{}{}%
+  \fi}
+\newcommand{\nodata}{\textsl{not measured}\xspace}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+
+% Terraform excerpts: no colour, no bold keywords, just a readable monospace
+% block that fits a two column measure.
+\lstdefinestyle{tf}{
+  basicstyle=\scriptsize\ttfamily,
+  commentstyle=\color{cNeutral}\itshape,
+  numbers=none, frame=none, showstringspaces=false,
+  columns=fullflexible, keepspaces=true,
+  breaklines=true, breakatwhitespace=false,
+  aboveskip=2pt, belowskip=2pt, xleftmargin=2pt,
+  morecomment=[l]{\#}, morestring=[b]",
+  escapeinside={(*}{*)}
+}
+\lstset{style=tf}
+
+% --- naming -----------------------------------------------------------------
+\newcommand{\tool}{AgentPathTriage\xspace}
+\newcommand{\agentcore}{Amazon Bedrock AgentCore\xspace}
+\newcommand{\foundry}{Microsoft Foundry\xspace}
+
+% --- the escalation predicate ----------------------------------------------
+\newcommand{\eff}{\ensuremath{\mathrm{eff}}}
+\newcommand{\auth}{\ensuremath{\mathrm{auth}}}
+\newcommand{\Esc}{\ensuremath{\mathrm{Esc}}}
+
+% --- code and identifiers ---------------------------------------------------
+% Two column measure is narrow and an ARN or an API name does not hyphenate,
+% so these are declared through the url package, which breaks at the
+% punctuation inside them and keeps a typewriter face.
+% \allowbreak after the punctuation inside an identifier, so a long ARN can
+% break across a narrow column. Robust, because these appear in section titles
+% and captions, which are moving arguments.
+\DeclareRobustCommand{\bk}[1]{#1\allowbreak}
+\DeclareRobustCommand{\api}[1]{\texttt{#1}}
+\DeclareRobustCommand{\iam}[1]{\texttt{#1}}
+
+% A little give, so a long identifier stretches a line instead of running into
+% the gutter.
+\emergencystretch=2em
+
+% Let a page carry more float and less forced text, so a figure does not push
+% a nearly empty page to the end of the paper.
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\dblfloatpagefraction}{0.75}
+\setcounter{topnumber}{2}
+\setcounter{dbltopnumber}{2}
+\setcounter{totalnumber}{4}
+
+% --- figure colours, one place ----------------------------------------------
+\definecolor{cIdentity}{RGB}{31,110,160}
+\definecolor{cStored}{RGB}{191,84,47}
+\definecolor{cNeutral}{RGB}{120,124,131}
+\definecolor{cAccent}{RGB}{28,124,84}
+\definecolor{cFaint}{RGB}{226,228,232}

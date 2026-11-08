@@ -1,0 +1,931 @@
+[
+  {
+    "config": "ReyanL__demo-cloud-engineer-agent/terraform",
+    "mode": "inline",
+    "principal": "GitLabCICDRole",
+    "n_auth": 2,
+    "n_eff": 40,
+    "n_gained_literal": 3,
+    "n_gained_probe": 34,
+    "gained_literal": [
+      "arn:aws:bedrock-agentcore:${var.aws_region}:000000000000:token-vault/default",
+      "arn:aws:bedrock-agentcore:${var.aws_region}:000000000000:workload-identity-directory/default",
+      "arn:aws:secretsmanager:us-east-1:000000000000:secret:${var.project}-webhook-token"
+    ],
+    "self_escalation": true,
+    "witnesses": [
+      {
+        "reaches": "arn:aws:bedrock-agentcore:${var.aws_region}:000000000000:token-vault/default",
+        "action": "bedrock-agentcore:CreateCodeInterpreter",
+        "via_role": "bedrock-agent-runtime-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "GitLabCICDRole",
+            "to": "bedrock-agent-runtime-role",
+            "via": "iam:PassRole/control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:bedrock-agentcore:${var.aws_region}:000000000000:workload-identity-directory/default",
+        "action": "bedrock-agentcore:CreateCodeInterpreter",
+        "via_role": "bedrock-agent-runtime-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "GitLabCICDRole",
+            "to": "bedrock-agent-runtime-role",
+            "via": "iam:PassRole/control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:secretsmanager:us-east-1:000000000000:secret:${var.project}-webhook-token",
+        "action": "secretsmanager:DescribeSecret",
+        "via_role": "bedrock-agent-runtime-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "GitLabCICDRole",
+            "to": "bedrock-agent-runtime-role",
+            "via": "iam:PassRole/control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      }
+    ]
+  },
+  {
+    "config": "ZenMicro-Tech__terraform-zm-infra",
+    "mode": "expanded",
+    "principal": "${var.app_name}-bedrock-user",
+    "n_auth": 4,
+    "n_eff": 36,
+    "n_gained_literal": 0,
+    "n_gained_probe": 32,
+    "gained_literal": [],
+    "self_escalation": false,
+    "witnesses": []
+  },
+  {
+    "config": "andrewblooman__Cohort/terraform",
+    "mode": "inline",
+    "principal": "${var.project_name}-execute-actions",
+    "n_auth": 3,
+    "n_eff": 12,
+    "n_gained_literal": 9,
+    "n_gained_probe": 0,
+    "gained_literal": [
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${var.project_name}-incident-counter",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-ai-analysis",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-collect-artifacts",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-enrich-alert",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-execute-actions",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-generate-incident-id",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-notify",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-store-artifacts",
+      "arn:aws:secretsmanager:us-east-1:000000000000:secret:${var.project_name}-api-key"
+    ],
+    "self_escalation": true,
+    "witnesses": [
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${var.project_name}-incident-counter",
+        "action": "dynamodb:DescribeTable",
+        "via_role": "${var.project_name}-lambda-exec",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-lambda-exec",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-ai-analysis",
+        "action": "lambda:InvokeFunction",
+        "via_role": "${var.project_name}-step-functions",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-step-functions",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-collect-artifacts",
+        "action": "lambda:InvokeFunction",
+        "via_role": "${var.project_name}-step-functions",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-step-functions",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-enrich-alert",
+        "action": "lambda:InvokeFunction",
+        "via_role": "${var.project_name}-step-functions",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-step-functions",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-execute-actions",
+        "action": "lambda:InvokeFunction",
+        "via_role": "${var.project_name}-step-functions",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-step-functions",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-generate-incident-id",
+        "action": "lambda:InvokeFunction",
+        "via_role": "${var.project_name}-step-functions",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-step-functions",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      }
+    ]
+  },
+  {
+    "config": "andrewblooman__Cohort/terraform",
+    "mode": "expanded",
+    "principal": "${var.project_name}-execute-actions",
+    "n_auth": 3,
+    "n_eff": 12,
+    "n_gained_literal": 9,
+    "n_gained_probe": 0,
+    "gained_literal": [
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${var.project_name}-incident-counter",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-ai-analysis",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-collect-artifacts",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-enrich-alert",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-execute-actions",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-generate-incident-id",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-notify",
+      "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-store-artifacts",
+      "arn:aws:secretsmanager:us-east-1:000000000000:secret:${var.project_name}-api-key"
+    ],
+    "self_escalation": true,
+    "witnesses": [
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${var.project_name}-incident-counter",
+        "action": "dynamodb:DescribeTable",
+        "via_role": "${var.project_name}-lambda-exec",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-lambda-exec",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-ai-analysis",
+        "action": "lambda:InvokeFunction",
+        "via_role": "${var.project_name}-step-functions",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-step-functions",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-collect-artifacts",
+        "action": "lambda:InvokeFunction",
+        "via_role": "${var.project_name}-step-functions",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-step-functions",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-enrich-alert",
+        "action": "lambda:InvokeFunction",
+        "via_role": "${var.project_name}-step-functions",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-step-functions",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-execute-actions",
+        "action": "lambda:InvokeFunction",
+        "via_role": "${var.project_name}-step-functions",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-step-functions",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:lambda:us-east-1:000000000000:function:${var.project_name}-generate-incident-id",
+        "action": "lambda:InvokeFunction",
+        "via_role": "${var.project_name}-step-functions",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${var.project_name}-execute-actions",
+            "to": "${var.project_name}-step-functions",
+            "via": "control:iam:PutRolePolicy",
+            "scope": "any",
+            "enabled_by": "control:iam:PutRolePolicy"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      }
+    ]
+  },
+  {
+    "config": "aws-samples__sample-ai-assistant-on-agentcore/infra",
+    "mode": "inline",
+    "principal": "${local.prefix}-sparky",
+    "n_auth": 17,
+    "n_eff": 25,
+    "n_gained_literal": 7,
+    "n_gained_probe": 0,
+    "gained_literal": [
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-scheduled-tasks",
+      "arn:aws:ecr:us-east-1:000000000000:repository/${local.prefix}-core-services",
+      "arn:aws:iam::000000000000:role/${local.prefix}-task-scheduler-role",
+      "arn:aws:s3:::${local.prefix}-projects-${data.aws_caller_identity.caller_identity.account_id}-${random_string.bucket_name.result}",
+      "arn:aws:scheduler:${var.region}:000000000000:schedule-group/${local.prefix}-scheduled-tasks",
+      "arn:aws:sqs:us-east-1:000000000000:${local.prefix}-kb-cleanup",
+      "arn:aws:sqs:us-east-1:000000000000:${local.prefix}-task-execution"
+    ],
+    "self_escalation": false,
+    "witnesses": [
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-scheduled-tasks",
+        "action": "dynamodb:BatchWriteItem",
+        "via_role": "${local.prefix}-core-services",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-core-services",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:ecr:us-east-1:000000000000:repository/${local.prefix}-core-services",
+        "action": "ecr:BatchGetImage",
+        "via_role": "${local.prefix}-core-services",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-core-services",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:iam::000000000000:role/${local.prefix}-task-scheduler-role",
+        "action": "iam:PassRole",
+        "via_role": "${local.prefix}-core-services",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-core-services",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": true,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:s3:::${local.prefix}-projects-${data.aws_caller_identity.caller_identity.account_id}-${random_string.bucket_name.result}",
+        "action": "s3:ListBucket",
+        "via_role": "${local.prefix}-core-services",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-core-services",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:scheduler:${var.region}:000000000000:schedule-group/${local.prefix}-scheduled-tasks",
+        "action": "scheduler:CreateScheduleGroup",
+        "via_role": "${local.prefix}-core-services",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-core-services",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:sqs:us-east-1:000000000000:${local.prefix}-kb-cleanup",
+        "action": "sqs:DeleteMessage",
+        "via_role": "${local.prefix}-expiry-cleanup-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-expiry-cleanup-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      }
+    ]
+  },
+  {
+    "config": "aws-samples__sample-ai-assistant-on-agentcore/infra",
+    "mode": "expanded",
+    "principal": "${local.prefix}-sparky",
+    "n_auth": 17,
+    "n_eff": 25,
+    "n_gained_literal": 7,
+    "n_gained_probe": 0,
+    "gained_literal": [
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-scheduled-tasks",
+      "arn:aws:ecr:us-east-1:000000000000:repository/${local.prefix}-core-services",
+      "arn:aws:iam::000000000000:role/${local.prefix}-task-scheduler-role",
+      "arn:aws:s3:::${local.prefix}-projects-${data.aws_caller_identity.caller_identity.account_id}-${random_string.bucket_name.result}",
+      "arn:aws:scheduler:${var.region}:000000000000:schedule-group/${local.prefix}-scheduled-tasks",
+      "arn:aws:sqs:us-east-1:000000000000:${local.prefix}-kb-cleanup",
+      "arn:aws:sqs:us-east-1:000000000000:${local.prefix}-task-execution"
+    ],
+    "self_escalation": false,
+    "witnesses": [
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-scheduled-tasks",
+        "action": "dynamodb:BatchWriteItem",
+        "via_role": "${local.prefix}-core-services",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-core-services",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:ecr:us-east-1:000000000000:repository/${local.prefix}-core-services",
+        "action": "ecr:BatchGetImage",
+        "via_role": "${local.prefix}-core-services",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-core-services",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:iam::000000000000:role/${local.prefix}-task-scheduler-role",
+        "action": "iam:PassRole",
+        "via_role": "${local.prefix}-core-services",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-core-services",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": true,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:s3:::${local.prefix}-projects-${data.aws_caller_identity.caller_identity.account_id}-${random_string.bucket_name.result}",
+        "action": "s3:ListBucket",
+        "via_role": "${local.prefix}-core-services",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-core-services",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:scheduler:${var.region}:000000000000:schedule-group/${local.prefix}-scheduled-tasks",
+        "action": "scheduler:CreateScheduleGroup",
+        "via_role": "${local.prefix}-core-services",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-core-services",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:sqs:us-east-1:000000000000:${local.prefix}-kb-cleanup",
+        "action": "sqs:DeleteMessage",
+        "via_role": "${local.prefix}-expiry-cleanup-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sparky",
+            "to": "${local.prefix}-expiry-cleanup-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      }
+    ]
+  },
+  {
+    "config": "awslabs__threat-designer/infra",
+    "mode": "inline",
+    "principal": "${local.prefix}-sentry",
+    "n_auth": 4,
+    "n_eff": 12,
+    "n_gained_literal": 8,
+    "n_gained_probe": 0,
+    "gained_literal": [
+      "arn:aws:bedrock-agentcore:${var.web_search_region}:aws:tool/web-search.v1",
+      "arn:aws:bedrock:us-east-1:000000000000:knowledge-base/${local.prefix}-spaces-kb",
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-space-documents",
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-space-sharing",
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-spaces",
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-status",
+      "arn:aws:s3:::${local.prefix}-spaces-${data.aws_caller_identity.caller_identity.account_id}-${random_string.bucket_name.result}",
+      "arn:aws:sqs:us-east-1:000000000000:${local.prefix}-stream-processor-dlq"
+    ],
+    "self_escalation": false,
+    "witnesses": [
+      {
+        "reaches": "arn:aws:bedrock-agentcore:${var.web_search_region}:aws:tool/web-search.v1",
+        "action": "bedrock-agentcore:InvokeWebSearch",
+        "via_role": "${local.prefix}-web-search-gateway",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-web-search-gateway",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:bedrock:us-east-1:000000000000:knowledge-base/${local.prefix}-spaces-kb",
+        "action": "bedrock:Retrieve",
+        "via_role": "${local.prefix}-agent-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-agent-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-space-documents",
+        "action": "dynamodb:BatchWriteItem",
+        "via_role": "${local.prefix}-api-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-api-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-space-sharing",
+        "action": "dynamodb:BatchWriteItem",
+        "via_role": "${local.prefix}-api-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-api-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-spaces",
+        "action": "dynamodb:BatchWriteItem",
+        "via_role": "${local.prefix}-api-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-api-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-status",
+        "action": "dynamodb:DeleteItem",
+        "via_role": "${local.prefix}-stream-processor-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-stream-processor-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      }
+    ]
+  },
+  {
+    "config": "awslabs__threat-designer/infra",
+    "mode": "expanded",
+    "principal": "${local.prefix}-sentry",
+    "n_auth": 4,
+    "n_eff": 12,
+    "n_gained_literal": 8,
+    "n_gained_probe": 0,
+    "gained_literal": [
+      "arn:aws:bedrock-agentcore:${var.web_search_region}:aws:tool/web-search.v1",
+      "arn:aws:bedrock:us-east-1:000000000000:knowledge-base/${local.prefix}-spaces-kb",
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-space-documents",
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-space-sharing",
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-spaces",
+      "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-status",
+      "arn:aws:s3:::${local.prefix}-spaces-${data.aws_caller_identity.caller_identity.account_id}-${random_string.bucket_name.result}",
+      "arn:aws:sqs:us-east-1:000000000000:${local.prefix}-stream-processor-dlq"
+    ],
+    "self_escalation": false,
+    "witnesses": [
+      {
+        "reaches": "arn:aws:bedrock-agentcore:${var.web_search_region}:aws:tool/web-search.v1",
+        "action": "bedrock-agentcore:InvokeWebSearch",
+        "via_role": "${local.prefix}-web-search-gateway",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-web-search-gateway",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:bedrock:us-east-1:000000000000:knowledge-base/${local.prefix}-spaces-kb",
+        "action": "bedrock:Retrieve",
+        "via_role": "${local.prefix}-agent-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-agent-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-space-documents",
+        "action": "dynamodb:BatchWriteItem",
+        "via_role": "${local.prefix}-api-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-api-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-space-sharing",
+        "action": "dynamodb:BatchWriteItem",
+        "via_role": "${local.prefix}-api-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-api-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-spaces",
+        "action": "dynamodb:BatchWriteItem",
+        "via_role": "${local.prefix}-api-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-api-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      },
+      {
+        "reaches": "arn:aws:dynamodb:us-east-1:000000000000:table/${local.prefix}-status",
+        "action": "dynamodb:DeleteItem",
+        "via_role": "${local.prefix}-stream-processor-role",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "${local.prefix}-sentry",
+            "to": "${local.prefix}-stream-processor-role",
+            "via": "sts:AssumeRole",
+            "scope": "any",
+            "enabled_by": "assume-role"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      }
+    ]
+  },
+  {
+    "config": "rogerjeasy__wick/infra",
+    "mode": "inline",
+    "principal": "github-actions-wick-deploy",
+    "n_auth": 169,
+    "n_eff": 170,
+    "n_gained_literal": 1,
+    "n_gained_probe": 0,
+    "gained_literal": [
+      "arn:aws:bedrock:${local.region}:${local.account_id}:inference-profile/${local.narrative_model_profile}"
+    ],
+    "self_escalation": false,
+    "witnesses": [
+      {
+        "reaches": "arn:aws:bedrock:${local.region}:${local.account_id}:inference-profile/${local.narrative_model_profile}",
+        "action": "bedrock:InvokeModel",
+        "via_role": "${local.prefix}-agent-narrator-weekly",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "github-actions-wick-deploy",
+            "to": "${local.prefix}-agent-narrator-weekly",
+            "via": "takeover:lambda:UpdateFunctionCode",
+            "scope": "any",
+            "enabled_by": "takeover:lambda:UpdateFunctionCode on arn:aws:lambda:us-east-1:000000000000:function:${local.prefix}-agent-narrator-weekly"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      }
+    ]
+  },
+  {
+    "config": "rogerjeasy__wick/infra",
+    "mode": "expanded",
+    "principal": "github-actions-wick-deploy",
+    "n_auth": 169,
+    "n_eff": 170,
+    "n_gained_literal": 1,
+    "n_gained_probe": 0,
+    "gained_literal": [
+      "arn:aws:bedrock:${local.region}:${local.account_id}:inference-profile/${local.narrative_model_profile}"
+    ],
+    "self_escalation": false,
+    "witnesses": [
+      {
+        "reaches": "arn:aws:bedrock:${local.region}:${local.account_id}:inference-profile/${local.narrative_model_profile}",
+        "action": "bedrock:InvokeModel",
+        "via_role": "${local.prefix}-agent-narrator-weekly",
+        "hops": 1,
+        "chain": [
+          {
+            "from": "github-actions-wick-deploy",
+            "to": "${local.prefix}-agent-narrator-weekly",
+            "via": "takeover:lambda:UpdateFunctionCode",
+            "scope": "any",
+            "enabled_by": "takeover:lambda:UpdateFunctionCode on arn:aws:lambda:us-east-1:000000000000:function:${local.prefix}-agent-narrator-weekly"
+          }
+        ],
+        "conditional": false,
+        "via_invocation": false,
+        "literal": true
+      }
+    ]
+  }
+]

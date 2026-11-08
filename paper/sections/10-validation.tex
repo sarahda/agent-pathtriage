@@ -1,0 +1,49 @@
+\section{External Validation}
+\label{sec:validation}
+
+\paragraph{A check contributed to an open source scanner.}
+The \foundry result of Section~\ref{sec:foundry} is expressible as a rule
+about deployed state, so we implemented it as a check for Prowler, an open
+source cloud security scanner, and opened it as pull request 13306 on
+\texttt{prowler-cloud/prowler}. The check
+reports connections whose \api{authType} presents a credential stored in the
+connection rather than a directory identity, at both account and project
+level, and reports a scope whose connections could not be listed as manual
+rather than leaving it out.
+
+The review that followed changed the code. An automated reviewer found that a
+project whose connections could not be listed was dropped from the results
+instead of reported, which is the same class of error the check was written to
+avoid, one level down. It also found that a finding carried no region, because
+a connection has no location of its own and the parent account's was not being
+used. Both are fixed, with tests, and the fix for the first was extended to the
+account's own scope, where the same gap existed and the review had not looked.
+
+The pull request is open and under review on 8 November 2026, with the two
+review findings fixed and no maintainer decision yet.
+
+\paragraph{A report to a vendor sample repository.}
+A separate finding concerns a \foundry starter template whose connection
+module defaults \api{isSharedToAll} to true, and whose \nFoundryTemplateShared
+call sites all set it to true. Where a project holds more than one agent,
+every connection is reachable by all of them, and the
+\nFoundryTemplateApiKey that carry an \api{ApiKey} present a stored
+credential the target cannot attribute to an agent. The
+module is byte identical in \nFoundryTemplateCopies copies across
+\nFoundryTemplateRepos repositories, so it is filed once against the
+template repository rather than in each of them. It is issue 73 on
+\texttt{Azure-Samples/\allowbreak azd-ai-starter-basic}, open at the time of
+writing.
+
+\paragraph{Disclosures to deployment owners.}
+The deployments behind the findings in Section~\ref{sec:results} are public
+repositories with identifiable owners. We sent \nDisclosureReports reports on 8 November 2026,
+covering \nDisclosureRepos repositories: \nDisclosureIssues
+as public issues on repositories whose published policy allows one, and
+\nDisclosureEmails to a vendor security address, for the organisation whose
+policy asks that no public issue be opened. Each report names the shared
+execution role, the file and line it is declared on, and the change that
+removes it.
+
+No reply had arrived by 8 November 2026. Each report asked whether the owner
+would agree to be named here, so the repositories are not identified.

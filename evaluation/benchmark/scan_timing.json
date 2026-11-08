@@ -1,0 +1,212 @@
+[
+ {
+  "seconds": 0.369,
+  "config": "ashdon4u__ai-migration-factory/infrastructure/modules/agent_runtimes",
+  "n_agents": 2,
+  "tf_files": 1,
+  "exit": 0
+ },
+ {
+  "seconds": 0.374,
+  "config": "AlterionAI__terraform-provider-alterion/examples/agentcore",
+  "n_agents": 1,
+  "tf_files": 1,
+  "exit": 0
+ },
+ {
+  "seconds": 0.38,
+  "config": "Coalfire-AI__terraform-modules/modules/agentcore_agent",
+  "n_agents": 1,
+  "tf_files": 4,
+  "exit": 0
+ },
+ {
+  "seconds": 0.41,
+  "config": "spring-ai-community__spring-ai-agentcore/examples/terraform",
+  "n_agents": 2,
+  "tf_files": 4,
+  "exit": 0
+ },
+ {
+  "seconds": 0.422,
+  "config": "Aadarshg087__agentcore-services-poc/terraform",
+  "n_agents": 1,
+  "tf_files": 3,
+  "exit": 0
+ },
+ {
+  "seconds": 0.423,
+  "config": "BloclabsHQ__modules/modules/devops_agent",
+  "n_agents": 1,
+  "tf_files": 9,
+  "exit": 0
+ },
+ {
+  "seconds": 0.436,
+  "config": "46ki75__examples/stacks/agentcore-web-search/terraform",
+  "n_agents": 1,
+  "tf_files": 10,
+  "exit": 0
+ },
+ {
+  "seconds": 0.437,
+  "config": "Bernardo-Dauber__chat-agentcore/infra",
+  "n_agents": 1,
+  "tf_files": 8,
+  "exit": 0
+ },
+ {
+  "seconds": 0.444,
+  "config": "Aadarshg087__agentcore-services-poc/hyperIvory/terraform",
+  "n_agents": 1,
+  "tf_files": 3,
+  "exit": 0
+ },
+ {
+  "seconds": 0.445,
+  "config": "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/runtime",
+  "n_agents": 3,
+  "tf_files": 6,
+  "exit": 0
+ },
+ {
+  "seconds": 0.456,
+  "config": "flightlesstux__agents-on-call/terraform/10-agent-runtime",
+  "n_agents": 2,
+  "tf_files": 3,
+  "exit": 0
+ },
+ {
+  "seconds": 0.46,
+  "config": "mongodb-partners__config-driven-agents-agentcore-atlas/terraform",
+  "n_agents": 2,
+  "tf_files": 9,
+  "exit": 0
+ },
+ {
+  "seconds": 0.483,
+  "config": "avparkhi__agui-agentcore-demo/terraform",
+  "n_agents": 2,
+  "tf_files": 13,
+  "exit": 1
+ },
+ {
+  "seconds": 0.487,
+  "config": "CloudCraftersOrg__cloudwatch-agent/terraform",
+  "n_agents": 1,
+  "tf_files": 13,
+  "exit": 0
+ },
+ {
+  "seconds": 0.487,
+  "config": "seongpil0948__sandbox-agentcore/terraform",
+  "n_agents": 3,
+  "tf_files": 12,
+  "exit": 0
+ },
+ {
+  "seconds": 0.489,
+  "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+  "n_agents": 2,
+  "tf_files": 10,
+  "exit": 0
+ },
+ {
+  "seconds": 0.491,
+  "config": "singulart__google-workspace-agent/terraform",
+  "n_agents": 2,
+  "tf_files": 9,
+  "exit": 1
+ },
+ {
+  "seconds": 0.497,
+  "config": "tarlan-huseynov__agentcore-monorepo/terraform",
+  "n_agents": 3,
+  "tf_files": 13,
+  "exit": 0
+ },
+ {
+  "seconds": 0.5,
+  "config": "CopilotKit__CopilotKit/examples/integrations/agentcore/infra-terraform/modules/backend",
+  "n_agents": 1,
+  "tf_files": 11,
+  "exit": 0
+ },
+ {
+  "seconds": 0.519,
+  "config": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+  "n_agents": 2,
+  "tf_files": 15,
+  "exit": 1
+ },
+ {
+  "seconds": 0.549,
+  "config": "Danacod991__Agentcore-4/infra-terraform/modules/backend",
+  "n_agents": 1,
+  "tf_files": 12,
+  "exit": 0
+ },
+ {
+  "seconds": 0.559,
+  "config": "46ki75__internal/terraform",
+  "n_agents": 1,
+  "tf_files": 18,
+  "exit": 0
+ },
+ {
+  "seconds": 0.574,
+  "config": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+  "n_agents": 2,
+  "tf_files": 18,
+  "exit": 1
+ },
+ {
+  "seconds": 0.578,
+  "config": "bcfmtolgahan__eks-sre-agent/terraform",
+  "n_agents": 2,
+  "tf_files": 6,
+  "exit": 0
+ },
+ {
+  "seconds": 0.622,
+  "config": "aws-samples__sample-okf-llm-wiki/infra/compute",
+  "n_agents": 3,
+  "tf_files": 17,
+  "exit": 0
+ },
+ {
+  "seconds": 0.634,
+  "config": "Rohanjain2312__customs-court/deploy/aws/terraform",
+  "n_agents": 2,
+  "tf_files": 9,
+  "exit": 0
+ },
+ {
+  "seconds": 0.657,
+  "config": "awslabs__threat-designer/infra",
+  "n_agents": 2,
+  "tf_files": 20,
+  "exit": 0
+ },
+ {
+  "seconds": 0.67,
+  "config": "aws-samples__sample-FAST-applications/samples/anycompany-bank/infra",
+  "n_agents": 2,
+  "tf_files": 18,
+  "exit": 1
+ },
+ {
+  "seconds": 0.776,
+  "config": "45678XYZ__e-Hakka-Care/terraform",
+  "n_agents": 1,
+  "tf_files": 21,
+  "exit": 0
+ },
+ {
+  "seconds": 1.652,
+  "config": "aws-samples__sample-ai-assistant-on-agentcore/infra",
+  "n_agents": 2,
+  "tf_files": 21,
+  "exit": 0
+ }
+]

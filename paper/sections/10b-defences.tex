@@ -1,0 +1,78 @@
+\section{Defences and Detection}
+\label{sec:defences}
+
+\subsection{What an operator can do}
+
+\paragraph{Give each agent its own execution role.}
+This is the one with the largest effect and the clearest evidence behind it:
+\nSharedRoleRuntimes of \nMultiAgentRuntimes multi-agent deployments do not do
+it today. A shared role makes the takeover unnecessary, because the agents
+already hold the same permissions, and it removes the account's ability to
+say which agent made a call. Separating the roles does not by itself stop the
+takeover, but it is what makes every other control in this list possible.
+
+\paragraph{Scope the condition to the role, not to the name.}
+The gate in the vendor's managed policy is a match on the role name, so two
+agents whose roles both match \iam{*BedrockAgentCore*} are not separated by it
+at all. A per agent policy granting \iam{iam:PassRole} on the exact role ARN
+the agent needs, in place of \iam{BedrockAgentCoreFullAccess}, makes the condition
+name the role rather than match a pattern.
+
+\paragraph{Narrow the trust policy.}
+The documented trust policy for an execution role scopes
+\iam{sts:AssumeRole} with \iam{aws:SourceArn} set to a wildcard over the whole
+account. Replacing the wildcard with the specific runtime ARN closes the
+target side of the edge, and the role then cannot be reused by
+another runtime.
+
+\paragraph{Separate the identity that deploys from the identity that runs.}
+\api{UpdateAgentRuntime} is a deployment operation. An agent's own execution
+role rarely needs it, and where it does the grant should name the runtime it
+may update. The corpus contains \nBlockedAgentToAgent candidates that are one
+agent reaching another and are held back only by \iam{iam:PassRole}; in those
+deployments the update permission is already present on the wrong identity.
+
+\paragraph{Constrain the command route as well.}
+The controls above govern who may replace an agent's artifact. They do nothing
+about the permission that runs a command inside an existing runtime, which
+reaches the same role more cheaply and has a service control policy of its
+own~\cite{garcia2026agentcorepaths}. Apply both.
+
+\subsection{What an operator cannot fix this way}
+
+Scoping an agent's data permissions does not help: agent~A never touches
+agent~B's data, because the code it installs runs as agent~B and uses
+agent~B's own permissions. A deployment where every role is perfectly scoped to its own agent is still
+exposed to it. Controls at the model
+layer do not help either, because the cloud permissions downstream are the
+same whatever ran the attacker's code.
+
+\subsection{Detection}
+
+Two signals follow directly from the mechanism, and both are available in
+ordinary cloud audit logs.
+
+The first is an \api{UpdateAgentRuntime} call whose \api{roleArn} differs from
+the runtime's previous value. A deployment pipeline changes the artifact often
+and the role almost never, so a change of role on an existing runtime is rare
+enough to alert on rather than to sample.
+
+The second is an \api{UpdateAgentRuntime} call made by a principal that is
+itself an agent execution role. Agents are not usually deployers. Neither
+signal is specific to an attack; both are specific enough to review.
+
+Both miss the name condition cell of Section~\ref{sec:case-study}, where the
+role does not change and the attacker is an ordinary principal. The third
+signal is a comparison rather than an event: reading each runtime's artifact
+back and checking it against the object the pipeline published names the
+runtimes whose code is no longer what was deployed. It is the only one of the
+three that still fires once the attacker is gone.
+
+\subsection{What the platform could change}
+
+If replacing an artifact and changing an execution role were separate
+operations with separate permissions, the takeover path would need two grants
+instead of one, and the common case of updating an agent that keeps its
+identity would stop requiring \iam{iam:PassRole} at all. Short of that, a
+condition key expressing ownership rather than a name pattern would let the
+managed policy say what it appears to say.

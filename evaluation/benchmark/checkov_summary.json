@@ -1,0 +1,19 @@
+{
+ "corpus": "the 220 analysed configurations",
+ "checkov_version_note": "run with --framework terraform --skip-download",
+ "failed_checks": 3749,
+ "passed_checks": 18753,
+ "distinct_failing_rules": 250,
+ "checks_whose_subject_is_an_agent_runtime": 0,
+ "failed_graph_checks": 627,
+ "rule_names_suggesting_a_relation": [
+  "Ensure AWS IAM policy does not allow assume role permission across all services",
+  "Ensure AWS SNS topic policies do not allow cross-account access",
+  "Ensure Amazon Sagemaker Data Quality Job encrypts all communications between instances used for monitoring jobs",
+  "Ensure ECS task definitions should not share the host's process namespace",
+  "Ensure IAM password policy prevents password reuse",
+  "Ensure that ELB is cross-zone-load-balancing enabled",
+  "Ensure that S3 bucket has cross-region replication enabled",
+  "Ensure that Security Groups are attached to another resource"
+ ]
+}

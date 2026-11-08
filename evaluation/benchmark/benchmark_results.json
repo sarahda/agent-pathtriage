@@ -1,0 +1,56 @@
+{
+  "single_hop_recall": 0.0,
+  "multi_hop_recall": 1.0,
+  "recovered_by_propagate": [
+    "privesc-AssumeRole-starting-role",
+    "privesc-codeBuildCreateProjectPassRole-user",
+    "privesc-sageMakerCreateNotebookPassRole-user",
+    "privesc-sageMakerCreateProcessingJobPassRole-user",
+    "privesc-sageMakerCreateTrainingJobPassRole-user",
+    "privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+    "privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+    "privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+    "privesc20-PassExistingRoleToCloudFormation-user",
+    "privesc21-PassExistingRoleToNewDataPipeline-user",
+    "privesc3-CreateEC2WithExistingInstanceProfile-user"
+  ],
+  "escalating": [
+    "privesc-AssumeRole-starting-role",
+    "privesc-codeBuildCreateProjectPassRole-user",
+    "privesc-sageMakerCreateNotebookPassRole-user",
+    "privesc-sageMakerCreateProcessingJobPassRole-user",
+    "privesc-sageMakerCreateTrainingJobPassRole-user",
+    "privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+    "privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+    "privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+    "privesc20-PassExistingRoleToCloudFormation-user",
+    "privesc21-PassExistingRoleToNewDataPipeline-user",
+    "privesc3-CreateEC2WithExistingInstanceProfile-user"
+  ],
+  "safe": [
+    "fp1-allow-and-deny-role",
+    "fp2-allow-and-deny-multiple-policies-role",
+    "fp3-deny-iam-role",
+    "fp4-nonExploitableResourceConstraint-role",
+    "fp5-nonExploitableConditionConstraint-role"
+  ],
+  "flagged_single": [
+    "fp1-allow-and-deny-role",
+    "fp2-allow-and-deny-multiple-policies-role"
+  ],
+  "flagged_multi": [
+    "fp1-allow-and-deny-role",
+    "fp2-allow-and-deny-multiple-policies-role",
+    "privesc-AssumeRole-starting-role",
+    "privesc-codeBuildCreateProjectPassRole-user",
+    "privesc-sageMakerCreateNotebookPassRole-user",
+    "privesc-sageMakerCreateProcessingJobPassRole-user",
+    "privesc-sageMakerCreateTrainingJobPassRole-user",
+    "privesc15-PassExistingRoleToNewLambdaThenInvoke-user",
+    "privesc16-PassRoleToNewLambdaThenTriggerWithNewDynamo-user",
+    "privesc18-PassExistingRoleToNewGlueDevEndpoint-user",
+    "privesc20-PassExistingRoleToCloudFormation-user",
+    "privesc21-PassExistingRoleToNewDataPipeline-user",
+    "privesc3-CreateEC2WithExistingInstanceProfile-user"
+  ]
+}

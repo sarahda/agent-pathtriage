@@ -1,0 +1,151 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Complete escalations}
+
+Over the \nChainDenominator units the chain analysis covered, it found
+\nChainsFound complete cross-agent escalations. With no event observed in
+\nChainDenominator trials, the one sided 95\% upper bound on the rate is
+\chainBound\%. The measurement is consistent with a true rate anywhere from
+zero to about one deployment in ten.
+
+The predicate does fire inside the wider set of \nProjects analysed projects.
+\nEscalating configurations contain an escalation, \nEscalatingOwnResource of
+them reaching a resource the same configuration itself writes, and
+\nSurvivingTakeover of them retaining a takeover edge.
+
+\nEscalatingSingleAgent of those \nEscalating configurations declare a single
+agent, and the escalating principals are a continuous integration
+deploy role, a service user, and a role that executes actions. They are single-identity
+escalations, produced by the same predicate.
+
+\subsection{Candidates blocked on one permission}
+
+\nBlocked takeover candidates across \nBlockedConfigs configurations are
+blocked, and every one of them is blocked by the same permission,
+\iam{iam:PassRole}. This is the structural claim of
+Section~\ref{sec:background} appearing in the measurement: there is no second
+way around the pass.
+
+The \nBlocked are not interchangeable. Figure~\ref{fig:blocked} sorts them by
+what the principal and the target are, recovered from the raw Terraform rather
+than from the analysis output. \nBlockedAgentToAgent are one agent reaching
+another agent of the same deployment, which is the case this paper is about.
+\nBlockedSingleAgent are in configurations that declare one agent, so the
+precondition is present and the second agent is not. \nBlockedPrincipalNotAgent
+have a principal that is not an agent execution role, such as a build role, and
+\nBlockedTargetNotAgent have a target that is not one.
+
+\input{figures/fig-blocked}
+
+Separately, \nPassRoleWide configuration grants \iam{iam:PassRole} broadly
+enough to cover a role an agent in that same configuration runs as. That is the
+one deployment in the corpus where the gate that blocks the other
+\nBlocked candidates is already open.
+
+\subsection{What an existing scanner reports on the same corpus}
+\label{sec:baseline}
+
+The property here is a relation between two resources, and rule based
+scanners work on one. We ran Checkov, a widely used open source scanner for
+infrastructure as code, over the same \nProjects configurations, on Terraform
+with no network access and nothing else changed.
+
+Checkov reports \nCheckovFailed findings from \nCheckovRules distinct rules,
+and \nCheckovOnAgentRuntime of them take an agent runtime as their subject:
+the resource type is not in its rule set, so these agents are invisible to it.
+Its rules that span resources fired \nCheckovGraphFailed times.
+\nCheckovRelationRules of the rule names that fired suggest a relation
+between resources, and they concern cross-account access, cross-region
+replication and load balancing, not two agents.
+
+Most of those findings are about encryption and logging, which this paper
+does not look at. A deployment can pass every rule in a mature rule set while
+\nSharedRoleRuntimes of \nMultiAgentRuntimes multi-agent deployments run every
+agent under one role.
+
+\subsection{Agents sharing one execution role}
+
+\begin{table}[t]
+\centering
+\caption{Multi-agent deployments and role sharing, counted two ways. A runtime
+block carrying \texttt{count} or \texttt{for\_each} deploys more than one
+agent, so the two columns answer different questions. The paper uses the
+runtime column, and the artifact names the deployments that move.}
+\label{tab:sharing}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+ & \textbf{by block} & \textbf{by runtime} \\
+\midrule
+Two or more agents               & \nMultiAgentBlocks & \nMultiAgentRuntimes \\
+Of those, all on one role        & \nSharedRoleBlocks & \nSharedRoleRuntimes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:sharing} gives the role sharing census. \nSharedRoleRuntimes of
+\nMultiAgentRuntimes multi-agent deployments run every agent under a single
+execution role.
+
+This is the finding with the most practical weight in the paper, and it is not
+an escalation. Where the role is shared the attacker does not need the takeover
+at all: the agents already hold identical permissions, so compromising any one
+of them yields what all of them can reach. It also removes the account's
+ability to attribute a call to an agent, because every call arrives under the
+same role.
+
+\subsection{CloudFormation}
+
+The CloudFormation side of the collection holds \nCfnMultiRuntime templates
+that declare more than one runtime. \nCfnAnalysed were analysed and contain
+\nChainsFound chains. \nCfnUndecidable are undecidable: an intrinsic in a role
+or runtime argument did not resolve, and the template is reported as such
+rather than as clean.
+
+\subsection{CDK}
+
+The source scan flags \nCdkMultiRuntimeDirs CDK directories with more than one
+runtime, \nCdkInScope after the exclusion rule of
+Section~\ref{sec:methodology}. Reading a CDK role's policies out of the source
+is a heuristic, so we synthesised instead.
+
+Of the \nCdkInScope, \nCdkAnalysed synthesised and went through the exact
+CloudFormation pipeline, recovering \nCdkRuntimes agent runtimes and
+\nCdkEscalating escalations. Table~\ref{tab:cdk} gives the reasons the rest did
+not synthesise. A failure to install a dependency and a failure to find an
+application are different facts about the corpus.
+
+\begin{table}[t]
+\centering
+\caption{Why \nCdkInScope CDK directories did or did not reach the analysis.
+A directory that does not synthesise is not counted as clean.}
+\label{tab:cdk}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Outcome} & \textbf{Directories} \\
+\midrule
+Synthesised and analysed                     & \nCdkAnalysed \\
+\midrule
+Synthesis failed                             & \nCdkFailSynth \\
+Not a supported application layout           & \nCdkFailLanguage \\
+Dependency install failed                    & \nCdkFailInstall \\
+No \texttt{cdk.json} above the directory     & \nCdkFailLocate \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{What the CDK results add to the denominator}
+
+\nCdkAnalysed directories is not \nCdkAnalysed applications.
+\nCdkSampleCopies of them are the same AWS sample application carried into
+\nCdkSampleCopies different repositories, at the same path inside each. By the
+deduplication rule of Section~\ref{sec:methodology} those count once, which
+leaves \nCdkDistinctApps distinct applications.
+
+Adding them to the chain denominator gives \nChainDenominatorExt units with
+\nChainsFound chains, and the one sided 95\% upper bound tightens from
+\chainBound\% to \chainBoundExt\%. The first bound covers the deployments read
+directly; the second adds the synthesised CDK applications.

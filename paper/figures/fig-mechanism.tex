@@ -1,0 +1,54 @@
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  box/.style={draw, rounded corners=2pt, align=center, inner sep=4pt,
+              text width=20mm, minimum height=10mm, line width=0.5pt},
+  agent/.style={box, draw=cIdentity, fill=cIdentity!8},
+  res/.style={box, draw=cNeutral, fill=cFaint},
+  call/.style={draw, rounded corners=2pt, align=center, inner sep=4pt,
+               text width=30mm, draw=cStored, fill=cStored!8, line width=0.7pt},
+  flow/.style={-{Stealth[length=2mm]}, line width=0.6pt},
+  gate/.style={-{Stealth[length=2mm]}, line width=0.6pt, draw=cStored},
+  elbl/.style={font=\scriptsize, align=center, text width=19mm,
+               midway, above, inner sep=1.5pt},
+  note/.style={font=\scriptsize, align=center, inner sep=3pt},
+]
+
+\node[agent] (a) {Runtime A\\[1pt]\scriptsize runs as role A};
+\node[call,  right=17mm of a] (call)
+  {\api{UpdateAgentRuntime}\\[2pt]
+   \scriptsize \api{agentRuntimeArtifact} \emph{required}\\
+   \scriptsize \api{roleArn} \emph{required}};
+\node[agent, right=17mm of call] (b) {Runtime B\\[1pt]\scriptsize runs as role B};
+\node[res,   right=17mm of b] (data) {Resource owned\\by role B};
+
+\draw[flow] (a)    -- node[elbl] {attacker code\\runs as A}        (call);
+\draw[gate] (call) -- node[elbl] {replaces the\\artifact of B}     (b);
+\draw[flow] (b)    -- node[elbl] {credentials from\\the metadata service} (data);
+
+\node[note, below=9mm of call, draw=cStored, dashed, rounded corners=2pt,
+      text width=58mm] (cond)
+  {\iam{iam:PassRole} is unavoidable on this path.
+   \iam{BedrockAgentCoreFullAccess} allows it whenever the role \emph{name}
+   matches \iam{*BedrockAgentCore*}};
+\draw[gate, dashed] (cond) -- (call);
+
+\node[note, below=9mm of a, text width=26mm] (auth)
+  {$\auth(A)$ does not contain this resource};
+\draw[flow, dashed, draw=cNeutral] (auth) -- (a);
+
+\node[note, below=9mm of data, text width=26mm, draw=cAccent,
+      rounded corners=2pt] (eff)
+  {reached, so it is in $\eff(A)$};
+\draw[flow, dashed, draw=cAccent] (eff) -- (data);
+
+\end{tikzpicture}
+\caption{The cross-agent takeover on \agentcore. One API call decides what
+runs, who it runs as, and what it is aimed at, so the path cannot avoid
+\iam{iam:PassRole}. The resource at the right is in $\eff(A)$ and not in
+$\auth(A)$, which is the escalation of Equation~\ref{eq:esc}. An analysis that
+fixes one principal at a time sees role~A and role~B separately and reports
+both as correctly scoped.}
+\label{fig:mechanism}
+\end{figure*}

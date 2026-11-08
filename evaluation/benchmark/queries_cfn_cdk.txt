@@ -1,0 +1,32 @@
+# Repositories that declare an AgentCore agent runtime outside Terraform.
+#
+# Why these and not others. The Terraform population in which a cross-agent
+# chain is possible is 18 projects, and 0 of 18 bounds the rate at 15.3
+# percent, which is too weak to conclude from. These queries look for the same
+# fact in the two other ways AWS lets you declare it:
+#
+#   AWS::BedrockAgentCore::Runtime            CloudFormation, with RoleArn
+#   aws_bedrockagentcore.CfnRuntime           CDK L1, with role_arn / roleArn
+#
+# Both carry the role on the runtime, so two runtimes on one role is
+# declarable and detectable in both.
+#
+# The last three are not runtime queries. They find repositories that use
+# AgentCore in CloudFormation at all, so that a zero on runtimes can be told
+# apart from a corpus that has no AgentCore CloudFormation in it. Without them
+# a zero means nothing.
+#
+# Use with collect_corpus_v3.sh:
+#   OUT=corpus_cfn QUERY_FILE=evaluation/benchmark/queries_cfn_cdk.txt \
+#       bash evaluation/benchmark/collect_corpus_v3.sh
+
+"AWS::BedrockAgentCore::Runtime" extension:yaml
+"AWS::BedrockAgentCore::Runtime" extension:yml
+"AWS::BedrockAgentCore::Runtime" extension:json
+"bedrockagentcore.CfnRuntime" extension:py
+"bedrockagentcore.CfnRuntime" extension:ts
+"aws-cdk-lib/aws-bedrockagentcore" extension:ts
+"aws_bedrockagentcore" CfnRuntime extension:py
+AgentRuntimeArtifact ContainerConfiguration extension:yaml
+"AWS::BedrockAgentCore::Memory" extension:yaml
+"AWS::BedrockAgentCore::Gateway" extension:yaml

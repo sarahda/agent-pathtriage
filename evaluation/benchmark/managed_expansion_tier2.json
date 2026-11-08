@@ -1,0 +1,341 @@
+{
+  "snapshot": "21 AWS managed policies, snapshot of 2026-11-02, 1 named by the corpus but absent from AWS",
+  "snapshot_path": "agentpathtriage/data/aws_managed_policies.json",
+  "configurations_selected": 18,
+  "configurations_measured": 18,
+  "configurations_failed": 0,
+  "failed": [],
+  "principals_examined": 87,
+  "principals_whose_auth_grew_under_expansion": 12,
+  "configs_with_an_escalation_by_mode": {
+    "identity only, inline policies only": 4,
+    "identity only, managed expanded": 5,
+    "with invocation, inline policies only": 5,
+    "with invocation, managed expanded": 5
+  },
+  "bound_95_percent_when_zero": 15.3,
+  "rows": [
+    {
+      "config": "Rohanjain2312__customs-court/deploy/aws/terraform",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {},
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "ashdon4u__ai-migration-factory/infrastructure/modules/agent_runtimes",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {},
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "avparkhi__agui-agentcore-demo/terraform",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {
+        "${local.name_prefix}-agent-execution": {
+          "before": 7,
+          "after": 24
+        }
+      },
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "aws-samples__sample-FAST-applications/samples/anycompany-bank/infra",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {},
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/runtime",
+      "n_agents": 3,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {},
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [
+          "${local.name_prefix}-evaluators-lambda-role"
+        ],
+        "identity only, managed expanded": [
+          "${local.name_prefix}-evaluators-lambda-role"
+        ],
+        "with invocation, inline policies only": [
+          "${local.name_prefix}-evaluators-lambda-role"
+        ],
+        "with invocation, managed expanded": [
+          "${local.name_prefix}-evaluators-lambda-role"
+        ]
+      },
+      "principals_whose_auth_grew_under_expansion": {
+        "${local.name_prefix}-agent-execution": {
+          "before": 9,
+          "after": 35
+        }
+      },
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "aws-samples__sample-ai-assistant-on-agentcore/infra",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [
+          "${local.prefix}-sparky"
+        ],
+        "identity only, managed expanded": [
+          "${local.prefix}-sparky"
+        ],
+        "with invocation, inline policies only": [
+          "${local.prefix}-sparky"
+        ],
+        "with invocation, managed expanded": [
+          "${local.prefix}-sparky"
+        ]
+      },
+      "principals_whose_auth_grew_under_expansion": {},
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {
+        "${var.name_prefix}-runtime-exec-role": {
+          "before": 1,
+          "after": 31
+        }
+      },
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "aws-samples__sample-okf-llm-wiki/infra/compute",
+      "n_agents": 3,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {},
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [
+          "${var.stack_name}-orchestrator-execution-role",
+          "${var.stack_name}-specialist-execution-role"
+        ],
+        "with invocation, inline policies only": [
+          "${var.stack_name}-orchestrator-execution-role"
+        ],
+        "with invocation, managed expanded": [
+          "${var.stack_name}-orchestrator-execution-role",
+          "${var.stack_name}-specialist-execution-role"
+        ]
+      },
+      "principals_whose_auth_grew_under_expansion": {
+        "${var.stack_name}-orchestrator-execution-role": {
+          "before": 7,
+          "after": 29
+        },
+        "${var.stack_name}-specialist-execution-role": {
+          "before": 2,
+          "after": 29
+        }
+      },
+      "modes_that_differ_from_the_baseline": [
+        "identity only, managed expanded",
+        "with invocation, inline policies only",
+        "with invocation, managed expanded"
+      ]
+    },
+    {
+      "config": "awslabs__threat-designer/infra",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [
+          "${local.prefix}-sentry"
+        ],
+        "identity only, managed expanded": [
+          "${local.prefix}-sentry"
+        ],
+        "with invocation, inline policies only": [
+          "${local.prefix}-sentry"
+        ],
+        "with invocation, managed expanded": [
+          "${local.prefix}-sentry"
+        ]
+      },
+      "principals_whose_auth_grew_under_expansion": {},
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "bcfmtolgahan__eks-sre-agent/terraform",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [
+          "${var.app_name}-AgentCoreRuntimeRole"
+        ],
+        "identity only, managed expanded": [
+          "${var.app_name}-AgentCoreGatewayRole",
+          "${var.app_name}-AgentCoreRuntimeRole"
+        ],
+        "with invocation, inline policies only": [
+          "${var.app_name}-AgentCoreRuntimeRole"
+        ],
+        "with invocation, managed expanded": [
+          "${var.app_name}-AgentCoreGatewayRole",
+          "${var.app_name}-AgentCoreRuntimeRole"
+        ]
+      },
+      "principals_whose_auth_grew_under_expansion": {
+        "${var.app_name}-AgentCoreGatewayRole": {
+          "before": 3,
+          "after": 63
+        }
+      },
+      "modes_that_differ_from_the_baseline": [
+        "identity only, managed expanded",
+        "with invocation, managed expanded"
+      ]
+    },
+    {
+      "config": "flightlesstux__agents-on-call/terraform/10-agent-runtime",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {},
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "mongodb-partners__config-driven-agents-agentcore-atlas/terraform",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {
+        "${var.project_name}-ec2": {
+          "before": 0,
+          "after": 1
+        }
+      },
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "seongpil0948__sandbox-agentcore/terraform",
+      "n_agents": 3,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {
+        "${var.name_prefix}-leaf-runtime-role": {
+          "before": 2,
+          "after": 40
+        },
+        "${var.name_prefix}-orchestrator-runtime-role": {
+          "before": 3,
+          "after": 40
+        },
+        "${var.name_prefix}-supervisor-runtime-role": {
+          "before": 3,
+          "after": 40
+        }
+      },
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "singulart__google-workspace-agent/terraform",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {},
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "spring-ai-community__spring-ai-agentcore/examples/terraform",
+      "n_agents": 2,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {},
+      "modes_that_differ_from_the_baseline": []
+    },
+    {
+      "config": "tarlan-huseynov__agentcore-monorepo/terraform",
+      "n_agents": 3,
+      "esc_by_mode": {
+        "identity only, inline policies only": [],
+        "identity only, managed expanded": [],
+        "with invocation, inline policies only": [],
+        "with invocation, managed expanded": []
+      },
+      "principals_whose_auth_grew_under_expansion": {
+        "${local.name}-mcp-ccapi-role": {
+          "before": 1,
+          "after": 50
+        },
+        "${local.name}-runtime-role": {
+          "before": 0,
+          "after": 28
+        }
+      },
+      "modes_that_differ_from_the_baseline": []
+    }
+  ],
+  "limit": "the snapshot expands the AWS managed policies the corpus names, except any listed as absent from AWS. A policy not expanded is still reported by unreadable_managed, so an escalation into a role carrying one is recorded with its extent unmeasured rather than dropped."
+}

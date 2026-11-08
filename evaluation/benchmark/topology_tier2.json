@@ -1,0 +1,1870 @@
+[
+ {
+  "t": "45678XYZ__e-Hakka-Care/terraform",
+  "n_agents": 1,
+  "agents": [
+   "companion"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "46ki75__examples/stacks/agentcore-web-search/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "46ki75__internal/terraform",
+  "n_agents": 1,
+  "agents": [
+   "ag-ui-server"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Aadarshg087__agentcore-services-poc/hyperIvory/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Aadarshg087__agentcore-services-poc/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "AlterionAI__terraform-provider-alterion/examples/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Bernardo-Dauber__chat-agentcore/infra",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "BloclabsHQ__modules/modules/devops_agent",
+  "n_agents": 1,
+  "agents": [
+   "agentcore"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "CloudCraftersOrg__cloudwatch-agent/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Coalfire-AI__terraform-modules/modules/agentcore_agent",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "CopilotKit__CopilotKit/examples/integrations/agentcore/infra-terraform/modules/backend",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Danacod991__Agentcore-4/infra-terraform/modules/backend",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Donngi__terraform-aws-provider-description/terraform-template",
+  "n_agents": 1,
+  "agents": [
+   "example"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Kjeff24__bedrock-agentcore-strands-mcp-runtime/infra/terraform/runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "KyMidd__AgentCore_AgenticSlackBot/worker",
+  "n_agents": 1,
+  "agents": [
+   "veraslack"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "LeonardoSanBenitez__ComplianceOps-Reference-Architecture-for-Bedrock-Agentic-Chatbot/infra/terraform",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Leviavii__aviac/c2c_issues/AWS/AIAgent-009",
+  "n_agents": 1,
+  "agents": [
+   "aiagent009_public_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "LuisOsuna117__terraform-aws-agentcore/modules/runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "MaripeddiSupraj__strands-agents-mastery/examples/20-capstone-build-ship-production-multi-agent-system/infra",
+  "n_agents": 1,
+  "agents": [
+   "incident_triage"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "MyMemoAI__mymemo-agent/infra/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Radikahn__radAgent/infra",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "ReyanL__demo-cloud-engineer-agent/terraform",
+  "n_agents": 1,
+  "agents": [
+   "cloud_engineer_agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Rohanjain2312__customs-court/deploy/aws/terraform",
+  "n_agents": 2,
+  "agents": [
+   "agent",
+   "mcp"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Sakthivel-P-cse__CODEX/references/ui/agent-ui-libs/CopilotKit/examples/integrations/agentcore/infra-terraform/modules/backend",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "ShoFukada__agentcore_hands_on/infrastructure/modules/agent_runtime",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Tarique-B__Terraform-AWS-AgentCore/modules/agentcore-runtime",
+  "n_agents": 1,
+  "agents": [
+   "agent_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Thesportydar__fintwit-rag/terraform/main",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "WendyOkoli__Primeland-Properties-AI-Assistant/terraform/modules/agent",
+  "n_agents": 1,
+  "agents": [
+   "primeland"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "Wvidit__Agentic/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "ZenMicro-Tech__terraform-zm-infra",
+  "n_agents": 1,
+  "agents": [
+   "zenMicro"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aal80__agentcore-samples/empty-shell-with-agentcore-sdk/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aal80__agentcore-samples/empty-shell-with-expressjs/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aal80__agentcore-samples/empty-shell-with-fastapi/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aal80__agentcore-samples/empty-shell-with-flask/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aal80__agentcore-samples/simple-strands-agent/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aal80__agentcore-samples/strands-agent-with-memory/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aal80__agentcore-samples/strands-agent-with-observability/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aal80__agentcore-workshops/a2a-with-strands/terraform/orchestrator-agent",
+  "n_agents": 1,
+  "agents": [
+   "orchestrator_agent"
+  ],
+  "handoffs": [
+   {
+    "from": "orchestrator_agent",
+    "to": "<unresolved agent: WEATHER_AGENT_RUNTIME_URL>",
+    "evidence": "declared_unresolved",
+    "permitted": false,
+    "scope": null,
+    "var": "WEATHER_AGENT_RUNTIME_URL"
+   },
+   {
+    "from": "orchestrator_agent",
+    "to": "<unresolved agent: SHOPPING_AGENT_RUNTIME_URL>",
+    "evidence": "declared_unresolved",
+    "permitted": false,
+    "scope": null,
+    "var": "SHOPPING_AGENT_RUNTIME_URL"
+   }
+  ]
+ },
+ {
+  "t": "aal80__agentcore-workshops/a2a-with-strands/terraform/shopping-agent",
+  "n_agents": 1,
+  "agents": [
+   "shopping_agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aal80__agentcore-workshops/a2a-with-strands/terraform/weather-agent",
+  "n_agents": 1,
+  "agents": [
+   "weather_agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aal80__agentcore-workshops/building-ai-agents/terraform/runtime",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "adona9__mcp-container-aws/infra/platform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "ahmedelshfie__finops-aws-agent/terraform/modules/finops_agentcore_env",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "ajaydhungel7__Fixture_Agent/terraform/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "akhilgupta210284__agents/terraform/modules/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "akto-api-security__secure-agent-orchestration/infra/modules/agentcore-runtime-agent",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "alchemy-1115__agentcore-vpc-terraform",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "alexandreroman__code-review-agentcore-temporal/infra/aws",
+  "n_agents": 1,
+  "agents": [
+   "worker"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "alexjmoore8__AgenticEmailBot/worker",
+  "n_agents": 1,
+  "agents": [
+   "email"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aminnemati96__homedocs-alexa-plus/infra",
+  "n_agents": 1,
+  "agents": [
+   "mcp"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "andrewblooman__Cohort/terraform",
+  "n_agents": 1,
+  "agents": [
+   "incident_response"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aniljose-ai__Mortgage-Agents-BedrockAgentCore/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aniryou__bedrock-demo/infra/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "ashdon4u__ai-migration-factory/infrastructure/modules/agent_runtimes",
+  "n_agents": 2,
+  "agents": [
+   "sub_agent",
+   "supervisor"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "avparkhi__agui-agentcore-demo/terraform",
+  "n_agents": 2,
+  "agents": [
+   "agui",
+   "mcp"
+  ],
+  "handoffs": [
+   {
+    "from": "agui",
+    "to": "mcp",
+    "evidence": "declared_resolved",
+    "permitted": true,
+    "scope": "any",
+    "var": "MCP_SERVER_ARN"
+   },
+   {
+    "from": "mcp",
+    "to": "agui",
+    "evidence": "permitted",
+    "permitted": true,
+    "scope": "any",
+    "var": null
+   }
+  ]
+ },
+ {
+  "t": "aws-ia__terraform-aws-transfer-family/examples/sftp-automated-workflows-agentcore/modules/agentcore-agent",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__psp-reusable-artifacts/agentcore-mcp",
+  "n_agents": 1,
+  "agents": [
+   "argocd_mcp"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-AI-Powered-EKS-Migration-Assessment/terraform/modules/agentcore_runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-FAST-applications/samples/anycompany-bank/infra",
+  "n_agents": 2,
+  "agents": [
+   "kyc",
+   "kyc_oauth"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-a2a-gateway/examples/terraform/modules/agent-runtime",
+  "n_agents": 1,
+  "agents": [
+   "a2a_agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/runtime",
+  "n_agents": 3,
+  "agents": [
+   "interactive",
+   "mcp_tools",
+   "sdk"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/team_demo",
+  "n_agents": 1,
+  "agents": [
+   "team_demo"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentcore-browser-legacy-automation/deployment/terraform/modules/bedrock-agentcore-runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentcore-mcp-apps/infrastructure/terraform",
+  "n_agents": 1,
+  "agents": [
+   "mcp_server"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-ai-lifecycle-iac/infrastructure/modules/agentcore-runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-ai-process-automation-for-sap/terraform/modules/backend",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-chatbot-accelerator/iac-terraform/modules/agent_core",
+  "n_agents": 1,
+  "agents": [
+   "default"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+  "n_agents": 2,
+  "agents": [
+   "mcp",
+   "supply_chain"
+  ],
+  "handoffs": [
+   {
+    "from": "mcp",
+    "to": "supply_chain",
+    "evidence": "permitted",
+    "permitted": true,
+    "scope": "any",
+    "var": null
+   },
+   {
+    "from": "supply_chain",
+    "to": "mcp",
+    "evidence": "declared_resolved",
+    "permitted": true,
+    "scope": "any",
+    "var": "MCP_SERVER_ARN"
+   }
+  ]
+ },
+ {
+  "t": "aws-samples__sample-agentic-governance-platform/platform/control_plane/infrastructure/modules/agentcore_runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-idp-evaluation-framework/infrastructure",
+  "n_agents": 1,
+  "agents": [
+   "idp_agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-value-accelerator/applications/reference_implementations/market-surveillance/infrastructure/modules/agentcore-runtime",
+  "n_agents": 1,
+  "agents": [
+   "agent_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-value-accelerator/applications/reference_implementations/sales-recommend/infrastructure/modules/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/agent-runtime-agentcore/iac/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/conversational-assistant/iac/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/evaluator-optimizer/iac/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/event-driven-agent/iac/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/human-approval-workflow/iac/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/plan-execute-agent/iac/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/research-report-generator/iac/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/supervisor-specialists/iac/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-agentic-value-accelerator/platform/control_plane/templates/workflow-pipeline/iac/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-ai-agent-accelerator/iac",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-ai-assistant-on-agentcore/infra",
+  "n_agents": 2,
+  "agents": [
+   "core_services",
+   "sparky"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-cloudops-multi-agent-system/terraform/modules/core/agent-runtime-base",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-cloudops-multi-agent-system/terraform/modules/core/agentcore-runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-code-for-revenue-analyst-agent-on-bedrock-agentcore/terraform/modules/agent",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-finops-agent/terraform/modules/agentcore-runtime",
+  "n_agents": 1,
+  "agents": [
+   "mcp_server"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-agentcore-sdk/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-expressjs/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-fastapi/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-genai-strats/agentcore/empty-shell-with-flask/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-genai-strats/agentcore/simple-mcp-server/terraform",
+  "n_agents": 1,
+  "agents": [
+   "mcp_server"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-genai-strats/agentcore/strands-simple-agent/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-genai-strats/workshops/agentcore-workday-integration/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": [
+   {
+    "from": "agent",
+    "to": "<unresolved agent: A2A_AGENT_CARD_BASE_URL>",
+    "evidence": "declared_unresolved",
+    "permitted": false,
+    "scope": null,
+    "var": "A2A_AGENT_CARD_BASE_URL"
+   }
+  ]
+ },
+ {
+  "t": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+  "n_agents": 2,
+  "agents": [
+   "mcp_runtime",
+   "orchestrator"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-healthcare-decision-support-agent/terraform",
+  "n_agents": 1,
+  "agents": [
+   "medical_nudging"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-okf-llm-wiki/infra/compute",
+  "n_agents": 3,
+  "agents": [
+   "chat",
+   "consumption",
+   "harvest"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-reconciliation-agent/infra/modules/recon-agent",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__sample-strands-agent-with-agentcore/infra/modules/runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-samples__serverless-patterns/s3-lambda-agentcore",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "aws-solutions-library-samples__guidance-for-agentic-ai-operational-foundations-on-aws/infra",
+  "n_agents": 1,
+  "agents": [
+   "agent_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/basic-runtime",
+  "n_agents": 1,
+  "agents": [
+   "basic_agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/end-to-end-weather-agent",
+  "n_agents": 1,
+  "agents": [
+   "weather_agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/mcp-server-agentcore-runtime",
+  "n_agents": 1,
+  "agents": [
+   "mcp_server"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+  "n_agents": 2,
+  "agents": [
+   "orchestrator",
+   "specialist"
+  ],
+  "handoffs": [
+   {
+    "from": "orchestrator",
+    "to": "specialist",
+    "evidence": "declared_resolved",
+    "permitted": true,
+    "scope": "any",
+    "var": "SPECIALIST_ARN"
+   }
+  ]
+ },
+ {
+  "t": "awslabs__agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra",
+  "n_agents": 1,
+  "agents": [
+   "agent_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "awslabs__automated-security-helper/deploy/terraform/modules/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "awslabs__fullstack-solution-template-for-agentcore/infra-terraform/modules/backend",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "awslabs__threat-designer/infra",
+  "n_agents": 2,
+  "agents": [
+   "sentry",
+   "threat_designer"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "barrettotte__praxis/infra/environments/dev",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "baz-scm__terraform-aws-templates/private-spec-reviewer",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "bcfmtolgahan__eks-sre-agent/terraform",
+  "n_agents": 2,
+  "agents": [
+   "agentcore_runtime",
+   "sentinel_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "bolleta__agentcore-agent-template-jp/workshops/agentcore-building-ai-agents/terraform/runtime",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "bshelling__rapport/infra/modules/agent",
+  "n_agents": 1,
+  "agents": [
+   "chat"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "caylent__agentcore-blog/infra",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "cgono__test-aws-agentcore/infra/terraform/modules/agentcore_agent_runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "charangajjala__venderops-hackathon/infra/modules/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "vendorops"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "charlesmbrady__terraform-aws-charlesmbrady/modules/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "codegik__ai-playground/aws-litellm/infra",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "codegik__ai-playground/aws-memory/infra",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "danielakinsella__mojobot/terraform",
+  "n_agents": 1,
+  "agents": [
+   "mojobot_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "debanjanbasu__aws-agentcore-agent/iac",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "decmhugh__tdmh-arch-eng-workbench/infra",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "decmhugh__thedigitalmindhub-project1/infra",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "dev-rb-hub__sample-strands-agent-with-agentcore/infra/modules/runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "dkhundley__bedrock-agentcore-tutorial/terraform",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "dr-rahulgaikwad__agentic-ai-well-architected/03-agent",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "ecomuere__voicebot/infra/terraform/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "voicebot"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "flightlesstux__agents-on-call/terraform/10-agent-runtime",
+  "n_agents": 2,
+  "agents": [
+   "new_agent",
+   "triage"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "fouadmulla__cosac-lab-security-agents/infra/stacks/scenario-a",
+  "n_agents": 1,
+  "agents": [
+   "warden"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "fouadmulla__cosac-lab-security-agents/infra/stacks/scenario-b",
+  "n_agents": 1,
+  "agents": [
+   "custodian"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "fxellence-dev__AI-SDLC-Agentic-Platform/infra/terraform/modules/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "app"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "gafnts__factored-hackathon-2026-gafnts/infra/modules/runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "gamaware__terraform-aws-agentcore-agent-lab/infra/terraform/agent",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "girinalin__hr-attrition-agent/terraform",
+  "n_agents": 1,
+  "agents": [
+   "hr"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "govuk-once__onward-journey-aws/infrastructure/services",
+  "n_agents": 1,
+  "agents": [
+   "orchestrator_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "gpazevedo__spring-genai/terraform",
+  "n_agents": 1,
+  "agents": [
+   "extended_chat"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "iker592__iker-agents/terraform/modules/agent",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "iker592__iker-agents/terraform/modules/mcp-server",
+  "n_agents": 1,
+  "agents": [
+   "mcp_server"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "insighta-cloud__insighta-toolkit/infra",
+  "n_agents": 1,
+  "agents": [
+   "insighta"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "j3brns__tf-harness-acore/terraform/modules/agentcore-runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "j3brns__turbo-enigma/terraform/modules/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "jamesward__spring-ai-mcp-demo/agentcore/infra",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "jandroro__customer_support-agent/iac/modules/bedrock_agentcore_runtime",
+  "n_agents": 1,
+  "agents": [
+   "csa_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "javide__agent-runtime-lab/infra/terraform",
+  "n_agents": 1,
+  "agents": [
+   "video_digest"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "jkarns87__homeledger/infra/modules/agentcore-runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "jonmatum__serverless-second-brain/infra/modules/agentcore-runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "joseguzman1337__aws-financial-ai-agent/terraform",
+  "n_agents": 1,
+  "agents": [
+   "financial_agent_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "jritsema__terraform-agentcore",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "kamo-shika__terraform_agentcore/terraform",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "kheuchi__retail-finance-platform-infra/agent",
+  "n_agents": 1,
+  "agents": [
+   "month_end"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "kisukegremory__alexandria/projects/aws-bedrock-agentcore/terraform",
+  "n_agents": 1,
+  "agents": [
+   "travel_planner"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "ldecaro__sample-personal-agent/agent-aws-knowledge/infra",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "ldecaro__sample-personal-agent/agent-calendar/infra",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "ldecaro__sample-personal-agent/agent-search/infra",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "lemopian__open-web-ui-on-aws/terraform/modules/bedrock-agentcore",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "lemopian__terraform-aws-bedrock-agentcore/modules/container",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "lemopian__terraform-aws-bedrock-agentcore/modules/zip",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "levantar-ai__demos/agentcore/01-first-agent/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "levantar-ai__demos/agentcore/02-gateway/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "levantar-ai__demos/agentcore/03-memory/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "levantar-ai__demos/agentcore/04-builtin-tools/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "levantar-ai__demos/agentcore/05-identity/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "manimurugana__aws-bedrock-agentcore-runtime-terraform-poc/modules/agent-runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "mavalderrama__teilur-assesment/terraform/modules/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "mifonpe__strands-agentcore-agents/iac",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "mmdcloud__aws-bedrock-agentcore/terraform/modules/agentcore/runtime",
+  "n_agents": 1,
+  "agents": [
+   "weather_agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "mongodb-partners__Multi-Agent-Architectural-Guidance-Bedrock-AgentCore/deploy/terraform/modules/agentcore-agent-runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "mongodb-partners__config-driven-agents-agentcore-atlas/terraform",
+  "n_agents": 2,
+  "agents": [
+   "agents",
+   "mcp"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "naruse666__ai-agent-sandbox/bedrock-agentcore/terraform",
+  "n_agents": 1,
+  "agents": [
+   "example"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "nichicom-c__wel-agents-poc/terraform/aws/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "nikitsenka__aws-bedrock-rag/agents",
+  "n_agents": 1,
+  "agents": [
+   "hello_world_agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "normjon__ai-platform-demo/terraform/dev/agents/hr-assistant-strands",
+  "n_agents": 1,
+  "agents": [
+   "strands"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "normjon__ai-platform-demo/terraform/dev/agents/orchestrator",
+  "n_agents": 1,
+  "agents": [
+   "orchestrator"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "normjon__ai-platform-demo/terraform/dev/agents/stub-agent",
+  "n_agents": 1,
+  "agents": [
+   "stub"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "normjon__ai-platform-demo/terraform/modules/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "dev"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "omerbsezer__Fast-LLM-Agent-MCP/agents/aws_strands/07-agent-strands-multi-agents-generator-on-bedrock-agentcore/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "patternode__knowledge-store/infra/modules/agent",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "pdz1804__tech-new-mystery/infra/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent_core"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "plantonhq__planton/catalog/aws/awsbedrockagentcoreruntime/iac/tf",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "prajwal2431__first-commit/RCAagent/specializedAgents/ContextualScout/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "prajwal2431__first-commit/RCAagent/specializedAgents/DiagnosticAnalyst/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "prajwal2431__first-commit/RCAagent/specializedAgents/RemediationStrategist/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "prajwal2431__first-commit/RCAagent/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agentcore_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "psantus__strands-bidir-nova/infrastructure/modules/agent",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "rafaelpierre__sherlock/terraform/modules/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "rboubaya75__ia-agents/infra/environments/test",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "rhprasad0__nova-toll-budget-agent/v2/infra",
+  "n_agents": 1,
+  "agents": [
+   "tollchat"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "rogerjeasy__wick/infra",
+  "n_agents": 1,
+  "agents": [
+   "agents"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "ryfranklin__Homebase/infra/stacks/agent",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "saivarunk__aws-labs/agentcore/harness/opencode/terraform",
+  "n_agents": 1,
+  "agents": [
+   "harness"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "schematical__aws-agentcore-demo/_archive/1-agent-runtime/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "seokjushin__amazon-bedrock-agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra",
+  "n_agents": 1,
+  "agents": [
+   "agent_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "seongpil0948__sandbox-agentcore/terraform",
+  "n_agents": 3,
+  "agents": [
+   "leaf",
+   "orchestrator",
+   "supervisor"
+  ],
+  "handoffs": [
+   {
+    "from": "orchestrator",
+    "to": "supervisor",
+    "evidence": "declared_resolved",
+    "permitted": true,
+    "scope": "exact",
+    "var": "SUPERVISOR_ARN"
+   },
+   {
+    "from": "supervisor",
+    "to": "leaf",
+    "evidence": "declared_resolved",
+    "permitted": true,
+    "scope": "exact",
+    "var": "LEAF_ARN"
+   }
+  ]
+ },
+ {
+  "t": "shibataka000__terraform-aws-notion-mcp-server",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "singulart__google-workspace-agent/terraform",
+  "n_agents": 2,
+  "agents": [
+   "gmail_mcp",
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "smoketurner__ai-dlc/terraform/modules/agents",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "solintllc-robert__rrmg-bridgeai/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "spring-ai-community__spring-ai-agentcore/examples/spring-ai-agentcore-observability/terraform",
+  "n_agents": 1,
+  "agents": [
+   "observability"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "spring-ai-community__spring-ai-agentcore/examples/spring-ai-extended-chat-client/terraform",
+  "n_agents": 1,
+  "agents": [
+   "extended_chat"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "spring-ai-community__spring-ai-agentcore/examples/terraform",
+  "n_agents": 2,
+  "agents": [
+   "iam",
+   "oauth"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "systemaccounting__gradienterp/modules/agent/infra",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "systemaccounting__gradienterp/prod/optimizer/infra",
+  "n_agents": 1,
+  "agents": [
+   "hub"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "szamarin__agentic-kyc/terraform/modules/agentcore_runtime",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "tarlan-huseynov__agentcore-monorepo/terraform",
+  "n_agents": 3,
+  "agents": [
+   "ccapi",
+   "cost_explorer",
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "temporal-community__durable-research-fleet/agentcore",
+  "n_agents": 1,
+  "agents": [
+   "worker"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "terraform-aws-mod__terraform-aws-agentcore",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "the-cloud-clockwork__tcc-aws-agent-platform/modules/agents",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "thomfilg__log-slack-agent-alerts/infra-terraform/modules/backend",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "twelvelabs-io__tl-agentcore/infra",
+  "n_agents": 1,
+  "agents": [
+   "this"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "vkbaba__amazon-bedrock-agentcore-samples/05-blueprints/end-to-end-customer-service-agent/infra",
+  "n_agents": 1,
+  "agents": [
+   "agent_runtime"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "yogeshselvarajan__stacks/infra/modules/agentcore_runtime",
+  "n_agents": 1,
+  "agents": [
+   "stacks"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "yueming-zhang__agent_core_deep_research/AgentcoreMemoryDR/terraform",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "yuu551__agentcore-gateway-runtime-m2m-auth-demo",
+  "n_agents": 1,
+  "agents": [
+   "mcp_server"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "yuu551__runtime-to-gateway-for-iam",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "yuyumama__AWS-MON/infra/envs/prod",
+  "n_agents": 1,
+  "agents": [
+   "agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "z63d__tmp-bedrock-agentcore/terraform",
+  "n_agents": 1,
+  "agents": [
+   "main"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "zzenonn__ai-course-lecture-notes/09-techdebt-remediation/techdebt-terraform",
+  "n_agents": 1,
+  "agents": [
+   "techdebt_agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "zzenonn__ai-course-lecture-notes/10-techdebt-memory/techdebt-terraform",
+  "n_agents": 1,
+  "agents": [
+   "techdebt_agent"
+  ],
+  "handoffs": []
+ },
+ {
+  "t": "zzenonn__ai-course-lecture-notes/11-bedrock-guardrails/guardrails-terraform",
+  "n_agents": 1,
+  "agents": [
+   "techdebt_agent"
+  ],
+  "handoffs": []
+ }
+]

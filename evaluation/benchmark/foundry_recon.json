@@ -1,0 +1,74 @@
+{
+  "repositories": 360,
+  "files_scanned": 45992,
+  "template_dirs": 16450,
+  "dirs_with_an_agent": 0,
+  "dirs_with_two_or_more_agents": 0,
+  "markers": {
+    "CognitiveServices/accounts/projects": 1137,
+    "AccountManagedIdentity": 14,
+    "authType": 1315,
+    "azurerm_ai_foundry": 109,
+    "azurerm_ai_foundry_project": 45,
+    "MachineLearningServices/workspaces/connections": 366,
+    "ProjectManagedIdentity": 60,
+    "AgenticIdentity": 25,
+    "UserEntraToken": 28,
+    "RemoteTool": 38,
+    "a2a tool": 20,
+    "projects/applications": 56,
+    "agentIdentityBlueprint": 25,
+    "defaultInstanceIdentity": 18,
+    "agentDeployments": 28,
+    "AgenticIdentityToken": 7,
+    "AgenticApplicationProperties": 25,
+    "connectedAgents": 4,
+    "RemoteA2A": 1
+  },
+  "configured_auth_types": {
+    "AAD": 279,
+    "ApiKey": 161,
+    "ManagedIdentity": 44,
+    "CustomKeys": 13,
+    "ProjectManagedIdentity": 8,
+    "AccessKey": 4,
+    "AccountManagedIdentity": 1,
+    "AccountKey": 1,
+    "None": 1,
+    "PAT": 1,
+    "SAS": 1,
+    "ServicePrincipal": 1,
+    "UsernamePassword": 1
+  },
+  "configured_auth_values": 516,
+  "configured_auth_scope": "directories that declare a Foundry or Azure ML connection resource. authType is also a field on Microsoft.Logic, Microsoft.AppPlatform and Microsoft.ServiceLinker, and those are not connections of the kind this study is about.",
+  "configured_auth_directories": 210,
+  "configured_auth_types_unscoped": {
+    "AAD": 403,
+    "ApiKey": 295,
+    "ManagedIdentity": 61,
+    "CustomKeys": 13,
+    "ProjectManagedIdentity": 10,
+    "AccessKey": 4,
+    "AccountKey": 3,
+    "Public": 2,
+    "systemAssignedIdentity": 2,
+    "AccountManagedIdentity": 1,
+    "EntraOnly": 1,
+    "windows": 1,
+    "None": 1,
+    "PAT": 1,
+    "SAS": 1,
+    "ServicePrincipal": 1,
+    "UsernamePassword": 1
+  },
+  "configured_auth_values_unscoped": 801,
+  "non_azure_agent_resources": [
+    [
+      "AviatrixSystems__aviatrix-blueprints/blueprints/agentcore-aws",
+      [
+        "awscc_bedrockagentcore_runtime.hello"
+      ]
+    ]
+  ]
+}

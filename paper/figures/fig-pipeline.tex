@@ -1,0 +1,35 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  font=\scriptsize,
+  box/.style={draw, rounded corners=2pt, align=center, inner sep=3pt,
+              text width=54mm, minimum height=6mm, line width=0.5pt},
+  keep/.style={box, draw=cIdentity, fill=cIdentity!8},
+  narrow/.style={box, draw=cNeutral, fill=cFaint},
+  final/.style={box, draw=cAccent, fill=cAccent!8},
+  down/.style={-{Stealth[length=1.8mm]}, line width=0.6pt},
+  side/.style={font=\tiny, align=left, text width=20mm, inner sep=1pt},
+]
+
+\node[keep] (a) {public repositories collected, no query hit the API ceiling};
+\node[narrow, below=4mm of a] (b) {deployments declaring an agent runtime};
+\node[narrow, below=4mm of b] (c) {after removing test fixtures, snapshots,
+  vendored copies and byte identical duplicates};
+\node[final, below=4mm of c] (d) {\textbf{\nProjects} analysed Terraform
+  projects\\\scriptsize denominator for escalation results};
+\node[final, below=13mm of d] (e) {\textbf{\nChainDenominator} units covered by
+  the chain analysis\\\scriptsize \nChainTerraform Terraform $+$ \nChainCfn
+  CloudFormation};
+
+\draw[down] (a) -- (b);
+\draw[down] (b) -- (c);
+\draw[down] (c) -- (d);
+\draw[down] (d) -- node[side, right=1mm]
+  {\nChainNotCovered units not covered, named individually} (e);
+
+\end{tikzpicture}
+\caption{How the collection narrows to each denominator. The two shaded boxes
+are different populations and the paper does not mix them: a rate over
+\nProjects and a rate over \nChainDenominator answer different questions.}
+\label{fig:pipeline}
+\end{figure}

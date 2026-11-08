@@ -1,0 +1,66 @@
+{
+  "multi_agent_templates": 18,
+  "shared_role": [
+    {
+      "template": "avparkhi__agui-agentcore-demo/terraform",
+      "groups": {
+        "arn:aws:iam::000000000000:role/${local.name_prefix}-agent-execution": [
+          "agui",
+          "mcp"
+        ]
+      }
+    },
+    {
+      "template": "aws-samples__sample-FAST-applications/samples/anycompany-bank/infra",
+      "groups": {
+        "arn:aws:iam::000000000000:role/${var.stack_name}-runtime-role": [
+          "kyc",
+          "kyc_oauth"
+        ]
+      }
+    },
+    {
+      "template": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+      "groups": {
+        "arn:aws:iam::000000000000:role/${local.name_prefix}-agent-execution": [
+          "mcp",
+          "supply_chain"
+        ]
+      }
+    },
+    {
+      "template": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+      "groups": {
+        "arn:aws:iam::000000000000:role/${var.name_prefix}-runtime-exec-role": [
+          "mcp_runtime",
+          "orchestrator"
+        ]
+      }
+    },
+    {
+      "template": "singulart__google-workspace-agent/terraform",
+      "groups": {
+        "arn:aws:iam::000000000000:role/${var.name_prefix}-agentcore-runtime": [
+          "gmail_mcp",
+          "main"
+        ]
+      }
+    }
+  ],
+  "distinct_roles": [
+    "Rohanjain2312__customs-court/deploy/aws/terraform",
+    "ashdon4u__ai-migration-factory/infrastructure/modules/agent_runtimes",
+    "aws-samples__sample-agent-platform-with-agentcore/terraform/modules/runtime",
+    "aws-samples__sample-ai-assistant-on-agentcore/infra",
+    "aws-samples__sample-okf-llm-wiki/infra/compute",
+    "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+    "awslabs__threat-designer/infra",
+    "bcfmtolgahan__eks-sre-agent/terraform",
+    "flightlesstux__agents-on-call/terraform/10-agent-runtime",
+    "mongodb-partners__config-driven-agents-agentcore-atlas/terraform",
+    "seongpil0948__sandbox-agentcore/terraform",
+    "spring-ai-community__spring-ai-agentcore/examples/terraform",
+    "tarlan-huseynov__agentcore-monorepo/terraform"
+  ],
+  "undecided": []
+}

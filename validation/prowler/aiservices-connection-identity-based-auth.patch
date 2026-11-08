@@ -1,0 +1,721 @@
+diff --git a/prowler/changelog.d/aiservices-connection-identity-based-auth.added.md b/prowler/changelog.d/aiservices-connection-identity-based-auth.added.md
+new file mode 100644
+index 00000000..d4cb8a42
+--- /dev/null
++++ b/prowler/changelog.d/aiservices-connection-identity-based-auth.added.md
+@@ -0,0 +1 @@
++`aiservices_connection_identity_based_auth` check for Azure provider, reporting AI Foundry account and project connections whose `authType` presents a credential stored in the connection instead of a directory identity
+diff --git a/prowler/providers/azure/services/aiservices/aiservices_connection_identity_based_auth/__init__.py b/prowler/providers/azure/services/aiservices/aiservices_connection_identity_based_auth/__init__.py
+new file mode 100644
+index 00000000..e69de29b
+diff --git a/prowler/providers/azure/services/aiservices/aiservices_connection_identity_based_auth/aiservices_connection_identity_based_auth.metadata.json b/prowler/providers/azure/services/aiservices/aiservices_connection_identity_based_auth/aiservices_connection_identity_based_auth.metadata.json
+new file mode 100644
+index 00000000..abb3fa4f
+--- /dev/null
++++ b/prowler/providers/azure/services/aiservices/aiservices_connection_identity_based_auth/aiservices_connection_identity_based_auth.metadata.json
+@@ -0,0 +1,40 @@
++{
++  "Provider": "azure",
++  "CheckID": "aiservices_connection_identity_based_auth",
++  "CheckTitle": "AI services connections authenticate with an identity rather than a stored key",
++  "CheckType": [],
++  "ServiceName": "aiservices",
++  "SubServiceName": "connection",
++  "ResourceIdTemplate": "",
++  "Severity": "medium",
++  "ResourceType": "microsoft.cognitiveservices/accounts/connections",
++  "ResourceGroup": "ai_ml",
++  "Description": "A **connection** on an **Azure AI Foundry** account or project holds the credential the account uses to reach another resource. Its `authType` decides whether the call presents a directory identity or a credential stored in the connection. Identity types include **AAD**, **ManagedIdentity** and **ServicePrincipal**. Stored credential types include **ApiKey**, **SAS** and **UsernamePassword**.",
++  "Risk": "A credential stored in the connection is presented by every caller that can use it:\n- **Accountability**: the target sees one credential, so calls through different agents cannot be told apart in its logs\n- **Blast radius**: any agent in the project reaches everything the connection is trusted with\n- **Lifetime**: a stored key does not expire on its own",
++  "RelatedUrl": "",
++  "AdditionalURLs": [
++    "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/connections",
++    "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/agent-identity"
++  ],
++  "Remediation": {
++    "Code": {
++      "CLI": "",
++      "NativeIaC": "```bicep\n// Authenticate a Foundry connection as an identity rather than with a stored key\nresource connection 'Microsoft.CognitiveServices/accounts/projects/connections@2025-04-01-preview' = {\n  parent: project\n  name: '<example_connection_name>'\n  properties: {\n    category: '<category>'\n    target: '<target_url>'\n    authType: 'AAD' // CRITICAL: no key is stored in the connection\n    isSharedToAll: false\n  }\n}\n```",
++      "Other": "1. Give the account, the project or the agent an identity that the target resource can authorise\n2. Grant that identity a least-privilege role on the target\n3. Recreate the connection with an identity `authType` and remove the stored credential\n4. Rotate the key that the connection held, because it has been distributed to everything that used the connection",
++      "Terraform": ""
++    },
++    "Recommendation": {
++      "Text": "Set the connection's `authType` to an identity type and grant that identity a least-privilege role on the target. Where the platform offers an identity per agent, prefer it: the target then sees which agent called, and the agents in one project stop sharing reach.",
++      "Url": "https://hub.prowler.com/check/aiservices_connection_identity_based_auth"
++    }
++  },
++  "Categories": [
++    "identity-access",
++    "gen-ai"
++  ],
++  "DependsOn": [],
++  "RelatedTo": [
++    "aiservices_account_local_auth_disabled"
++  ],
++  "Notes": "The service accepts authType values that the SDK enum does not list. A value this check does not recognise is reported MANUAL rather than assumed safe or unsafe."
++}
+diff --git a/prowler/providers/azure/services/aiservices/aiservices_connection_identity_based_auth/aiservices_connection_identity_based_auth.py b/prowler/providers/azure/services/aiservices/aiservices_connection_identity_based_auth/aiservices_connection_identity_based_auth.py
+new file mode 100644
+index 00000000..abd098ed
+--- /dev/null
++++ b/prowler/providers/azure/services/aiservices/aiservices_connection_identity_based_auth/aiservices_connection_identity_based_auth.py
+@@ -0,0 +1,146 @@
++from typing import Optional
++
++from prowler.lib.check.models import Check, Check_Report_Azure
++from prowler.providers.azure.services.aiservices.aiservices_client import (
++    aiservices_client,
++)
++
++# A credential stored in the connection. Every agent and every caller that can
++# use the connection presents the same secret, so the target cannot tell them
++# apart and the secret does not expire on its own.
++STATIC_SECRET_AUTH_TYPES = {
++    "accesskey",
++    "accountkey",
++    "apikey",
++    "customkeys",
++    "pat",
++    "sas",
++    "usernamepassword",
++}
++
++# The caller authenticates as a directory principal, so the target sees who
++# called and the credential is issued and expires per request.
++IDENTITY_AUTH_TYPES = {
++    "aad",
++    "agenticidentity",
++    "agenticidentitytoken",
++    "managedidentity",
++    "oauth2",
++    "projectmanagedidentity",
++    "serviceprincipal",
++}
++
++NO_AUTH_TYPES = {"none", ""}
++
++
++class aiservices_connection_identity_based_auth(Check):
++    """AI services connections authenticate with an identity, not a stored key."""
++
++    @staticmethod
++    def _scope(account_name: str, project_name: Optional[str] = None) -> str:
++        """Name the place a connection is held, as a finding reads it.
++
++        Args:
++            account_name: The AI services account.
++            project_name: The project holding the connection, or `None` and
++                `""` for a connection held by the account itself.
++
++        Returns:
++            The scope, ready to put in a finding's text.
++        """
++        if project_name:
++            return f"project {project_name} of AI services account {account_name}"
++        return f"AI services account {account_name}"
++
++    def execute(self) -> list[Check_Report_Azure]:
++        """Evaluate the authentication type of every connection.
++
++        One finding per connection. A connection whose authentication type is
++        not one this check knows is reported MANUAL rather than guessed at:
++        the service accepts values that are not in the SDK enum, and treating
++        an unrecognised one as safe or unsafe would be made up.
++
++        Returns:
++            One finding per connection, plus one per scope whose connections
++            could not be listed: a whole account, or a single project of one.
++        """
++        findings = []
++        for subscription_id, accounts in aiservices_client.accounts.items():
++            subscription_name = aiservices_client.subscriptions.get(
++                subscription_id, subscription_id
++            )
++            for account in accounts.values():
++                if account.connections is None:
++                    report = Check_Report_Azure(
++                        metadata=self.metadata(), resource=account
++                    )
++                    report.subscription = subscription_id
++                    report.location = account.location
++                    report.status = "MANUAL"
++                    report.status_extended = (
++                        f"Connections of AI services account {account.name} from "
++                        f"subscription {subscription_name} ({subscription_id}) "
++                        f"could not be listed, so their authentication type is "
++                        f"unknown."
++                    )
++                    findings.append(report)
++                    continue
++
++                # A scope that could not be read is reported, so its
++                # connections are not mistaken for connections that are absent.
++                for project_name in account.unlisted_connection_scopes:
++                    report = Check_Report_Azure(
++                        metadata=self.metadata(), resource=account
++                    )
++                    report.subscription = subscription_id
++                    report.location = account.location
++                    report.status = "MANUAL"
++                    report.status_extended = (
++                        f"Connections of "
++                        f"{self._scope(account.name, project_name)} from "
++                        f"subscription {subscription_name} ({subscription_id}) "
++                        f"could not be listed, so their authentication type is "
++                        f"unknown."
++                    )
++                    findings.append(report)
++
++                for connection in account.connections:
++                    report = Check_Report_Azure(
++                        metadata=self.metadata(), resource=connection
++                    )
++                    report.subscription = subscription_id
++                    report.location = account.location
++                    scope = self._scope(account.name, connection.project_name)
++                    prefix = (
++                        f"Connection {connection.name} in {scope} from subscription "
++                        f"{subscription_name} ({subscription_id})"
++                    )
++                    auth = connection.auth_type.lower()
++                    if auth in IDENTITY_AUTH_TYPES:
++                        report.status = "PASS"
++                        report.status_extended = (
++                            f"{prefix} authenticates with the identity type "
++                            f"{connection.auth_type}."
++                        )
++                    elif auth in STATIC_SECRET_AUTH_TYPES:
++                        report.status = "FAIL"
++                        report.status_extended = (
++                            f"{prefix} authenticates with the stored credential "
++                            f"type {connection.auth_type}, which carries no "
++                            f"caller identity."
++                        )
++                    elif auth in NO_AUTH_TYPES:
++                        report.status = "FAIL"
++                        report.status_extended = (
++                            f"{prefix} has no authentication configured."
++                        )
++                    else:
++                        report.status = "MANUAL"
++                        report.status_extended = (
++                            f"{prefix} uses the authentication type "
++                            f"{connection.auth_type}, which this check does not "
++                            f"recognise. Confirm whether it presents a caller "
++                            f"identity."
++                        )
++                    findings.append(report)
++        return findings
+diff --git a/prowler/providers/azure/services/aiservices/aiservices_service.py b/prowler/providers/azure/services/aiservices/aiservices_service.py
+index 8317950a..6faf9254 100644
+--- a/prowler/providers/azure/services/aiservices/aiservices_service.py
++++ b/prowler/providers/azure/services/aiservices/aiservices_service.py
+@@ -54,6 +54,10 @@ class AIServices(AzureService):
+                     account.rai_policies = self._get_rai_policies(
+                         subscription, client, account
+                     )
++                    (
++                        account.connections,
++                        account.unlisted_connection_scopes,
++                    ) = self._get_connections(subscription, client, account)
+                     accounts[subscription][account.id] = account
+                 except Exception as error:
+                     logger.error(
+@@ -233,6 +237,87 @@ class AIServices(AzureService):
+                 statuses.append(status)
+         return statuses
+ 
++    @staticmethod
++    def _to_connection(sdk_connection, project_name: Optional[str]) -> "Connection":
++        """Map an SDK connection to the Prowler model.
++
++        `auth_type` is kept as the string the service returned. The SDK enum
++        does not list every value the service accepts, so mapping it onto the
++        enum would drop the ones it does not know about.
++        """
++        properties = getattr(sdk_connection, "properties", None)
++        auth_type = getattr(properties, "auth_type", None)
++        category = getattr(properties, "category", None)
++        return Connection(
++            id=sdk_connection.id,
++            name=sdk_connection.name,
++            auth_type=str(getattr(auth_type, "value", auth_type) or ""),
++            category=str(getattr(category, "value", category) or ""),
++            target=str(getattr(properties, "target", "") or ""),
++            project_name=project_name,
++        )
++
++    @staticmethod
++    def _get_connections(
++        subscription: str, client, account: "Account"
++    ) -> tuple[Optional[list["Connection"]], list[str]]:
++        """Get the connections of one account and of each of its projects.
++
++        A scope whose connections could not be listed is named in the second
++        value instead of being left out, so a check reports it as MANUAL
++        rather than reporting nothing about it at all.
++
++        Returns:
++            The connections, and the scopes whose connections could not be
++            listed: `""` for the account's own connections and the project
++            name for a project. The connections are `None` when no list call
++            could be made at all, so a check can report MANUAL rather than
++            treating an unread account as having no connections.
++        """
++        resource_group = _resource_group(account.id)
++        connections: list[Connection] = []
++        unlisted: list[str] = []
++        reachable = False
++
++        try:
++            for sdk_connection in client.account_connections.list(
++                resource_group, account.name
++            ):
++                connections.append(AIServices._to_connection(sdk_connection, None))
++            reachable = True
++        except Exception as error:
++            unlisted.append("")
++            logger.warning(
++                f"Subscription ID: {subscription} -- {error.__class__.__name__}[{error.__traceback__.tb_lineno}]: {error}"
++            )
++
++        projects = []
++        try:
++            projects = list(client.projects.list(resource_group, account.name))
++            reachable = True
++        except Exception as error:
++            # Projects exist on AI Foundry accounts. On other account kinds the
++            # call is expected to fail and that is not a finding.
++            logger.warning(
++                f"Subscription ID: {subscription} -- {error.__class__.__name__}[{error.__traceback__.tb_lineno}]: {error}"
++            )
++
++        for project in projects:
++            try:
++                for sdk_connection in client.project_connections.list(
++                    resource_group, account.name, project.name
++                ):
++                    connections.append(
++                        AIServices._to_connection(sdk_connection, project.name)
++                    )
++            except Exception as error:
++                unlisted.append(project.name)
++                logger.warning(
++                    f"Subscription ID: {subscription} -- {error.__class__.__name__}[{error.__traceback__.tb_lineno}]: {error}"
++                )
++
++        return (connections if reachable else None), unlisted
++
+     @staticmethod
+     def _get_diagnostic_settings(subscription: str, account_id: str) -> Optional[list]:
+         """Get the Azure Monitor diagnostic settings of one account.
+@@ -298,6 +383,20 @@ class Deployment(BaseModel):
+     capabilities: dict[str, str] = {}
+ 
+ 
++class Connection(BaseModel):
++    """A connection declared on an AI services account or on one of its projects.
++
++    `project_name` is `None` for a connection held by the account itself.
++    """
++
++    id: str
++    name: str
++    auth_type: str
++    category: str = ""
++    target: str = ""
++    project_name: Optional[str] = None
++
++
+ class Account(BaseModel):
+     """Azure AI services account."""
+ 
+@@ -316,6 +415,12 @@ class Account(BaseModel):
+     # None when the list call fails, so checks can report MANUAL.
+     deployments: Optional[list[Deployment]] = None
+     rai_policies: Optional[dict[str, RaiPolicy]] = None
++    connections: Optional[list[Connection]] = None
++    # Scopes whose connections could not be listed: "" for the account's own
++    # connections, the project name for a project. A check reports these as
++    # MANUAL, so a scope that could not be read is not mistaken for a scope
++    # with no connections.
++    unlisted_connection_scopes: list[str] = []
+     # Monitor DiagnosticSetting dataclasses. Left untyped: Pydantic would
+     # re-validate them and reject log entries whose category is None.
+     monitor_diagnostic_settings: Optional[list] = None
+diff --git a/tests/providers/azure/services/aiservices/aiservices_connection_identity_based_auth/aiservices_connection_identity_based_auth_test.py b/tests/providers/azure/services/aiservices/aiservices_connection_identity_based_auth/aiservices_connection_identity_based_auth_test.py
+new file mode 100644
+index 00000000..e6425e0e
+--- /dev/null
++++ b/tests/providers/azure/services/aiservices/aiservices_connection_identity_based_auth/aiservices_connection_identity_based_auth_test.py
+@@ -0,0 +1,239 @@
++from unittest import mock
++
++from prowler.providers.azure.services.aiservices.aiservices_service import (
++    Account,
++    Connection,
++)
++from tests.providers.azure.azure_fixtures import (
++    AZURE_SUBSCRIPTION_DISPLAY,
++    AZURE_SUBSCRIPTION_ID,
++    AZURE_SUBSCRIPTION_NAME,
++    RESOURCE_GROUP,
++    set_mocked_azure_provider,
++)
++
++CHECK = "aiservices_connection_identity_based_auth"
++CHECK_PATH = f"prowler.providers.azure.services.aiservices.{CHECK}.{CHECK}"
++ACCOUNT_ID = f"/subscriptions/{AZURE_SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.CognitiveServices/accounts/foundry1"
++ACCOUNT_LOCATION = "swedencentral"
++
++
++def build_connection(auth_type: str, project_name=None, name="conn1") -> Connection:
++    """Build one connection, on the account or on one of its projects.
++
++    Args:
++        auth_type: The value the service returned for `authType`.
++        project_name: The project holding it, or `None` for the account.
++        name: The connection's name.
++
++    Returns:
++        The connection.
++    """
++    suffix = f"/projects/{project_name}" if project_name else ""
++    return Connection(
++        id=f"{ACCOUNT_ID}{suffix}/connections/{name}",
++        name=name,
++        auth_type=auth_type,
++        category="AzureOpenAI",
++        target="https://example.openai.azure.com/",
++        project_name=project_name,
++    )
++
++
++def build_account(connections, unlisted=None) -> Account:
++    """Build one AI services account holding the given connections.
++
++    Args:
++        connections: Its connections, or `None` when none could be listed.
++        unlisted: Scopes whose connections could not be listed: `""` for the
++            account's own, a project name for a project.
++
++    Returns:
++        The account.
++    """
++    return Account(
++        id=ACCOUNT_ID,
++        name="foundry1",
++        location=ACCOUNT_LOCATION,
++        kind="AIServices",
++        public_network_access=False,
++        disable_local_auth=True,
++        encryption_key_source="Microsoft.CognitiveServices",
++        connections=connections,
++        unlisted_connection_scopes=unlisted or [],
++    )
++
++
++def run_check(accounts):
++    """Run the check against the given accounts.
++
++    Args:
++        accounts: The client's accounts, keyed by subscription then by id.
++
++    Returns:
++        The findings.
++    """
++    aiservices_client = mock.MagicMock()
++    aiservices_client.subscriptions = {AZURE_SUBSCRIPTION_ID: AZURE_SUBSCRIPTION_NAME}
++    aiservices_client.accounts = accounts
++    with (
++        mock.patch(
++            "prowler.providers.common.provider.Provider.get_global_provider",
++            return_value=set_mocked_azure_provider(),
++        ),
++        mock.patch(f"{CHECK_PATH}.aiservices_client", new=aiservices_client),
++    ):
++        from prowler.providers.azure.services.aiservices.aiservices_connection_identity_based_auth.aiservices_connection_identity_based_auth import (
++            aiservices_connection_identity_based_auth,
++        )
++
++        return aiservices_connection_identity_based_auth().execute()
++
++
++def one(connections, unlisted=None):
++    """Run the check against a single account.
++
++    Args:
++        connections: Its connections, or `None` when none could be listed.
++        unlisted: Scopes whose connections could not be listed.
++
++    Returns:
++        The findings.
++    """
++    return run_check(
++        {AZURE_SUBSCRIPTION_ID: {ACCOUNT_ID: build_account(connections, unlisted)}}
++    )
++
++
++class Test_aiservices_connection_identity_based_auth:
++    """The check reports how each AI services connection authenticates."""
++
++    def test_no_resources(self):
++        """No accounts means no findings."""
++        assert len(run_check({})) == 0
++
++    def test_account_with_no_connections(self):
++        """An account that holds no connection produces no finding."""
++        assert len(one([])) == 0
++
++    def test_connections_could_not_be_listed(self):
++        """An account whose connections could not be read is MANUAL."""
++        result = one(None)
++        assert len(result) == 1
++        assert result[0].status == "MANUAL"
++        assert (
++            result[0].status_extended
++            == f"Connections of AI services account foundry1 from subscription {AZURE_SUBSCRIPTION_DISPLAY} could not be listed, so their authentication type is unknown."
++        )
++        assert result[0].resource_id == ACCOUNT_ID
++
++    def test_project_connections_could_not_be_listed(self):
++        """A project whose connections could not be read is MANUAL.
++
++        The project is reported rather than left out, so connections that
++        could not be read are not mistaken for connections that are absent.
++        """
++        result = one([], unlisted=["proj1"])
++        assert len(result) == 1
++        assert result[0].status == "MANUAL"
++        assert (
++            result[0].status_extended
++            == f"Connections of project proj1 of AI services account foundry1 from subscription {AZURE_SUBSCRIPTION_DISPLAY} could not be listed, so their authentication type is unknown."
++        )
++        assert result[0].resource_id == ACCOUNT_ID
++
++    def test_account_scope_unlisted_alongside_project_connections(self):
++        """The account's own scope is reported while its projects are read."""
++        result = one([build_connection("AAD", project_name="proj1")], unlisted=[""])
++        assert len(result) == 2
++        manual = [r for r in result if r.status == "MANUAL"]
++        assert len(manual) == 1
++        assert (
++            manual[0].status_extended
++            == f"Connections of AI services account foundry1 from subscription {AZURE_SUBSCRIPTION_DISPLAY} could not be listed, so their authentication type is unknown."
++        )
++        assert [r.status for r in result if r.status != "MANUAL"] == ["PASS"]
++
++    def test_api_key_fails(self):
++        """A connection holding an API key fails."""
++        result = one([build_connection("ApiKey")])
++        assert len(result) == 1
++        assert result[0].status == "FAIL"
++        assert (
++            result[0].status_extended
++            == f"Connection conn1 in AI services account foundry1 from subscription {AZURE_SUBSCRIPTION_DISPLAY} authenticates with the stored credential type ApiKey, which carries no caller identity."
++        )
++        assert result[0].resource_name == "conn1"
++        assert result[0].subscription == AZURE_SUBSCRIPTION_ID
++
++    def test_aad_passes(self):
++        """A connection authenticating as a directory identity passes."""
++        result = one([build_connection("AAD")])
++        assert len(result) == 1
++        assert result[0].status == "PASS"
++        assert (
++            result[0].status_extended
++            == f"Connection conn1 in AI services account foundry1 from subscription {AZURE_SUBSCRIPTION_DISPLAY} authenticates with the identity type AAD."
++        )
++
++    def test_agent_identity_passes(self):
++        """An agent identity type passes, though the SDK enum omits it."""
++        result = one([build_connection("AgenticIdentityToken")])
++        assert len(result) == 1
++        assert result[0].status == "PASS"
++
++    def test_project_connection_names_its_project(self):
++        """A project level connection names its project in the finding."""
++        result = one([build_connection("ApiKey", project_name="proj1")])
++        assert len(result) == 1
++        assert (
++            result[0].status_extended
++            == f"Connection conn1 in project proj1 of AI services account foundry1 from subscription {AZURE_SUBSCRIPTION_DISPLAY} authenticates with the stored credential type ApiKey, which carries no caller identity."
++        )
++
++    def test_no_auth_fails(self):
++        """A connection with no authentication configured fails."""
++        result = one([build_connection("None")])
++        assert len(result) == 1
++        assert result[0].status == "FAIL"
++        assert "has no authentication configured" in result[0].status_extended
++
++    def test_empty_auth_type_fails(self):
++        """An empty authentication type fails."""
++        result = one([build_connection("")])
++        assert len(result) == 1
++        assert result[0].status == "FAIL"
++
++    def test_unknown_auth_type_is_manual(self):
++        """An authentication type the check does not know is MANUAL."""
++        result = one([build_connection("SomethingNew")])
++        assert len(result) == 1
++        assert result[0].status == "MANUAL"
++        assert "does not recognise" in result[0].status_extended
++
++    def test_one_finding_per_connection(self):
++        """Each connection on an account gets its own finding."""
++        result = one(
++            [
++                build_connection("ApiKey", name="a"),
++                build_connection("AAD", name="b", project_name="proj1"),
++            ]
++        )
++        assert len(result) == 2
++        assert sorted(r.status for r in result) == ["FAIL", "PASS"]
++
++    def test_findings_carry_the_account_location(self):
++        """A connection has no location of its own, so the account's is used.
++
++        Without this the finding falls back to the global default and the
++        output cannot be grouped or filtered by region.
++        """
++        result = one([build_connection("ApiKey")], unlisted=["proj1"])
++        assert len(result) == 2
++        assert {r.location for r in result} == {ACCOUNT_LOCATION}
++        assert all(r.location != "global" for r in result)
++
++    def test_unreadable_account_finding_carries_the_account_location(self):
++        """The account level MANUAL finding carries the account's location."""
++        result = one(None)
++        assert result[0].location == ACCOUNT_LOCATION
+diff --git a/tests/providers/azure/services/aiservices/aiservices_service_test.py b/tests/providers/azure/services/aiservices/aiservices_service_test.py
+index 6907b34c..df73ec5f 100644
+--- a/tests/providers/azure/services/aiservices/aiservices_service_test.py
++++ b/tests/providers/azure/services/aiservices/aiservices_service_test.py
+@@ -505,3 +505,126 @@ class Test_AIServices_get_accounts:
+         account = aiservices._get_accounts()[AZURE_SUBSCRIPTION_ID][ACCOUNT_ID]
+ 
+         assert account.monitor_diagnostic_settings is None
++
++
++def build_sdk_connection(name="conn1", auth_type="ApiKey", project_name=None):
++    """Build one SDK connection as the service receives it.
++
++    Args:
++        name: The connection's name.
++        auth_type: The value the service returns for `authType`.
++        project_name: The project holding it, or `None` for the account.
++
++    Returns:
++        A mock of the SDK's connection object.
++    """
++    suffix = f"/projects/{project_name}" if project_name else ""
++    connection = MagicMock()
++    connection.id = f"{ACCOUNT_ID}{suffix}/connections/{name}"
++    connection.name = name
++    connection.properties.auth_type = auth_type
++    connection.properties.category = "AzureOpenAI"
++    connection.properties.target = "https://example.openai.azure.com/"
++    return connection
++
++
++def build_sdk_project(name="proj1"):
++    """Build one SDK project of an AI services account.
++
++    Args:
++        name: The project's name.
++
++    Returns:
++        A mock of the SDK's project object.
++    """
++    project = MagicMock()
++    project.name = name
++    return project
++
++
++class Test_AIServices_get_connections:
++    """Connections are read from the account and from each of its projects."""
++
++    def test_connections_from_the_account_and_its_projects(self):
++        """Both levels are collected, and a project connection names it."""
++        mock_client = MagicMock()
++        mock_client.accounts.list.return_value = [build_sdk_account()]
++        mock_client.account_connections.list.return_value = [
++            build_sdk_connection(name="a")
++        ]
++        mock_client.projects.list.return_value = [build_sdk_project()]
++        mock_client.project_connections.list.return_value = [
++            build_sdk_connection(name="b", auth_type="AAD", project_name="proj1")
++        ]
++        aiservices = build_service(mock_client)
++
++        account = aiservices._get_accounts()[AZURE_SUBSCRIPTION_ID][ACCOUNT_ID]
++
++        assert [(c.name, c.auth_type, c.project_name) for c in account.connections] == [
++            ("a", "ApiKey", None),
++            ("b", "AAD", "proj1"),
++        ]
++        assert account.unlisted_connection_scopes == []
++
++    def test_project_connections_failure_names_the_project(self):
++        """A project that could not be read is named, not dropped.
++
++        The account's own connections are still returned, so one unreadable
++        project does not cost the rest of the account's findings.
++        """
++        mock_client = MagicMock()
++        mock_client.accounts.list.return_value = [build_sdk_account()]
++        mock_client.account_connections.list.return_value = [
++            build_sdk_connection(name="a")
++        ]
++        mock_client.projects.list.return_value = [build_sdk_project()]
++        mock_client.project_connections.list.side_effect = Exception("boom")
++        aiservices = build_service(mock_client)
++
++        account = aiservices._get_accounts()[AZURE_SUBSCRIPTION_ID][ACCOUNT_ID]
++
++        assert [c.name for c in account.connections] == ["a"]
++        assert account.unlisted_connection_scopes == ["proj1"]
++
++    def test_account_connections_failure_names_the_account_scope(self):
++        """The account's own scope is named when only its list call fails."""
++        mock_client = MagicMock()
++        mock_client.accounts.list.return_value = [build_sdk_account()]
++        mock_client.account_connections.list.side_effect = Exception("boom")
++        mock_client.projects.list.return_value = [build_sdk_project()]
++        mock_client.project_connections.list.return_value = [
++            build_sdk_connection(name="b", project_name="proj1")
++        ]
++        aiservices = build_service(mock_client)
++
++        account = aiservices._get_accounts()[AZURE_SUBSCRIPTION_ID][ACCOUNT_ID]
++
++        assert [c.name for c in account.connections] == ["b"]
++        assert account.unlisted_connection_scopes == [""]
++
++    def test_connections_none_when_nothing_could_be_listed(self):
++        """Nothing readable at all leaves connections as None."""
++        mock_client = MagicMock()
++        mock_client.accounts.list.return_value = [build_sdk_account()]
++        mock_client.account_connections.list.side_effect = Exception("boom")
++        mock_client.projects.list.side_effect = Exception("boom")
++        aiservices = build_service(mock_client)
++
++        account = aiservices._get_accounts()[AZURE_SUBSCRIPTION_ID][ACCOUNT_ID]
++
++        assert account.connections is None
++
++    def test_projects_not_supported_is_not_a_finding(self):
++        """An account kind without projects still returns its connections."""
++        mock_client = MagicMock()
++        mock_client.accounts.list.return_value = [build_sdk_account()]
++        mock_client.account_connections.list.return_value = [
++            build_sdk_connection(name="a")
++        ]
++        mock_client.projects.list.side_effect = Exception("not supported")
++        aiservices = build_service(mock_client)
++
++        account = aiservices._get_accounts()[AZURE_SUBSCRIPTION_ID][ACCOUNT_ID]
++
++        assert [c.name for c in account.connections] == ["a"]
++        assert account.unlisted_connection_scopes == []

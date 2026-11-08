@@ -1,0 +1,33 @@
+\section{Limitations}
+\label{sec:limitations}
+
+\paragraph{The corpus is small.}
+Everything measured is code published on a public host, so private deployments and those built by hand in a console cannot
+appear, and we cannot estimate how the populations differ.
+
+\paragraph{The second passes share the first's blind spots.}
+Each precision in Appendix~\ref{sec:claims} comes from a pass that re-derived
+that number from the raw source with its own patterns. A separate pass
+re-derives three of the published figures with deliberately different
+patterns, and agrees with all three. The two disagreements it produced
+earlier were resolved against it: one had matched a wildcard in a
+neighbouring policy statement, the other a resource type from a different
+Azure provider. Neither kind of pass can catch an error in the collection,
+because both use the same collection.
+
+\paragraph{Most claims have no precision at all.}
+\nClaimsWithPrecision of \nClaims claims in this paper have a measured
+precision. The rest are reported as counts with their population, and
+Appendix~\ref{sec:claims} marks each one.
+
+\paragraph{Undecidable templates.}
+\nCfnUndecidable CloudFormation templates, and the Terraform expressions
+reported per project in the artifact, do not resolve to a value the analysis
+can use. They are reported
+as undecidable rather than as clean.
+
+\paragraph{The live demonstration is one account.}
+Section~\ref{sec:case-study} shows the mechanism works with vendor default
+role names and a vendor managed policy. One account is enough to show a
+mechanism exists and not enough to say anything about how often that
+configuration occurs.

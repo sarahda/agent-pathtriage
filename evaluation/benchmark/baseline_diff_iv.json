@@ -1,0 +1,69 @@
+{
+  "comparable_universe": 83,
+  "both": 62,
+  "only_ours": 8,
+  "only_cloudsplaining": 1,
+  "disagreements": [
+    {
+      "principal": "fn2-exploitableResourceConstraint-role",
+      "found_by": "ours",
+      "class": "resource-constraint",
+      "why": "resource arn:aws:iam::*:policy/fn2-*"
+    },
+    {
+      "principal": "fn2-exploitableResourceConstraint-user",
+      "found_by": "ours",
+      "class": "resource-constraint",
+      "why": "resource arn:aws:iam::*:policy/fn2-*"
+    },
+    {
+      "principal": "fn3-exploitableConditionConstraint-role",
+      "found_by": "ours",
+      "class": "condition-evaluated",
+      "why": "condition on aws:TokenIssueTime"
+    },
+    {
+      "principal": "fn3-exploitableConditionConstraint-user",
+      "found_by": "ours",
+      "class": "condition-evaluated",
+      "why": "condition on aws:TokenIssueTime"
+    },
+    {
+      "principal": "privesc-ssmSendCommand-role",
+      "found_by": "ours",
+      "class": "non-iam-takeover",
+      "why": "drives a resource via ec2, ssm"
+    },
+    {
+      "principal": "privesc-ssmSendCommand-user",
+      "found_by": "ours",
+      "class": "non-iam-takeover",
+      "why": "drives a resource via ec2, ssm"
+    },
+    {
+      "principal": "privesc-ssmStartSession-role",
+      "found_by": "ours",
+      "class": "non-iam-takeover",
+      "why": "drives a resource via ec2, ssm"
+    },
+    {
+      "principal": "privesc-ssmStartSession-user",
+      "found_by": "ours",
+      "class": "non-iam-takeover",
+      "why": "drives a resource via ec2, ssm"
+    },
+    {
+      "principal": "privesc13-AddUserToGroup-role",
+      "found_by": "cloudsplaining",
+      "class": "group-membership",
+      "why": "an IAM group contains users, so a role cannot join one"
+    }
+  ],
+  "outside_universe": [
+    "privesc-AssumeRole-intermediate-role",
+    "privesc-AssumeRole-starting-role",
+    "privesc-high-priv-lambda-role2",
+    "privesc-sre-group",
+    "privesc-sre-user"
+  ]
+}

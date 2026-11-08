@@ -1,0 +1,108 @@
+name: AgentPathTriage
+description: >-
+  Find cross-agent IAM privilege escalation in Terraform, from source alone,
+  and report it to the code scanning tab. No AWS account and no credentials.
+author: AgentPathTriage
+
+branding:
+  icon: git-branch
+  color: orange
+
+inputs:
+  path:
+    description: Directory containing the Terraform to scan.
+    required: false
+    default: "."
+  baseline:
+    description: >-
+      Optional baseline file. Findings recorded in it are reported as
+      suppressed instead of failing the run, so a repository that already has
+      findings can still gate on not adding more. Write one with
+      `agentpathtriage scan <dir> --write-baseline <file>`.
+    required: false
+    default: ""
+  sarif:
+    description: Where to write the SARIF file.
+    required: false
+    default: agentpathtriage.sarif
+  upload:
+    description: >-
+      Upload the SARIF to code scanning. Needs `security-events: write` on the
+      job. Set to false to keep the file as a build artifact instead.
+    required: false
+    default: "true"
+  fail-on-findings:
+    description: >-
+      Fail the job when the scan reports a finding that is not in the
+      baseline. Set to false to report without gating.
+    required: false
+    default: "true"
+  python-version:
+    description: Python used to run the scanner.
+    required: false
+    default: "3.11"
+
+outputs:
+  exit-code:
+    description: "0 no findings, 1 findings, 2 the run itself failed."
+    value: ${{ steps.scan.outputs.exit-code }}
+  sarif:
+    description: Path to the SARIF file that was written.
+    value: ${{ inputs.sarif }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install AgentPathTriage
+      shell: bash
+      run: python -m pip install --disable-pip-version-check "${{ github.action_path }}"
+
+    - name: Scan
+      id: scan
+      shell: bash
+      run: |
+        # The scan exits 1 on findings, and a composite step cannot carry
+        # continue-on-error, so the code is captured and acted on at the end.
+        # Uploading has to happen first: a run that fails before the upload
+        # reports nothing, which is the one outcome worse than a red check.
+        args=("${{ inputs.path }}" --sarif "${{ inputs.sarif }}" --sarif-base "$GITHUB_WORKSPACE")
+        if [ -n "${{ inputs.baseline }}" ]; then
+          args+=(--baseline "${{ inputs.baseline }}")
+        fi
+        set +e
+        agentpathtriage scan "${args[@]}"
+        code=$?
+        set -e
+        echo "exit-code=$code" >> "$GITHUB_OUTPUT"
+        if [ "$code" -eq 2 ]; then
+          echo "::error::the scan itself failed, so there is nothing to report"
+          exit 2
+        fi
+
+    - name: Upload to code scanning
+      if: ${{ inputs.upload == 'true' }}
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ${{ inputs.sarif }}
+        category: agentpathtriage
+
+    - name: Keep the SARIF as an artifact
+      if: ${{ inputs.upload != 'true' }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: agentpathtriage-sarif
+        path: ${{ inputs.sarif }}
+
+    - name: Gate
+      shell: bash
+      run: |
+        if [ "${{ steps.scan.outputs.exit-code }}" = "1" ] \
+           && [ "${{ inputs.fail-on-findings }}" = "true" ]; then
+          echo "::error::AgentPathTriage reported a finding that is not in the baseline"
+          exit 1
+        fi

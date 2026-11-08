@@ -1,0 +1,47 @@
+\section{Claims and Second Checks}
+\label{sec:claims}
+
+Table~\ref{tab:claims} lists the claims that carry a population and a second
+check. A blank means no second check.
+
+The last column names its metric in every row, because the table holds two.
+\emph{Precision} is the share of reported items a second pass, reading the raw
+source, agreed with. \emph{Recall} is the share of known planted paths the
+analysis recovered, measured against IAM-Vulnerable. They are not comparable.
+The table comes from
+\texttt{evaluation/\allowbreak benchmark/\allowbreak claim\_precision.json}.
+
+\begin{table}[t]
+\centering
+\caption{The \nClaims claims, with the \nClaimsWithPrecision that carry a
+measured precision and the two that carry a recall. Each value names its own
+metric, because the two are not the same kind of number.}
+\label{tab:claims}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{30mm}p{15mm}p{20mm}p{13mm}@{}}
+\toprule
+\textbf{Claim} & \textbf{Number} & \textbf{Population} & \textbf{Second check} \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Recovery of known paths (IAM-Vulnerable)}} \\
+\midrule
+Delegation paths recovered once hand-offs are followed & \recallDelegation recall & IAM-Vulnerable delegation paths & \\
+The same paths seen by a check that looks at one identity at a time & \recallSingleIdentity recall & IAM-Vulnerable delegation paths & \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Counts over the corpus}} \\
+\midrule
+Templates declaring two or more agents & \nMultiAgentBlocks & \nProjects analysed projects & \precMultiAgent precision \\
+Templates running every agent under one execution role & \nSharedRoleBlocks of \nMultiAgentBlocks & the \nMultiAgentBlocks multi-agent templates & \precSharedRole precision \\
+Resource-scope gaps adjudicated by hand & \nScopeGapsFlagged flagged & every gap the pass produced, none sampled & \\
+A flagged gap covers a resource another agent in the same template owns & \nScopeGapsCrossAgent of \nScopeGapsWithSecondAgent & the \nScopeGapsWithSecondAgent flagged gaps in templates with a second agent & hand adjudicated \\
+Takeover candidates blocked only on \iam{iam:PassRole} & \nBlocked across \nBlockedConfigs projects & \nProjects analysed projects & \\
+Blocked candidates that are one agent reaching another & \nBlockedAgentToAgent of \nBlocked & the \nBlocked blocked candidates & every candidate re-read \\
+Cross-agent escalation found in the corpus & \nChainsFound of \nChainDenominator & units the chain analysis covered & \\
+Projects granting \iam{iam:PassRole} over a role an agent runs as & \nPassRoleWide of \nProjects & \nProjects analysed projects & \\
+CDK apps running several runtimes under one role & \nCdkSharedRoleApps & the CDK apps the source scan flagged & \precCdkSharedRole precision \\
+Foundry template directories holding an agent declaration & \nFoundryAgentDirs of \nFoundryDirs & \nFoundryRepos repositories, \nFoundryFiles files & \\
+Foundry connection \api{authType} values, by type & see Figure~\ref{fig:authtypes} & \nFoundryAuthValues assigned values & \\
+Connections that pick an agent scoped auth type & \nFoundryAgentAuthValues of \nFoundryAuthValues & \nFoundryAuthValues assigned values & \\
+\bottomrule
+\end{tabular}
+\end{table}

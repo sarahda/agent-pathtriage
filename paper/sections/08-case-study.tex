@@ -1,0 +1,135 @@
+\section{The Takeover in a Live Account}
+\label{sec:case-study}
+
+The corpus says the path is not completed in public infrastructure as code.
+It does not say the path works. We built it in an AWS account to show that it
+does, and to find out what actually gates it.
+
+\subsection{Setup}
+
+The account holds three agent runtimes and three execution roles. Two of the
+roles differ in their policies. The third, \texttt{execC}, is identical to the
+second in every way except its name.
+
+The attacker is a separate principal whose only permission is the AWS managed
+policy \iam{BedrockAgentCoreFullAccess}. It is given nothing else. In
+particular it is given no direct access to the resource it will end up
+reading.
+
+A canary object sits in a bucket that only the victim's execution role can
+read. A pre-check confirms the attacker cannot read it.
+
+\subsection{Verdict rules}
+
+Three rules are encoded in the harness. A verdict comes from reading the
+runtime back from the platform and asking what role it says the runtime now
+runs as, never from the request that was sent. An \texttt{AccessDenied} counts
+as a block only when the message names \iam{iam:PassRole}; any other denial is
+recorded as inconclusive, because a denial for an unrelated reason would
+otherwise look like the control working. And role assumption is retried for
+120 seconds, so a propagation delay is not recorded as a control.
+
+\subsection{The cells}
+
+The experiment is nine cells, each a question with an outcome recorded to a
+file at the time it ran. Table~\ref{tab:cells} lists them. The design is a
+control and a treatment that differ by exactly one permission, plus the cells
+that close off the ways the result could be an artefact.
+
+\begin{table}[t]
+\centering
+\caption{The nine cells of the live experiment and the verdict each
+recorded. The attacker holds the managed policy in every cell except the
+first. Control and treatment differ by one inline grant and nothing else.}
+\label{tab:cells}
+\small
+\begin{tabular}{p{18mm}p{39mm}p{15mm}}
+\toprule
+\textbf{Cell} & \textbf{Question} & \textbf{Verdict} \\
+\midrule
+positive control & can the operator replace the runtime's artifact at all &
+  allowed \\
+control & can the attacker, holding only the managed policy, replace a
+  sibling's artifact & denied \\
+treatment & the same, with one inline \iam{iam:\allowbreak PassRole} grant
+  on the target role added & allowed \\
+recheck & the same again with that grant removed & denied \\
+\midrule
+name condition & the same as the control, changing only the victim role's
+  \emph{name} to match \iam{*Bedrock\allowbreak AgentCore*} & allowed \\
+\midrule
+gain & does the target role reach something the attacker does not & gain \\
+effect & does the replaced code run and return the canary & canary
+  returned \\
+falsification & give the attacker directly what the target holds, then take
+  over anyway & allowed, no gain \\
+\midrule
+persistence & after the attacker loses every permission, does the operator's
+  own call still reach the planted code & persists \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The control and the recheck both end in an implicit deny, and the policy
+simulator reports no matching statement. The treatment differs from them by a
+single inline grant, and the recheck removes that grant and recovers the deny,
+so the allow is attributable to the grant rather than to a propagation delay
+or to a change in the account between runs.
+
+The falsification cell is the one that constrains the predicate rather than
+the platform. The attacker is given, directly, the thing the target role
+holds. The takeover still succeeds and the API exchange is identical to the
+treatment's. Equation~\ref{eq:esc} does not fire, because the reach is already
+inside $\auth$.
+
+\subsection{Result}
+
+The attacker replaced the sibling runtime's definition. The platform reported
+the runtime as running under the victim's execution role. The replaced code
+executed, read the canary, and returned it to the attacker, who could not read
+it directly before or after.
+
+The planted code carries no SDK, because the runtime image has none, so it
+signs its own request with a short standard library implementation. It
+reports the \emph{name} of its credential source and the \emph{names} of the
+AWS environment variables it can see, never a value.
+
+\subsection{What the gate turned out to be}
+
+The most useful cell is the name condition, because it changes one thing. The
+victim role in that cell is identical to the control's in its policies, its
+trust policy and its permissions. Only its name differs, and it differs so as
+to match \iam{*BedrockAgentCore*}, which is how the AWS console names the
+execution roles it creates for this service.
+
+With that single change, and with the attacker still holding only
+\iam{BedrockAgentCoreFullAccess} and no inline grant at all, the takeover
+succeeded. The control denied the same request against the same kind of role
+under a different name.
+
+So the control that stands between two agents in a default deployment is a
+string match on a role name, not a statement about which agent owns which
+role. An operator who follows the console's own defaults, and grants the
+vendor's own managed policy, has the path open.
+
+\subsection{What the second permission buys}
+
+The canary could also have been read through the command route, with one
+permission and no \iam{iam:PassRole}. The ninth cell measures what the extra
+permission buys. It runs after the name condition, so the attacker holds only
+the managed policy, and it aims the planted code at the canary through the
+environment variables of the same \api{Update\allowbreak AgentRuntime} call.
+Then every policy on the attacker principal is detached. The attacker's next
+update of that runtime is refused with an \texttt{AccessDenied} naming
+\iam{bedrock-agentcore:\allowbreak Update\allowbreak AgentRuntime}, and the
+simulator reports an implicit deny on the canary.
+
+With the attacker in that state, the operator invokes the runtime through its
+ordinary endpoint. The response carries the attacker's marker, names instance
+metadata as its credential source, and contains the canary value.
+
+A stolen credential stops working when the principal that took it is disabled.
+A replaced artifact keeps answering the agent's own callers under the victim's
+role, with no attacker principal involved, until someone compares the running
+artifact against the one that was meant to be there. That comparison is the
+detection in Section~\ref{sec:defences}.

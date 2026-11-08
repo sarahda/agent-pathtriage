@@ -1,0 +1,23 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+Managed agent platforms put several identities in one account. The question
+that matters is not what one agent can reach, but what it can reach by going
+through another agent, and that does not fit a single identity analysis. We
+stated it as a set difference, implemented it, and ran it over public AWS
+deployments. The corpus contains \nChainsFound complete
+cross-agent escalations, which supports an upper bound of \chainBound\% and
+nothing stronger.
+
+Two results sit beside that zero. Replacing
+what an agent runs cannot avoid \iam{iam:PassRole}, because one API call
+decides the code and the identity together, and in a live account an attacker
+holding the vendor's own managed policy completed that path against a role the
+vendor's own console had named. And in the deployments where more than one
+agent exists, \nSharedRoleRuntimes of \nMultiAgentRuntimes already run every
+agent under one role, which makes the escalation unnecessary and makes the
+account unable to tell its agents apart.
+
+The defence follows from that: give each agent its own execution role, and
+treat \iam{iam:PassRole} over an agent's execution role as a grant of that
+agent's permissions to whoever holds it.

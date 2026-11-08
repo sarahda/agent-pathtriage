@@ -1,0 +1,84 @@
+\section{Reproducing the Results}
+\label{sec:repro}
+
+Every number is produced by a script and stored under
+\texttt{evaluation/benchmark/}. This appendix says how to rebuild them.
+
+\subsection{Three layers, by cost}
+
+\paragraph{One configuration, seconds.}
+Point the tool at a directory of Terraform.
+
+\begin{lstlisting}
+pip install -e .
+python3 -m agentpathtriage.cli --path <dir> --json out.json
+\end{lstlisting}
+
+The output carries, per principal, $\auth$, the difference
+$\eff \setminus \auth$, and a witness path for each element of it.
+
+\paragraph{The artifacts, without recollecting the corpus, minutes.}
+One command rebuilds the artifacts from the stored corpus and checks each
+published figure against the artifact it came from.
+
+\begin{lstlisting}
+python3 evaluation/reproduce.py          # fast tier
+python3 evaluation/reproduce.py --full   # add corpus walks
+python3 evaluation/reproduce.py --full --budget 120
+\end{lstlisting}
+
+The fast tier skips the passes that walk every template, and
+\texttt{--budget} takes seconds and slices those walks. A run reports each
+check as a pass or as a failure naming the figure and the artifact that
+disagree.
+
+\paragraph{Collecting the corpus again, hours.}
+Re-running the collection produces a different corpus as repositories change,
+so the stored corpus is the unit of reproducibility and the scripts repeat the
+method rather than the corpus.
+
+\subsection{What each artifact backs}
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{Artifact to result, for the figures this paper asserts.}
+\label{tab:artifacts}
+\begin{tabular}{@{}p{33mm}p{38mm}@{}}
+\toprule
+\textbf{Artifact} & \textbf{Backs} \\
+\midrule
+\texttt{corpus\_takeover\_census} & \nProjects projects, \nBlocked blocked,
+  the \nEscalatingSingleAgent escalations \\
+\texttt{blocked\_takeover\_\allowbreak source\_check} & the four way split of
+  Figure~\ref{fig:blocked} \\
+\texttt{shared\_role\_corrected} & Table~\ref{tab:sharing}, both columns \\
+\texttt{chain\_cfn\_corpus} & \nChainDenominator units, \chainBound\% bound \\
+\texttt{cdk\_synth\_chain} & Table~\ref{tab:cdk},
+  \nCdkDistinctApps distinct apps \\
+\texttt{foundry\_recon} & Figure~\ref{fig:authtypes}, the
+  \nFoundryAuthValues values \\
+\texttt{claim\_precision} & Table~\ref{tab:claims} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The live demonstration}
+
+The experiment of Section~\ref{sec:case-study} creates real AWS resources.
+
+\begin{lstlisting}
+cd attacks/passrole_runtime_takeover
+python3 lab.py setup        # 3 runtimes, 3 roles, 1 attacker
+python3 exploit.py <cell>   # one of the first eight cells
+python3 persistence.py      # the ninth, after name-condition
+python3 lab.py teardown
+python3 teardown_verify.py  # reads the account back
+\end{lstlisting}
+
+Every name carries a random suffix per run. Each cell writes a record to
+\texttt{runs/} with its question, the request, the verdict and the time, which
+is where Table~\ref{tab:cells} comes from.
+\texttt{teardown\_verify.py} reads the account back afterwards and separates a
+resource still deleting from one left behind.

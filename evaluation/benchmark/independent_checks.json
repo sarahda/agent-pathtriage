@@ -1,0 +1,33 @@
+{
+ "checks": [
+  {
+   "claim": "configurations declaring two or more agents",
+   "published": 18,
+   "re_derived": 18,
+   "agree": true,
+   "only_in_published": [],
+   "only_in_re_derived": []
+  },
+  {
+   "claim": "configurations granting iam:PassRole broadly enough to cover a role an agent runs as",
+   "re_derived": 1,
+   "detail": [
+    {
+     "config": "ReyanL__demo-cloud-engineer-agent/terraform",
+     "file": "oidc.tf"
+    }
+   ],
+   "method": "the wildcard must sit in the same policy statement as the iam:PassRole action, with commented out lines removed"
+  },
+  {
+   "claim": "configurations where a cross-agent chain could exist at all",
+   "re_derived": 0,
+   "detail": [],
+   "note": "a chain needs more than this; the published result is that none of these completes"
+  },
+  {
+   "claim": "Foundry directories declaring an agent",
+   "skipped": "corpus not present"
+  }
+ ]
+}

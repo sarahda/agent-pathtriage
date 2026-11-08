@@ -1,0 +1,111 @@
+{
+  "snapshot": "21 AWS managed policies, snapshot of 2026-11-02, 1 named by the corpus but absent from AWS",
+  "configurations_in_topology": 220,
+  "configurations_measured": 220,
+  "configurations_failed": 0,
+  "failed": [],
+  "complete": true,
+  "inline": {
+    "configurations": 220,
+    "with_an_escalation": 3,
+    "with_an_escalation_gaining_a_resource_the_config_writes": 3,
+    "with_a_surviving_takeover_edge": 1,
+    "blocked_takeover_candidates": 4,
+    "blocked_by": {
+      "iam:PassRole": 4
+    },
+    "configs_with_a_blocked_candidate": 3,
+    "bound_95_percent_if_zero": null,
+    "escalating_configs": [
+      {
+        "config": "rogerjeasy__wick/infra",
+        "n_agents": 1,
+        "esc": [
+          "github-actions-wick-deploy"
+        ],
+        "esc_with_literal_gain": [
+          "github-actions-wick-deploy"
+        ]
+      },
+      {
+        "config": "ReyanL__demo-cloud-engineer-agent/terraform",
+        "n_agents": 1,
+        "esc": [
+          "GitLabCICDRole"
+        ],
+        "esc_with_literal_gain": [
+          "GitLabCICDRole"
+        ]
+      },
+      {
+        "config": "andrewblooman__Cohort/terraform",
+        "n_agents": 1,
+        "esc": [
+          "${var.project_name}-execute-actions"
+        ],
+        "esc_with_literal_gain": [
+          "${var.project_name}-execute-actions"
+        ]
+      }
+    ]
+  },
+  "expanded": {
+    "configurations": 220,
+    "with_an_escalation": 3,
+    "with_an_escalation_gaining_a_resource_the_config_writes": 2,
+    "with_a_surviving_takeover_edge": 1,
+    "blocked_takeover_candidates": 26,
+    "blocked_by": {
+      "iam:PassRole": 26
+    },
+    "configs_with_a_blocked_candidate": 16,
+    "bound_95_percent_if_zero": null,
+    "escalating_configs": [
+      {
+        "config": "rogerjeasy__wick/infra",
+        "n_agents": 1,
+        "esc": [
+          "github-actions-wick-deploy"
+        ],
+        "esc_with_literal_gain": [
+          "github-actions-wick-deploy"
+        ]
+      },
+      {
+        "config": "ZenMicro-Tech__terraform-zm-infra",
+        "n_agents": 1,
+        "esc": [
+          "${var.app_name}-bedrock-user"
+        ],
+        "esc_with_literal_gain": []
+      },
+      {
+        "config": "andrewblooman__Cohort/terraform",
+        "n_agents": 1,
+        "esc": [
+          "${var.project_name}-execute-actions"
+        ],
+        "esc_with_literal_gain": [
+          "${var.project_name}-execute-actions"
+        ]
+      }
+    ]
+  },
+  "passrole_wide_enough_to_cover_a_sibling_agent_role": {
+    "configurations": 1,
+    "detail": [
+      {
+        "config": "ReyanL__demo-cloud-engineer-agent/terraform",
+        "n_agents": 1,
+        "grants": [
+          {
+            "principal": "GitLabCICDRole",
+            "can_pass": "bedrock-agent-runtime-role",
+            "conditional": false
+          }
+        ]
+      }
+    ],
+    "why_it_matters": "a takeover candidate blocked only on iam:PassRole becomes usable in a deployment that also grants PassRole over the sibling's role, so this is the set where the chain completes."
+  }
+}

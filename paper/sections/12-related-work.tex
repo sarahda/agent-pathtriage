@@ -1,0 +1,97 @@
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Reasoning about cloud access control}
+
+Zelkova encodes AWS policies into SMT and answers questions about them
+exactly, such as whether one policy is more permissive than
+another~\cite{backes2018zelkova}. What it answers is a question about a policy
+or a pair of policies. The property here belongs to a deployment: it needs the
+principals, the agent runtimes, and the arguments that bind one to another.
+Asking whether role A's policy is more permissive than role B's does not
+reveal that A can replace what B runs.
+
+\subsection{Multi-step attacks and escalation paths}
+
+Shevrin and Margalit use model checking to find multi-step IAM attacks, where
+each step is an API call that changes what the attacker can do
+next~\cite{shevrin2023multistep}. TAC combines static and dynamic information
+to detect IAM privilege escalation~\cite{hu2023tac}. Both treat escalation as
+a path rather than a single bad grant, which is the stance here.
+
+The difference is what sits at the end of an edge. There the attacker moves
+between IAM principals: it assumes a role, creates a key, attaches a policy.
+Those edges exist here too. The edge this paper adds does not move between
+principals at all: the attacker rewrites the \emph{workload} an existing
+principal runs, and nothing about that principal changes. An analysis built on
+principal to principal transitions has no place to put that edge.
+
+A second difference is the input: model checking needs a deployed account,
+while \tool runs against the source, which is what makes the measurement in
+Section~\ref{sec:results} possible and puts a finding in review.
+
+\subsection{Reporting on this platform}
+\label{sec:industry}
+
+Cross-agent escalation on \agentcore is not an unreported problem, and the
+term is not ours. Unit~42 disclosed that the execution role the AgentCore
+starter toolkit creates carries wildcard scopes, so a compromised agent can
+read other agents' memory, pull their container images, and invoke
+them~\cite{hadad2026godmode}. Mitigant built four paths on that same role,
+including a cross-agent runtime hijack~\cite{torkura2026agentsore}. Rehberger describes cross-agent escalation
+in a different setting, where one agent approves actions for
+another~\cite{rehberger2025freeeachother}.
+
+BeyondTrust is the closest: \iam{bedrock-agentcore:\allowbreak Invoke\allowbreak AgentRuntimeCommand}, on
+its own, runs a
+command as root inside an existing runtime's sandbox, and the platform's
+metadata service returns that runtime's execution role
+credentials~\cite{garcia2026agentcorepaths}. One permission, no
+\iam{iam:PassRole}, no change to the deployment. Its \iam{iam:PassRole} chains
+are create variants, for when no runtime carries the role the attacker wants.
+
+\paragraph{Two routes, and the one this paper takes.}
+The two answer different questions. Theirs reads a credential and leaves the
+agent as it was; a rotation ends it, and the command lands in the log group
+the platform creates for the runtime. Replacing the artifact leaves the agent
+answering its own callers with attacker code until someone compares the
+deployed artifact against what was meant to be there. Section~\ref{sec:case-study}
+measures that difference: with every policy detached from the attacker
+principal, the operator's own call to the runtime still returns the planted
+code's answer, carrying the victim role's data. The cost of that durability is
+a second permission, always \iam{iam:PassRole}.
+\api{UpdateAgentRuntime} appears in none of the reporting above.
+
+\paragraph{The gate is a name match.}
+The wildcard execution role of the earlier reports is a misconfiguration, and
+the fix is to scope it. Section~\ref{sec:case-study} isolates a different
+control: with the attacker holding only \iam{BedrockAgentCoreFullAccess}, the
+single variable that decides the outcome is whether the victim role's
+\emph{name} matches \iam{*BedrockAgentCore*}, which the console's own default
+names do. BeyondTrust names that managed policy as over broad and proposes a
+service control policy keyed on \iam{aws:PrincipalArn}; the role name
+condition inside the policy is not examined.
+
+\paragraph{Prevalence.}
+Each of those reports is a single scenario in a controlled account. None
+measures how often the preconditions occur, and none reads a deployment before
+it exists.
+
+\subsection{Infrastructure as code}
+
+Rahman et al.\ catalogue recurring security smells in IaC scripts and show
+they are common in public repositories~\cite{rahman2019sevensins}, and open
+scanners implement rule sets of that kind. The unit of analysis differs: a
+smell fires on one resource, while the property here is a relation between two
+resources in the same file. A deployment where every resource passes every
+rule is the deployment this paper is about.
+
+\subsection{Security of LLM agents}
+
+Abdelnabi et al.\ show that content an LLM-integrated application retrieves
+can carry instructions the application then
+follows~\cite{abdelnabi2023notwhat}, which is why
+Section~\ref{sec:threat-model} starts from attacker code running as one
+agent. That literature stops at the boundary of the agent's own capabilities;
+this paper starts there and asks what the account looks like when the agent is
+one of several.

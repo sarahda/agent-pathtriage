@@ -1,0 +1,94 @@
+\section{Implementation}
+\label{sec:implementation}
+
+\tool is written in Python and has no cloud credentials in its analysis path.
+It reads infrastructure as code and produces findings, so a deployment can be
+analysed before it exists.
+
+\subsection{From source to a state graph}
+
+\texttt{extract\_graph} reads Terraform and produces the state shape the
+analysis works on: principals, policies, roles, runtimes, and the arguments
+that connect them. Two parsing decisions carry weight. When a declared name is an expression the
+parser cannot resolve, it falls back to the resource label and records the
+expression, which is what Section~\ref{sec:limitations} reports as
+undecidable. And a runtime block carrying \texttt{count} or
+\texttt{for\_each} creates one runtime per element, so counting blocks and
+counting runtimes differ; Section~\ref{sec:results} reports both.
+
+\subsection{One configuration, end to end}
+
+Figure~\ref{fig:worked} carries a configuration from the corpus through the
+whole analysis. The outcome is a blocked edge, not a chain.
+
+\input{figures/fig-worked}
+
+Panel 1 is the source. A runtime names its execution role through a resource
+reference rather than a literal ARN, the role's trust policy admits the
+service with no condition key at all, and a policy attached to a continuous
+integration role grants \iam{iam:PassRole} with \texttt{Resource = "*"}.
+
+Panel 2 is the state. Three things in it decide the result. The runtime's
+\texttt{role\_arn} is resolved through the reference to the role resource, so
+$\rho(\mathit{agent})$ is known. The wildcard in the grant is carried as a
+wildcard rather than expanded, so the match happens when the edge rule is
+evaluated. The trust statement is recorded with the fact that it has no
+condition, which is stronger than the vendor template of
+Section~\ref{sec:background} and is what makes the trust side of the edge
+unconditional here.
+
+Panel 3 is the finding. Evaluating Equation~\ref{eq:replace} against this
+state, the \iam{iam:PassRole} conjunct holds: the wildcard covers
+\texttt{agent-runtime-role}, and no condition narrows it. The
+\api{UpdateAgentRuntime} conjunct does not hold, because the role carries no
+action on the agent platform. So the edge is blocked, the single missing
+action is named, and no chain is reported.
+
+The analysis then declines to escalate this further for a second reason, and
+records it: the configuration declares one agent. Equation~\ref{eq:replace}
+needs a runtime whose role differs from the caller's reach, and a deployment
+with a single agent has no second role to reach. The output says both things,
+so a reader can see that the pass gate being open and a cross-agent
+escalation existing are different claims.
+
+This is the \nPassRoleWide configuration that Section~\ref{sec:results}
+reports separately from the \nBlocked blocked candidates. In the others the
+missing conjunct is \iam{iam:PassRole}. Here it is the update action, and the
+pass is already granted.
+
+\subsection{Reaching}
+
+\texttt{reach.py} computes $\auth$ and $\eff$ and applies
+Equation~\ref{eq:esc}. CloudFormation and CDK are translated into the same state shape and analysed
+by the same code, so a difference between corpora is a difference in the
+deployments rather than in the analysis.
+
+\subsection{CloudFormation}
+
+\texttt{cfn\_to\_state} resolves the intrinsic functions that appear in role
+and runtime arguments. An intrinsic it cannot resolve is recorded, and the
+template is reported as undecidable rather than analysed. The function that
+mattered most in practice was \api{Fn::Join}, because CDK writes nearly every
+ARN as a join over a partition reference, and without it the CDK corpus could
+not be analysed at all.
+
+\subsection{CDK}
+
+A CDK application builds its roles in code, so recovering the policies by
+reading the source is a heuristic. We avoid the heuristic by synthesising:
+each application is installed in a scratch directory, its entry point is run
+with \texttt{CDK\_OUTDIR} set, and the CloudFormation it emits goes through
+the same pipeline as the CloudFormation corpus. The CDK CLI is not needed,
+because an application writes its templates when \texttt{App.synth()} is
+called.
+
+Failures to synthesise are reported by reason in Section~\ref{sec:results}.
+
+\subsection{Scale}
+
+Over the \nProjects analysed projects, which hold \nTerraformFiles Terraform
+files, the whole corpus takes \corpusSeconds seconds: a median of
+\medianSeconds seconds per template, \pNinetySeconds at the 90th percentile,
+\pNinetyNineSeconds at the 99th, \maxSeconds at worst, and \peakMemoryMB\,MB
+of peak child memory. That is cheap enough to run on every change rather than
+periodically, which matters for a finding whose value is in review.

@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# fake gh for testing collect_corpus_v3.sh discovery logic.
+# TOTALS file maps a query substring -> total_count.
+# FAILPAGE="<substr>:<page>" makes that one page fail.
+set -u
+[ "${1:-}" = "auth" ] && exit 0
+
+q=""; page=1
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -f) case "$2" in
+          q=*)    q="${2#q=}" ;;
+          page=*) page="${2#page=}" ;;
+        esac
+        shift 2 ;;
+    *) shift ;;
+  esac
+done
+
+echo "CALL page=$page q=$q" >> "${CALLLOG:?}"
+
+if [ -n "${FAILPAGE:-}" ]; then
+  fsub="${FAILPAGE%%:*}"; fpage="${FAILPAGE##*:}"
+  case "$q" in *"$fsub"*) [ "$page" = "$fpage" ] && exit 1 ;; esac
+fi
+
+total=0
+while IFS='|' read -r pat n; do
+  [ -z "$pat" ] && continue
+  if [ "$q" = "$pat" ]; then total="$n"; fi
+done < "${TOTALS:?}"
+
+# Distinct queries must yield distinct repo names, or a union across size
+# buckets collapses and the test measures the fake rather than the script.
+tag=$(printf '%s' "$q" | cksum | cut -d' ' -f1)
+
+# emit min(100, total - (page-1)*100) items, named so each page is distinct
+start=$(( (page - 1) * 100 ))
+remain=$(( total - start ))
+[ "$remain" -lt 0 ] && remain=0
+[ "$remain" -gt 100 ] && remain=100
+
+printf '{"total_count":%d,"items":[' "$total"
+i=0
+while [ "$i" -lt "$remain" ]; do
+  [ "$i" -gt 0 ] && printf ','
+  printf '{"repository":{"full_name":"q%s/r%d","fork":false}}' "$tag" $(( start + i ))
+  i=$(( i + 1 ))
+done
+printf ']}\n'

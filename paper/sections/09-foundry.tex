@@ -1,0 +1,28 @@
+\section{\foundry: Connections Instead of Declared Agents}
+\label{sec:foundry}
+
+The analysis reads agents out of a deployment, so it needs the deployment to
+declare them. On \foundry it does not. We collected \nFoundryRepos
+repositories, \nFoundryFiles files and \nFoundryDirs template directories, and
+\nFoundryAgentDirs of those directories declare an agent as a deployed
+resource. Agents there are created at run time through the service's own APIs,
+so the deployment-time artifact the AWS analysis reads does not exist.
+
+No rate comparable to the AWS one can be computed from these templates.
+
+What \foundry templates do carry is \emph{connections}, and a connection's
+\api{authType} decides whether a call presents a directory identity or a
+credential stored in the connection. Where several agents share a project, a
+stored credential is presented identically by all of them, so the target
+cannot tell them apart and each agent reaches everything the connection is
+trusted with. That is the same loss of separation the role sharing of
+Section~\ref{sec:results} produces on AWS, reached by a different route.
+Figure~\ref{fig:authtypes} gives the distribution:
+\nAuthStoredCredential of \nFoundryAuthValues assigned values, about
+\pctAuthStoredCredential percent, store a credential rather than presenting an
+identity. \api{authType} is also a field on three unrelated Azure providers,
+so the count is taken only inside directories declaring a connection resource.
+No template sets an identity type scoped to an individual agent; those values
+appear in parameter lists as allowed values only.
+
+\input{figures/fig-authtypes}

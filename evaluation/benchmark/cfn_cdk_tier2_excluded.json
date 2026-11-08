@@ -1,0 +1,105 @@
+{
+ "source": "cfn_cdk_tier2.json",
+ "rule": "a unit under a vendored dependency, a test directory or a build output is not a deployment. This is the rule the chain analysis already applies to its denominator.",
+ "sections": {
+  "cloudformation": {
+   "unit": "one template file is one stack",
+   "counts": {
+    "shared": {
+     "before": 0,
+     "after": 0,
+     "excluded": 0
+    },
+    "undecidable": {
+     "before": 0,
+     "after": 0,
+     "excluded": 0
+    },
+    "scalars": {
+     "templates_sharing_a_role": {
+      "published": 0,
+      "corrected": 0
+     },
+     "templates_undecidable": {
+      "published": 0,
+      "corrected": 0
+     }
+    }
+   },
+   "excluded": [],
+   "shared_after": [],
+   "undecidable_after": []
+  },
+  "cdk": {
+   "unit": "one directory is one app, because two stacks in one app can share a role across two files",
+   "counts": {
+    "shared": {
+     "before": 2,
+     "after": 2,
+     "excluded": 0
+    },
+    "undecidable": {
+     "before": 0,
+     "after": 0,
+     "excluded": 0
+    },
+    "scalars": {
+     "directories_sharing_a_role": {
+      "published": 2,
+      "corrected": 2
+     },
+     "directories_undecidable": {
+      "published": 0,
+      "corrected": 0
+     }
+    }
+   },
+   "excluded": [],
+   "shared_after": [
+    {
+     "directory": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra",
+     "runtimes": 3,
+     "calls": [
+      {
+       "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+       "role": "agent_role.role_arn"
+      },
+      {
+       "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+       "role": "agent_role.role_arn"
+      },
+      {
+       "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+       "role": "agent_role.role_arn"
+      }
+     ],
+     "shared_roles": [
+      "agent_role.role_arn"
+     ]
+    },
+    {
+     "directory": "aws-samples__sample-aws-genai-ops-demos/operations-automation/ai-lambda-runtime-migration/cdk/lib",
+     "runtimes": 3,
+     "calls": [
+      {
+       "file": "aws-samples__sample-aws-genai-ops-demos/operations-automation/ai-lambda-runtime-migration/cdk/lib/runtime-stack.ts",
+       "role": "agentRole.roleArn"
+      },
+      {
+       "file": "aws-samples__sample-aws-genai-ops-demos/operations-automation/ai-lambda-runtime-migration/cdk/lib/runtime-stack.ts",
+       "role": "agentRole.roleArn"
+      },
+      {
+       "file": "aws-samples__sample-aws-genai-ops-demos/operations-automation/ai-lambda-runtime-migration/cdk/lib/runtime-stack.ts",
+       "role": "agentRole.roleArn"
+      }
+     ],
+     "shared_roles": [
+      "agentRole.roleArn"
+     ]
+    }
+   ],
+   "undecidable_after": []
+  }
+ }
+}

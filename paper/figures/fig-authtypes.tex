@@ -1,0 +1,50 @@
+\begin{figure}[t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+  width=68mm,
+  height=46mm,
+  xbar,
+  y dir=reverse,
+  xmin=0, xmax=340,
+  ymin=-0.7, ymax=6.7,
+  bar width=3.4mm,
+  /pgfplots/bar shift=0pt,
+  axis x line*=bottom,
+  axis y line*=left,
+  y axis line style={draw=none},
+  ytick={0,1,2,3,4,5,6},
+  yticklabels={%
+    \texttt{AAD},
+    \texttt{ApiKey},
+    \texttt{ManagedIdentity},
+    \texttt{CustomKeys},
+    \texttt{ProjectManagedIdentity},
+    \texttt{AccessKey},
+    seven others, one each},
+  ytick style={draw=none},
+  tick label style={font=\scriptsize},
+  xtick={0,100,200,300},
+  xlabel={\small assigned \texttt{authType} values},
+  xlabel style={font=\small},
+  nodes near coords={\scriptsize\pgfmathprintnumber\pgfplotspointmeta},
+  every node near coord/.append style={anchor=west, xshift=0.5mm},
+]
+\addplot[xbar, bar shift=0pt, fill=cIdentity, draw=cIdentity] coordinates {(279,0)};
+\addplot[xbar, bar shift=0pt, fill=cStored,   draw=cStored]   coordinates {(161,1)};
+\addplot[xbar, bar shift=0pt, fill=cIdentity, draw=cIdentity] coordinates {(44,2)};
+\addplot[xbar, bar shift=0pt, fill=cStored,   draw=cStored]   coordinates {(13,3)};
+\addplot[xbar, bar shift=0pt, fill=cIdentity, draw=cIdentity] coordinates {(8,4)};
+\addplot[xbar, bar shift=0pt, fill=cStored,   draw=cStored]   coordinates {(4,5)};
+\addplot[xbar, bar shift=0pt, fill=cNeutral,  draw=cNeutral]  coordinates {(7,6)};
+\end{axis}
+\end{tikzpicture}}
+\caption{\api{authType} across the \nFoundryAuthValues assigned values in the
+\nFoundryAuthDirs directories that declare a connection resource. Blue
+presents a directory identity, orange stores a credential in the connection.
+The last row collects seven values that occur once each, which the artifact
+names. \nAuthStoredCredential of \nFoundryAuthValues store a credential rather
+than presenting an identity.}
+\label{fig:authtypes}
+\end{figure}

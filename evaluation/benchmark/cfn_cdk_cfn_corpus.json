@@ -1,0 +1,1714 @@
+{
+  "corpus": "corpus_cfn",
+  "cloudformation": {
+    "unit": "one template file is one stack",
+    "candidate_files_read": 806192,
+    "files_declaring_an_agent_runtime": 391,
+    "agent_runtimes": 439,
+    "templates_with_two_or_more": 26,
+    "templates_sharing_a_role": 6,
+    "templates_undecidable": 0,
+    "multi": [
+      {
+        "template": "mfrancime__trident-archive/repos/trident_bedrock-agentcore_aws_agent_samples/04-infrastructure-as-code/cloudformation/multi-agent-runtime/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "Agent2Runtime",
+            "role": "GetAtt:Agent2ExecutionRole.Arn"
+          },
+          {
+            "logical": "Agent1Runtime",
+            "role": "GetAtt:Agent1ExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "nishadeborahphilips__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cloudformation/multi-agent-runtime/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "Agent2Runtime",
+            "role": "GetAtt:Agent2ExecutionRole.Arn"
+          },
+          {
+            "logical": "Agent1Runtime",
+            "role": "GetAtt:Agent1ExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "hoodini__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cloudformation/multi-agent-runtime/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "Agent2Runtime",
+            "role": "GetAtt:Agent2ExecutionRole.Arn"
+          },
+          {
+            "logical": "Agent1Runtime",
+            "role": "GetAtt:Agent1ExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "aws-samples__sample-agentic-hybrid-retrieval-aurora-postgresql/deploy/cloudformation/hybrid-retrieval-code-editor.yml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "MosaicToolsRuntime",
+            "role": "GetAtt:MosaicToolsRole.Arn"
+          },
+          {
+            "logical": "MosaicAgentRuntime",
+            "role": "GetAtt:MosaicAgentRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "hoodini__agentcore-cohere-samples/04-infrastructure-as-code/cloudformation/multi-agent-runtime/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "Agent2Runtime",
+            "role": "GetAtt:Agent2ExecutionRole.Arn"
+          },
+          {
+            "logical": "Agent1Runtime",
+            "role": "GetAtt:Agent1ExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "mordanov__aws_football_challenge/football_agent/deploy/cloudformation/agentcore.yaml",
+        "runtimes": 5,
+        "roles": [
+          {
+            "logical": "GkRuntime",
+            "role": "GetAtt:GkRole.Arn"
+          },
+          {
+            "logical": "DefRuntime",
+            "role": "GetAtt:DefRole.Arn"
+          },
+          {
+            "logical": "MidRuntime",
+            "role": "GetAtt:MidRole.Arn"
+          },
+          {
+            "logical": "Fwd1Runtime",
+            "role": "GetAtt:Fwd1Role.Arn"
+          },
+          {
+            "logical": "Fwd2Runtime",
+            "role": "GetAtt:Fwd2Role.Arn"
+          }
+        ]
+      },
+      {
+        "template": "seokjushin__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cloudformation/multi-agent-runtime/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "Agent2Runtime",
+            "role": "GetAtt:Agent2ExecutionRole.Arn"
+          },
+          {
+            "logical": "Agent1Runtime",
+            "role": "GetAtt:Agent1ExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "vkbaba__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cloudformation/multi-agent-runtime/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "Agent2Runtime",
+            "role": "GetAtt:Agent2ExecutionRole.Arn"
+          },
+          {
+            "logical": "Agent1Runtime",
+            "role": "GetAtt:Agent1ExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "Danacod991__Agentcore-2/04-infrastructure-as-code/cloudformation/multi-agent-runtime/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "Agent2Runtime",
+            "role": "GetAtt:Agent2ExecutionRole.Arn"
+          },
+          {
+            "logical": "Agent1Runtime",
+            "role": "GetAtt:Agent1ExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "aws-samples__sample-ai-qa-test-engine/infra/cfn-template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "TestRunnerRuntime",
+            "role": "If:[\"CreateRole\", {\"Fn::GetAtt\": \"AgentCoreExecutionRole.Arn\"}, {\"Fn::Ref\": \"ExistingRoleArn\"}]"
+          },
+          {
+            "logical": "OrchestratorRuntime",
+            "role": "If:[\"CreateRole\", {\"Fn::GetAtt\": \"AgentCoreExecutionRole.Arn\"}, {\"Fn::Ref\": \"ExistingRoleArn\"}]"
+          }
+        ]
+      },
+      {
+        "template": "aws__aws-dotnet-ai/test/AWS.AgentCore.Hosting.IntegrationTests/Infrastructure/inttest-runtimes.template.json",
+        "runtimes": 6,
+        "roles": [
+          {
+            "logical": "MicrosoftAgentFrameworkSample",
+            "role": "Ref:RoleArn"
+          },
+          {
+            "logical": "AnnotationsSample",
+            "role": "Ref:RoleArn"
+          },
+          {
+            "logical": "StreamingAgent",
+            "role": "Ref:RoleArn"
+          },
+          {
+            "logical": "AnnotationsStreamingAgent",
+            "role": "Ref:RoleArn"
+          },
+          {
+            "logical": "NativeAotExtensions",
+            "role": "Ref:RoleArn"
+          },
+          {
+            "logical": "NativeAotAnnotations",
+            "role": "Ref:RoleArn"
+          }
+        ]
+      },
+      {
+        "template": "iksena__llm-iac-data-analysis/cfn_benchmark/cfn_templates/chrictoria2025__AI/04-infrastructure-as-code/cloudformation/multi-agent-runtime/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "Agent2Runtime",
+            "role": "GetAtt:Agent2ExecutionRole.Arn"
+          },
+          {
+            "logical": "Agent1Runtime",
+            "role": "GetAtt:Agent1ExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "iksena__llm-iac-data-analysis/cfn_benchmark/cfn_templates/awslabs__agentcore-samples/04-infrastructure-as-code/cloudformation/multi-agent-runtime/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "Agent2Runtime",
+            "role": "GetAtt:Agent2ExecutionRole.Arn"
+          },
+          {
+            "logical": "Agent1Runtime",
+            "role": "GetAtt:Agent1ExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "aws-samples__sample-durable-multi-agent-step-functions-agentcore/infrastructure/template.yaml",
+        "runtimes": 3,
+        "roles": [
+          {
+            "logical": "RequirementsAgentRuntime",
+            "role": "GetAtt:AgentCoreExecutionRole.Arn"
+          },
+          {
+            "logical": "SearchAgentRuntime",
+            "role": "GetAtt:AgentCoreExecutionRole.Arn"
+          },
+          {
+            "logical": "ValidationAgentRuntime",
+            "role": "GetAtt:AgentCoreExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "aws-samples__sample-aiml-solution-labs/workshop/AgentExpress/orchestrator/cdk/test/fixtures/storage-off/build-code-tool.json",
+        "runtimes": 4,
+        "roles": [
+          {
+            "logical": "Subagentknowledgeresearch",
+            "role": "GetAtt:SubagentRoleknowledgeresearch731C93F4.Arn"
+          },
+          {
+            "logical": "Subagentwebsearch",
+            "role": "GetAtt:SubagentRolewebsearch6A73B0FE.Arn"
+          },
+          {
+            "logical": "Subagentdocumentationsearch",
+            "role": "GetAtt:SubagentRoledocumentationsearch260141AA.Arn"
+          },
+          {
+            "logical": "Orchestrator",
+            "role": "GetAtt:RuntimeRoleFD8790A4.Arn"
+          }
+        ]
+      },
+      {
+        "template": "aws-samples__sample-aiml-solution-labs/workshop/AgentExpress/orchestrator/cdk/test/fixtures/storage-off/console.json",
+        "runtimes": 4,
+        "roles": [
+          {
+            "logical": "Subagentknowledgeresearch",
+            "role": "GetAtt:SubagentRoleknowledgeresearch731C93F4.Arn"
+          },
+          {
+            "logical": "Subagentwebsearch",
+            "role": "GetAtt:SubagentRolewebsearch6A73B0FE.Arn"
+          },
+          {
+            "logical": "Subagentdocumentationsearch",
+            "role": "GetAtt:SubagentRoledocumentationsearch260141AA.Arn"
+          },
+          {
+            "logical": "Orchestrator",
+            "role": "GetAtt:RuntimeRoleFD8790A4.Arn"
+          }
+        ]
+      },
+      {
+        "template": "aws-samples__sample-aiml-solution-labs/workshop/AgentExpress/orchestrator/cdk/test/fixtures/storage-off/build-kb-s3.json",
+        "runtimes": 4,
+        "roles": [
+          {
+            "logical": "Subagentknowledgeresearch",
+            "role": "GetAtt:SubagentRoleknowledgeresearch731C93F4.Arn"
+          },
+          {
+            "logical": "Subagentwebsearch",
+            "role": "GetAtt:SubagentRolewebsearch6A73B0FE.Arn"
+          },
+          {
+            "logical": "Subagentdocumentationsearch",
+            "role": "GetAtt:SubagentRoledocumentationsearch260141AA.Arn"
+          },
+          {
+            "logical": "Orchestrator",
+            "role": "GetAtt:RuntimeRoleFD8790A4.Arn"
+          }
+        ]
+      },
+      {
+        "template": "aws-samples__sample-aiml-solution-labs/workshop/AgentExpress/orchestrator/cdk/test/fixtures/storage-off/build-files.json",
+        "runtimes": 4,
+        "roles": [
+          {
+            "logical": "Subagentknowledgeresearch",
+            "role": "GetAtt:SubagentRoleknowledgeresearch731C93F4.Arn"
+          },
+          {
+            "logical": "Subagentwebsearch",
+            "role": "GetAtt:SubagentRolewebsearch6A73B0FE.Arn"
+          },
+          {
+            "logical": "Subagentdocumentationsearch",
+            "role": "GetAtt:SubagentRoledocumentationsearch260141AA.Arn"
+          },
+          {
+            "logical": "Orchestrator",
+            "role": "GetAtt:RuntimeRoleFD8790A4.Arn"
+          }
+        ]
+      },
+      {
+        "template": "aws-samples__sample-aiml-solution-labs/workshop/AgentExpress/orchestrator/cdk/test/fixtures/storage-off/build.json",
+        "runtimes": 4,
+        "roles": [
+          {
+            "logical": "Subagentknowledgeresearch",
+            "role": "GetAtt:SubagentRoleknowledgeresearch731C93F4.Arn"
+          },
+          {
+            "logical": "Subagentwebsearch",
+            "role": "GetAtt:SubagentRolewebsearch6A73B0FE.Arn"
+          },
+          {
+            "logical": "Subagentdocumentationsearch",
+            "role": "GetAtt:SubagentRoledocumentationsearch260141AA.Arn"
+          },
+          {
+            "logical": "Orchestrator",
+            "role": "GetAtt:RuntimeRoleFD8790A4.Arn"
+          }
+        ]
+      },
+      {
+        "template": "chrictoria2025__AI/04-infrastructure-as-code/cloudformation/multi-agent-runtime/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "Agent2Runtime",
+            "role": "GetAtt:Agent2ExecutionRole.Arn"
+          },
+          {
+            "logical": "Agent1Runtime",
+            "role": "GetAtt:Agent1ExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "awslabs__agentcore-samples/04-infrastructure-as-code/cloudformation/multi-agent-runtime/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "Agent2Runtime",
+            "role": "GetAtt:Agent2ExecutionRole.Arn"
+          },
+          {
+            "logical": "Agent1Runtime",
+            "role": "GetAtt:Agent1ExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "heeki__agents/a2a-with-agentcore/iac/agentcore.yaml",
+        "runtimes": 3,
+        "roles": [
+          {
+            "logical": "BiomechanicsLabRuntime",
+            "role": "Ref:ExecutionRoleArn"
+          },
+          {
+            "logical": "LifeSyncRuntime",
+            "role": "Ref:ExecutionRoleArn"
+          },
+          {
+            "logical": "OrchestratorRuntime",
+            "role": "Ref:ExecutionRoleArn"
+          }
+        ]
+      },
+      {
+        "template": "aws-samples__sample-lambda-durable-functions/Industry Solutions/Healthcare/PriorAuthorization/template.yaml",
+        "runtimes": 5,
+        "roles": [
+          {
+            "logical": "DocumentAgentRuntime",
+            "role": "GetAtt:AgentCoreRuntimeRole.Arn"
+          },
+          {
+            "logical": "EligibilityAgentRuntime",
+            "role": "GetAtt:AgentCoreRuntimeRole.Arn"
+          },
+          {
+            "logical": "PolicyAgentRuntime",
+            "role": "GetAtt:AgentCoreRuntimeRole.Arn"
+          },
+          {
+            "logical": "MedicalNecessityAgentRuntime",
+            "role": "GetAtt:AgentCoreRuntimeRole.Arn"
+          },
+          {
+            "logical": "SynthesisAgentRuntime",
+            "role": "GetAtt:AgentCoreRuntimeRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "alessandrobologna__agentcore-mcp-proxy/demo/agentcore/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "StatelessAgentRuntime",
+            "role": "GetAtt:RuntimeExecutionRole.Arn"
+          },
+          {
+            "logical": "StatefulAgentRuntime",
+            "role": "GetAtt:RuntimeExecutionRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "JamieGeddes__factorial/templates/agent.yml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "BuilderRuntime",
+            "role": "GetAtt:BuilderRuntimeRole.Arn"
+          },
+          {
+            "logical": "ReviewerRuntime",
+            "role": "GetAtt:ReviewerAgentRole.Arn"
+          }
+        ]
+      },
+      {
+        "template": "astaykov__agentid-agentcore/infra/cloudformation/stack.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "AgentRuntime",
+            "role": "GetAtt:RuntimeExecutionRole.Arn"
+          },
+          {
+            "logical": "SpecialistRuntime",
+            "role": "GetAtt:SpecialistRole.Arn"
+          }
+        ]
+      }
+    ],
+    "shared": [
+      {
+        "template": "aws-samples__sample-ai-qa-test-engine/infra/cfn-template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "TestRunnerRuntime",
+            "role": "If:[\"CreateRole\", {\"Fn::GetAtt\": \"AgentCoreExecutionRole.Arn\"}, {\"Fn::Ref\": \"ExistingRoleArn\"}]"
+          },
+          {
+            "logical": "OrchestratorRuntime",
+            "role": "If:[\"CreateRole\", {\"Fn::GetAtt\": \"AgentCoreExecutionRole.Arn\"}, {\"Fn::Ref\": \"ExistingRoleArn\"}]"
+          }
+        ],
+        "shared_roles": [
+          "If:[\"CreateRole\", {\"Fn::GetAtt\": \"AgentCoreExecutionRole.Arn\"}, {\"Fn::Ref\": \"ExistingRoleArn\"}]"
+        ]
+      },
+      {
+        "template": "aws__aws-dotnet-ai/test/AWS.AgentCore.Hosting.IntegrationTests/Infrastructure/inttest-runtimes.template.json",
+        "runtimes": 6,
+        "roles": [
+          {
+            "logical": "MicrosoftAgentFrameworkSample",
+            "role": "Ref:RoleArn"
+          },
+          {
+            "logical": "AnnotationsSample",
+            "role": "Ref:RoleArn"
+          },
+          {
+            "logical": "StreamingAgent",
+            "role": "Ref:RoleArn"
+          },
+          {
+            "logical": "AnnotationsStreamingAgent",
+            "role": "Ref:RoleArn"
+          },
+          {
+            "logical": "NativeAotExtensions",
+            "role": "Ref:RoleArn"
+          },
+          {
+            "logical": "NativeAotAnnotations",
+            "role": "Ref:RoleArn"
+          }
+        ],
+        "shared_roles": [
+          "Ref:RoleArn"
+        ]
+      },
+      {
+        "template": "aws-samples__sample-durable-multi-agent-step-functions-agentcore/infrastructure/template.yaml",
+        "runtimes": 3,
+        "roles": [
+          {
+            "logical": "RequirementsAgentRuntime",
+            "role": "GetAtt:AgentCoreExecutionRole.Arn"
+          },
+          {
+            "logical": "SearchAgentRuntime",
+            "role": "GetAtt:AgentCoreExecutionRole.Arn"
+          },
+          {
+            "logical": "ValidationAgentRuntime",
+            "role": "GetAtt:AgentCoreExecutionRole.Arn"
+          }
+        ],
+        "shared_roles": [
+          "GetAtt:AgentCoreExecutionRole.Arn"
+        ]
+      },
+      {
+        "template": "heeki__agents/a2a-with-agentcore/iac/agentcore.yaml",
+        "runtimes": 3,
+        "roles": [
+          {
+            "logical": "BiomechanicsLabRuntime",
+            "role": "Ref:ExecutionRoleArn"
+          },
+          {
+            "logical": "LifeSyncRuntime",
+            "role": "Ref:ExecutionRoleArn"
+          },
+          {
+            "logical": "OrchestratorRuntime",
+            "role": "Ref:ExecutionRoleArn"
+          }
+        ],
+        "shared_roles": [
+          "Ref:ExecutionRoleArn"
+        ]
+      },
+      {
+        "template": "aws-samples__sample-lambda-durable-functions/Industry Solutions/Healthcare/PriorAuthorization/template.yaml",
+        "runtimes": 5,
+        "roles": [
+          {
+            "logical": "DocumentAgentRuntime",
+            "role": "GetAtt:AgentCoreRuntimeRole.Arn"
+          },
+          {
+            "logical": "EligibilityAgentRuntime",
+            "role": "GetAtt:AgentCoreRuntimeRole.Arn"
+          },
+          {
+            "logical": "PolicyAgentRuntime",
+            "role": "GetAtt:AgentCoreRuntimeRole.Arn"
+          },
+          {
+            "logical": "MedicalNecessityAgentRuntime",
+            "role": "GetAtt:AgentCoreRuntimeRole.Arn"
+          },
+          {
+            "logical": "SynthesisAgentRuntime",
+            "role": "GetAtt:AgentCoreRuntimeRole.Arn"
+          }
+        ],
+        "shared_roles": [
+          "GetAtt:AgentCoreRuntimeRole.Arn"
+        ]
+      },
+      {
+        "template": "alessandrobologna__agentcore-mcp-proxy/demo/agentcore/template.yaml",
+        "runtimes": 2,
+        "roles": [
+          {
+            "logical": "StatelessAgentRuntime",
+            "role": "GetAtt:RuntimeExecutionRole.Arn"
+          },
+          {
+            "logical": "StatefulAgentRuntime",
+            "role": "GetAtt:RuntimeExecutionRole.Arn"
+          }
+        ],
+        "shared_roles": [
+          "GetAtt:RuntimeExecutionRole.Arn"
+        ]
+      }
+    ],
+    "undecidable": [],
+    "other_agentcore_types": {
+      "aws::bedrockagentcore::gateway": 269,
+      "aws::bedrockagentcore::memory": 222,
+      "aws::bedrockagentcore::runtimeendpoint": 49
+    },
+    "method": "exact: the resource type is named in the template and the role is a property of it. Intrinsics are normalised so the YAML and JSON forms of one reference compare equal."
+  },
+  "cdk": {
+    "unit": "one directory is one app, because two stacks in one app can share a role across two files",
+    "files_with_a_runtime_construct": 255,
+    "runtime_constructs": 293,
+    "directories_with_two_or_more": 41,
+    "directories_sharing_a_role": 14,
+    "directories_undecidable": 10,
+    "multi": [
+      {
+        "directory": "haoxdong__botcube/infra/agentcore/cdk/test",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "haoxdong__botcube/infra/agentcore/cdk/test/cdk.test.ts",
+            "role": "'arn:aws:iam::123456789012:role/test'"
+          },
+          {
+            "file": "haoxdong__botcube/infra/agentcore/cdk/test/runtime-network.test.ts",
+            "role": "'arn:aws:iam::123456789012:role/test'"
+          },
+          {
+            "file": "haoxdong__botcube/infra/agentcore/cdk/test/runtime-network.test.ts",
+            "role": "'arn:aws:iam::123456789012:role/test'"
+          }
+        ]
+      },
+      {
+        "directory": "dcrearer__docint/infrastructure/stacks",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "dcrearer__docint/infrastructure/stacks/evaluation_stack.py",
+            "role": null
+          },
+          {
+            "file": "dcrearer__docint/infrastructure/stacks/agent_stack.py",
+            "role": "role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-banking-demo-live-avatar-multiagent-agentcore/lib/stacks/backend",
+        "runtimes": 4,
+        "calls": [
+          {
+            "file": "aws-samples__sample-banking-demo-live-avatar-multiagent-agentcore/lib/stacks/backend/index.ts",
+            "role": "agentCoreRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-banking-demo-live-avatar-multiagent-agentcore/lib/stacks/backend/index.ts",
+            "role": "agentCoreRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-banking-demo-live-avatar-multiagent-agentcore/lib/stacks/backend/index.ts",
+            "role": "agentCoreRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-banking-demo-live-avatar-multiagent-agentcore/lib/stacks/backend/index.ts",
+            "role": "agentCoreRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-agent-platform-with-agentcore/infrastructure/stacks",
+        "runtimes": 4,
+        "calls": [
+          {
+            "file": "aws-samples__sample-agent-platform-with-agentcore/infrastructure/stacks/team_demo_stack.py",
+            "role": "runtime.execution_role.role_arn"
+          },
+          {
+            "file": "aws-samples__sample-agent-platform-with-agentcore/infrastructure/stacks/runtime_stack.py",
+            "role": "interactive_role.role_arn"
+          },
+          {
+            "file": "aws-samples__sample-agent-platform-with-agentcore/infrastructure/stacks/runtime_stack.py",
+            "role": "sdk_role.role_arn"
+          },
+          {
+            "file": "aws-samples__sample-agent-platform-with-agentcore/infrastructure/stacks/runtime_stack.py",
+            "role": "mcp_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-agentic-video-operations/media-services-langchain/cdk/lib",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "aws-samples__sample-agentic-video-operations/media-services-langchain/cdk/lib/media-services-langchain-stack.ts",
+            "role": "emlRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-agentic-video-operations/media-services-langchain/cdk/lib/media-services-langchain-stack.ts",
+            "role": "emxRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-agentic-video-operations/media-services-langchain/cdk/lib/media-services-langchain-stack.ts",
+            "role": "coordinatorRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "cdklabs__cdk-appmod-catalog-blueprints/use-cases/framework/agents",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "cdklabs__cdk-appmod-catalog-blueprints/use-cases/framework/agents/interactive-agent.ts",
+            "role": null
+          },
+          {
+            "file": "cdklabs__cdk-appmod-catalog-blueprints/use-cases/framework/agents/interactive-agent.ts",
+            "role": "config.agentRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-frictionless-insurance-advisor/cdk",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "aws-samples__sample-frictionless-insurance-advisor/cdk/voice_stack.py",
+            "role": "runtime_role.role_arn"
+          },
+          {
+            "file": "aws-samples__sample-frictionless-insurance-advisor/cdk/agentcore_stack.py",
+            "role": "self.runtime_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "hoodini__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cdk/multi-agent-runtime",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "hoodini__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cdk/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent2_execution_role.role_arn"
+          },
+          {
+            "file": "hoodini__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cdk/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent1_execution_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "mteichtahl__trace/src/infra",
+        "runtimes": 4,
+        "calls": [
+          {
+            "file": "mteichtahl__trace/src/infra/project.ts",
+            "role": "role.roleArn"
+          },
+          {
+            "file": "mteichtahl__trace/src/infra/external.ts",
+            "role": "this.externalRole.roleArn"
+          },
+          {
+            "file": "mteichtahl__trace/src/infra/external.ts",
+            "role": "this.mcpRole.roleArn"
+          },
+          {
+            "file": "mteichtahl__trace/src/infra/stack.ts",
+            "role": "apiRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib",
+        "runtimes": 5,
+        "calls": [
+          {
+            "file": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib/personalization-agent-stack.ts",
+            "role": "props.executionRoleArn"
+          },
+          {
+            "file": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib/customer-support-assistant-stack.ts",
+            "role": "agentExecutionRole.roleArn"
+          },
+          {
+            "file": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib/product-recommendation-agent-stack.ts",
+            "role": "props.executionRoleArn"
+          },
+          {
+            "file": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib/order-management-agent-stack.ts",
+            "role": "props.executionRoleArn"
+          },
+          {
+            "file": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib/troubleshooting-agent-stack.ts",
+            "role": "props.executionRoleArn"
+          }
+        ]
+      },
+      {
+        "directory": "hoodini__agentcore-cohere-samples/04-infrastructure-as-code/cdk/multi-agent-runtime",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "hoodini__agentcore-cohere-samples/04-infrastructure-as-code/cdk/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent2_execution_role.role_arn"
+          },
+          {
+            "file": "hoodini__agentcore-cohere-samples/04-infrastructure-as-code/cdk/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent1_execution_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "valkey-io__valkey-review-bot/infra/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "valkey-io__valkey-review-bot/infra/lib/valkey-review-agent-stack.ts",
+            "role": "this.role.roleArn"
+          },
+          {
+            "file": "valkey-io__valkey-review-bot/infra/lib/curator-agent-stack.ts",
+            "role": "this.role.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-ukg-for-mfg/cdk/lib",
+        "runtimes": 5,
+        "calls": [
+          {
+            "file": "aws-samples__sample-ukg-for-mfg/cdk/lib/agent-stack.ts",
+            "role": null
+          },
+          {
+            "file": "aws-samples__sample-ukg-for-mfg/cdk/lib/agent-stack.ts",
+            "role": null
+          },
+          {
+            "file": "aws-samples__sample-ukg-for-mfg/cdk/lib/agent-stack.ts",
+            "role": "explorerRuntimeRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-ukg-for-mfg/cdk/lib/agent-stack.ts",
+            "role": null
+          },
+          {
+            "file": "aws-samples__sample-ukg-for-mfg/cdk/lib/agent-stack.ts",
+            "role": "discoveryRuntimeRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "mateon01__meeting-note-analyzer/infra/lib",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "mateon01__meeting-note-analyzer/infra/lib/agent-stack.ts",
+            "role": "role.roleArn"
+          },
+          {
+            "file": "mateon01__meeting-note-analyzer/infra/lib/lecture-stack.ts",
+            "role": "runtimeRole.roleArn"
+          },
+          {
+            "file": "mateon01__meeting-note-analyzer/infra/lib/chat-stack.ts",
+            "role": "role.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-opencode-on-amazon-bedrock-agentcore/tests/property",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "aws-samples__sample-opencode-on-amazon-bedrock-agentcore/tests/property/test_gateway_preservation.py",
+            "role": "\"arn:aws:iam::123456789012:role/mock-role\""
+          },
+          {
+            "file": "aws-samples__sample-opencode-on-amazon-bedrock-agentcore/tests/property/test_gateway_stack_synthesis.py",
+            "role": "\"arn:aws:iam::123456789012:role/stub-execution-role\""
+          }
+        ]
+      },
+      {
+        "directory": "minorun365__minorun-agent/infra/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "minorun365__minorun-agent/infra/lib/agent-stack.ts",
+            "role": null
+          },
+          {
+            "file": "minorun365__minorun-agent/infra/lib/agent-stack.ts",
+            "role": null
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-apj-sup-sa/agentic-workloads/internal-business-agent-tools/cdk/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "aws-samples__sample-apj-sup-sa/agentic-workloads/internal-business-agent-tools/cdk/lib/agentcore-stack.ts",
+            "role": "a2aRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-apj-sup-sa/agentic-workloads/internal-business-agent-tools/cdk/lib/agentcore-stack.ts",
+            "role": "runtimeRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "ike1112__Real-Time-Geo-Fencing-and-Automate-Alert-Triage-with-Agentic-AI/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "ike1112__Real-Time-Geo-Fencing-and-Automate-Alert-Triage-with-Agentic-AI/lib/alerting-stack.ts",
+            "role": "analyzerRole.roleArn"
+          },
+          {
+            "file": "ike1112__Real-Time-Geo-Fencing-and-Automate-Alert-Triage-with-Agentic-AI/lib/alerting-stack.ts",
+            "role": "publisherRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-spec-driven-presentation-maker/infra/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "aws-samples__sample-spec-driven-presentation-maker/infra/lib/runtime-stack.ts",
+            "role": "runtimeRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-spec-driven-presentation-maker/infra/lib/agent-stack.ts",
+            "role": "role.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-multi-agent-on-agentcore/infra/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "aws-samples__sample-multi-agent-on-agentcore/infra/lib/runtime-stack.ts",
+            "role": "executionRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-multi-agent-on-agentcore/infra/lib/component-runtime-stack.ts",
+            "role": "executionRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-aerospace-events-agents-digital-thread/src/infra/lib",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "aws-samples__sample-aerospace-events-agents-digital-thread/src/infra/lib/thread-navigator-stack.ts",
+            "role": "role.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-aerospace-events-agents-digital-thread/src/infra/lib/agui-stack.ts",
+            "role": null
+          },
+          {
+            "file": "aws-samples__sample-aerospace-events-agents-digital-thread/src/infra/lib/agui-stack.ts",
+            "role": "role.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "seokjushin__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cdk/multi-agent-runtime",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "seokjushin__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cdk/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent2_execution_role.role_arn"
+          },
+          {
+            "file": "seokjushin__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cdk/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent1_execution_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "vkbaba__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cdk/multi-agent-runtime",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "vkbaba__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cdk/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent2_execution_role.role_arn"
+          },
+          {
+            "file": "vkbaba__amazon-bedrock-agentcore-samples/04-infrastructure-as-code/cdk/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent1_execution_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+            "role": "agent_role.role_arn"
+          },
+          {
+            "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+            "role": "agent_role.role_arn"
+          },
+          {
+            "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+            "role": "agent_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "dera-p__test_strands_agent/infra",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "dera-p__test_strands_agent/infra/stack.py",
+            "role": null
+          },
+          {
+            "file": "dera-p__test_strands_agent/infra/stack.py",
+            "role": "runtime_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "salty-vanilla__agentra/infra/cdk/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "salty-vanilla__agentra/infra/cdk/lib/agentra-agentcore-runtime-stack.ts",
+            "role": "runtimeRole.roleArn"
+          },
+          {
+            "file": "salty-vanilla__agentra/infra/cdk/lib/agentra-slide-runtime-stack.ts",
+            "role": "runtimeRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__policy-security-assistant/cdk/stacks",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "aws-samples__policy-security-assistant/cdk/stacks/agent_runtime.py",
+            "role": null
+          },
+          {
+            "file": "aws-samples__policy-security-assistant/cdk/stacks/agent_runtime.py",
+            "role": "self.role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "xyh202131__aws-nba/infra",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "xyh202131__aws-nba/infra/app.ts",
+            "role": "role.valueAsString"
+          },
+          {
+            "file": "xyh202131__aws-nba/infra/cloud.ts",
+            "role": "\"arn:aws:iam::000000000000:role/NBAHackathonWorkloadRole\""
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-aws-agentops-fix-first-agent/ab_testing/target_based_variants/cdk_ab_testing/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "aws-samples__sample-aws-agentops-fix-first-agent/ab_testing/target_based_variants/cdk_ab_testing/lib/ab-testing-stack.ts",
+            "role": "controlRuntimeRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-aws-agentops-fix-first-agent/ab_testing/target_based_variants/cdk_ab_testing/lib/ab-testing-stack.ts",
+            "role": "refinedRuntimeRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "blasg5884__agent-orchestration/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "blasg5884__agent-orchestration/lib/agents-stack.ts",
+            "role": "runtimeRole.roleArn"
+          },
+          {
+            "file": "blasg5884__agent-orchestration/lib/agents-stack.ts",
+            "role": "runtimeRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "arslan70__sidekick/infra/stacks",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "arslan70__sidekick/infra/stacks/agent_runtime_stack.py",
+            "role": "self.agent_role.role_arn"
+          },
+          {
+            "file": "arslan70__sidekick/infra/stacks/agentcore_stack.py",
+            "role": "self.agent_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "niklas-palm__agency/infra/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "niklas-palm__agency/infra/lib/control-plane-stack.ts",
+            "role": "runtimeRole.roleArn"
+          },
+          {
+            "file": "niklas-palm__agency/infra/lib/control-plane-stack.ts",
+            "role": "runtimeRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-nova-sonic-bidi-agent/cdk/stacks",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "aws-samples__sample-nova-sonic-bidi-agent/cdk/stacks/voice_assistant_stack.py",
+            "role": null
+          },
+          {
+            "file": "aws-samples__sample-nova-sonic-bidi-agent/cdk/stacks/voice_assistant_stack.py",
+            "role": "self.agentcore_execution_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "chrictoria2025__AI/04-infrastructure-as-code/cdk/multi-agent-runtime",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "chrictoria2025__AI/04-infrastructure-as-code/cdk/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent2_execution_role.role_arn"
+          },
+          {
+            "file": "chrictoria2025__AI/04-infrastructure-as-code/cdk/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent1_execution_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "awslabs__agentcore-samples/01-features/06-observe-evaluate-optimize-your-agent/02-evaluate/cicd-gated-evaluation/infrastructure",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "awslabs__agentcore-samples/01-features/06-observe-evaluate-optimize-your-agent/02-evaluate/cicd-gated-evaluation/infrastructure/stack.py",
+            "role": "mcp_role.role.role_arn"
+          },
+          {
+            "file": "awslabs__agentcore-samples/01-features/06-observe-evaluate-optimize-your-agent/02-evaluate/cicd-gated-evaluation/infrastructure/stack.py",
+            "role": "agent_role.role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "awslabs__agentcore-samples/04-infrastructure-as-code/cdk/python/multi-agent-runtime",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "awslabs__agentcore-samples/04-infrastructure-as-code/cdk/python/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent2_execution_role.role_arn"
+          },
+          {
+            "file": "awslabs__agentcore-samples/04-infrastructure-as-code/cdk/python/multi-agent-runtime/multi_agent_stack.py",
+            "role": "agent1_execution_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "neo4j-partners__aws-starter/neo4j-mcp-server/cdk",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "neo4j-partners__aws-starter/neo4j-mcp-server/cdk/neo4j_mcp_stack.py",
+            "role": null
+          },
+          {
+            "file": "neo4j-partners__aws-starter/neo4j-mcp-server/cdk/neo4j_mcp_stack.py",
+            "role": "self.agent_execution_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "sori883__evo/infra/lib/constructs",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "sori883__evo/infra/lib/constructs/report.ts",
+            "role": "this.executionRole.roleArn"
+          },
+          {
+            "file": "sori883__evo/infra/lib/constructs/agent.ts",
+            "role": "this.executionRole.roleArn"
+          },
+          {
+            "file": "sori883__evo/infra/lib/constructs/incident.ts",
+            "role": "this.executionRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "tilsley__creance/deploy/aws/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "tilsley__creance/deploy/aws/lib/agentcore-stack.ts",
+            "role": "runtimeRole.roleArn"
+          },
+          {
+            "file": "tilsley__creance/deploy/aws/lib/agentcore-stack.ts",
+            "role": "runtimeRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-multi-account-agentic-incident-response/agents/infra/lib",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "aws-samples__sample-multi-account-agentic-incident-response/agents/infra/lib/agents-infra-stack.ts",
+            "role": "agentTaskRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-multi-account-agentic-incident-response/agents/infra/lib/agents-infra-stack.ts",
+            "role": "agentTaskRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-multi-account-agentic-incident-response/agents/infra/lib/agents-infra-stack.ts",
+            "role": "mcpTaskRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "PublicVerityProject__veridian-core-pyaws-v1.0.0-20251010T145905/.venv/Lib/site-packages/aws_cdk/aws_bedrockagentcore",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "PublicVerityProject__veridian-core-pyaws-v1.0.0-20251010T145905/.venv/Lib/site-packages/aws_cdk/aws_bedrockagentcore/__init__.py",
+            "role": null
+          },
+          {
+            "file": "PublicVerityProject__veridian-core-pyaws-v1.0.0-20251010T145905/.venv/Lib/site-packages/aws_cdk/aws_bedrockagentcore/__init__.py",
+            "role": "\"roleArn\""
+          }
+        ]
+      }
+    ],
+    "shared": [
+      {
+        "directory": "haoxdong__botcube/infra/agentcore/cdk/test",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "haoxdong__botcube/infra/agentcore/cdk/test/cdk.test.ts",
+            "role": "'arn:aws:iam::123456789012:role/test'"
+          },
+          {
+            "file": "haoxdong__botcube/infra/agentcore/cdk/test/runtime-network.test.ts",
+            "role": "'arn:aws:iam::123456789012:role/test'"
+          },
+          {
+            "file": "haoxdong__botcube/infra/agentcore/cdk/test/runtime-network.test.ts",
+            "role": "'arn:aws:iam::123456789012:role/test'"
+          }
+        ],
+        "shared_roles": [
+          "'arn:aws:iam::123456789012:role/test'"
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-banking-demo-live-avatar-multiagent-agentcore/lib/stacks/backend",
+        "runtimes": 4,
+        "calls": [
+          {
+            "file": "aws-samples__sample-banking-demo-live-avatar-multiagent-agentcore/lib/stacks/backend/index.ts",
+            "role": "agentCoreRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-banking-demo-live-avatar-multiagent-agentcore/lib/stacks/backend/index.ts",
+            "role": "agentCoreRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-banking-demo-live-avatar-multiagent-agentcore/lib/stacks/backend/index.ts",
+            "role": "agentCoreRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-banking-demo-live-avatar-multiagent-agentcore/lib/stacks/backend/index.ts",
+            "role": "agentCoreRole.roleArn"
+          }
+        ],
+        "shared_roles": [
+          "agentCoreRole.roleArn"
+        ]
+      },
+      {
+        "directory": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib",
+        "runtimes": 5,
+        "calls": [
+          {
+            "file": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib/personalization-agent-stack.ts",
+            "role": "props.executionRoleArn"
+          },
+          {
+            "file": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib/customer-support-assistant-stack.ts",
+            "role": "agentExecutionRole.roleArn"
+          },
+          {
+            "file": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib/product-recommendation-agent-stack.ts",
+            "role": "props.executionRoleArn"
+          },
+          {
+            "file": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib/order-management-agent-stack.ts",
+            "role": "props.executionRoleArn"
+          },
+          {
+            "file": "aws-solutions-library-samples__guidance-for-multi-agent-orchestration-using-bedrock-agentcore-on-aws/infrastructure/lib/troubleshooting-agent-stack.ts",
+            "role": "props.executionRoleArn"
+          }
+        ],
+        "shared_roles": [
+          "props.executionRoleArn"
+        ]
+      },
+      {
+        "directory": "valkey-io__valkey-review-bot/infra/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "valkey-io__valkey-review-bot/infra/lib/valkey-review-agent-stack.ts",
+            "role": "this.role.roleArn"
+          },
+          {
+            "file": "valkey-io__valkey-review-bot/infra/lib/curator-agent-stack.ts",
+            "role": "this.role.roleArn"
+          }
+        ],
+        "shared_roles": [
+          "this.role.roleArn"
+        ]
+      },
+      {
+        "directory": "mateon01__meeting-note-analyzer/infra/lib",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "mateon01__meeting-note-analyzer/infra/lib/agent-stack.ts",
+            "role": "role.roleArn"
+          },
+          {
+            "file": "mateon01__meeting-note-analyzer/infra/lib/lecture-stack.ts",
+            "role": "runtimeRole.roleArn"
+          },
+          {
+            "file": "mateon01__meeting-note-analyzer/infra/lib/chat-stack.ts",
+            "role": "role.roleArn"
+          }
+        ],
+        "shared_roles": [
+          "role.roleArn"
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-multi-agent-on-agentcore/infra/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "aws-samples__sample-multi-agent-on-agentcore/infra/lib/runtime-stack.ts",
+            "role": "executionRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-multi-agent-on-agentcore/infra/lib/component-runtime-stack.ts",
+            "role": "executionRole.roleArn"
+          }
+        ],
+        "shared_roles": [
+          "executionRole.roleArn"
+        ]
+      },
+      {
+        "directory": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+            "role": "agent_role.role_arn"
+          },
+          {
+            "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+            "role": "agent_role.role_arn"
+          },
+          {
+            "file": "aws-samples__serverless-patterns/cloudfront-agentcore-runtime-cdk/infra/agentcore_stack.py",
+            "role": "agent_role.role_arn"
+          }
+        ],
+        "shared_roles": [
+          "agent_role.role_arn"
+        ]
+      },
+      {
+        "directory": "salty-vanilla__agentra/infra/cdk/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "salty-vanilla__agentra/infra/cdk/lib/agentra-agentcore-runtime-stack.ts",
+            "role": "runtimeRole.roleArn"
+          },
+          {
+            "file": "salty-vanilla__agentra/infra/cdk/lib/agentra-slide-runtime-stack.ts",
+            "role": "runtimeRole.roleArn"
+          }
+        ],
+        "shared_roles": [
+          "runtimeRole.roleArn"
+        ]
+      },
+      {
+        "directory": "blasg5884__agent-orchestration/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "blasg5884__agent-orchestration/lib/agents-stack.ts",
+            "role": "runtimeRole.roleArn"
+          },
+          {
+            "file": "blasg5884__agent-orchestration/lib/agents-stack.ts",
+            "role": "runtimeRole.roleArn"
+          }
+        ],
+        "shared_roles": [
+          "runtimeRole.roleArn"
+        ]
+      },
+      {
+        "directory": "arslan70__sidekick/infra/stacks",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "arslan70__sidekick/infra/stacks/agent_runtime_stack.py",
+            "role": "self.agent_role.role_arn"
+          },
+          {
+            "file": "arslan70__sidekick/infra/stacks/agentcore_stack.py",
+            "role": "self.agent_role.role_arn"
+          }
+        ],
+        "shared_roles": [
+          "self.agent_role.role_arn"
+        ]
+      },
+      {
+        "directory": "niklas-palm__agency/infra/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "niklas-palm__agency/infra/lib/control-plane-stack.ts",
+            "role": "runtimeRole.roleArn"
+          },
+          {
+            "file": "niklas-palm__agency/infra/lib/control-plane-stack.ts",
+            "role": "runtimeRole.roleArn"
+          }
+        ],
+        "shared_roles": [
+          "runtimeRole.roleArn"
+        ]
+      },
+      {
+        "directory": "sori883__evo/infra/lib/constructs",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "sori883__evo/infra/lib/constructs/report.ts",
+            "role": "this.executionRole.roleArn"
+          },
+          {
+            "file": "sori883__evo/infra/lib/constructs/agent.ts",
+            "role": "this.executionRole.roleArn"
+          },
+          {
+            "file": "sori883__evo/infra/lib/constructs/incident.ts",
+            "role": "this.executionRole.roleArn"
+          }
+        ],
+        "shared_roles": [
+          "this.executionRole.roleArn"
+        ]
+      },
+      {
+        "directory": "tilsley__creance/deploy/aws/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "tilsley__creance/deploy/aws/lib/agentcore-stack.ts",
+            "role": "runtimeRole.roleArn"
+          },
+          {
+            "file": "tilsley__creance/deploy/aws/lib/agentcore-stack.ts",
+            "role": "runtimeRole.roleArn"
+          }
+        ],
+        "shared_roles": [
+          "runtimeRole.roleArn"
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-multi-account-agentic-incident-response/agents/infra/lib",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "aws-samples__sample-multi-account-agentic-incident-response/agents/infra/lib/agents-infra-stack.ts",
+            "role": "agentTaskRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-multi-account-agentic-incident-response/agents/infra/lib/agents-infra-stack.ts",
+            "role": "agentTaskRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-multi-account-agentic-incident-response/agents/infra/lib/agents-infra-stack.ts",
+            "role": "mcpTaskRole.roleArn"
+          }
+        ],
+        "shared_roles": [
+          "agentTaskRole.roleArn"
+        ]
+      }
+    ],
+    "undecidable": [
+      {
+        "directory": "dcrearer__docint/infrastructure/stacks",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "dcrearer__docint/infrastructure/stacks/evaluation_stack.py",
+            "role": null
+          },
+          {
+            "file": "dcrearer__docint/infrastructure/stacks/agent_stack.py",
+            "role": "role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "cdklabs__cdk-appmod-catalog-blueprints/use-cases/framework/agents",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "cdklabs__cdk-appmod-catalog-blueprints/use-cases/framework/agents/interactive-agent.ts",
+            "role": null
+          },
+          {
+            "file": "cdklabs__cdk-appmod-catalog-blueprints/use-cases/framework/agents/interactive-agent.ts",
+            "role": "config.agentRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-ukg-for-mfg/cdk/lib",
+        "runtimes": 5,
+        "calls": [
+          {
+            "file": "aws-samples__sample-ukg-for-mfg/cdk/lib/agent-stack.ts",
+            "role": null
+          },
+          {
+            "file": "aws-samples__sample-ukg-for-mfg/cdk/lib/agent-stack.ts",
+            "role": null
+          },
+          {
+            "file": "aws-samples__sample-ukg-for-mfg/cdk/lib/agent-stack.ts",
+            "role": "explorerRuntimeRole.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-ukg-for-mfg/cdk/lib/agent-stack.ts",
+            "role": null
+          },
+          {
+            "file": "aws-samples__sample-ukg-for-mfg/cdk/lib/agent-stack.ts",
+            "role": "discoveryRuntimeRole.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "minorun365__minorun-agent/infra/lib",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "minorun365__minorun-agent/infra/lib/agent-stack.ts",
+            "role": null
+          },
+          {
+            "file": "minorun365__minorun-agent/infra/lib/agent-stack.ts",
+            "role": null
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-aerospace-events-agents-digital-thread/src/infra/lib",
+        "runtimes": 3,
+        "calls": [
+          {
+            "file": "aws-samples__sample-aerospace-events-agents-digital-thread/src/infra/lib/thread-navigator-stack.ts",
+            "role": "role.roleArn"
+          },
+          {
+            "file": "aws-samples__sample-aerospace-events-agents-digital-thread/src/infra/lib/agui-stack.ts",
+            "role": null
+          },
+          {
+            "file": "aws-samples__sample-aerospace-events-agents-digital-thread/src/infra/lib/agui-stack.ts",
+            "role": "role.roleArn"
+          }
+        ]
+      },
+      {
+        "directory": "dera-p__test_strands_agent/infra",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "dera-p__test_strands_agent/infra/stack.py",
+            "role": null
+          },
+          {
+            "file": "dera-p__test_strands_agent/infra/stack.py",
+            "role": "runtime_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__policy-security-assistant/cdk/stacks",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "aws-samples__policy-security-assistant/cdk/stacks/agent_runtime.py",
+            "role": null
+          },
+          {
+            "file": "aws-samples__policy-security-assistant/cdk/stacks/agent_runtime.py",
+            "role": "self.role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "aws-samples__sample-nova-sonic-bidi-agent/cdk/stacks",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "aws-samples__sample-nova-sonic-bidi-agent/cdk/stacks/voice_assistant_stack.py",
+            "role": null
+          },
+          {
+            "file": "aws-samples__sample-nova-sonic-bidi-agent/cdk/stacks/voice_assistant_stack.py",
+            "role": "self.agentcore_execution_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "neo4j-partners__aws-starter/neo4j-mcp-server/cdk",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "neo4j-partners__aws-starter/neo4j-mcp-server/cdk/neo4j_mcp_stack.py",
+            "role": null
+          },
+          {
+            "file": "neo4j-partners__aws-starter/neo4j-mcp-server/cdk/neo4j_mcp_stack.py",
+            "role": "self.agent_execution_role.role_arn"
+          }
+        ]
+      },
+      {
+        "directory": "PublicVerityProject__veridian-core-pyaws-v1.0.0-20251010T145905/.venv/Lib/site-packages/aws_cdk/aws_bedrockagentcore",
+        "runtimes": 2,
+        "calls": [
+          {
+            "file": "PublicVerityProject__veridian-core-pyaws-v1.0.0-20251010T145905/.venv/Lib/site-packages/aws_cdk/aws_bedrockagentcore/__init__.py",
+            "role": null
+          },
+          {
+            "file": "PublicVerityProject__veridian-core-pyaws-v1.0.0-20251010T145905/.venv/Lib/site-packages/aws_cdk/aws_bedrockagentcore/__init__.py",
+            "role": "\"roleArn\""
+          }
+        ]
+      }
+    ],
+    "method": "heuristic: the source is read, not synthesised. Two call sites passing the same expression text are treated as one role. A call site whose role argument cannot be located is undecidable, never 'not sharing'. A file counts only if it imports bedrockagentcore, because CfnRuntime is not unique across CDK modules."
+  },
+  "why": "the Terraform population in which a cross-agent chain is possible is 18 projects, and 0 of 18 bounds the rate at only 15.3 percent. This measures how much of the population was outside Terraform.",
+  "do_not_add_these_together": "the two units differ and the CDK figure is heuristic while the CloudFormation one is exact. Report them separately."
+}

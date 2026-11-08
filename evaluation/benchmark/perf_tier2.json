@@ -1,0 +1,107 @@
+{
+  "corpus": "corpus_tier2",
+  "templates_timed": 220,
+  "templates_failed": 0,
+  "whole_corpus_seconds": 182.1,
+  "per_template_seconds": {
+    "min": 0.509,
+    "median": 0.888,
+    "mean": 0.827,
+    "p90": 1.093,
+    "p99": 1.789,
+    "max": 9.001
+  },
+  "interpreter_startup_seconds": 0.047,
+  "per_template_seconds_net_of_startup": {
+    "median": 0.841
+  },
+  "terraform_files": {
+    "total": 3519,
+    "median_per_template": 6.0,
+    "max_per_template": 1618
+  },
+  "peak_child_memory_mb": 114.6,
+  "slowest": [
+    {
+      "template": "Donngi__terraform-aws-provider-description/terraform-template",
+      "ok": true,
+      "exit": 0,
+      "seconds": 9.001,
+      "tf_files": 1618,
+      "peak_mb_hint": 0.0
+    },
+    {
+      "template": "45678XYZ__e-Hakka-Care/terraform",
+      "ok": true,
+      "exit": 0,
+      "seconds": 2.056,
+      "tf_files": 21,
+      "peak_mb_hint": 104.5
+    },
+    {
+      "template": "rogerjeasy__wick/infra",
+      "ok": true,
+      "exit": 1,
+      "seconds": 1.789,
+      "tf_files": 27,
+      "peak_mb_hint": 0.0
+    },
+    {
+      "template": "aws-samples__sample-ai-assistant-on-agentcore/infra",
+      "ok": true,
+      "exit": 1,
+      "seconds": 1.565,
+      "tf_files": 21,
+      "peak_mb_hint": 0.0
+    },
+    {
+      "template": "aws-samples__sample-agentic-ai-process-automation-for-sap/terraform/modules/backend",
+      "ok": true,
+      "exit": 0,
+      "seconds": 1.53,
+      "tf_files": 29,
+      "peak_mb_hint": 0.0
+    },
+    {
+      "template": "twelvelabs-io__tl-agentcore/infra",
+      "ok": true,
+      "exit": 0,
+      "seconds": 1.253,
+      "tf_files": 29,
+      "peak_mb_hint": 0.0
+    },
+    {
+      "template": "aws-samples__sample-healthcare-decision-support-agent/terraform",
+      "ok": true,
+      "exit": 0,
+      "seconds": 1.248,
+      "tf_files": 20,
+      "peak_mb_hint": 0.0
+    },
+    {
+      "template": "aws-samples__sample-FAST-applications/samples/anycompany-bank/infra",
+      "ok": true,
+      "exit": 1,
+      "seconds": 1.202,
+      "tf_files": 21,
+      "peak_mb_hint": 0.0
+    },
+    {
+      "template": "awslabs__threat-designer/infra",
+      "ok": true,
+      "exit": 1,
+      "seconds": 1.185,
+      "tf_files": 20,
+      "peak_mb_hint": 0.0
+    },
+    {
+      "template": "CopilotKit__CopilotKit/examples/integrations/agentcore/infra-terraform/modules/backend",
+      "ok": true,
+      "exit": 0,
+      "seconds": 1.162,
+      "tf_files": 11,
+      "peak_mb_hint": 0.0
+    }
+  ],
+  "method": "Each template is scanned in a fresh subprocess, which is how a user runs it, so the per template figure includes interpreter start up. The start up cost is measured separately and reported, so a net figure can be quoted too. Memory is the peak resident set of child processes, which is a ceiling across the run rather than a per template measurement."
+}
