@@ -9,6 +9,27 @@ agent's own image is enough to run attacker-chosen code with that agent's
 credentials. We do not model how the first agent is taken; we start from the
 point where attacker code runs as agent~A.
 
+\paragraph{Which principal the experiment gives this to.}
+The live experiment in Section~\ref{sec:case-study} does not assume the
+compromised agent already holds the permission that opens the path. It gives
+the attacker principal one AWS managed policy,
+\iam{Bedrock\allowbreak AgentCore\allowbreak FullAccess}, and nothing else,
+because that policy is what an account grants to whatever principal is meant
+to administer this service.
+
+Whether a compromised agent would hold it is a question about deployments, so
+we counted. \nManagedPolicyConfigs of the \nProjects configurations attach it
+to a role, and \nManagedPolicyMultiAgent of those are multi-agent deployments;
+Section~\ref{sec:precondition-census} gives the breakdown and the artifact
+names them. The starting position the experiment assumes is therefore one
+that published deployments put agents in, rather than one constructed for the
+experiment.
+
+What the count does not settle is the other conjunct, which is the role's name
+itself. Section~\ref{sec:limitations} records why that is often undecidable in
+source, and Section~\ref{sec:case-study} settles it in an account where the
+name is known.
+
 \paragraph{What the attacker wants.}
 Something agent~A is not authorised to reach, held by agent~B in the same
 account. In the terms of Equation~\ref{eq:esc}, the attacker wants an element

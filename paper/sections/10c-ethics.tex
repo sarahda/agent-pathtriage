@@ -1,0 +1,40 @@
+\section{Ethics}
+\label{sec:ethics}
+
+The work has two parts that touch systems outside this paper, and they were
+handled differently.
+
+\paragraph{The live experiment.}
+Every call in Section~\ref{sec:case-study} was made inside an AWS account the
+author owns, against agent runtimes and roles created for the experiment and
+removed afterwards. No account, agent or deployment belonging to anyone else
+was accessed, and the attacker principal was created and destroyed with the
+lab. The value the planted code retrieves is a string written by the lab for
+that purpose, so nothing read in the experiment belonged to a third party. The
+policy at the centre of the result is published by the vendor, and it was read
+through the public API rather than inferred.
+
+\paragraph{The corpus.}
+The prevalence measurement reads source code that its authors published, and
+it reads it as text. Nothing in the analysis deploys a template, contacts a
+deployment, or authenticates anywhere. A configuration reported here as one
+permission from a takeover was never tested against the account that may run
+it, which is a limitation of the method and also the reason the method carries
+no risk to those deployments.
+
+\paragraph{Disclosure before publication.}
+The findings that concern identifiable owners were sent before this paper was
+written, as Section~\ref{sec:validation} records: \nDisclosureReports reports
+covering \nDisclosureRepos repositories, a question against a vendor sample
+repository, and a check contributed to an open source scanner. Each report
+names the file and line and the change that removes the problem. The
+deployments are not identified here, because each report asked the owner
+whether they would agree to be named and none replied.
+
+\paragraph{What this paper withholds.}
+The mechanism is described at the level of the API call and the policy
+statement, both of which are public and documented. The artifact rebuilds
+every number and runs the analysis. It does not ship the planted agent image
+or a script that performs the takeover against an arbitrary account, because
+the measurement does not need one and the defences in
+Section~\ref{sec:defences} do not become easier to apply if it exists.

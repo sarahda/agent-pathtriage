@@ -11,12 +11,24 @@ already hold the same permissions, and it removes the account's ability to
 say which agent made a call. Separating the roles does not by itself stop the
 takeover, but it is what makes every other control in this list possible.
 
-\paragraph{Scope the condition to the role, not to the name.}
-The gate in the vendor's managed policy is a match on the role name, so two
-agents whose roles both match \iam{*BedrockAgentCore*} are not separated by it
-at all. A per agent policy granting \iam{iam:PassRole} on the exact role ARN
-the agent needs, in place of \iam{BedrockAgentCoreFullAccess}, makes the condition
-name the role rather than match a pattern.
+\paragraph{Name the role instead of matching its name.}
+The gate in the vendor's managed policy is a resource pattern over the role
+name, so two agents whose roles both match \iam{*BedrockAgentCore*} are not
+separated by it at all. A per agent policy granting \iam{iam:PassRole} on the
+exact role ARN the agent needs, in place of
+\iam{BedrockAgentCoreFullAccess}, names the role rather than matching a
+pattern.
+
+This is worth stating as a defence because the vendor's own policy checker
+does not treat the pattern as a problem. IAM Access Analyzer raises
+\texttt{PASS\_ROLE\_WITH\_STAR\_IN\_RESOURCE} on \iam{iam:PassRole} with a
+wildcard resource, and its reference documentation records an exception for
+this exact shape: a resource such as \iam{arn:aws:iam::*:role/Service*} may
+produce no finding, because some services put their own namespace in the names
+of the roles they create~\cite{awsAccessAnalyzerChecks}. The convention that
+makes the pattern look specific is the same convention that places every
+agent's execution role inside it, so an operator running the vendor's checker
+over the vendor's policy is told nothing.
 
 \paragraph{Narrow the trust policy.}
 The documented trust policy for an execution role scopes
@@ -38,6 +50,55 @@ about the permission that runs a command inside an existing runtime, which
 reaches the same role more cheaply and has a service control policy of its
 own~\cite{garcia2026agentcorepaths}. Apply both.
 
+\subsection{Whether the first defence refuses the cell that succeeded}
+\label{sec:arn-repair}
+
+The defence above is a proposal until something evaluates it, so it is
+evaluated here with the engine that decides the real call. The
+\iam{iam:PassRole} statement is read from the live managed policy rather than
+retyped, a second copy is made with only the \iam{Resource} element replaced
+by the ARN of the one role an agent is entitled to pass, and both are put to
+\api{SimulateCustomPolicy} against three targets with
+\iam{iam:PassedToService} set to the service. Nothing is created and no
+runtime is involved; the artifact is
+\texttt{evaluation/\allowbreak benchmark/\allowbreak arn\_condition\_repair.json}
+and the script that writes it reads the policy afresh on each run.
+
+Table~\ref{tab:repair} gives the \nRepairDecisions decisions. The row that
+matters is the second: the shipped statement is \repairShippedSibling{} to
+pass a sibling agent's role, because the console named that role inside the
+pattern, and the same statement pinned to an ARN is \repairPinnedSibling. The
+last row is the one that makes it a repair rather than a removal, since the
+pinned statement still allows the agent to pass its own role, which is what
+the permission is for.
+
+\begin{table}[t]
+\centering
+\caption{The first defence, put to the IAM policy simulator. The shipped
+statement and the same statement with its resource pinned to one role ARN,
+each against three targets. The repair denies the cell that succeeded in
+Section~\ref{sec:case-study} and leaves the agent's own pass working.}
+\label{tab:repair}
+\small
+\begin{tabular}{@{}llp{22mm}@{}}
+\toprule
+\textbf{Role being passed} & \textbf{Shipped v21} & \textbf{Pinned to one ARN} \\
+\midrule
+the agent's own role & allowed & allowed \\
+a sibling the console named & allowed & denied \\
+a sibling named anything else & denied & denied \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two limits belong with this. The simulator decides authorisation, so what is
+measured is the decision and not the \api{UpdateAgentRuntime} call being
+refused end to end; the live cells in Section~\ref{sec:case-study} are what
+show the call itself. And the repair moves the problem rather than dissolving
+it: an account now has to get one policy right per agent, where before it
+attached one policy everywhere, which is work that falls on whoever writes the
+deployment.
+
 \subsection{What an operator cannot fix this way}
 
 Scoping an agent's data permissions does not help: agent~A never touches
@@ -46,6 +107,35 @@ agent~B's own permissions. A deployment where every role is perfectly scoped to 
 exposed to it. Controls at the model
 layer do not help either, because the cloud permissions downstream are the
 same whatever ran the attacker's code.
+
+\subsection{What the analysis hands an operator}
+
+A rule based scanner returns a verdict: the deployment violates the rule or it
+does not. On this corpus that verdict is uninformative, because the resource
+type is not in the rule set and all \nCheckovFailed findings are about
+something else. But the deeper limitation is the shape of the answer rather
+than the coverage. A deployment that is one grant away from a cross-agent
+takeover and a deployment that is nowhere near one both come back clean, and
+nothing in the output separates them.
+
+Evaluating each delegation rule as a conjunction changes the shape of the
+answer. When a rule does not fire, the analysis knows which conjunct failed,
+so the output is not ``no path'' but ``no path, and this is the term that is
+missing''. Over this corpus that term is the same one every time: all
+\nBlocked candidates lack \iam{iam:PassRole} on the target role, and
+Algorithm~\ref{alg:reach} carries the witness, so each one names the file and
+the principal a reader can open.
+
+Three things follow for an operator, and they are properties of the output
+format rather than new measurements. A blocked candidate is a ranking, because
+a deployment one permission from a takeover is a different risk from one that
+is several. It is also a specific instruction, since the permission not to
+grant is named rather than inferred. And it is a regression test: the
+\nPassRoleWide configuration where that permission is already granted broadly
+is the same finding with the distance at zero, which is how a deployment
+crosses from one class to the other when somebody widens a policy. The
+numbers in Section~\ref{sec:results} are a census of the corpus; the same
+output on one deployment is a work list.
 
 \subsection{Detection}
 

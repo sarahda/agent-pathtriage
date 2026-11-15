@@ -18,6 +18,27 @@
 \newcommand{\nProjects}{220\xspace}              % configurations_measured
 \newcommand{\nProjectsFailed}{0\xspace}          % configurations_failed
 
+% source: evaluation/benchmark/corpus_population_tier2.json
+\newcommand{\nReposCollected}{1647\xspace}       % repositories
+\newcommand{\nReposWithRuntime}{182\xspace}      % with_runtime
+\newcommand{\nTemplateDirs}{331\xspace}          % template_dirs
+\newcommand{\nTemplateExcluded}{84\xspace}       % excluded
+\newcommand{\nTemplateForkCopies}{27\xspace}     % fork_copies
+\newcommand{\nRuntimesTotal}{242\xspace}         % runtimes_summed_from_n_agents
+
+% --- who attaches the managed policy the live experiment uses --------------
+% source: evaluation/benchmark/managed_policy_census.json
+% Census over the same 220 configurations of topology_tier2.json, counting
+% attachment of BedrockAgentCoreFullAccess at the role level. Policy document
+% read from iam GetPolicyVersion on 2026-11-02, version v21.
+\newcommand{\nManagedPolicyConfigs}{23\xspace}       % role_attachment_confirmed
+\newcommand{\nManagedPolicyRuntimes}{30\xspace}      % runtimes_in_role_confirmed
+\newcommand{\nManagedPolicyMultiAgent}{6\xspace}     % role_confirmed_and_multi_agent
+\newcommand{\nManagedPolicyMultiRuntimes}{13\xspace} % runtimes_in_role_confirmed_multi_agent
+\newcommand{\nManagedPolicyPerAgent}{2\xspace}       % of the 6, those attaching it
+                                                     % once per agent rather than
+                                                     % once for the deployment
+
 % source: evaluation/benchmark/perf_tier2.json
 \newcommand{\nTerraformFiles}{3519\xspace}
 \newcommand{\corpusSeconds}{182.1\xspace}
@@ -56,7 +77,7 @@
 \newcommand{\nChainDenominator}{27\xspace}
 \newcommand{\nChainNotCovered}{44\xspace}
 \newcommand{\nChainsFound}{0\xspace}
-\newcommand{\chainBound}{10.5\xspace}             % 95 percent upper bound, percent
+\newcommand{\chainBound}{10.5\%\xspace}             % 95 percent upper bound, percent
 
 % source: evaluation/benchmark/chain_cfn_corpus.json, key "cloudformation"
 \newcommand{\nCfnMultiRuntime}{12\xspace}
@@ -127,7 +148,7 @@
 
 % chain denominator once the synthesised CDK applications are included
 \newcommand{\nChainDenominatorExt}{35\xspace}
-\newcommand{\chainBoundExt}{8.2\xspace}
+\newcommand{\chainBoundExt}{8.2\%\xspace}
 
 % --- the three escalations the census found ---------------------------------
 % source: corpus_takeover_census.json, key expanded.escalating_configs
@@ -153,6 +174,32 @@
 \newcommand{\nCdkSharedRoleApps}{2\xspace}
 \newcommand{\precCdkSharedRole}{1.000\xspace}
 
+
+% --- does the first defence actually refuse the cell that succeeded ---------
+% source: evaluation/benchmark/arn_condition_repair.json
+% iam SimulateCustomPolicy, six decisions: two policies by three targets.
+% The shipped statement is read from the live managed policy at run time.
+\newcommand{\nRepairDecisions}{6\xspace}
+\newcommand{\repairShippedSibling}{allowed\xspace}
+\newcommand{\repairPinnedSibling}{denied\xspace}
+\newcommand{\repairPinnedOwn}{allowed\xspace}
+
+% --- recovery of known paths ------------------------------------------------
+% source: evaluation/benchmark/benchmark_results.json
+% IAM-Vulnerable, scored per principal under test.
+\newcommand{\nIVPaths}{11\xspace}        % escalating principals
+\newcommand{\nIVSafe}{5\xspace}          % principals that should not be flagged
+\newcommand{\nIVFlaggedSafe}{2\xspace}   % of those, flagged: fp1, fp2, both allow-and-deny
+
+% --- mutation testing -------------------------------------------------------
+% source: evaluation/mutation/mutation_results.json
+\newcommand{\nMutants}{14\xspace}
+\newcommand{\mutExactSingle}{10\xspace}
+\newcommand{\mutExactMulti}{11\xspace}
+\newcommand{\mutRecallSingle}{0.800\xspace}
+\newcommand{\mutRecallMulti}{0.900\xspace}
+\newcommand{\mutPrecSingle}{0.800\xspace}
+\newcommand{\mutPrecMulti}{0.818\xspace}
 
 % --- baseline scanner on the same corpus ------------------------------------
 % source: evaluation/benchmark/checkov_summary.json

@@ -29,6 +29,8 @@ recorded as inconclusive, because a denial for an unrelated reason would
 otherwise look like the control working. And role assumption is retried for
 120 seconds, so a propagation delay is not recorded as a control.
 
+\input{figures/fig-control}
+
 \subsection{The cells}
 
 The experiment is nine cells, each a question with an outcome recorded to a
@@ -111,6 +113,19 @@ So the control that stands between two agents in a default deployment is a
 string match on a role name, not a statement about which agent owns which
 role. An operator who follows the console's own defaults, and grants the
 vendor's own managed policy, has the path open.
+
+This is a result about the condition rather than about the policy being
+permissive. A policy named for full access that passed any role without a
+condition would carry no claim to separate anything, and there would be
+nothing here to report. The \iam{iam:PassRole} statement in v21 is not
+unscoped: it is narrowed twice, by a resource pattern over the role's name
+and by a condition on the service the role may be passed to, and narrowing a
+statement is a decision to restrict what the permission reaches. What the
+experiment establishes is that the restriction chosen, a glob over the name, is
+not a restriction on ownership, and that the service's own console produces
+names on the inside of it. The same statement with the role's ARN in place of
+the pattern refuses the cell that succeeded, which
+Section~\ref{sec:arn-repair} measures rather than asserts.
 
 \subsection{What the second permission buys}
 

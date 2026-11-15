@@ -54,7 +54,7 @@ method rather than the corpus.
 \texttt{blocked\_takeover\_\allowbreak source\_check} & the four way split of
   Figure~\ref{fig:blocked} \\
 \texttt{shared\_role\_corrected} & Table~\ref{tab:sharing}, both columns \\
-\texttt{chain\_cfn\_corpus} & \nChainDenominator units, \chainBound\% bound \\
+\texttt{chain\_cfn\_corpus} & \nChainDenominator units, \chainBound bound \\
 \texttt{cdk\_synth\_chain} & Table~\ref{tab:cdk},
   \nCdkDistinctApps distinct apps \\
 \texttt{foundry\_recon} & Figure~\ref{fig:authtypes}, the
@@ -77,8 +77,7 @@ python3 lab.py teardown
 python3 teardown_verify.py  # reads the account back
 \end{lstlisting}
 
-Every name carries a random suffix per run. Each cell writes a record to
-\texttt{runs/} with its question, the request, the verdict and the time, which
-is where Table~\ref{tab:cells} comes from.
-\texttt{teardown\_verify.py} reads the account back afterwards and separates a
+Every name carries a random suffix per run. Each cell writes its question, the
+request, the verdict and the time to \texttt{runs/}, which is where
+Table~\ref{tab:cells} comes from. \texttt{teardown\_verify.py} separates a
 resource still deleting from one left behind.

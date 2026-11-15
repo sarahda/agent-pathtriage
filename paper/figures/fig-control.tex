@@ -1,0 +1,46 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  atk/.style={draw, rounded corners=2pt, align=center, inner sep=3pt,
+              text width=44mm, draw=cStored, fill=cStored!8, line width=0.7pt},
+  same/.style={draw, rounded corners=2pt, align=center, inner sep=3pt,
+               text width=26mm, minimum height=7mm, line width=0.5pt,
+               draw=cIdentity, fill=cIdentity!8},
+  verdict/.style={font=\scriptsize, align=center, inner sep=1pt,
+                  text width=32mm},
+  flow/.style={-{Stealth[length=1.8mm]}, line width=0.6pt},
+]
+
+\node[atk] (atk)
+  {attacker principal\\[1pt]
+   \scriptsize holds \iam{BedrockAgentCoreFullAccess}\\[-1pt]
+   \scriptsize as published, nothing else};
+
+% placed by explicit offset from the centre: anchoring to the box corners
+% spreads them wider than the column
+\node[same] (b) at ([shift={(-19mm,-13mm)}]atk.south) {\texttt{execB}};
+\node[same] (c) at ([shift={( 19mm,-13mm)}]atk.south) {\texttt{execC}};
+
+\draw[flow] (atk.south) -- (b.north);
+\draw[flow] (atk.south) -- (c.north);
+
+\node[verdict, below=1.5mm of b, text=cNeutral]
+  {name does not match\\[1pt]\textbf{denied}};
+\node[verdict, below=1.5mm of c, text=cStored]
+  {name matches the pattern\\[1pt]\textbf{taken over}};
+
+\node[font=\scriptsize, align=center, text width=80mm]
+  at ([shift={(0mm,-32mm)}]atk.south)
+  {Identical in policy, in trust and in permissions.\\
+   The only difference is the string that names them.};
+
+\end{tikzpicture}
+\caption{The control. Two victim roles are built identically and differ only
+in name. The attacker holds one AWS managed policy, attached as published,
+with no inline statement added. One role is taken over and the other is
+refused, so what separates one agent from another agent's role is a check on
+the kind of role rather than on whose role it is, and the account's own
+default role names satisfy that check.}
+\label{fig:control}
+\end{figure}

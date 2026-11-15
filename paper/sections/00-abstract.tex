@@ -4,26 +4,29 @@ reach. That view cannot express the question this paper is about: whether one
 agent can take over another agent in the same account and act with the second
 agent's permissions.
 
+In a live AWS account, an attacker principal holding one AWS managed policy
+and nothing else replaces a sibling agent's definition, runs that code under
+the victim's execution role, and reads back a value it cannot read directly.
+The gate is a name match in that policy's \iam{iam:PassRole} statement, which
+the console's own default role names satisfy, so what stands between two
+agents is a check on the kind of role rather than on whose role it is: a
+control role built identically but named differently is refused. The takeover
+also outlives the attacker. With every policy detached from the attacker
+principal, the operator's own call still returns the planted code's answer. A
+published route reaches the same role more cheaply and leaves the agent as it
+was; this one leaves the agent answering its own callers with attacker code.
+
 We state the escalation as a predicate over what a principal reaches in effect
 and what it was authorised to reach, and implement it in \tool, which reads
 infrastructure as code and reports a cross-agent escalation together with the
 permission that is missing from it. Over \nProjects public Terraform projects
 that deploy agent runtimes and the CloudFormation and CDK deployments in the
-same collection, we find \nChainsFound complete cross-agent escalations, an
-upper bound of \chainBound\%. A \foundry corpus of \nFoundryDirs template
-directories is surveyed separately, because agents there are not declared at
-deployment time. Around that zero, \nBlocked
+same collection, \nSharedRoleRuntimes of \nMultiAgentRuntimes multi-agent
+deployments run every agent under one execution role, which makes the
+escalation unnecessary rather than impossible, and \nManagedPolicyConfigs
+attach the managed policy the live experiment uses. A further \nBlocked
 takeover candidates are blocked on \iam{iam:PassRole} alone,
-\nBlockedAgentToAgent of them between two agents of the same deployment, and
-\nSharedRoleRuntimes of \nMultiAgentRuntimes multi-agent deployments run every
-agent under one execution role, which makes the escalation unnecessary rather
-than impossible.
-
-In a live AWS account, an attacker holding one AWS managed policy and nothing
-else replaces a sibling agent's definition, runs that code under the victim's
-role, and reads back a value it cannot read directly. The gate is a name match
-in that policy's \iam{iam:PassRole} condition, which the console's own default
-role names satisfy. A published route reaches the same role more cheaply and
-leaves the agent as it was. This one leaves the agent answering its own callers
-with attacker code: with every policy detached from the attacker principal, the
-operator's own call still returns the planted code's answer.
+\nBlockedAgentToAgent of them between two agents of the same deployment. We
+find \nChainsFound escalations that are complete in source, an upper bound of
+\chainBound. A \foundry corpus of \nFoundryDirs template directories is
+surveyed separately, because agents there are not declared at deployment time.

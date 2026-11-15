@@ -3,20 +3,37 @@
 
 Managed agent platforms put several identities in one account. The question
 that matters is not what one agent can reach, but what it can reach by going
-through another agent, and that does not fit a single identity analysis. We
-stated it as a set difference, implemented it, and ran it over public AWS
-deployments. The corpus contains \nChainsFound complete
-cross-agent escalations, which supports an upper bound of \chainBound\% and
-nothing stronger.
+through another agent. That does not fit a single identity analysis. We stated
+it as a set difference, implemented it, and ran it over public AWS
+deployments.
 
-Two results sit beside that zero. Replacing
-what an agent runs cannot avoid \iam{iam:PassRole}, because one API call
-decides the code and the identity together, and in a live account an attacker
-holding the vendor's own managed policy completed that path against a role the
-vendor's own console had named. And in the deployments where more than one
-agent exists, \nSharedRoleRuntimes of \nMultiAgentRuntimes already run every
-agent under one role, which makes the escalation unnecessary and makes the
-account unable to tell its agents apart.
+In a live account, an attacker holding the vendor's own managed policy took
+over a sibling agent and ran code under the victim's role. The only thing that
+decided the outcome was the victim role's name. A role built identically and
+named differently was refused, and the name that succeeded was one the
+vendor's own console produces. The takeover also outlived the attacker: with
+every policy detached from the attacker principal, the operator's own call
+still returned the planted code's answer. Replacing what an agent runs cannot
+avoid \iam{iam:PassRole}, because one API call decides the code and the
+identity together.
+
+The conditions for that are already present in public code. Where more than
+one agent exists, \nSharedRoleRuntimes of \nMultiAgentRuntimes run every agent
+under a single role. That makes the escalation unnecessary, and it leaves the
+account unable to tell its agents apart. A further \nBlocked takeover
+candidates are held back by one permission, and it is the same permission in
+every case.
+
+What the corpus does not contain is a finished path. We found \nChainsFound,
+which supports an upper bound of \chainBound and nothing stronger. The
+weight of the measurement is not in that rate. It is in the distance being
+short, and the same, everywhere it was measured.
+
+Set against the published accounts of this platform, what this paper adds is
+narrow: a route whose effect outlives the attacker's
+access, a control that locates the gate in the name of a role rather than in
+its ownership, and a count of how often the starting position those accounts
+assume is already present in deployments people publish.
 
 The defence follows from that: give each agent its own execution role, and
 treat \iam{iam:PassRole} over an agent's execution role as a grant of that

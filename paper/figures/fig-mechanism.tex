@@ -11,7 +11,7 @@
   flow/.style={-{Stealth[length=2mm]}, line width=0.6pt},
   gate/.style={-{Stealth[length=2mm]}, line width=0.6pt, draw=cStored},
   elbl/.style={font=\scriptsize, align=center, text width=19mm,
-               midway, above, inner sep=1.5pt},
+               midway, above, inner sep=3pt},
   note/.style={font=\scriptsize, align=center, inner sep=3pt},
 ]
 
@@ -46,9 +46,11 @@
 \end{tikzpicture}
 \caption{The cross-agent takeover on \agentcore. One API call decides what
 runs, who it runs as, and what it is aimed at, so the path cannot avoid
-\iam{iam:PassRole}. The resource at the right is in $\eff(A)$ and not in
-$\auth(A)$, which is the escalation of Equation~\ref{eq:esc}. An analysis that
-fixes one principal at a time sees role~A and role~B separately and reports
-both as correctly scoped.}
+\iam{iam:PassRole}. The resource at the right is reached by role~A, written
+$\eff(A)$, and not granted to it, written $\auth(A)$; the difference between
+the two is the escalation this paper measures
+(Equation~\ref{eq:esc}, Section~\ref{sec:model}). An analysis that fixes one
+principal at a time sees role~A and role~B separately and reports both as
+correctly scoped.}
 \label{fig:mechanism}
 \end{figure*}

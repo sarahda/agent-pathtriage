@@ -11,10 +11,13 @@
   side/.style={font=\tiny, align=left, text width=20mm, inner sep=1pt},
 ]
 
-\node[keep] (a) {public repositories collected, no query hit the API ceiling};
-\node[narrow, below=4mm of a] (b) {deployments declaring an agent runtime};
-\node[narrow, below=4mm of b] (c) {after removing test fixtures, snapshots,
-  vendored copies and byte identical duplicates};
+\node[keep] (a) {\textbf{\nReposCollected} public repositories collected, no
+  query hit the API ceiling};
+\node[narrow, below=4mm of a] (b) {\textbf{\nReposWithRuntime} of them declare
+  an agent runtime, holding \textbf{\nTemplateDirs} template directories};
+\node[narrow, below=4mm of b] (c) {after removing \nTemplateExcluded test
+  fixtures, snapshots and vendored copies, and \nTemplateForkCopies fork
+  copies};
 \node[final, below=4mm of c] (d) {\textbf{\nProjects} analysed Terraform
   projects\\\scriptsize denominator for escalation results};
 \node[final, below=13mm of d] (e) {\textbf{\nChainDenominator} units covered by

@@ -53,7 +53,8 @@ or code archive that holds the agent, environment variables, a network
 configuration, and an execution role. Two properties of it matter here.
 
 \paragraph{One call changes everything about a runtime.}
-\api{Update\allowbreak AgentRuntime} takes the artifact and the role ARN, and the API
+The \api{Update\allowbreak Agent\allowbreak Runtime} call takes the artifact and
+the role ARN, and the API
 reference marks both as required~\cite{awsAgentCoreUpdateRuntime}. A caller that holds the permission to update
 a runtime therefore decides three things at once: the code that will run, the
 identity it runs as, and, through the environment variables in the same
@@ -75,11 +76,13 @@ credential.
 \iam{iam:PassRole} is the permission to hand a role to a
 service~\cite{awsPassRole}. AWS ships a managed policy for this platform,
 \iam{BedrockAgentCoreFullAccess}~\cite{awsBedrockAgentCoreFullAccess}. The version analysed here is v21, read on 8 November 2026. Its
-\iam{iam:PassRole} statement is scoped by two conditions: the role name must
-match \iam{arn:aws:iam::\allowbreak *:role/\allowbreak *BedrockAgentCore*}, and the role must be passed
-to \iam{bedrock-agentcore.amazonaws.com}.
+\iam{iam:PassRole} statement is scoped in two ways. Its resource is the
+pattern \iam{arn:aws:iam::\allowbreak *:role/\allowbreak *BedrockAgentCore*},
+and a condition requires that the role be passed to
+\iam{bedrock-agentcore.amazonaws.com}. Only the second is written in a
+\iam{Condition} block; the first is the \iam{Resource} element itself.
 
-The first condition is a name match. It does not distinguish one agent's
+The restriction that matters here is the pattern. It does not distinguish one agent's
 execution role from another's, and the roles the AWS console creates by default
 for this service satisfy the pattern. Section~\ref{sec:case-study} shows what
 follows from that.

@@ -26,6 +26,18 @@ reported per project in the artifact, do not resolve to a value the analysis
 can use. They are reported
 as undecidable rather than as clean.
 
+\paragraph{The name condition is often undecidable in source.}
+The condition that decided the live experiment is a glob over the name of the
+role being passed, and a deployment is free to build that name from a
+variable. Several of the deployments that attach the managed policy name their
+roles from a prefix local to the module, so whether the resulting string falls
+inside \iam{*BedrockAgentCore*} depends on a value the repository does not
+fix. Those candidates are counted as blocked on \iam{iam:PassRole}, which is
+the conservative direction: a deployment reported as blocked may be open once
+the variable is bound. It also means the corpus cannot be used to estimate how
+often the name condition is satisfied in practice, and this paper does not
+estimate it.
+
 \paragraph{The live demonstration is one account.}
 Section~\ref{sec:case-study} shows the mechanism works with vendor default
 role names and a vendor managed policy. One account is enough to show a

@@ -28,17 +28,16 @@ Equation~\ref{eq:replace} is the agent specific rule. The platform's update
 API requires the role in the same call as the artifact, so a caller holding the
 first conjunct and not the second cannot make the call.
 
-Figure~\ref{fig:mechanism} shows Equation~\ref{eq:replace} in the form the
-rest of the paper uses.
-
-\input{figures/fig-mechanism}
+Figure~\ref{fig:mechanism} is Equation~\ref{eq:replace} drawn: the gate on the
+middle arrow is the second conjunct, and the dashed box beside it is the
+condition under which the managed policy satisfies it.
 
 \subsection{Computing the closure}
 
 Algorithm~\ref{alg:reach} computes the fixpoint of Equation~\ref{eq:eff} and
 the difference of Equation~\ref{eq:esc}. The outer loop visits each principal
-once, the inner worklist follows edges, and a visited set keeps a cycle such
-as two roles that may assume each other from diverging. Each principal's
+once and the inner worklist follows edges. A visited set keeps a cycle from
+diverging, such as two roles that may assume each other. Each principal's
 closure is memoised, so the edge set is walked once per principal and the cost
 is $O(|P| \cdot (|P| + |G|))$.
 

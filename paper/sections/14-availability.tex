@@ -3,9 +3,10 @@ that builds and tears down the live demonstration are available at
 \url{https://github.com/sarahda/agent-pathtriage}.
 
 Every number in this paper is defined once in \texttt{numbers.tex}, and each
-definition names the artifact it was read from. One command rebuilds the
-artifacts, and a verification pass re-derives the published figures from them,
-so a reader can check that the paper and the evidence agree without rerunning
-the collection. The live demonstration creates and deletes its own AWS
+definition names the artifact it was read from. A single command,
+\texttt{python3 evaluation/\allowbreak reproduce.py}, re-derives the published
+figures from the committed artifacts and fails if any of them disagrees with
+the paper, so a reader can check that the two agree without rerunning the
+collection. Adding \texttt{-{}-full} re-walks the corpus itself. The live demonstration creates and deletes its own AWS
 resources and reports the names of credential sources rather than their
 values.

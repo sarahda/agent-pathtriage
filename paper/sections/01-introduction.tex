@@ -49,6 +49,11 @@ attacker code, which Section~\ref{sec:case-study} measures by stripping the
 attacker of every permission first. The command route ends when the credential
 is rotated. A replaced artifact does not.
 
+Figure~\ref{fig:mechanism} is that route end to end, and the rest of the paper
+is organised around it.
+
+\input{figures/fig-mechanism}
+
 Cross-agent escalation on this platform has been reported.
 Section~\ref{sec:industry} sets out what those accounts cover and what
 they do not: the path that replaces an existing runtime rather than creating a
@@ -71,10 +76,26 @@ measurement of how often the preconditions occur.
   (Section~\ref{sec:foundry}).
 \item A live demonstration in an AWS account showing that an attacker holding
   one AWS managed policy can take over a sibling agent, and that the gate is a
-  name match in that policy's \iam{iam:PassRole} condition
+  name match in that policy's \iam{iam:PassRole} statement
   (Section~\ref{sec:case-study}).
 \item A claim by claim account of what was verified and what was not
   (Appendix~\ref{sec:claims}), and the artifacts to rebuild every number
   (Section~\ref{sec:availability}).
 \end{itemize}
+
+\paragraph{What is new, against what is already published.}
+Cross-agent takeover on this platform has been described before, and
+Section~\ref{sec:industry} says by whom and how far those accounts go. Three
+things here are not in them. The route they publish reads a credential from
+inside an agent's own sandbox and leaves the deployment as it was, so its
+effect ends when that credential rotates; the route measured here replaces
+what the agent runs, and Section~\ref{sec:case-study} shows the planted code
+still answering the operator's own calls after the attacker has been stripped
+of every permission. The gate on that route is isolated rather than asserted:
+two victim roles built identically and differing only in name give opposite
+verdicts, which puts the control in a string match on the role's name rather
+than in any statement about whose role it is. And the preconditions are
+counted on deployments people published rather than assumed, which is what
+separates a demonstration that something can happen from a statement about
+how often the starting position is already there.
 

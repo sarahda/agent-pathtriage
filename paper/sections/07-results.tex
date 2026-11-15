@@ -6,7 +6,7 @@
 Over the \nChainDenominator units the chain analysis covered, it found
 \nChainsFound complete cross-agent escalations. With no event observed in
 \nChainDenominator trials, the one sided 95\% upper bound on the rate is
-\chainBound\%. The measurement is consistent with a true rate anywhere from
+\chainBound. The measurement is consistent with a true rate anywhere from
 zero to about one deployment in ten.
 
 The predicate does fire inside the wider set of \nProjects analysed projects.
@@ -19,6 +19,17 @@ agent, and the escalating principals are a continuous integration
 deploy role, a service user, and a role that executes actions. They are single-identity
 escalations, produced by the same predicate.
 
+\paragraph{What these denominators can carry.}
+\nChainDenominator units and \nMultiAgentRuntimes multi-agent deployments are
+small populations. No rate is claimed from them. A bound is the strongest
+statement they support, and it is written as a bound wherever it appears. The
+weight of the measurement sits elsewhere. The \nBlocked blocked candidates
+are not spread over many different missing permissions: every one of them is
+missing the same permission, on the same resource type, for the same reason.
+A structure of that kind does not need a large denominator to be read. A
+larger corpus would tighten the bound. It would not change what the blocked
+candidates have in common.
+
 \subsection{Candidates blocked on one permission}
 
 \nBlocked takeover candidates across \nBlockedConfigs configurations are
@@ -26,6 +37,8 @@ blocked, and every one of them is blocked by the same permission,
 \iam{iam:PassRole}. This is the structural claim of
 Section~\ref{sec:background} appearing in the measurement: there is no second
 way around the pass.
+
+\input{figures/fig-blocked}
 
 The \nBlocked are not interchangeable. Figure~\ref{fig:blocked} sorts them by
 what the principal and the target are, recovered from the raw Terraform rather
@@ -36,12 +49,76 @@ precondition is present and the second agent is not. \nBlockedPrincipalNotAgent
 have a principal that is not an agent execution role, such as a build role, and
 \nBlockedTargetNotAgent have a target that is not one.
 
-\input{figures/fig-blocked}
+Separately, \nPassRoleWide configuration already grants \iam{iam:PassRole}
+over a role one of its own agents uses. It is the single deployment in the
+corpus where the gate that blocks the other \nBlocked candidates is open.
 
-Separately, \nPassRoleWide configuration grants \iam{iam:PassRole} broadly
-enough to cover a role an agent in that same configuration runs as. That is the
-one deployment in the corpus where the gate that blocks the other
-\nBlocked candidates is already open.
+\subsection{Who holds the permission the live experiment assumes}
+\label{sec:precondition-census}
+
+Section~\ref{sec:case-study} gives its attacker principal one AWS managed
+policy, \iam{Bedrock\allowbreak AgentCore\allowbreak FullAccess}, and nothing
+else. Whether that is a realistic place to start is a question about
+deployments, so it is measured on the same corpus.
+
+\nManagedPolicyConfigs of the \nProjects configurations attach that policy to
+a role, covering \nManagedPolicyRuntimes agent runtimes.
+\nManagedPolicyMultiAgent of them are multi-agent deployments, covering
+\nManagedPolicyMultiRuntimes runtimes, and in \nManagedPolicyPerAgent of those
+\nManagedPolicyMultiAgent the policy is attached once per agent rather than
+once for the deployment, so each agent's own execution role carries it. One of
+those two is an AWS maintained samples repository, published as a multi-agent
+reference deployment. The artifact names all \nManagedPolicyConfigs.
+
+The count establishes one conjunct and not the other. Where a deployment builds
+the role name from a variable, that name does not resolve to a string the
+analysis can match, so the candidate is reported as blocked rather than as
+complete. Section~\ref{sec:limitations} records what that costs.
+
+\subsection{Whether the analysis recovers paths someone else planted}
+\label{sec:recovery}
+
+The corpus numbers are only worth as much as the analysis that produced them,
+and a tool measured on its own output can agree with itself. Two checks run
+against ground truth somebody else wrote.
+
+The first is IAM-Vulnerable, a published benchmark of deliberately escalating
+IAM configurations. It contains \nIVPaths principals whose escalation runs
+through a hand-off to a second principal. Following delegation edges recovers
+\nIVPaths of \nIVPaths, a recall of \recallDelegation. Evaluating the same
+configurations one identity at a time recovers \recallSingleIdentity of them,
+because nothing in the starting principal's own policy shows the path. That
+gap is the contribution stated as a measurement rather than as an argument:
+the two numbers come from the same state file and differ only in whether the
+hand-off is followed. The benchmark also carries \nIVSafe principals that
+should not be flagged, and \nIVFlaggedSafe of them are, both because an
+explicit \iam{Deny} shadowing a wildcard \iam{Allow} is not yet evaluated.
+That is the analysis
+over-reporting, which is the direction that costs an operator time.
+
+The second is mutation testing. \nMutants IAM policy mutants with known
+outcomes, each written to fail in a stated way, are scored twice: once reading
+each principal's own policy, and once following delegation edges. Single
+identity scoring is exact on \mutExactSingle of \nMutants, with recall
+\mutRecallSingle and precision \mutPrecSingle; following the edges is exact on
+\mutExactMulti, with recall \mutRecallMulti and precision \mutPrecMulti. The
+one mutant the edges recover is the two hop \iam{iam:PassRole} case, which is
+the class the rule was written for. Recovering that one and no others is the
+result, rather than a disappointment. The three that stay
+wrong are each named in the artifact: conditions treated as absent, explicit
+\iam{Deny} not evaluated, and a specific ARN pointing at another agent's
+resource. Section~\ref{sec:limitations} carries all three.
+
+Every residual error in both checks falls into one of two classes, and each
+has a known direction. The analysis over-reports where a statement is narrowed
+by something it does not model, which covers the explicit \iam{Deny} and the
+condition treated as absent, and which is also what produced the
+\nIVFlaggedSafe false positives on the benchmark. It under-reports where reach
+is written as a specific ARN rather than as a wildcard, because the
+resource-scope heuristic looks for the wildcard. Nothing in either residual
+set falls outside those two classes. That is the most \nMutants mutants and
+\nIVPaths benchmark paths can establish, and it is why the limitations name
+mechanisms rather than a confidence interval.
 
 \subsection{What an existing scanner reports on the same corpus}
 \label{sec:baseline}
@@ -51,9 +128,9 @@ scanners work on one. We ran Checkov, a widely used open source scanner for
 infrastructure as code, over the same \nProjects configurations, on Terraform
 with no network access and nothing else changed.
 
-Checkov reports \nCheckovFailed findings from \nCheckovRules distinct rules,
-and \nCheckovOnAgentRuntime of them take an agent runtime as their subject:
-the resource type is not in its rule set, so these agents are invisible to it.
+Checkov reports \nCheckovFailed findings from \nCheckovRules distinct rules.
+\nCheckovOnAgentRuntime of them take an agent runtime as their subject. The
+resource type is not in its rule set, so these agents are invisible to it.
 Its rules that span resources fired \nCheckovGraphFailed times.
 \nCheckovRelationRules of the rule names that fired suggest a relation
 between resources, and they concern cross-account access, cross-region
@@ -147,5 +224,5 @@ leaves \nCdkDistinctApps distinct applications.
 
 Adding them to the chain denominator gives \nChainDenominatorExt units with
 \nChainsFound chains, and the one sided 95\% upper bound tightens from
-\chainBound\% to \chainBoundExt\%. The first bound covers the deployments read
+\chainBound to \chainBoundExt. The first bound covers the deployments read
 directly; the second adds the synthesised CDK applications.
