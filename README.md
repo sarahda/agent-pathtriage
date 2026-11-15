@@ -57,7 +57,7 @@ names the artifact it was read from.
 
 ```bash
 pip install -e .
-python3 evaluation/reproduce.py --fast
+python3 evaluation/reproduce.py
 python3 evaluation/verify_paper_numbers.py \
     --numbers paper/numbers.tex --bench evaluation/benchmark
 python3 evaluation/independent_checks.py
