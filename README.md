@@ -33,7 +33,7 @@ identity over permissioning and is reported separately, as is self escalation.
 Public infrastructure as code, collected by GitHub code search and analysed
 without deploying anything.
 
-| | |
+| Measurement | Result |
 |---|---|
 | Terraform projects analysed | 220, in 3519 files |
 | with two or more agents | 20 by runtime, 18 by declaration block |
@@ -101,7 +101,7 @@ in whatever account your credentials point at.
 
 ## Layout
 
-| | |
+| Directory | What is in it |
 |---|---|
 | `agentpathtriage/` | the analysis: state extraction, reachability, reporting |
 | `evaluation/` | the benchmark, the stored artifacts, and the two verifiers |
