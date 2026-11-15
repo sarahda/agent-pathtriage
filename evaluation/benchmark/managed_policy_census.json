@@ -1,317 +1,296 @@
 {
-  "population": "topology_tier2.json, the published 220 configurations, deduplicated by content hash",
-  "configurations": 220,
-  "runtimes_summed_from_n_agents": 242,
-  "configurations_not_on_disk": 0,
-  "target_policy": "BedrockAgentCoreFullAccess",
-  "configurations_referencing_it": 23,
-  "runtimes_in_them": 30,
-  "role_attachment_confirmed": 23,
-  "runtimes_in_role_confirmed": 30,
-  "role_confirmed_and_multi_agent": 6,
-  "runtimes_in_role_confirmed_multi_agent": 13,
-  "policy_document_grant": "bedrock-agentcore:* on arn:aws:bedrock-agentcore:*:*:* (version v21, read from iam GetPolicyVersion 2026-11-02)",
-  "by_policy": {
-    "service-role/AWSLambdaBasicExecutionRole": {
-      "configurations": 31,
-      "runtimes": 33
-    },
-    "BedrockAgentCoreFullAccess": {
-      "configurations": 23,
-      "runtimes": 30
-    },
-    "AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy": {
-      "configurations": 11,
-      "runtimes": 13
-    },
-    "ReadOnlyAccess": {
-      "configurations": 6,
-      "runtimes": 8
-    },
-    "service-role/AmazonAPIGatewayPushToCloudWatchLogs": {
-      "configurations": 5,
-      "runtimes": 6
-    },
-    "AWSXRayDaemonWriteAccess": {
-      "configurations": 5,
-      "runtimes": 5
-    },
-    "service-role/AmazonECSTaskExecutionRolePolicy": {
-      "configurations": 3,
-      "runtimes": 3
-    },
-    "service-role/AWSLambdaVPCAccessExecutionRole": {
-      "configurations": 3,
-      "runtimes": 4
-    },
-    "AmazonSSMManagedInstanceCore": {
-      "configurations": 3,
-      "runtimes": 4
-    },
-    "AmazonS3ReadOnlyAccess": {
-      "configurations": 2,
-      "runtimes": 2
-    },
-    "PowerUserAccess": {
-      "configurations": 2,
-      "runtimes": 4
-    },
-    "AmazonEC2ContainerRegistryReadOnly": {
-      "configurations": 2,
-      "runtimes": 2
-    },
-    "CloudWatchLogsFullAccess": {
-      "configurations": 2,
-      "runtimes": 2
-    },
-    "AdministratorAccess": {
-      "configurations": 2,
-      "runtimes": 2
-    },
-    "AWSBillingReadOnlyAccess": {
-      "configurations": 1,
-      "runtimes": 1
-    },
-    "service-role/AmazonGrafanaCloudWatchAccess": {
-      "configurations": 1,
-      "runtimes": 1
-    },
-    "AmazonEC2ReadOnlyAccess": {
-      "configurations": 1,
-      "runtimes": 1
-    },
-    "AWSLambdaBasicExecutionRole": {
-      "configurations": 1,
-      "runtimes": 1
-    },
-    "service-role/AmazonDMSVPCManagementRole": {
-      "configurations": 1,
-      "runtimes": 1
-    },
-    "AWSLambda_FullAccess": {
-      "configurations": 1,
-      "runtimes": 1
-    },
-    "AmazonBedrockFullAccess": {
-      "configurations": 1,
-      "runtimes": 1
-    },
-    "service-role/AWSAppRunnerServicePolicyForECRAccess": {
-      "configurations": 1,
-      "runtimes": 1
-    }
+ "population": "topology_tier2.json, the published 220 configurations, deduplicated by content hash. Every count in this file, by_policy included, is scoped to those configurations and not to the wider collection the corpus directory holds.",
+ "configurations": 220,
+ "runtimes_summed_from_n_agents": 242,
+ "configurations_not_on_disk": 0,
+ "target_policy": "BedrockAgentCoreFullAccess",
+ "configurations_referencing_it": 23,
+ "runtimes_in_them": 30,
+ "role_attachment_confirmed": 23,
+ "runtimes_in_role_confirmed": 30,
+ "role_confirmed_and_multi_agent": 6,
+ "runtimes_in_role_confirmed_multi_agent": 13,
+ "attached_once_per_agent": 2,
+ "by_policy": {
+  "service-role/AWSLambdaBasicExecutionRole": {
+   "configurations": 31,
+   "runtimes": 33
   },
-  "hits": [
-    {
-      "config": "Aadarshg087__agentcore-services-poc/hyperIvory/terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_gateway_role.name"
-      ]
-    },
-    {
-      "config": "Aadarshg087__agentcore-services-poc/terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_gateway_role.name"
-      ]
-    },
-    {
-      "config": "Wvidit__Agentic/terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_gateway_role.name"
-      ]
-    },
-    {
-      "config": "alchemy-1115__agentcore-vpc-terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_execution.name"
-      ]
-    },
-    {
-      "config": "aniljose-ai__Mortgage-Agents-BedrockAgentCore/terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_gateway_role.name"
-      ]
-    },
-    {
-      "config": "avparkhi__agui-agentcore-demo/terraform",
-      "runtimes": 2,
-      "n_agents": 2,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agent_execution.name"
-      ]
-    },
-    {
-      "config": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
-      "runtimes": 2,
-      "n_agents": 2,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agent_execution.name"
-      ]
-    },
-    {
-      "config": "aws-samples__sample-agentic-idp-evaluation-framework/infrastructure",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_execution.name"
-      ]
-    },
-    {
-      "config": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
-      "runtimes": 2,
-      "n_agents": 2,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.runtime_exec.name"
-      ]
-    },
-    {
-      "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/basic-runtime",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agent_execution.name"
-      ]
-    },
-    {
-      "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/end-to-end-weather-agent",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agent_execution.name"
-      ]
-    },
-    {
-      "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/mcp-server-agentcore-runtime",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agent_execution.name"
-      ]
-    },
-    {
-      "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
-      "runtimes": 2,
-      "n_agents": 2,
-      "attachment_blocks_naming_it": 2,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.orchestrator_execution.name",
-        "aws_iam_role.specialist_execution.name"
-      ]
-    },
-    {
-      "config": "bcfmtolgahan__eks-sre-agent/terraform",
-      "runtimes": 2,
-      "n_agents": 2,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_gateway_role.name"
-      ]
-    },
-    {
-      "config": "prajwal2431__first-commit/RCAagent/specializedAgents/ContextualScout/terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_gateway_role.name"
-      ]
-    },
-    {
-      "config": "prajwal2431__first-commit/RCAagent/specializedAgents/DiagnosticAnalyst/terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_gateway_role.name"
-      ]
-    },
-    {
-      "config": "prajwal2431__first-commit/RCAagent/specializedAgents/RemediationStrategist/terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_gateway_role.name"
-      ]
-    },
-    {
-      "config": "prajwal2431__first-commit/RCAagent/terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_gateway_role.name"
-      ]
-    },
-    {
-      "config": "schematical__aws-agentcore-demo/_archive/1-agent-runtime/terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agent_execution.name"
-      ]
-    },
-    {
-      "config": "seongpil0948__sandbox-agentcore/terraform",
-      "runtimes": 3,
-      "n_agents": 3,
-      "attachment_blocks_naming_it": 3,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agentcore_runtime.name",
-        "aws_iam_role.supervisor_runtime.name",
-        "aws_iam_role.orchestrator_runtime.name"
-      ]
-    },
-    {
-      "config": "zzenonn__ai-course-lecture-notes/09-techdebt-remediation/techdebt-terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agent_execution.name"
-      ]
-    },
-    {
-      "config": "zzenonn__ai-course-lecture-notes/10-techdebt-memory/techdebt-terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agent_execution.name"
-      ]
-    },
-    {
-      "config": "zzenonn__ai-course-lecture-notes/11-bedrock-guardrails/guardrails-terraform",
-      "runtimes": 1,
-      "n_agents": 1,
-      "attachment_blocks_naming_it": 1,
-      "roles_it_is_attached_to": [
-        "aws_iam_role.agent_execution.name"
-      ]
-    }
-  ],
-  "limit": "an arn appearing in a configuration tree is not proof it is attached to the agent execution role, which is why role confirmed is reported separately. The predicate does not expand managed policies, so these grants are absent from both auth and eff in every figure published so far."
+  "BedrockAgentCoreFullAccess": {
+   "configurations": 23,
+   "runtimes": 30
+  },
+  "AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy": {
+   "configurations": 11,
+   "runtimes": 13
+  },
+  "AWSXRayDaemonWriteAccess": {
+   "configurations": 6,
+   "runtimes": 6
+  },
+  "ReadOnlyAccess": {
+   "configurations": 5,
+   "runtimes": 7
+  },
+  "service-role/AmazonAPIGatewayPushToCloudWatchLogs": {
+   "configurations": 5,
+   "runtimes": 6
+  },
+  "AmazonSSMManagedInstanceCore": {
+   "configurations": 3,
+   "runtimes": 4
+  },
+  "service-role/AWSLambdaVPCAccessExecutionRole": {
+   "configurations": 3,
+   "runtimes": 4
+  },
+  "service-role/AmazonECSTaskExecutionRolePolicy": {
+   "configurations": 2,
+   "runtimes": 2
+  },
+  "AWSBillingReadOnlyAccess": {
+   "configurations": 1,
+   "runtimes": 1
+  },
+  "AdministratorAccess": {
+   "configurations": 1,
+   "runtimes": 1
+  },
+  "AmazonBedrockFullAccess": {
+   "configurations": 1,
+   "runtimes": 1
+  },
+  "AmazonEC2ContainerRegistryReadOnly": {
+   "configurations": 1,
+   "runtimes": 1
+  },
+  "CloudWatchLogsFullAccess": {
+   "configurations": 1,
+   "runtimes": 1
+  },
+  "PowerUserAccess": {
+   "configurations": 1,
+   "runtimes": 3
+  },
+  "service-role/AWSAppRunnerServicePolicyForECRAccess": {
+   "configurations": 1,
+   "runtimes": 1
+  },
+  "service-role/AmazonGrafanaCloudWatchAccess": {
+   "configurations": 1,
+   "runtimes": 1
+  }
+ },
+ "hits": [
+  {
+   "config": "Aadarshg087__agentcore-services-poc/hyperIvory/terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_gateway_role.name"
+   ]
+  },
+  {
+   "config": "Aadarshg087__agentcore-services-poc/terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_gateway_role.name"
+   ]
+  },
+  {
+   "config": "Wvidit__Agentic/terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_gateway_role.name"
+   ]
+  },
+  {
+   "config": "alchemy-1115__agentcore-vpc-terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_execution.name"
+   ]
+  },
+  {
+   "config": "aniljose-ai__Mortgage-Agents-BedrockAgentCore/terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_gateway_role.name"
+   ]
+  },
+  {
+   "config": "avparkhi__agui-agentcore-demo/terraform",
+   "runtimes": 2,
+   "n_agents": 2,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agent_execution.name"
+   ]
+  },
+  {
+   "config": "aws-samples__sample-agentic-genai-agentcore/aws-genai-evaluations-supply-chain/terraform",
+   "runtimes": 2,
+   "n_agents": 2,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agent_execution.name"
+   ]
+  },
+  {
+   "config": "aws-samples__sample-agentic-idp-evaluation-framework/infrastructure",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_execution.name"
+   ]
+  },
+  {
+   "config": "aws-samples__sample-governed-agentic-companion/agentcore/terraform",
+   "runtimes": 2,
+   "n_agents": 2,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.runtime_exec.name"
+   ]
+  },
+  {
+   "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/basic-runtime",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agent_execution.name"
+   ]
+  },
+  {
+   "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/end-to-end-weather-agent",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agent_execution.name"
+   ]
+  },
+  {
+   "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/mcp-server-agentcore-runtime",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agent_execution.name"
+   ]
+  },
+  {
+   "config": "awslabs__agentcore-samples/04-infrastructure-as-code/terraform/multi-agent-runtime",
+   "runtimes": 2,
+   "n_agents": 2,
+   "attachment_blocks_naming_it": 2,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.orchestrator_execution.name",
+    "aws_iam_role.specialist_execution.name"
+   ]
+  },
+  {
+   "config": "bcfmtolgahan__eks-sre-agent/terraform",
+   "runtimes": 2,
+   "n_agents": 2,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_gateway_role.name"
+   ]
+  },
+  {
+   "config": "prajwal2431__first-commit/RCAagent/specializedAgents/ContextualScout/terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_gateway_role.name"
+   ]
+  },
+  {
+   "config": "prajwal2431__first-commit/RCAagent/specializedAgents/DiagnosticAnalyst/terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_gateway_role.name"
+   ]
+  },
+  {
+   "config": "prajwal2431__first-commit/RCAagent/specializedAgents/RemediationStrategist/terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_gateway_role.name"
+   ]
+  },
+  {
+   "config": "prajwal2431__first-commit/RCAagent/terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_gateway_role.name"
+   ]
+  },
+  {
+   "config": "schematical__aws-agentcore-demo/_archive/1-agent-runtime/terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agent_execution.name"
+   ]
+  },
+  {
+   "config": "seongpil0948__sandbox-agentcore/terraform",
+   "runtimes": 3,
+   "n_agents": 3,
+   "attachment_blocks_naming_it": 3,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agentcore_runtime.name",
+    "aws_iam_role.orchestrator_runtime.name",
+    "aws_iam_role.supervisor_runtime.name"
+   ]
+  },
+  {
+   "config": "zzenonn__ai-course-lecture-notes/09-techdebt-remediation/techdebt-terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agent_execution.name"
+   ]
+  },
+  {
+   "config": "zzenonn__ai-course-lecture-notes/10-techdebt-memory/techdebt-terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agent_execution.name"
+   ]
+  },
+  {
+   "config": "zzenonn__ai-course-lecture-notes/11-bedrock-guardrails/guardrails-terraform",
+   "runtimes": 1,
+   "n_agents": 1,
+   "attachment_blocks_naming_it": 1,
+   "roles_it_is_attached_to": [
+    "aws_iam_role.agent_execution.name"
+   ]
+  }
+ ]
 }

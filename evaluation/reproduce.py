@@ -190,6 +190,78 @@ def fast(tmp):
     elif os.path.exists(sc) or os.path.exists(fo):
         check("both fan-out artifacts present", False, True)
 
+    print("\n=== who attaches the managed policy the live experiment uses ===")
+    # Same shape as the block above: the fresh run reads one committed
+    # artifact (the topology) plus the corpus, and is compared against a
+    # different committed artifact, so neither can drift from the other
+    # without turning red here.
+    mpc_art = os.path.join(BENCH, "managed_policy_census.json")
+    if os.path.exists(topo) and os.path.exists(mpc_art) and os.path.isdir(CORPUS):
+        with open(mpc_art) as fh:
+            want = json.load(fh)
+        fresh_mpc = os.path.join(tmp, "managed_policy_census.json")
+        r = run([sys.executable, os.path.join(BENCH, "managed_policy_census.py"),
+                 "--topology", topo, "--corpus", CORPUS, "--json", fresh_mpc])
+        if not os.path.exists(fresh_mpc):
+            check("managed policy census ran", False, True)
+            print(f"       {r.stderr[-300:]}")
+        else:
+            with open(fresh_mpc) as fh:
+                got = json.load(fh)
+            for k in ("configurations", "runtimes_summed_from_n_agents",
+                      "configurations_not_on_disk", "configurations_referencing_it",
+                      "runtimes_in_them", "role_attachment_confirmed",
+                      "runtimes_in_role_confirmed", "role_confirmed_and_multi_agent",
+                      "runtimes_in_role_confirmed_multi_agent",
+                      "attached_once_per_agent"):
+                check(f"census {k}", got.get(k), want.get(k))
+            # every count in the file is scoped to the published configurations,
+            # so a by_policy computed over the wider corpus is the defect this
+            # catches rather than a difference of opinion
+            def _configs(v):
+                return v["configurations"] if isinstance(v, dict) else v
+            check("census by_policy stays inside the population",
+                  all(_configs(v) <= got["configurations"]
+                      for v in (got.get("by_policy") or {}).values()), True)
+    elif os.path.exists(topo):
+        check("managed policy census artifact present", os.path.exists(mpc_art), True)
+
+    print("\n=== does the first defence refuse the cell that succeeded ===")
+    # This one asks AWS, because the statement it repairs is AWS's and the
+    # decision it checks is the authorisation engine's. Without credentials or
+    # a network there is nothing to re-derive, so it is skipped rather than
+    # failed. What it must not do is pass quietly while the published policy
+    # version has moved on, which is why the version is checked too.
+    rep_art = os.path.join(BENCH, "arn_condition_repair.json")
+    if os.path.exists(rep_art):
+        with open(rep_art) as fh:
+            want = json.load(fh)
+        fresh_rep = os.path.join(tmp, "arn_condition_repair.json")
+        r = run([sys.executable, os.path.join(BENCH, "arn_condition_repair.py"),
+                 "--json", fresh_rep])
+        offline = any(s in (r.stderr or "") for s in
+                      ("NoCredentialsError", "Unable to locate credentials",
+                       "EndpointConnectionError", "AccessDenied",
+                       "ExpiredToken", "InvalidClientTokenId"))
+        if offline or not os.path.exists(fresh_rep):
+            if offline:
+                print("       no AWS credentials or no network; skipped")
+            else:
+                check("arn condition repair ran", False, True)
+                print(f"       {r.stderr[-300:]}")
+        else:
+            with open(fresh_rep) as fh:
+                got = json.load(fh)
+            # a new policy version is not a failed reproduction, it is a paper
+            # that now names the wrong version
+            check("managed policy still at the version the paper names",
+                  got.get("policy_version"), want.get("policy_version"))
+            for k in ("shipped_allows_sibling", "pinned_allows_sibling",
+                      "pinned_allows_own_role", "repair_holds"):
+                check(f"repair {k}", got["summary"].get(k), want["summary"].get(k))
+    else:
+        check("arn condition repair artifact present", False, True)
+
     print("\n=== Foundry connection auth census ===")
     # The authType breakdown was computed and then dropped, so until
     # 2026-11-07 the published Foundry numbers rested on a note rather than on

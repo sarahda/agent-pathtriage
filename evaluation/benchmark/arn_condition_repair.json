@@ -1,0 +1,68 @@
+{
+  "policy_arn": "arn:aws:iam::aws:policy/BedrockAgentCoreFullAccess",
+  "policy_version": "v21",
+  "passed_to_service": "bedrock-agentcore.amazonaws.com",
+  "shipped_statement": [
+    {
+      "Sid": "BedrockAgentCorePassRoleAccess",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::*:role/*BedrockAgentCore*",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "bedrock-agentcore.amazonaws.com"
+        }
+      }
+    }
+  ],
+  "rows": [
+    {
+      "policy": "shipped_v21",
+      "target": "the_agents_own_role",
+      "target_role_name": "BedrockAgentCore-apt-ownAgent",
+      "decision": "allowed",
+      "matched_statements": 1
+    },
+    {
+      "policy": "shipped_v21",
+      "target": "sibling_named_by_the_console",
+      "target_role_name": "BedrockAgentCore-apt-victimC",
+      "decision": "allowed",
+      "matched_statements": 1
+    },
+    {
+      "policy": "shipped_v21",
+      "target": "sibling_named_anything_else",
+      "target_role_name": "apt-execB",
+      "decision": "implicitDeny",
+      "matched_statements": 0
+    },
+    {
+      "policy": "arn_pinned",
+      "target": "the_agents_own_role",
+      "target_role_name": "BedrockAgentCore-apt-ownAgent",
+      "decision": "allowed",
+      "matched_statements": 1
+    },
+    {
+      "policy": "arn_pinned",
+      "target": "sibling_named_by_the_console",
+      "target_role_name": "BedrockAgentCore-apt-victimC",
+      "decision": "implicitDeny",
+      "matched_statements": 0
+    },
+    {
+      "policy": "arn_pinned",
+      "target": "sibling_named_anything_else",
+      "target_role_name": "apt-execB",
+      "decision": "implicitDeny",
+      "matched_statements": 0
+    }
+  ],
+  "summary": {
+    "shipped_allows_sibling": "allowed",
+    "pinned_allows_sibling": "implicitDeny",
+    "pinned_allows_own_role": "allowed",
+    "repair_holds": true
+  }
+}
