@@ -38,3 +38,27 @@ assume is already present in deployments people publish.
 The defence follows from that: give each agent its own execution role, and
 treat \iam{iam:PassRole} over an agent's execution role as a grant of that
 agent's permissions to whoever holds it.
+
+
+\subsection{How far each question is settled}
+
+\textbf{RQ1} is settled. The predicate in Equation~\ref{eq:esc} and the
+delegation rules in Section~\ref{sec:approach} decide cross-agent escalation
+from template source alone, with no running account. On IAM-Vulnerable they
+recover all \nIVPaths of the planted delegation paths, where a check that
+reads one identity at a time recovers none of them.
+
+\textbf{RQ2} is answered as a bound, not as a rate. No complete path appears
+in the \nChainDenominator units the chain analysis covered, which supports
+\chainBound and nothing stronger. The preconditions are a separate finding
+and a firmer one: \nSharedRoleRuntimes of \nMultiAgentRuntimes multi-agent
+deployments run every agent under one role, and \nBlocked takeover candidates
+across \nBlockedConfigs projects are held back by the same single permission.
+The corpus is public infrastructure as code and private deployments may differ,
+which Section~\ref{sec:limitations} sets out.
+
+\textbf{RQ3} is settled for the account tested, and only for it. Two victim
+roles built identically and differing only in name gave opposite outcomes, so
+the gate is a match on the role's name rather than any statement about whose
+role it is. One account is one configuration, and Section~\ref{sec:limitations}
+says what a single trial does not establish.
