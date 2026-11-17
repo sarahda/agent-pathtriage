@@ -9,7 +9,7 @@ resource. Agents there are created at run time through the service's own APIs,
 so the deployment-time artifact the AWS analysis reads does not exist.
 
 No rate comparable to the AWS one can be computed from these templates, and
-that is a result about the platform rather than a shortfall of the corpus. The
+that is a result about the platform, not a shortfall of the corpus. The
 precondition question is a question about what a deployment declares.
 \foundry separates the control plane, which creates agents, from the data
 plane, which runs them, so a template can describe a project, its connections
@@ -19,7 +19,7 @@ appear, and collecting more repositories would not produce one. Any method
 that reads infrastructure as code is bounded by that separation rather than by
 its own coverage, and on a platform built this way the question has to be put
 to a running account instead. The finding generalises as a condition on
-platforms rather than as a number: cross-agent preconditions are measurable
+platforms and not as a number: cross-agent preconditions are measurable
 from source only where agents are deployment-time resources.
 
 What \foundry templates do carry is \emph{connections}, and a connection's

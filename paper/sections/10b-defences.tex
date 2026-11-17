@@ -16,7 +16,7 @@ The gate in the vendor's managed policy is a resource pattern over the role
 name, so two agents whose roles both match \iam{*BedrockAgentCore*} are not
 separated by it at all. A per agent policy granting \iam{iam:PassRole} on the
 exact role ARN the agent needs, in place of
-\iam{BedrockAgentCoreFullAccess}, names the role rather than matching a
+\iam{BedrockAgentCoreFullAccess}, names the role instead of matching a
 pattern.
 
 This is worth stating as a defence because the vendor's own policy checker
@@ -68,7 +68,7 @@ Table~\ref{tab:repair} gives the \nRepairDecisions decisions. The row that
 matters is the second: the shipped statement is \repairShippedSibling{} to
 pass a sibling agent's role, because the console named that role inside the
 pattern, and the same statement pinned to an ARN is \repairPinnedSibling. The
-last row is the one that makes it a repair rather than a removal, since the
+last row is the one that makes it a repair and not a removal, since the
 pinned statement still allows the agent to pass its own role, which is what
 the permission is for.
 
@@ -127,7 +127,7 @@ Algorithm~\ref{alg:reach} carries the witness, so each one names the file and
 the principal a reader can open.
 
 Three things follow for an operator, and they are properties of the output
-format rather than new measurements. A blocked candidate is a ranking, because
+format, not new measurements. A blocked candidate is a ranking, because
 a deployment one permission from a takeover is a different risk from one that
 is several. It is also a specific instruction, since the permission not to
 grant is named rather than inferred. And it is a regression test: the
@@ -153,7 +153,7 @@ signal is specific to an attack; both are specific enough to review.
 
 Both miss the name condition cell of Section~\ref{sec:case-study}, where the
 role does not change and the attacker is an ordinary principal. The third
-signal is a comparison rather than an event: reading each runtime's artifact
+signal is a comparison, not an event: reading each runtime's artifact
 back and checking it against the object the pipeline published names the
 runtimes whose code is no longer what was deployed. It is the only one of the
 three that still fires once the attacker is gone.
@@ -164,5 +164,5 @@ If replacing an artifact and changing an execution role were separate
 operations with separate permissions, the takeover path would need two grants
 instead of one, and the common case of updating an agent that keeps its
 identity would stop requiring \iam{iam:PassRole} at all. Short of that, a
-condition key expressing ownership rather than a name pattern would let the
+condition key expressing ownership instead of a name pattern would let the
 managed policy say what it appears to say.

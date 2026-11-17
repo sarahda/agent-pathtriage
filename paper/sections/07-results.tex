@@ -65,7 +65,7 @@ deployments, so it is measured on the same corpus.
 a role, covering \nManagedPolicyRuntimes agent runtimes.
 \nManagedPolicyMultiAgent of them are multi-agent deployments, covering
 \nManagedPolicyMultiRuntimes runtimes, and in \nManagedPolicyPerAgent of those
-\nManagedPolicyMultiAgent the policy is attached once per agent rather than
+\nManagedPolicyMultiAgent the policy is attached once per agent instead of
 once for the deployment, so each agent's own execution role carries it. One of
 those two is an AWS maintained samples repository, published as a multi-agent
 reference deployment. The artifact names all \nManagedPolicyConfigs.
@@ -104,7 +104,7 @@ identity scoring is exact on \mutExactSingle of \nMutants, with recall
 \mutExactMulti, with recall \mutRecallMulti and precision \mutPrecMulti. The
 one mutant the edges recover is the two hop \iam{iam:PassRole} case, which is
 the class the rule was written for. Recovering that one and no others is the
-result, rather than a disappointment. The three that stay
+result, not a disappointment. The three that stay
 wrong are each named in the artifact: conditions treated as absent, explicit
 \iam{Deny} not evaluated, and a specific ARN pointing at another agent's
 resource. Section~\ref{sec:limitations} carries all three.
@@ -114,7 +114,7 @@ has a known direction. The analysis over-reports where a statement is narrowed
 by something it does not model, which covers the explicit \iam{Deny} and the
 condition treated as absent, and which is also what produced the
 \nIVFlaggedSafe false positives on the benchmark. It under-reports where reach
-is written as a specific ARN rather than as a wildcard, because the
+is written as a specific ARN instead of a wildcard, because the
 resource-scope heuristic looks for the wildcard. Nothing in either residual
 set falls outside those two classes. That is the most \nMutants mutants and
 \nIVPaths benchmark paths can establish, and it is why the limitations name

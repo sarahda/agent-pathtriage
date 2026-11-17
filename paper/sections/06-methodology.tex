@@ -1,6 +1,28 @@
 \section{Corpus and Method}
 \label{sec:methodology}
 
+\subsection{The initial plan, and what changed}
+
+The plan at the start was to look for complete cross-agent escalation chains
+in public infrastructure as code on two platforms, \agentcore and \foundry.
+Google Cloud was left out from the beginning. Two parts of that plan turned
+out differently.
+
+The first was the expectation that complete chains would be there to count.
+None were. The question became how far the incomplete paths fall short, and
+which single permission holds them back.
+
+The second was the expectation that \foundry agents would be written into
+templates the way other Azure resources are. They are not. Creating an agent
+is a data plane call, and the identity that runs a template does not hold it.
+The \foundry part became a measurement of how connections are set to
+authenticate, together with a live lab, rather than a count of declared
+agents.
+
+The collection script for the \foundry corpus fetched Terraform files but not
+Bicep files, and most \foundry material is written in Bicep. The corpus was
+collected again with the file pattern widened.
+
 \subsection{What we collected}
 
 We collect public repositories that deploy the platforms in question, in three

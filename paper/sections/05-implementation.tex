@@ -31,7 +31,7 @@ integration role grants \iam{iam:PassRole} with \texttt{Resource = "*"}.
 Panel 2 is the state. Three things in it decide the result. The runtime's
 \texttt{role\_arn} is resolved through the reference to the role resource, so
 $\rho(\mathit{agent})$ is known. The wildcard in the grant is carried as a
-wildcard rather than expanded, so the match happens when the edge rule is
+wildcard and not expanded, so the match happens when the edge rule is
 evaluated. The trust statement is recorded with the fact that it has no
 condition, which is stronger than the vendor template of
 Section~\ref{sec:background} and is what makes the trust side of the edge
@@ -67,7 +67,7 @@ deployments rather than in the analysis.
 
 \texttt{cfn\_to\_state} resolves the intrinsic functions that appear in role
 and runtime arguments. An intrinsic it cannot resolve is recorded, and the
-template is reported as undecidable rather than analysed. The function that
+template is reported as undecidable instead of analysed. The function that
 mattered most in practice was \api{Fn::Join}, because CDK writes nearly every
 ARN as a join over a partition reference, and without it the CDK corpus could
 not be analysed at all.
